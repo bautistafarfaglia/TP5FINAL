@@ -10,7 +10,7 @@ class cColectivero : public cPersona {
 public:
 
     cColectivero();
-    cColectivero(string nombre, string DNI);
+    cColectivero(string nombre, string DNI, const string legajo);
 
     string get_legajo();
     string cargar_destino_pasajero(string destino_pasajero);
@@ -18,6 +18,7 @@ public:
     string to_string_colectivero();
 
 private:
+
     string const legajo;
     static unsigned int cantidad_de_colectiveros;
 };

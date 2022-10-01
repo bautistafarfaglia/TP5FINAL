@@ -4,8 +4,9 @@ cColectivero::cColectivero() {
 
 }
 
-cColectivero::cColectivero(string nombre,  string DNI) {
-
+cColectivero::cColectivero(string nombre, string DNI, const string legajo) : legajo(legajo) {
+    this->nombre = nombre;
+    this->DNI = DNI;
 }
 
 
