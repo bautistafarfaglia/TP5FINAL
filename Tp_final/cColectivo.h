@@ -13,7 +13,7 @@ public:
     unsigned short int cantidad_actual_pasajeros;
 
     cColectivo();
-    cColectivo(string id_colectivo);
+    cColectivo(string id_colectivo, bool estado_operativo, cFecha fecha_ultimo_mantenimiento, cColectivero colectivero, cSistemaDePagos sistema_de_pagos, cRecorrido recorrido, unsigned int pos_del_recorrido, string GPS, eSentidoRecorrido sentido, const short int cantidad_max_pasajeros);
 
     string get_id_colectivo();
 
@@ -70,6 +70,7 @@ public:
     virtual string to_string_colectivo();
 
     virtual void imprimir();
+
 protected:
     string const id_colectivo;
     static unsigned long int cantidad_de_colectivos;
