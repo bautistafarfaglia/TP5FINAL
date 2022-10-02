@@ -26,10 +26,12 @@ public:
     string to_string_pasajero();
 
     void imprimir();
+
 protected:
     string destino;
     cTarjeta tarjeta_pasajero;
     bool tiene_una_discapacidad;
+    float saldo;
 };
 
 #endif //_CPASAJEROS_H

@@ -4,7 +4,11 @@
 
 }
 cPasajeros::cPasajeros(string nombre, unsigned int long DNI, string destino, bool tiene_una_discapacidad, float saldo) {
-
+    this->nombre = nombre;
+    this->DNI = DNI;
+    this->destino = destino;
+    this->tiene_una_discapacidad = tiene_una_discapacidad;
+    this->saldo = saldo;
 }
 bool cPasajeros::get_hay_una_discapacidad() {
     return false;
