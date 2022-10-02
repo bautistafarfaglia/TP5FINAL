@@ -1,7 +1,11 @@
 #include "cSistemaDePagos.h"
 
 cSistemaDePagos::cSistemaDePagos() {
+}
 
+cSistemaDePagos::cSistemaDePagos(float colecta_del_dia, unsigned int cantidad_pasajeros) {
+    this->colecto_del_dia = colecta_del_dia;
+    this->cantidad_pasajeros = cantidad_pasajeros;
 }
 
 
