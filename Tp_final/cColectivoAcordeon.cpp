@@ -1,8 +1,5 @@
 #include "cColectivoAcordeon.h"
 
-cColectivoAcordeon::cColectivoAcordeon() {
-
-}
 
 cColectivoAcordeon::cColectivoAcordeon(string id_colectivo) {
 

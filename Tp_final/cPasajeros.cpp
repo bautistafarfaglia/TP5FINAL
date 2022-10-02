@@ -15,7 +15,8 @@ bool cPasajeros::get_hay_una_discapacidad() {
 }
 
 cTarjeta cPasajeros::get_tarjeta_pasajero() {
-    return null;
+    cTarjeta c;
+    return c;
 }
 
 string cPasajeros::get_destino() {

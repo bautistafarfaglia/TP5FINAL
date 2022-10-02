@@ -7,7 +7,6 @@ cRecorrido::cRecorrido() {
 cRecorrido::cRecorrido(string id_recorrido) : codigo_recorrido(codigo_recorrido) {
 }
 
-
 string cRecorrido::get_codigo_recorrido() {
     return "";
 }
@@ -17,7 +16,7 @@ string cRecorrido::get_codigo_recorrido() {
 //}
 
 unsigned int cRecorrido::get_cantidad_paradas() {
-    return null;
+    return 0;
 }
 
 

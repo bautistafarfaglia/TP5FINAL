@@ -4,13 +4,12 @@ unsigned long cColectivo::cantidad_de_colectivos = 0;
 
     
   
-
-    cColectivo::cColectivo(string id_colectivo, bool estado_operativo, cFecha fecha_ultimo_mantenimiento, cColectivero colectivero, cSistemaDePagos sistema_de_pagos, cRecorrido recorrido, unsigned int pos_del_recorrido, string GPS, eSentidoRecorrido sentido, const short int cantidad_max_pasajeros) : id_colectivo(id_colectivo), cantidad_max_pasajeros(cantidad_max_pasajeros) {
+    cColectivo::cColectivo(string id_colectivo, bool estado_operativo, cFecha fecha_ultimo_mantenimiento, cColectivero colectivero, cSistemaDePagos sistema_de_pagos, cRecorrido _recorrido, unsigned int pos_del_recorrido, string GPS, eSentidoRecorrido sentido, const short int cantidad_max_pasajeros) : id_colectivo(id_colectivo), cantidad_max_pasajeros(cantidad_max_pasajeros) {
         this->estado_operativo = estado_operativo;
         this->fecha_ultimo_mantenimiento = fecha_ultimo_mantenimiento;
         //this->colectivero = colectivero;
         this->sistema_de_pagos = sistema_de_pagos;
-        this->recorrido = recorrido;
+        this->recorrido = _recorrido;
         this->pos_del_recorrido = pos_del_recorrido;
         this->GPS = GPS;
         this->sentido = sentido;
@@ -25,11 +24,12 @@ unsigned long cColectivo::cantidad_de_colectivos = 0;
     }
 
     cRecorrido cColectivo::get_recorrido() {
-        return NULL;
+        cRecorrido c;
+        return c;
     }
 
     cSistemaDePagos cColectivo::get_sistema_de_pagos() {
-        return NULL;
+        return this->sistema_de_pagos;
     }
 
 
@@ -38,7 +38,7 @@ unsigned long cColectivo::cantidad_de_colectivos = 0;
     }
 
     unsigned int cColectivo::get_posicion_recorrido() {
-        return null;
+        return 0;
     }
 
     void cColectivo::set_nuevo_recorrido(cRecorrido * nuevo_recorrido) {
@@ -82,4 +82,4 @@ unsigned long cColectivo::cantidad_de_colectivos = 0;
     void cColectivo::actualizar_GPS() {
         return;
     }
-}
+

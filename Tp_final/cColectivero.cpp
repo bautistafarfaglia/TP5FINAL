@@ -1,7 +1,9 @@
 #include "cColectivero.h"
 
-cColectivero::cColectivero() {
-
+cColectivero::cColectivero():legajo(nullptr) {
+    this->nombre = nullptr;
+    this->DNI = nullptr; 
+    
 }
 
 cColectivero::cColectivero(string nombre, string DNI, const string legajo) : legajo(legajo) {

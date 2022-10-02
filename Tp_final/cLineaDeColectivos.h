@@ -4,7 +4,7 @@ class cLineaDeColectivos {
 public:
 
     cLineaDeColectivos();
-    cLineaDeColectivos(string IDColectivo);
+    cLineaDeColectivos(string IDColectivo, string NombreLinea);
 
     void TICK();
 

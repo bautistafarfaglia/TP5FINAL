@@ -7,7 +7,6 @@
 class cSistemaDePagos {
 public:
 
-    cSistemaDePagos();
     cSistemaDePagos(float colecta_del_dia, unsigned int cantidad_pasajeros);
 
     unsigned int get_cantidad_de_pasajeros();

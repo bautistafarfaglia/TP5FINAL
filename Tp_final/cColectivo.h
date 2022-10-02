@@ -12,7 +12,6 @@ class cColectivo {
 public:
     unsigned short int cantidad_actual_pasajeros;
 
-    cColectivo();
     cColectivo(string id_colectivo, bool estado_operativo, cFecha fecha_ultimo_mantenimiento, cColectivero colectivero, cSistemaDePagos sistema_de_pagos, cRecorrido recorrido, unsigned int pos_del_recorrido, string GPS, eSentidoRecorrido sentido, const short int cantidad_max_pasajeros);
 
     string get_id_colectivo();
@@ -65,11 +64,11 @@ public:
 
     void actualizar_GPS();
 
-    virtual void averia();
+    virtual void averia() =0;
 
-    virtual string to_string_colectivo();
+    virtual string to_string_colectivo() =0;
 
-    virtual void imprimir();
+    virtual void imprimir()=0;
 
 protected:
     string const id_colectivo;

@@ -1,8 +1,5 @@
 #include "cColectivoDireccionHidraulica.h"
 
- cColectivoDireccionHidraulica::cColectivoDireccionHidraulica() {
-
-}
  cColectivoDireccionHidraulica::cColectivoDireccionHidraulica(string id_colectivo) {
 
 }
