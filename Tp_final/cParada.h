@@ -9,7 +9,7 @@ public:
 
     cParada();
 
-    cParada(string id_parada,string nombre_parada,string direcion);
+    cParada(string id_parada,string nombre_parada,string direccion);
 
     string get_nombre_parada();
 
