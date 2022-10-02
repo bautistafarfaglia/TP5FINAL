@@ -4,8 +4,7 @@ cRecorrido::cRecorrido() {
 
 }
 
-cRecorrido::cRecorrido(string id_recorrido) {
-
+cRecorrido::cRecorrido(string id_recorrido) : codigo_recorrido(codigo_recorrido) {
 }
 
 

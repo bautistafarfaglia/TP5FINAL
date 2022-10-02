@@ -27,7 +27,7 @@ public:
 
     void imprimir();
 private:
-    string codigo_recorrido;
+    const string codigo_recorrido;
     //cListaParadas paradas;
 };
 
