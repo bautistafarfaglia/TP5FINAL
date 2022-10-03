@@ -12,7 +12,12 @@ public:
 
     cTarjeta();
     cTarjeta(float saldo);
-    ~cTarjeta() {};
+    ~cTarjeta() {
+        for (int i = 0; i < listaViajesRealizados.size(); i++)
+        {
+            delete& listaViajesRealizados[i];
+        }
+    };
 
     float get_tarjeta();
 
@@ -25,12 +30,12 @@ public:
     string to_string_tarjeta();
 
     void imprimir();
+
 private:
     unsigned int long numero_de_viaje;
     float saldo;
     static unsigned int long cantidad_de_tarjetas_creadas;
     vector<cViaje*> listaViajesRealizados;
-
 };
 
 #endif //_CTARJETA_H
