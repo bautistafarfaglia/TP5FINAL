@@ -1,6 +1,8 @@
 #pragma once
 #include "Gbl.h"
 #include "cPasajeros.h"
+#include "cColectivo.h" 
+
 #ifndef _CPARADA_H
 #define _CPARADA_H
 
@@ -17,7 +19,7 @@ public:
 
     string get_id_parada();
 
-    cPasajeros pasajeros_suben_colectivos();
+    void pasajeros_suben_colectivos();
 
     string to_string_parada();
 
@@ -27,6 +29,7 @@ private:
     string const nombre_parada;
     string const direccion;
     vector<cPasajeros*> listaPasajeros;
+    vector<int> listaNumerosColectivos;
     static unsigned int cant_total_paradas;
 };
 

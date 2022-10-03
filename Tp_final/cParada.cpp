@@ -21,6 +21,11 @@ string cParada::get_id_parada() {
     return "";
 }
 
+void cParada::pasajeros_suben_colectivos()
+{
+
+}
+
 /*
 cPasajero cParada::pasajeros_suben_colectivos() {
     return null;

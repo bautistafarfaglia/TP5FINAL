@@ -104,9 +104,6 @@
     <ClCompile Include="cRecorrido.cpp">
       <Filter>Archivos de origen</Filter>
     </ClCompile>
-    <ClCompile Include="cSimulador.cpp">
-      <Filter>Archivos de origen</Filter>
-    </ClCompile>
     <ClCompile Include="cSistemaDePagos.cpp">
       <Filter>Archivos de origen</Filter>
     </ClCompile>

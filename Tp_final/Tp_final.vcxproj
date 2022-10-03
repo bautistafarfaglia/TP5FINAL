@@ -159,7 +159,6 @@
     <ClCompile Include="cPasajeros.cpp" />
     <ClCompile Include="cPersona.cpp" />
     <ClCompile Include="cRecorrido.cpp" />
-    <ClCompile Include="cSimulador.cpp" />
     <ClCompile Include="cSistemaDePagos.cpp" />
     <ClCompile Include="cTarjeta.cpp" />
     <ClCompile Include="cViaje.cpp" />
