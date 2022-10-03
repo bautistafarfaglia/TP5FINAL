@@ -132,7 +132,6 @@
     <ClInclude Include="cColectivoAcordeon.h" />
     <ClInclude Include="cColectivoAutonomo.h" />
     <ClInclude Include="cColectivoConAireYDireccionElectrica.h" />
-    <ClInclude Include="cColectivoDireccionHidraulica.h" />
     <ClInclude Include="cColectivoSinAire.h" />
     <ClInclude Include="cFecha.h" />
     <ClInclude Include="cLineaDeColectivos.h" />
@@ -153,7 +152,6 @@
     <ClCompile Include="cColectivoAcordeon.cpp" />
     <ClCompile Include="cColectivoAutonomo.cpp" />
     <ClCompile Include="cColectivoConAireYDireccionElectrica.cpp" />
-    <ClCompile Include="cColectivoDireccionHidraulica.cpp" />
     <ClCompile Include="cColectivoSinAire.cpp" />
     <ClCompile Include="cFecha.cpp" />
     <ClCompile Include="cLineaDeColectivos.cpp" />

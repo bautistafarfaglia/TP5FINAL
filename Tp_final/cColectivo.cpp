@@ -37,6 +37,11 @@ unsigned long cColectivo::cantidad_de_colectivos = 0;
         return "";
     }
 
+    void cColectivo::llegarParada()
+    {
+        return;
+    }
+
     unsigned int cColectivo::get_posicion_recorrido() {
         return 0;
     }

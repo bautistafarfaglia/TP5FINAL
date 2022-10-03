@@ -30,9 +30,6 @@
     <ClInclude Include="cColectivoConAireYDireccionElectrica.h">
       <Filter>Archivos de encabezado</Filter>
     </ClInclude>
-    <ClInclude Include="cColectivoDireccionHidraulica.h">
-      <Filter>Archivos de encabezado</Filter>
-    </ClInclude>
     <ClInclude Include="cColectivoSinAire.h">
       <Filter>Archivos de encabezado</Filter>
     </ClInclude>
@@ -87,9 +84,6 @@
       <Filter>Archivos de origen</Filter>
     </ClCompile>
     <ClCompile Include="cColectivoConAireYDireccionElectrica.cpp">
-      <Filter>Archivos de origen</Filter>
-    </ClCompile>
-    <ClCompile Include="cColectivoDireccionHidraulica.cpp">
       <Filter>Archivos de origen</Filter>
     </ClCompile>
     <ClCompile Include="cColectivoSinAire.cpp">
