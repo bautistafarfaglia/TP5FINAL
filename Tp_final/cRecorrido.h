@@ -11,7 +11,12 @@ public:
 
     cRecorrido();
     cRecorrido(string id_recorrido);
-    ~cRecorrido() {};
+    ~cRecorrido() {
+        for (int i = 0; i < listaParada.size(); i++)
+        {
+            delete& listaParada[i];
+        }
+    };
 
     string get_codigo_recorrido();
 

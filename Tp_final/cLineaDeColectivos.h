@@ -7,7 +7,16 @@ public:
 
     cLineaDeColectivos();
     cLineaDeColectivos(string IDColectivo, string NombreLinea);
-    ~cLineaDeColectivos() {};
+    ~cLineaDeColectivos() {
+        for (int i = 0; i < listaColectivos.size(); i++)
+        {
+            delete& listaColectivos[i];
+        }
+        for (int i = 0; i < listaRecorrido.size(); i++)
+        {
+            delete& listaRecorrido[i];
+        }
+    };
 
     void TICK();
 

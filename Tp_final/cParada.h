@@ -10,7 +10,12 @@ public:
 
     cParada();
     cParada(string id_parada,string nombre_parada,string direccion);
-    ~cParada() {};
+    ~cParada() {
+        for (int i = 0; i < listaPasajeros.size(); i++)
+        {
+            delete& listaPasajeros[i];
+        }
+    };
 
     string get_nombre_parada();
 
