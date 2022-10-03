@@ -11,8 +11,8 @@ class cTarjeta {
 public:
 
     cTarjeta();
-
     cTarjeta(float saldo);
+    ~cTarjeta() {};
 
     float get_tarjeta();
 

@@ -7,6 +7,7 @@ public:
 
     cLineaDeColectivos();
     cLineaDeColectivos(string IDColectivo, string NombreLinea);
+    ~cLineaDeColectivos() {};
 
     void TICK();
 

@@ -10,6 +10,8 @@ public:
 
     cPersona();
     cPersona(string Nombre,string DNI);
+    ~cPersona() {};
+
 protected:
     string nombre;
     string DNI;

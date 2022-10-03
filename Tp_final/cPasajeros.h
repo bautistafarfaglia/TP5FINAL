@@ -14,6 +14,7 @@ public:
 
     cPasajeros();
     cPasajeros(string nombre,unsigned int long DNI,string destino,bool tiene_una_discapacidad,float saldo);
+    ~cPasajeros() {};
 
     bool get_hay_una_discapacidad();
 

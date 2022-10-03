@@ -16,8 +16,8 @@ class cColectivoAcordeon : public cColectivoConAireYDireccionElectrica {
 public:
 
     cColectivoAcordeon();
-
-   cColectivoAcordeon(string id_colectivo);
+    cColectivoAcordeon(string id_colectivo);
+    ~cColectivoAcordeon() {};
 
     void averia();
 
