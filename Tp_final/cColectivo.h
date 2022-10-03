@@ -24,6 +24,8 @@ public:
 
     string get_GPS();
 
+    void llegarParada();
+
     unsigned int get_posicion_recorrido();
 
     /**
