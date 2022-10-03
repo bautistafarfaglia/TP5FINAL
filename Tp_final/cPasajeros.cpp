@@ -1,9 +1,7 @@
 #include "cPasajeros.h"
 
- cPasajeros::cPasajeros() {
 
-}
-cPasajeros::cPasajeros(string nombre, unsigned int long DNI, string destino, bool tiene_una_discapacidad, float saldo) {
+cPasajeros::cPasajeros(string nombre, string _DNI, string destino, bool tiene_una_discapacidad, float saldo) {
     this->nombre = nombre;
     this->DNI = DNI;
     this->destino = destino;
@@ -11,12 +9,11 @@ cPasajeros::cPasajeros(string nombre, unsigned int long DNI, string destino, boo
     this->saldo = saldo;
 }
 bool cPasajeros::get_hay_una_discapacidad() {
-    return false;
+    return this->tiene_una_discapacidad;
 }
 
 cTarjeta cPasajeros::get_tarjeta_pasajero() {
-    cTarjeta c;
-    return c;
+    return (this->tarjeta_pasajero);
 }
 
 string cPasajeros::get_destino() {

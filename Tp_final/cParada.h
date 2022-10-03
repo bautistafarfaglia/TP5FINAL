@@ -1,7 +1,6 @@
 #pragma once
 #include "Gbl.h"
 #include "cPasajeros.h"
-#include "cColectivo.h" 
 
 #ifndef _CPARADA_H
 #define _CPARADA_H

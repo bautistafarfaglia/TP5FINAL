@@ -130,7 +130,6 @@
     <ClInclude Include="cColectivero.h" />
     <ClInclude Include="cColectivo.h" />
     <ClInclude Include="cColectivoAcordeon.h" />
-    <ClInclude Include="cColectivoAutonomo.h" />
     <ClInclude Include="cColectivoConAireYDireccionElectrica.h" />
     <ClInclude Include="cColectivoSinAire.h" />
     <ClInclude Include="cFecha.h" />
@@ -150,7 +149,6 @@
     <ClCompile Include="cColectivero.cpp" />
     <ClCompile Include="cColectivo.cpp" />
     <ClCompile Include="cColectivoAcordeon.cpp" />
-    <ClCompile Include="cColectivoAutonomo.cpp" />
     <ClCompile Include="cColectivoConAireYDireccionElectrica.cpp" />
     <ClCompile Include="cColectivoSinAire.cpp" />
     <ClCompile Include="cFecha.cpp" />

@@ -24,9 +24,6 @@
     <ClInclude Include="cColectivoAcordeon.h">
       <Filter>Archivos de encabezado</Filter>
     </ClInclude>
-    <ClInclude Include="cColectivoAutonomo.h">
-      <Filter>Archivos de encabezado</Filter>
-    </ClInclude>
     <ClInclude Include="cColectivoConAireYDireccionElectrica.h">
       <Filter>Archivos de encabezado</Filter>
     </ClInclude>
@@ -78,9 +75,6 @@
       <Filter>Archivos de origen</Filter>
     </ClCompile>
     <ClCompile Include="cColectivoAcordeon.cpp">
-      <Filter>Archivos de origen</Filter>
-    </ClCompile>
-    <ClCompile Include="cColectivoAutonomo.cpp">
       <Filter>Archivos de origen</Filter>
     </ClCompile>
     <ClCompile Include="cColectivoConAireYDireccionElectrica.cpp">

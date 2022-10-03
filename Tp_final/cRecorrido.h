@@ -15,8 +15,6 @@ public:
 
     string get_codigo_recorrido();
 
-    //cListaParadas get_lista_paradas();
-
     unsigned int get_cantidad_paradas();
 
     int cantidad_de_paradas_entre_destinos(string parada_destino,string parada_salida);

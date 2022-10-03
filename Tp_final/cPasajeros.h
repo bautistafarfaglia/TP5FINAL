@@ -1,19 +1,17 @@
 #pragma once
 #include "Gbl.h"
 #include "cTarjeta.h"
-
+#include "cPersona.h"
 
 #ifndef _CPASAJEROS_H
 #define _CPASAJEROS_H
 
-#include "cPersona.h"
 
 
 class cPasajeros : public cPersona {
 public:
 
-    cPasajeros();
-    cPasajeros(string nombre,unsigned int long DNI,string destino,bool tiene_una_discapacidad,float saldo);
+    cPasajeros(string nombre,string DNI,string destino,bool tiene_una_discapacidad,float saldo);
     ~cPasajeros() {};
 
     bool get_hay_una_discapacidad();

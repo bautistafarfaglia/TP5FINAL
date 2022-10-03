@@ -3,7 +3,6 @@
 #include "cSistemaDePagos.h"
 #include "cRecorrido.h"
 #include "cColectivero.h"
-#include "cPasajeros.h"
 
 #ifndef _CCOLECTIVO_H
 #define _CCOLECTIVO_H
@@ -11,7 +10,9 @@
 class cColectivo {
 public:
 
-    cColectivo(string id_colectivo, bool estado_operativo, cFecha fecha_ultimo_mantenimiento, cColectivero colectivero, cSistemaDePagos sistema_de_pagos, cRecorrido recorrido, unsigned int pos_del_recorrido, string GPS, eSentidoRecorrido sentido, const short int cantidad_max_pasajeros);
+    cColectivo(string id_colectivo, cColectivero* colectivero,
+        cSistemaDePagos* sistema_de_pagos, cRecorrido* _recorrido, unsigned int pos_del_recorrido, 
+        string GPS, eSentidoRecorrido sentido, const short int cantidad_max_pasajeros); 
     ~cColectivo() {};
 
     string get_id_colectivo();
@@ -58,10 +59,10 @@ protected:
     string const id_colectivo;
     static unsigned long int cantidad_de_colectivos;
     bool estado_operativo;
-    cFecha fecha_ultimo_mantenimiento;
-    cColectivero colectivero;
-    cSistemaDePagos sistema_de_pagos;
-    cRecorrido recorrido;
+    cFecha* fecha_ultimo_mantenimiento;
+    cColectivero* colectivero;
+    cSistemaDePagos* sistema_de_pagos;
+    cRecorrido* recorrido;
     vector<cPasajeros*> listaPasajeros;
     unsigned int pos_del_recorrido;
     string GPS;
