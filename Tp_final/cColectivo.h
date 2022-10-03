@@ -80,7 +80,7 @@ protected:
     cColectivero colectivero;
     cSistemaDePagos sistema_de_pagos;
     cRecorrido recorrido;
-    //cListaPasajeros pasajeros;
+    vector<cPasajeros*> listaPasajeros;
     unsigned int pos_del_recorrido;
     string GPS;
     eSentidoRecorrido sentido;

@@ -10,6 +10,8 @@
 #include <string>
 #include <sstream>
 #include <time.h>
+#include <vector>
+
 
 #include "eSentidoRecorrido.h"
 #include "cFecha.h"

@@ -26,7 +26,7 @@ private:
     string const id_parada;
     string const nombre_parada;
     string const direccion;
-    //cListaPasajeros pasajeros;
+    vector<cPasajeros*> listaPasajeros;
     static unsigned int cant_total_paradas;
 };
 

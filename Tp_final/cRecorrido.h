@@ -28,7 +28,7 @@ public:
     void imprimir();
 private:
     const string codigo_recorrido;
-    //cListaParadas paradas;
+    vector<cParada*> listaParada;
 };
 
 #endif //_CRECORRIDO_H
