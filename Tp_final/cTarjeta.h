@@ -29,7 +29,7 @@ private:
     unsigned int long numero_de_viaje;
     float saldo;
     static unsigned int long cantidad_de_tarjetas_creadas;
-    //cListaViajes lista_de_viajes_realizados;
+    vector<cViaje*> listaViajesRealizados;
 };
 
 #endif //_CTARJETA_H

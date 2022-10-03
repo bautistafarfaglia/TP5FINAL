@@ -1,5 +1,7 @@
 #pragma once
 #include "Gbl.h"
+#include "cColectivo.h"
+#include "cRecorrido.h"
 class cLineaDeColectivos {
 public:
 
@@ -14,8 +16,8 @@ public:
 protected:
     string IDLineaDeColectivos;
     string NombreDeLinea;
-    //cListaColectivos ListaColectivos;
-    //cListaRecorridos ListaRecorridos;
+    vector<cColectivo*> listaColectivos;
+    vector<cRecorrido*> listaRecorrido;
 };
 
-#endif //_CLINEADECOLECTIVOS_H
+//#endif _CLINEADECOLECTIVOS_H
