@@ -10,8 +10,8 @@ class cRecorrido {
 public:
 
     cRecorrido();
-
     cRecorrido(string id_recorrido);
+    ~cRecorrido() {};
 
     string get_codigo_recorrido();
 

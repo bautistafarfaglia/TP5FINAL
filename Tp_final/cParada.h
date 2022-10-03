@@ -8,8 +8,8 @@ class cParada {
 public:
 
     cParada();
-
     cParada(string id_parada,string nombre_parada,string direccion);
+    ~cParada() {};
 
     string get_nombre_parada();
 

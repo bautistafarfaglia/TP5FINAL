@@ -11,6 +11,7 @@ public:
 
     cColectivero();
     cColectivero(string nombre, string DNI, const string legajo);
+    ~cColectivero() {};
 
     string get_legajo();
     string cargar_destino_pasajero(string destino_pasajero);

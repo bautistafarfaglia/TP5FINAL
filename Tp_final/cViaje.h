@@ -10,6 +10,8 @@ public:
 
     cViaje();
     cViaje(string inicio,string destino,float costo_del_viaje);
+    ~cViaje() {};
+
     string to_string_viaje();
     void imprimir();
 private:
