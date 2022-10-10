@@ -15,7 +15,18 @@ void cColectivoAcordeon::averia() {
 
 
 string cColectivoAcordeon::to_string_colectivo() {
-    return "";
+	stringstream ss;
+	ss << "colectivero: " << this->colectivero->to_string_colectivero() << endl
+		<< "Recorrido: " << this->recorrido->to_string_recorrido() << endl
+		<< "Posicion del recorrido: " << this->pos_del_recorrido << endl
+		<< "-----------------------------" << endl
+		<< "ID colectivo [" << this->id_colectivo << "]" << endl
+		<< "Ubicacion: " << this->GPS << endl
+		<< "Estado Operativo: " << this->estado_operativo<< endl
+		<< "Cant actual de pasajeros: " << this->cantidad_actual_pasajeros<< endl
+		<< "Cant Maxima de pasajeros: " << this->cantidad_max_pasajeros << endl
+		<< "Cantidad De colectivos: " << this->cantidad_de_colectivos << endl; 
+		return ss.str();
 }
 
 void cColectivoAcordeon::imprimir() {

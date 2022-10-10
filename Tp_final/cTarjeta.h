@@ -9,8 +9,6 @@
 
 class cTarjeta {
 public:
-
-    cTarjeta();
     cTarjeta(float saldo);
     ~cTarjeta() {
         for (int i = 0; i < listaViajesRealizados.size(); i++)

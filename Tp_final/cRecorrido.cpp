@@ -8,15 +8,15 @@ cRecorrido::cRecorrido(string id_recorrido) : codigo_recorrido(codigo_recorrido)
 }
 
 string cRecorrido::get_codigo_recorrido() {
-    return "";
+    return this->codigo_recorrido;
 }
 
-//cListaParadas cRecorrido::get_lista_paradas() {
-//    return null;
-//}
+vector<cParada*> cRecorrido::get_lista_paradas() {
+    return (this->listaParada);
+}
 
 unsigned int cRecorrido::get_cantidad_paradas() {
-    return 0;
+    return unsigned int(this->listaParada.size());
 }
 
 
@@ -26,12 +26,13 @@ int cRecorrido::cantidad_de_paradas_entre_destinos(string parada_destino, string
 
 
 void cRecorrido::agregar_paradas_recorrido(cParada* parada) {
-    return;
+    this->listaParada.push_back(parada);
 }
 
 string cRecorrido::to_string_recorrido() {
-    return "";
+    this->imprimir();
+    return "impreso";
 }
 void cRecorrido::imprimir() {
-    return;
+    cout << this->listaParada.data();
 }

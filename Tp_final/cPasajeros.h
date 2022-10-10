@@ -12,11 +12,11 @@ class cPasajeros : public cPersona {
 public:
 
     cPasajeros(string nombre,string DNI,string destino,bool tiene_una_discapacidad,float saldo);
-    ~cPasajeros() {};
+    ~cPasajeros();
 
     bool get_hay_una_discapacidad();
 
-    cTarjeta get_tarjeta_pasajero();
+    cTarjeta* get_tarjeta_pasajero();
 
     string get_destino();
 
@@ -28,7 +28,7 @@ public:
 
 protected:
     string destino;
-    cTarjeta tarjeta_pasajero;
+    cTarjeta* tarjeta_pasajero;
     bool tiene_una_discapacidad;
     float saldo;
 };

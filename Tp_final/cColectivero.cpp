@@ -1,6 +1,8 @@
 #include "cColectivero.h"
-
-cColectivero::cColectivero():legajo(nullptr) {
+/// <summary>
+/// CHEQUEAR ESTE CONTRUCTOR
+/// </summary>
+cColectivero::cColectivero():legajo(0) {
     this->nombre = nullptr;
     this->DNI = nullptr; 
     
@@ -13,7 +15,7 @@ cColectivero::cColectivero(string nombre, string DNI, const string legajo) : leg
 
 
 string cColectivero::get_legajo() {
-    return "";
+    return this->legajo;
 }
 
 /**
@@ -28,5 +30,12 @@ string cColectivero::cargar_destino_pasajero( string destino_pasajero) {
  * @return string
  */
 string cColectivero::to_string_colectivero() {
-    return "";
+	stringstream ss;
+
+	ss << "-----------------------------" << endl
+		<< "Colectivero DNI [" << this->DNI << "]" << endl
+		<< "Nombre: " << this->nombre<< " metros" << endl
+		<< "Legajo: " << this->legajo<< " metros" << endl;
+	
+	return ss.str();
 }

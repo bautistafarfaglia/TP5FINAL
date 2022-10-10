@@ -1,15 +1,16 @@
 #include "cTarjeta.h"
 
-cTarjeta::cTarjeta() {
+unsigned int long cTarjeta::cantidad_de_tarjetas_creadas = 0;
 
-}
-
-cTarjeta::cTarjeta(float saldo) {
-
+cTarjeta::cTarjeta(float _saldo) {
+    this->saldo = _saldo;
+    this->numero_de_viaje = 0;
+    this->cantidad_de_tarjetas_creadas++;
+    
 }
 
 float cTarjeta::get_tarjeta() {
-    return 0.0;
+    return this->saldo;
 }
 
 void cTarjeta::agregar_viaje_lista(cViaje* nuevo_viaje) {

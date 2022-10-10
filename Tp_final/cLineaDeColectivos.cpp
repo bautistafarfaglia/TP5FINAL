@@ -18,8 +18,13 @@ void cLineaDeColectivos::TICK() {
 
 
 string cLineaDeColectivos::ToStringLineaDeColectivos() {
-    return "";
+    stringstream ss;
+    for (int i = 0; i < this->listaColectivos.size()  ; i++) {
+        ss << this->listaColectivos[i]->to_string_colectivo();
+    }
+    return ss.str();
 }
+
 
 
 void cLineaDeColectivos::Imprimir() {

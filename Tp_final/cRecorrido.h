@@ -27,7 +27,7 @@ public:
     void agregar_paradas_recorrido(cParada* parada);
 
     string to_string_recorrido();
-
+    vector<cParada*> get_lista_paradas();
     void imprimir();
 private:
     const string codigo_recorrido;

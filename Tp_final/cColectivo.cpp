@@ -16,11 +16,11 @@ unsigned long cColectivo::cantidad_de_colectivos = 0;
     }
 
     string cColectivo::get_id_colectivo() {
-        return "";
+        return this->id_colectivo;
     }
 
     bool cColectivo::get_estado_operativo() {
-        return false;
+        return this->estado_operativo;
     }
 
     cRecorrido cColectivo::get_recorrido() {
@@ -33,7 +33,7 @@ unsigned long cColectivo::cantidad_de_colectivos = 0;
 
 
     string cColectivo::get_GPS() {
-        return "";
+        return this->GPS;
     }
 
     void cColectivo::llegarParada()
@@ -42,27 +42,27 @@ unsigned long cColectivo::cantidad_de_colectivos = 0;
     }
 
     unsigned int cColectivo::get_posicion_recorrido() {
-        return 0;
+        return this->pos_del_recorrido;
     }
 
     void cColectivo::set_nuevo_recorrido(cRecorrido * nuevo_recorrido) {
-        return;
+        this->recorrido = nuevo_recorrido;
     }
 
-    void cColectivo::set_colectivero(cColectivero * colectivero) {
-        return;
+    void cColectivo::set_colectivero(cColectivero* _colectivero) {
+        this->colectivero = _colectivero; 
     }
 
-    void cColectivo::set_fecha_mantenimiento(cFecha * fecha) {
-        return;
+    void cColectivo::set_fecha_mantenimiento(cFecha* _fecha) {
+        this->fecha_ultimo_mantenimiento = _fecha; 
     }
 
-    bool cColectivo::control_sentido_pasajero(cPasajeros * pasajero) {
+    bool cColectivo::control_sentido_pasajero(cPasajeros * _pasajero) {
         return false;
     }
 
     void cColectivo::avanzar_recorrido() {
-        return;
+        this->pos_del_recorrido++;
     }
 
 
