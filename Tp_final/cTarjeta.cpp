@@ -2,10 +2,19 @@
 
 unsigned int long cTarjeta::cantidad_de_tarjetas_creadas = 0;
 
-cTarjeta::cTarjeta(float _saldo) {
+cTarjeta::cTarjeta(float _saldo, bool _checkEliminar, unsigned short int _cantTotal) {
     this->saldo = _saldo;
-    this->numero_de_viaje = 0;
-    this->cantidad_de_tarjetas_creadas++;
+    this->cantActual = 0;
+    this->checkEliminar = _checkEliminar;
+    try {
+        this->listaViajesRealizados = new cViaje * [_cantTotal];
+        this->cantTotal = _cantTotal;
+        for (ushort i = 0; i < this->cantTotal; i++)
+            this->listaViajesRealizados[i] = NULL;
+    }
+    catch (bad_alloc& e) {
+        cout << "Error al crear la lista: " << e.what() << endl;
+    }
     
 }
 

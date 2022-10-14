@@ -9,7 +9,7 @@
 
 class cTarjeta {
 public:
-    cTarjeta(float saldo);
+    cTarjeta(float saldo, bool _checkEliminar, unsigned short int _cantTotal);
     ~cTarjeta() {
         for (int i = 0; i < cantidad_de_tarjetas_creadas; i++)
         {
@@ -44,10 +44,13 @@ private:
     void ordenar();
     bool noRepetido(cViaje* cViaje);
 
+    unsigned short int cantTotal;
+    unsigned short int cantActual;
     unsigned int long numero_de_viaje;
     float saldo;
     static unsigned int long cantidad_de_tarjetas_creadas;
     cViaje** listaViajesRealizados;
+    bool checkEliminar;
 };
 
 #endif //_CTARJETA_H
