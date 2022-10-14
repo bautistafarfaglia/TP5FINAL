@@ -18,12 +18,8 @@ string cColectivero::get_legajo() {
     return this->legajo;
 }
 
-/**
- * @param string destino_pasajero
- * @return string
- */
 string cColectivero::cargar_destino_pasajero( string destino_pasajero) {
-    return "";
+	return "";
 }
 
 /**

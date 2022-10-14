@@ -21,7 +21,7 @@ string cParada::get_id_parada() {
     return this->id_parada;
 }
 
-void cParada::pasajeros_suben_colectivos()
+vector<cPasajeros*> cParada::pasajeros_suben_colectivos()
 {
 
 }

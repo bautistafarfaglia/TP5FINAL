@@ -46,7 +46,7 @@ public:
 
    bool bajar_pasajeros();
 
-   bool subir_pasajeros(cPasajeros* nuevo_pasajero);
+   bool subir_pasajeros(vector<cPasajeros*> nuevo_pasajero);
 
    void cobrar_boleto(cPasajeros* nuevo_pasajero);
 
