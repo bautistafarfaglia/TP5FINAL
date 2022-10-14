@@ -11,7 +11,7 @@ class cTarjeta {
 public:
     cTarjeta(float saldo);
     ~cTarjeta() {
-        for (int i = 0; i < listaViajesRealizados.size(); i++)
+        for (int i = 0; i < cantidad_de_tarjetas_creadas; i++)
         {
             delete& listaViajesRealizados[i];
         }
@@ -29,11 +29,25 @@ public:
 
     void imprimir();
 
+
+    void agregar(cViaje* viaje);
+    void eliminar(cViaje* viaje);
+    void operator+(cViaje* viaje);
+    void operator-(cViaje* viaje);
+    cViaje* operator[](short i);
+    void operator++();
+    cViaje* quitar(cViaje* viaje);
+
 private:
+
+    void resize();
+    void ordenar();
+    bool noRepetido(cViaje* cViaje);
+
     unsigned int long numero_de_viaje;
     float saldo;
     static unsigned int long cantidad_de_tarjetas_creadas;
-    vector<cViaje*> listaViajesRealizados;
+    cViaje** listaViajesRealizados;
 };
 
 #endif //_CTARJETA_H

@@ -33,3 +33,11 @@ string cTarjeta::to_string_tarjeta() {
 void cTarjeta::imprimir() {
     return;
 }
+
+void cTarjeta::agregar(cViaje* viaje) {}
+void cTarjeta::eliminar(cViaje* viaje) {}
+void cTarjeta::operator+(cViaje* viaje) {}
+void cTarjeta::operator-(cViaje* viaje) {}
+cViaje* cTarjeta::operator[](short i) {}
+void cTarjeta::operator++() {}
+cViaje* cTarjeta::quitar(cViaje* viaje) {}

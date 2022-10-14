@@ -33,10 +33,10 @@ cPasajero cParada::pasajeros_suben_colectivos() {
 
 string cParada::to_string_parada() {
 	stringstream ss;
-		ss << "id_parada: " << this->id_parada << endl
-		<< "nombre_parada: " << this->nombre_parada << endl
-		<< "direccion: " << this->direccion << endl
-		<< "cant total paradas: " << this->cant_total_paradas<< endl;
+		ss << "Parada ID: " << this->id_parada << endl
+		<< "Nombre Parada: " << this->nombre_parada << endl
+		<< "Direccion: " << this->direccion << endl
+		<< "N° Total Paradas: " << this->cant_total_paradas<< endl;
 
 		ss << "-----------------------------" << endl
 			<< "Numeros Colectivos: " << this->listaNumerosColectivos.data();
