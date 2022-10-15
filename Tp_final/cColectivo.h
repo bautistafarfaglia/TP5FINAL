@@ -12,7 +12,7 @@ public:
 
     cColectivo(string id_colectivo, cColectivero* colectivero,
         cSistemaDePagos* sistema_de_pagos, cRecorrido* _recorrido, unsigned int pos_del_recorrido, 
-        string GPS, eSentidoRecorrido sentido, const short int cantidad_max_pasajeros); 
+        string GPS, eSentidoRecorrido sentido, const short int cantidad_max_pasajeros, int num_colectivo);
     ~cColectivo() {
         for (int i = 0; i < listaPasajeros.size(); i++)
         {
@@ -44,7 +44,7 @@ public:
 
    void avanzar_recorrido();
 
-   bool bajar_pasajeros();
+   bool bajar_pasajeros(string nombreParada);
 
    bool subir_pasajeros(vector<cPasajeros*> nuevo_pasajero);
 
@@ -62,6 +62,7 @@ public:
 
 protected:
     string const id_colectivo;
+    unsigned int numColectivo;
     static unsigned long int cantidad_de_colectivos;
     bool estado_operativo;
     cFecha* fecha_ultimo_mantenimiento;

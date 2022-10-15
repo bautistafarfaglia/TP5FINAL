@@ -11,7 +11,7 @@
 class cPasajeros : public cPersona {
 public:
 
-    cPasajeros(string nombre,string DNI,string destino,bool tiene_una_discapacidad,float saldo);
+    cPasajeros(string nombre,string DNI,string destino,bool tiene_una_discapacidad,float saldo,int colectivo);
     ~cPasajeros();
 
     bool get_hay_una_discapacidad();
@@ -22,11 +22,14 @@ public:
 
     string get_DNI();
 
+    int get_num_colectivo();
+
     string to_string_pasajero();
 
     void imprimir();
 
 protected:
+    int num_colectivo;
     string destino;
     cTarjeta* tarjeta_pasajero;
     bool tiene_una_discapacidad;

@@ -23,7 +23,7 @@ public:
 
     string get_id_parada();
 
-    vector<cPasajeros*> pasajeros_suben_colectivos();
+    vector<cPasajeros*> pasajeros_suben_colectivo(int num);
 
     string to_string_parada();
 

@@ -11,7 +11,7 @@ class cTarjeta {
 public:
     cTarjeta(float saldo, bool _checkEliminar, unsigned short int _cantTotal);
     ~cTarjeta() {
-        for (int i = 0; i < cantidad_de_tarjetas_creadas; i++)
+        for (unsigned int i = 0; i < cantidad_de_tarjetas_creadas; i++)
         {
             delete& listaViajesRealizados[i];
         }

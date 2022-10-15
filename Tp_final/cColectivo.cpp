@@ -4,7 +4,7 @@ unsigned long cColectivo::cantidad_de_colectivos = 0;
 
     
   
-    cColectivo::cColectivo(string id_colectivo, cColectivero* colectivero, cSistemaDePagos* sistema_de_pagos, cRecorrido* _recorrido, unsigned int pos_del_recorrido, string GPS, eSentidoRecorrido sentido, const short int cantidad_max_pasajeros) : id_colectivo(id_colectivo), cantidad_max_pasajeros(cantidad_max_pasajeros) {
+    cColectivo::cColectivo(string id_colectivo, cColectivero* colectivero, cSistemaDePagos* sistema_de_pagos, cRecorrido* _recorrido, unsigned int pos_del_recorrido, string GPS, eSentidoRecorrido sentido, const short int cantidad_max_pasajeros, int num_colectivo) : id_colectivo(id_colectivo), cantidad_max_pasajeros(cantidad_max_pasajeros) {
 this->estado_operativo = true;
 this->fecha_ultimo_mantenimiento = new cFecha(0, 0);
 this->colectivero = colectivero;
@@ -13,6 +13,7 @@ this->recorrido = _recorrido;
 this->pos_del_recorrido = pos_del_recorrido;
 this->GPS = GPS;
 this->sentido = sentido;
+this->numColectivo = num_colectivo;
     }
 
     string cColectivo::get_id_colectivo() {
@@ -58,7 +59,13 @@ this->sentido = sentido;
     }
 
     bool cColectivo::control_sentido_pasajero(cPasajeros* _pasajero) {
-        return false;
+        for (unsigned int i = 0; i < this->pos_del_recorrido;i++) {
+            if (this->recorrido->get_lista_paradas()[pos_del_recorrido]->get_nombre_parada() == _pasajero->get_destino()) {
+                cout << "El pasajero tiene que ir en otro sentido" << endl;
+                return false;
+            }
+        }
+        return true;
     }
 
     void cColectivo::avanzar_recorrido() {
@@ -71,21 +78,22 @@ this->sentido = sentido;
 
         cout << (this->recorrido->get_lista_paradas())[this->pos_del_recorrido]->get_nombre_parada() << endl;
 
-        this->bajar_pasajeros((*this->recorrido->get_lista_paradas())[this->pos_del_recorrido]->get_nombre_parada());
+        this->bajar_pasajeros(this->recorrido->get_lista_paradas()[this->pos_del_recorrido]->get_nombre_parada());
 
         for (unsigned int PosPasajerosParada = 0; PosPasajerosParada < this->cantidad_actual_pasajeros; PosPasajerosParada++) {
             if (this->cantidad_actual_pasajeros < this->cantidad_max_pasajeros) {
                 if (this->listaPasajeros[PosPasajerosParada]->get_hay_una_discapacidad() == true) {
-                    if (true == this->control_sentido_pasajero(this->listaPasajeros()[pos_del_recorrido]->get_destino())) {
+                    if (true == this->control_sentido_pasajero(this->listaPasajeros[PosPasajerosParada])) {
                         cParada* aux = this->recorrido->get_lista_paradas()[pos_del_recorrido];
 
                         if (aux != NULL) {
-                            subir_pasajeros(this->recorrido->get_lista_paradas()[PosPasajerosParada]->pasajeros_suben_colectivos());
+                            subir_pasajeros(this->recorrido->get_lista_paradas()[PosPasajerosParada]->pasajeros_suben_colectivo(this->numColectivo));
                         }
                     }
                 }
             }
-        }/* codigo sin terminar y revisar
+        }
+    }/* codigo sin terminar y revisar
         for (unsigned int PosPasajerosParada = 0; PosPasajerosParada < (*Recorrido->GetListaParadas())[PosDelRecorrido]->GetListaPasajeros()->GetCantidadActual(); PosPasajerosParada++) {
             if (ListaPasajeros->GetCantidadActual() < ListaPasajeros->GetCantidadMaxima()) {
                 if ((*(*Recorrido->GetListaParadas())[PosDelRecorrido]->GetListaPasajeros())[PosPasajerosParada]->GetSillaDeRuedas() == false) {
@@ -99,23 +107,49 @@ this->sentido = sentido;
                     }
                 }
             }*/
-        }
-    }
+        
+    
+   
 
 
-    bool cColectivo::bajar_pasajeros() {
+    bool cColectivo::bajar_pasajeros(string nombreParada) {
+        int cant = 0;
         for (int i = 0; i < this->cantidad_actual_pasajeros; i++) {
-            if (this->listaPasajeros[i]->get_destino() == this->recorrido->get_lista_paradas()[pos_del_recorrido]->get_nombre_parada()){
+            if (this->listaPasajeros[i]->get_destino() == nombreParada) {
                 this->listaPasajeros.erase(listaPasajeros.begin() + i);
+                this->cantidad_actual_pasajeros--;
+                cant++;
             }
-                
+
         }
+        if (cant > 0) {
+            return true;
+        }
+        return false;
 
     }
 
 
     bool cColectivo::subir_pasajeros(vector<cPasajeros*> nuevos_pasajeros) {
-        return false;
+        int dif = (this->cantidad_max_pasajeros) - (this->cantidad_actual_pasajeros);
+        if (nuevos_pasajeros.size() < dif) {
+            for (int i = 0; i< nuevos_pasajeros.size();i++) {
+                this->cobrar_boleto(nuevos_pasajeros[i]);
+                this->listaPasajeros.push_back(nuevos_pasajeros[i]);
+            }
+            return true;
+        }else if(dif > 0) {
+            for (int i = 0; i < dif; i++) {
+                this->cobrar_boleto(nuevos_pasajeros[i]);
+                this->listaPasajeros.push_back(nuevos_pasajeros[i]);
+            }
+            cout << "Solo entran algunos pasajeros" << endl;
+            return true;
+        }
+        else {
+            cout << "Esta muy lleno el bondi" << endl;
+            return false;
+        }
     }
 
     void cColectivo::cobrar_boleto(cPasajeros * nuevo_pasajero) {
@@ -123,10 +157,15 @@ this->sentido = sentido;
     }
 
     void cColectivo::cambio_de_sentido_recorrido() {
-        return;
+        if (this->sentido == Arriba) {
+            this->sentido = Abajo;
+        }
+        else {
+            this->sentido = Arriba;
+        }
     }
 
     void cColectivo::actualizar_GPS() {
-        return;
+        cout<<this->get_GPS()<<endl;
     }
 

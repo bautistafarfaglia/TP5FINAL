@@ -1,8 +1,4 @@
 #pragma once
-class eSentidoRecorrido {
-public:
-   /* void Ariiba;
-    void Abajo;*/
-};
+enum eSentidoRecorrido {Arriba,Abajo};
 
 

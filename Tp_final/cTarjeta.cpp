@@ -47,6 +47,6 @@ void cTarjeta::agregar(cViaje* viaje) {}
 void cTarjeta::eliminar(cViaje* viaje) {}
 void cTarjeta::operator+(cViaje* viaje) {}
 void cTarjeta::operator-(cViaje* viaje) {}
-cViaje* cTarjeta::operator[](short i) {}
+cViaje* cTarjeta::operator[](short i) { return nullptr; }
 void cTarjeta::operator++() {}
-cViaje* cTarjeta::quitar(cViaje* viaje) {}
+cViaje* cTarjeta::quitar(cViaje* viaje) { return nullptr; }
