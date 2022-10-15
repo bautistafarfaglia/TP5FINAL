@@ -6,6 +6,7 @@ cTarjeta::cTarjeta(float _saldo, bool _checkEliminar, unsigned short int _cantTo
     this->saldo = _saldo;
     this->cantActual = 0;
     this->checkEliminar = _checkEliminar;
+    this->numero_de_viaje = 0;
     try {
         this->listaViajesRealizados = new cViaje * [_cantTotal];
         this->cantTotal = _cantTotal;
@@ -32,7 +33,8 @@ float cTarjeta::carga_de_viaje(float saldo_agregar) {
 }
 
 float cTarjeta::descuento_salto(float cargo) {
-    return 0.0;
+    this->saldo -= cargo;
+    return cargo;
 }
 
 string cTarjeta::to_string_tarjeta() {

@@ -153,7 +153,8 @@ this->numColectivo = num_colectivo;
     }
 
     void cColectivo::cobrar_boleto(cPasajeros * nuevo_pasajero) {
-        return;
+        //calcular la cantidad de paradas con 2 strings
+        this->sistema_de_pagos->generar_viaje(this->recorrido->get_lista_paradas()[this->pos_del_recorrido]->get_nombre_parada(), nuevo_pasajero->get_destino(), 3, nuevo_pasajero->get_tarjeta_pasajero());
     }
 
     void cColectivo::cambio_de_sentido_recorrido() {
