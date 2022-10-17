@@ -54,11 +54,14 @@ public:
 
    void actualizar_GPS();
 
+   friend istream& operator>>(istream& is, cColectivo& cole);
+
    virtual void averia() =0;
 
    virtual string to_string_colectivo() =0;
 
    virtual void imprimir()=0;
+
 
 protected:
     string const id_colectivo;
@@ -73,7 +76,7 @@ protected:
     unsigned int pos_del_recorrido;
     string GPS;
     eSentidoRecorrido sentido;
-    const unsigned short int cantidad_max_pasajeros;
+    unsigned short int cantidad_max_pasajeros;
     unsigned short int cantidad_actual_pasajeros;
 
 };

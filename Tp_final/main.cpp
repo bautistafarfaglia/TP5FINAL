@@ -14,7 +14,7 @@ int main() {
 	cRecorrido* journey = new cRecorrido("1"); 
 	cPasajeros* uno = new cPasajeros("eick", "43570175", "guatemala", false, 100, 45);
 	cPasajeros* dos = new cPasajeros("sam", "44274165", "Av callao", false, 100, 45);
-
+	
 	p1->agregar_pasajero(uno);
 	p1->agregar_pasajero(dos);
 

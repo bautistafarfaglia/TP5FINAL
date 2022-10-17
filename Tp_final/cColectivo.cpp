@@ -4,7 +4,7 @@ unsigned long cColectivo::cantidad_de_colectivos = 0;
 
     
   
-    cColectivo::cColectivo(string id_colectivo, cColectivero* colectivero, cSistemaDePagos* sistema_de_pagos, cRecorrido* _recorrido, unsigned int pos_del_recorrido, string GPS, eSentidoRecorrido sentido, const short int cantidad_max_pasajeros, int num_colectivo) : id_colectivo(id_colectivo), cantidad_max_pasajeros(cantidad_max_pasajeros) {
+    cColectivo::cColectivo(string id_colectivo, cColectivero* colectivero, cSistemaDePagos* sistema_de_pagos, cRecorrido* _recorrido, unsigned int pos_del_recorrido, string GPS, eSentidoRecorrido sentido, const short int cantidad_max_pasajeros, int num_colectivo) : id_colectivo(id_colectivo){
 this->estado_operativo = true;
 this->fecha_ultimo_mantenimiento = new cFecha(0, 0);
 this->colectivero = colectivero;
@@ -14,6 +14,7 @@ this->pos_del_recorrido = -1;
 this->GPS = GPS;
 this->sentido = sentido;
 this->numColectivo = num_colectivo;
+this->cantidad_max_pasajeros=cantidad_max_pasajeros;
     }
 
     string cColectivo::get_id_colectivo() {
@@ -80,7 +81,7 @@ this->numColectivo = num_colectivo;
 
         this->bajar_pasajeros(this->recorrido->get_lista_paradas()[this->pos_del_recorrido]->get_nombre_parada());
         int cant_en_parada = this->recorrido->get_lista_paradas()[pos_del_recorrido]->get_lista_pasajeros().size();
-        for (unsigned int PosPasajerosParada = 0; PosPasajerosParada < cant_en_parada; PosPasajerosParada++) {
+        for (int PosPasajerosParada = 0; PosPasajerosParada < cant_en_parada; PosPasajerosParada++) {
             if (this->cantidad_actual_pasajeros < this->cantidad_max_pasajeros) {
                 cPasajeros* aux = this->recorrido->get_lista_paradas()[pos_del_recorrido]->get_lista_pasajeros()[PosPasajerosParada];
                if (true == this->control_sentido_pasajero(aux)) {
@@ -181,3 +182,18 @@ this->numColectivo = num_colectivo;
         cout<<this->get_GPS()<<endl;
     }
 
+    istream& operator>>(istream& is, cColectivo& cole)
+    {
+        cout << "Ingrese los datos del colectivero:" << endl;
+        cout << "Numero:" << endl;
+        is >> cole.numColectivo; 
+        cout << "Cantidad maxima pasajeros:" << endl;
+        is >> cole.cantidad_max_pasajeros;
+        cout << "Estado operativo:" << endl;
+        is >> cole.estado_operativo;
+        cout << "GPS:" << endl;
+        is >> cole.GPS;
+        cout << "GPS:" << endl;
+        is >> cole.GPS;
+        return is;
+    }
