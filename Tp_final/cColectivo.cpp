@@ -10,7 +10,7 @@ this->fecha_ultimo_mantenimiento = new cFecha(0, 0);
 this->colectivero = colectivero;
 this->sistema_de_pagos = sistema_de_pagos;
 this->recorrido = _recorrido;
-this->pos_del_recorrido = pos_del_recorrido;
+this->pos_del_recorrido = -1;
 this->GPS = GPS;
 this->sentido = sentido;
 this->numColectivo = num_colectivo;
@@ -79,20 +79,28 @@ this->numColectivo = num_colectivo;
         cout << (this->recorrido->get_lista_paradas())[this->pos_del_recorrido]->get_nombre_parada() << endl;
 
         this->bajar_pasajeros(this->recorrido->get_lista_paradas()[this->pos_del_recorrido]->get_nombre_parada());
-
-        for (unsigned int PosPasajerosParada = 0; PosPasajerosParada < this->cantidad_actual_pasajeros; PosPasajerosParada++) {
+        int cant_en_parada = this->recorrido->get_lista_paradas()[pos_del_recorrido]->get_lista_pasajeros().size();
+        for (unsigned int PosPasajerosParada = 0; PosPasajerosParada < cant_en_parada; PosPasajerosParada++) {
             if (this->cantidad_actual_pasajeros < this->cantidad_max_pasajeros) {
-                if (this->listaPasajeros[PosPasajerosParada]->get_hay_una_discapacidad() == true) {
-                    if (true == this->control_sentido_pasajero(this->listaPasajeros[PosPasajerosParada])) {
-                        cParada* aux = this->recorrido->get_lista_paradas()[pos_del_recorrido];
-
-                        if (aux != NULL) {
-                            subir_pasajeros(this->recorrido->get_lista_paradas()[PosPasajerosParada]->pasajeros_suben_colectivo(this->numColectivo));
-                        }
-                    }
-                }
+                cPasajeros* aux = this->recorrido->get_lista_paradas()[pos_del_recorrido]->get_lista_pasajeros()[PosPasajerosParada];
+               if (true == this->control_sentido_pasajero(aux)) {
+                   cParada* auxp = this->recorrido->get_lista_paradas()[pos_del_recorrido];
+                   if (aux->get_hay_una_discapacidad() == true) {
+                       if (aux != NULL) {
+                           cout << "Se sube alguien con discapacidad" << endl;
+                           subir_pasajeros(this->recorrido->get_lista_paradas()[PosPasajerosParada]->pasajeros_suben_colectivo(this->numColectivo));
+                       }
+                   }
+                   else {
+                       if (aux != NULL) {
+                           cout << "Se suben pasajeros" << endl;
+                               subir_pasajeros(this->recorrido->get_lista_paradas()[PosPasajerosParada]->pasajeros_suben_colectivo(this->numColectivo));
+                       }
+                   }
+               }
             }
         }
+        this->bajar_pasajeros(this->recorrido->get_lista_paradas()[pos_del_recorrido]->get_nombre_parada());
     }/* codigo sin terminar y revisar
         for (unsigned int PosPasajerosParada = 0; PosPasajerosParada < (*Recorrido->GetListaParadas())[PosDelRecorrido]->GetListaPasajeros()->GetCantidadActual(); PosPasajerosParada++) {
             if (ListaPasajeros->GetCantidadActual() < ListaPasajeros->GetCantidadMaxima()) {
@@ -116,6 +124,7 @@ this->numColectivo = num_colectivo;
         int cant = 0;
         for (int i = 0; i < this->cantidad_actual_pasajeros; i++) {
             if (this->listaPasajeros[i]->get_destino() == nombreParada) {
+                cout << "Se baja un pasajero" << endl;
                 this->listaPasajeros.erase(listaPasajeros.begin() + i);
                 this->cantidad_actual_pasajeros--;
                 cant++;
@@ -136,12 +145,14 @@ this->numColectivo = num_colectivo;
             for (int i = 0; i< nuevos_pasajeros.size();i++) {
                 this->cobrar_boleto(nuevos_pasajeros[i]);
                 this->listaPasajeros.push_back(nuevos_pasajeros[i]);
+                this->cantidad_actual_pasajeros++;
             }
             return true;
         }else if(dif > 0) {
             for (int i = 0; i < dif; i++) {
                 this->cobrar_boleto(nuevos_pasajeros[i]);
                 this->listaPasajeros.push_back(nuevos_pasajeros[i]);
+                this->cantidad_actual_pasajeros++;
             }
             cout << "Solo entran algunos pasajeros" << endl;
             return true;

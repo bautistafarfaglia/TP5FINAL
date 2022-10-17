@@ -3,6 +3,7 @@
 unsigned int long cTarjeta::cantidad_de_tarjetas_creadas = 0;
 
 cTarjeta::cTarjeta(float _saldo, bool _checkEliminar, unsigned short int _cantTotal) {
+    //chequear que es el cant total y para que sirve
     this->saldo = _saldo;
     this->cantActual = 0;
     this->checkEliminar = _checkEliminar;

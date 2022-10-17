@@ -7,15 +7,13 @@
 
 class cParada {
 public:
-
-    cParada();
     cParada(string id_parada,string nombre_parada,eSentidoRecorrido direccion);
     ~cParada() {
         for (int i = 0; i < listaPasajeros.size(); i++)
         {
             delete& listaPasajeros[i];
         }
-    };
+    };//chequear si este eliminar esta bien
 
     string get_nombre_parada();
 
@@ -25,6 +23,7 @@ public:
 
     vector<cPasajeros*> pasajeros_suben_colectivo(int num);
 
+    void agregar_pasajero(cPasajeros* pasajero_nuevo);
     string to_string_parada();
 
     void imprimir();  

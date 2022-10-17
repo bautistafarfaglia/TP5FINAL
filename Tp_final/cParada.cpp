@@ -3,6 +3,7 @@
 unsigned int cParada::cant_total_paradas = 0;
 
 cParada::cParada(string id_parada,string nombre_parada, eSentidoRecorrido direccion) : id_parada(id_parada), nombre_parada(nombre_parada), direccion(direccion) {
+	
 }
 
 string cParada::get_nombre_parada() {
@@ -36,6 +37,11 @@ vector<cPasajeros*> cParada::pasajeros_suben_colectivo(int num){
 cPasajero cParada::pasajeros_suben_colectivos() {
     return null;
 }*/
+
+void cParada::agregar_pasajero(cPasajeros* pasajero_nuevo)
+{
+	this->listaPasajeros.push_back(pasajero_nuevo);
+}
 
 string cParada::to_string_parada() {
 	stringstream ss;

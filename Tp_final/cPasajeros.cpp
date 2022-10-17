@@ -6,9 +6,8 @@ cPasajeros::cPasajeros(string nombre, string _DNI, string destino, bool tiene_un
     this->DNI = DNI;
     this->destino = destino;
     this->tiene_una_discapacidad = tiene_una_discapacidad;
-    this->saldo = saldo;
     this->num_colectivo = numcolectivo;
-    //(this->tarjeta_pasajero) = new cTarjeta(0);
+    this->tarjeta_pasajero= new cTarjeta(saldo,true,100);//chequear este 100 en el constructor de cTarjeta
 }
 
 cPasajeros::~cPasajeros() {
