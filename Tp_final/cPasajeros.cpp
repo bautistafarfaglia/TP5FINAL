@@ -7,7 +7,7 @@ cPasajeros::cPasajeros(string nombre, string _DNI, string destino, bool tiene_un
     this->destino = destino;
     this->tiene_una_discapacidad = tiene_una_discapacidad;
     this->num_colectivo = numcolectivo;
-    this->tarjeta_pasajero= new cTarjeta(saldo,true,100);//chequear este 100 en el constructor de cTarjeta
+    this->tarjeta_pasajero= new cTarjeta(saldo,true,20);//chequear este 100 en el constructor de cTarjeta
 }
 
 cPasajeros::~cPasajeros() {
@@ -35,7 +35,6 @@ int cPasajeros::get_num_colectivo()
 
 string cPasajeros::to_string_pasajero() {
     stringstream ss;
-    //no se como hacer para imprimir los datos de persona (quiza es virtual y por eso no me deja, chequear)
     ss << "destino: " << this->destino << endl
         << "to_string_tarjeta: " << this->tarjeta_pasajero->to_string_tarjeta() << endl
         << "tiene_una_discapacidad: " << this->tiene_una_discapacidad << endl
