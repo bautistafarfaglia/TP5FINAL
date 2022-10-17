@@ -32,17 +32,18 @@ public:
 
     void agregar(cViaje* viaje);
     void eliminar(cViaje* viaje);
-    void operator+(cViaje* viaje);
-    void operator-(cViaje* viaje);
-    cViaje* operator[](short i);
-    void operator++();
     cViaje* quitar(cViaje* viaje);
+    void operator+(cViaje* viaje);
+    cViaje* operator-(cViaje* viaje);
+    cViaje* operator[](short i);
+    //void operator++();
+   
 
 private:
 
     void resize();
     void ordenar();
-    bool noRepetido(cViaje* cViaje);
+    //bool noRepetido(cViaje* cViaje);
 
     unsigned short int cantTotal;
     unsigned short int cantActual;
