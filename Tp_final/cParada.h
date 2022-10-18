@@ -7,7 +7,8 @@
 
 class cParada {
 public:
-    cParada(string id_parada,string nombre_parada,eSentidoRecorrido direccion);
+    //chequear el string id_parada
+    cParada(string id_parada ="none", string nombre_parada = "none", eSentidoRecorrido direccion = DEFAULT);
     ~cParada() {
         for (int i = 0; i < listaPasajeros.size(); i++)
         {
@@ -25,15 +26,15 @@ public:
 
     void agregar_pasajero(cPasajeros* pasajero_nuevo);
     string to_string_parada();
-
+    friend istream& operator>>(istream& is, cParada& re);
     void imprimir();  
 private:
     string const id_parada;
-    string const nombre_parada;
-    eSentidoRecorrido const direccion;
+    string nombre_parada;
+    eSentidoRecorrido direccion;
     vector<cPasajeros*> listaPasajeros;
     vector<int> listaNumerosColectivos;
-    static unsigned int cant_total_paradas;
+    static unsigned int cant_total_paradas; //chequear este cant totalparadas
 };
 
 #endif //_CPARADA_H

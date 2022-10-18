@@ -184,16 +184,64 @@ this->cantidad_max_pasajeros=cantidad_max_pasajeros;
 
     istream& operator>>(istream& is, cColectivo& cole)
     {
-        cout << "Ingrese los datos del colectivero:" << endl;
+        int pos = 0;
+        bool estado = false;
+        cout << "Ingrese los datos del colectivo:" << endl;
         cout << "Numero:" << endl;
         is >> cole.numColectivo; 
         cout << "Cantidad maxima pasajeros:" << endl;
         is >> cole.cantidad_max_pasajeros;
-        cout << "Estado operativo:" << endl;
-        is >> cole.estado_operativo;
+        cout << "Estado operativo: 1 = Operando, 2 = Fuera de servicio" << endl;
+        is >> pos;
+        if (pos == 1) {
+            estado = true;
+        }
+        else if (pos == 2) {
+            estado = false;
+        }
+        cole.estado_operativo = estado;
         cout << "GPS:" << endl;
         is >> cole.GPS;
-        cout << "GPS:" << endl;
-        is >> cole.GPS;
+        cout << "Establecer sentido: Arriba = 1, Abajo = 2" << endl;
+        int val = -1;
+        is >> val;
+        if (val == 0) {
+            cole.sentido = Arriba;
+        }
+        else if (val == 1) {
+            cole.sentido = Abajo;
+        }
         return is;
     }
+    //istream& operator>>(istream& is,cColectivo& cole)
+    //{
+    //    int pos = 0;
+    //    int num_cole=0;
+    //    string gps= "ga";
+    //    bool estado = false;
+    //    short int cantidad_max_pasajeros = 0;
+    //    eSentidoRecorrido sent = DEFAULT;
+    //    cout << "Ingrese los datos del colectivero:" << endl;
+    //    cout << "Numero:" << endl;
+    //    is >> num_cole;
+    //    cout << "Cantidad maxima pasajeros:" << endl;
+    //    is >> cantidad_max_pasajeros;
+    //    cout << "Estado operativo:" << endl;
+    //    is >> estado;
+    //    cout << "GPS:" << endl;
+    //    is >> gps;
+    //    cout << "Establecer sentido: Arriba = 1, Abajo = 2" << endl;
+    //    int val = -1;
+    //    is >> val;
+    //    if (val == 0) {
+    //        sent = Arriba;
+    //    }
+    //    else if (val == 1) {
+    //        sent = Abajo;
+    //    }
+    //    cColectivero* vero = nullptr;
+    //    cSistemaDePagos* pagos = nullptr;
+    //    cRecorrido* recorrido = nullptr;
+    //   // cole = new cColectivo(vero, pagos, recorrido, pos, gps, sent, cantidad_max_pasajeros, num_cole);
+    //    return is;
+    //}

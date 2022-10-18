@@ -60,3 +60,30 @@ string cParada::to_string_parada() {
 void cParada::imprimir() {
     return;
 }
+
+istream& operator>>(istream& is, cParada& pa)
+{
+	int pos = 0;
+	bool estado = false;
+	cout << "Ingrese los datos de la parada:" << endl;
+	cout << "Nombre de la parada:" << endl;
+	is >> pa.nombre_parada;
+	cout << "Direccion de la parada: 1=arriba, 2=abajo" << endl;
+	is >> pos;
+	if (pos == 1) {
+		pa.direccion = Arriba;
+	}
+	else if (pos == 2) {
+		pa.direccion = Abajo;
+	}
+	pos = 0; 
+	cout << "Cuantos colectivos pasan por esta parada" << endl;
+	is >> pos;
+	for (int i = 0; i < pos; i++) {
+		pa.listaNumerosColectivos.resize(pos);//chequear si el resize de vector, que hace
+		cout << "Que numero es" << endl;
+		is>>pa.listaNumerosColectivos[i];
+	}
+
+	return is;
+}

@@ -8,9 +8,7 @@
 
 class cRecorrido {
 public:
-
-    cRecorrido();
-    cRecorrido(string id_recorrido);
+    cRecorrido(string id_recorrido = "none");
     ~cRecorrido() {
         for (int i = 0; i < listaParada.size(); i++)
         {
@@ -28,6 +26,7 @@ public:
 
     string to_string_recorrido();
     vector<cParada*> get_lista_paradas();
+    friend istream& operator>>(istream& is, cRecorrido& re);
     void imprimir();
 private:
     const string codigo_recorrido;

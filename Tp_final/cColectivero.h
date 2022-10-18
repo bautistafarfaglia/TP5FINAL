@@ -8,9 +8,7 @@
 
 class cColectivero : public cPersona {
 public:
-
-    cColectivero();
-    cColectivero(string nombre, string DNI, const string legajo);
+    cColectivero(string nombre = "ninguno", string DNI = "none", const string legajo = "none");
     ~cColectivero() {};
 
     string get_legajo();

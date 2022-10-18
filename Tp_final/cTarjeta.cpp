@@ -103,7 +103,7 @@ void cTarjeta::resize() {
         listaViajesRealizados = listaResize;
 
     }
-    catch (const std::exception&)
+    catch (const std::exception& e)
     {
         cout << e.what() << endl;
     }
