@@ -12,9 +12,10 @@ public:
     ~cParada() {
         for (int i = 0; i < listaPasajeros.size(); i++)
         {
-            delete& listaPasajeros[i];
+            delete listaPasajeros[i];
         }
-    };//chequear si este eliminar esta bien
+        delete[] &this->listaPasajeros; //chequear esta linea
+    };
 
     string get_nombre_parada();
 

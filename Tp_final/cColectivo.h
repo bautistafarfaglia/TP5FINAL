@@ -10,7 +10,7 @@
 class cColectivo {
 public:
 
-    cColectivo(string id_colectivo, cColectivero* colectivero,
+    cColectivo(short id_colectivo, cColectivero* colectivero,
         cSistemaDePagos* sistema_de_pagos, cRecorrido* _recorrido, unsigned int pos_del_recorrido, 
         string GPS, eSentidoRecorrido sentido, const short int cantidad_max_pasajeros, int num_colectivo);
     ~cColectivo() {
@@ -20,7 +20,7 @@ public:
         }
     };
 
-    string get_id_colectivo();
+    short int get_id_colectivo();
 
     bool get_estado_operativo();
 
@@ -64,7 +64,8 @@ public:
 
 
 protected:
-    string const id_colectivo;
+    short const id_colectivo;
+    static short int max_id;
     unsigned int numColectivo;
     static unsigned long int cantidad_de_colectivos;
     bool estado_operativo;

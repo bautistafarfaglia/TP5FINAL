@@ -8,3 +8,5 @@ cPersona::cPersona(string Nombre,string DNI) {
 	this->nombre = Nombre;
 	this->DNI = DNI;
 }
+
+//completar
