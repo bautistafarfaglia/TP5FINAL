@@ -16,11 +16,11 @@ public:
 
     void apagar_aire();
 
-    virtual void averia() = 0;
+    void averia();
 
-    virtual string to_string_colectivo() =0;
+    string to_string_colectivo();
 
-    virtual void imprimir() =0;
+    void imprimir();
 protected:
     bool tiene_aire_acondicionado;
 };

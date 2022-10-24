@@ -33,14 +33,15 @@ int main() {
 	vec[0]->agregar_pasajero(dos);
 	
 	cc->avanzar_recorrido();
-	cc->avanzar_recorrido();
-	//chequear si esta bien la eliminacion de todos los datos al terminar el codigo
-	delete cc;
+	cc->avanzar_recorrido();//chequear explota al recorrer el array, seguro hay que revisar el max lenght
+	cc->imprimir();
+	
+	delete cc;//chequear si esta bien la eliminacion de todos los datos al terminar el codigo
 }
 
 
 /// <summary>
-/// Esta funcion permite generar un colectivo acordeon con los parametros que el usuario desee
+/// Esta funcion debe ir al simulador permite generar un colectivo acordeon con los parametros que el usuario desee
 /// </summary>
 /// <returns>cColectivoAcordeon</returns>
 cColectivoAcordeon* generar_cColectivo_Acordeon(){

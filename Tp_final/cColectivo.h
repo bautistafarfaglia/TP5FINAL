@@ -43,7 +43,6 @@ public:
 
    void set_sistema_de_pagos(cSistemaDePagos* sdp);
 
-
    bool control_sentido_pasajero(cPasajeros* pasajero);
 
    void avanzar_recorrido();
@@ -56,8 +55,6 @@ public:
 
    void cambio_de_sentido_recorrido();
 
-   void actualizar_GPS();
-
    friend istream& operator>>(istream& is, cColectivo& cole);
 
    virtual void averia() =0;
@@ -68,6 +65,8 @@ public:
 
 
 protected:
+    void actualizar_GPS();
+    
     short const id_colectivo;
     static short int max_id;
     unsigned int numColectivo;
@@ -83,7 +82,7 @@ protected:
     eSentidoRecorrido sentido;
     unsigned short int cantidad_max_pasajeros;
     unsigned short int cantidad_actual_pasajeros;
-
+    
 };
 
 #endif //_CCOLECTIVO_H

@@ -68,12 +68,12 @@ istream& operator>>(istream& is, cParada& pa)
 	cout << "Ingrese los datos de la parada:" << endl;
 	cout << "Nombre de la parada:" << endl;
 	is >> pa.nombre_parada;
-	cout << "Direccion de la parada: 1=arriba, 2=abajo" << endl;
+	cout << "Direccion de la parada: 0=arriba, 1=abajo" << endl;
 	is >> pos;
-	if (pos == 1) {
+	if (pos == 0) {
 		pa.direccion = Arriba;
 	}
-	else if (pos == 2) {
+	else if (pos == 1) {
 		pa.direccion = Abajo;
 	}
 	pos = 0; 

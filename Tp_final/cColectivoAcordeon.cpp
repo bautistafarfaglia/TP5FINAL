@@ -40,5 +40,6 @@ string cColectivoAcordeon::to_string_colectivo() {
 }
 
 void cColectivoAcordeon::imprimir() {
-    return;
+    cout << this->to_string_colectivo()<<endl;
+	cout << this->listaPasajeros.data() << endl;
 }

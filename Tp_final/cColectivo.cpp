@@ -85,7 +85,7 @@ this->cantidad_max_pasajeros=cantidad_max_pasajeros;
         if (this->sentido == eSentidoRecorrido::Abajo) {
             this->pos_del_recorrido--;
         }
-
+        this->actualizar_GPS();
         cout << (this->recorrido->get_lista_paradas())[this->pos_del_recorrido]->get_nombre_parada() << endl;
 
         this->bajar_pasajeros(this->recorrido->get_lista_paradas()[this->pos_del_recorrido]->get_nombre_parada());
@@ -104,7 +104,7 @@ this->cantidad_max_pasajeros=cantidad_max_pasajeros;
                    else {
                        if (aux != NULL) {
                            cout << "Se suben pasajeros" << endl;
-                               subir_pasajeros(this->recorrido->get_lista_paradas()[PosPasajerosParada]->pasajeros_suben_colectivo(this->numColectivo));
+                               subir_pasajeros(this->recorrido->get_lista_paradas()[PosPasajerosParada]->pasajeros_suben_colectivo(this->numColectivo));//chequear que explota cuando no se ponen las paradas en la cual se baja el pasajero
                        }
                    }
                }
@@ -188,7 +188,7 @@ this->cantidad_max_pasajeros=cantidad_max_pasajeros;
     }
 
     void cColectivo::actualizar_GPS() {
-        cout<<this->get_GPS()<<endl;
+        this->GPS = this->recorrido->get_lista_paradas()[pos_del_recorrido]->get_nombre_parada();
     }
 
     istream& operator>>(istream& is, cColectivo& cole)

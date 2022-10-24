@@ -14,11 +14,11 @@ public:
     cColectivoSinAire(cColectivero* colectivero, cSistemaDePagos* sistema_de_pagos, cRecorrido* recorrido, unsigned int pos_del_recorrido, string GPS, eSentidoRecorrido sentido, short int cantidad_max_pasajeros, int num_colectivo);
     ~cColectivoSinAire() {};
 
-    virtual void averia() = 0;
+    void averia();
 
-    virtual string to_string_colectivo() = 0;
+    string to_string_colectivo();
 
-    virtual void imprimir() = 0;
+    void imprimir();
 };
 
 #endif //_CCOLECTIVOSINAIRE_H
