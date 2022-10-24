@@ -1,12 +1,15 @@
 #include "cColectivero.h"
 #include "cPasajeros.h"
 #include "cColectivoAcordeon.h"
+#include "cColectivoSinAire.h"
 #include "cLineaDeColectivos.h"
 #include "cRecorrido.h"
 #include "cSistemaDePagos.h"
 
 //ver el tema de uso de la clase viaje
 cColectivoAcordeon* generar_cColectivo_Acordeon();
+cColectivoConAireYDireccionElectrica* generar_cColectivo_ConAire_y_DireccionElectrica();
+cColectivoSinAire* generar_cColectivo_sinAire();
 int main() {
 	cColectivero* andrew = new cColectivero("andre2", "12345678", "45");
 	cSistemaDePagos* sistem = new cSistemaDePagos(0,0);
@@ -62,6 +65,41 @@ cColectivoAcordeon* generar_cColectivo_Acordeon(){
     return cole;
 }
 
+cColectivoConAireYDireccionElectrica* generar_cColectivo_ConAire_y_DireccionElectrica() {
+	cColectivoConAireYDireccionElectrica* cole = new cColectivoConAireYDireccionElectrica();
+	cin >> *cole;
+	cColectivero* vero = new cColectivero();
+	cSistemaDePagos* pagos = new cSistemaDePagos();
+	cRecorrido* recorrido = new cRecorrido();
+	vector<cParada*> lista;
+
+	cin >> *vero; //personalizo el colectivero
+	cin >> *recorrido;//personalizo el recorrido, tambien se podría realizar una busqueda por id en una funcion estatica y esta devolvería el puntero del objeto, preguntar pampa
+
+	cole->set_colectivero(vero);
+	cole->set_sistema_de_pagos(pagos);
+	cole->set_recorrido(recorrido);
+
+	return cole;
+}
+
+cColectivoSinAire* generar_cColectivo_sinAire() {
+	cColectivoSinAire* cole = new cColectivoSinAire();
+	cin >> *cole;
+	cColectivero* vero = new cColectivero();
+	cSistemaDePagos* pagos = new cSistemaDePagos();
+	cRecorrido* recorrido = new cRecorrido();
+	vector<cParada*> lista;
+
+	cin >> *vero; //personalizo el colectivero
+	cin >> *recorrido;//personalizo el recorrido, tambien se podría realizar una busqueda por id en una funcion estatica y esta devolvería el puntero del objeto, preguntar pampa
+
+	cole->set_colectivero(vero);
+	cole->set_sistema_de_pagos(pagos);
+	cole->set_recorrido(recorrido);
+
+	return cole;
+}
 //istream& ingreso_datos(istream& is, cColectivoAcordeon& cole) {
 //    int pos = 0;
 //    int num_cole = 0;
