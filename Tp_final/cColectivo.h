@@ -27,7 +27,6 @@ public:
     cRecorrido get_recorrido();
 
     cSistemaDePagos get_sistema_de_pagos();
-
     string get_GPS();
 
     void llegarParada();
@@ -39,6 +38,11 @@ public:
    void set_colectivero(cColectivero* colectivero);
 
    void set_fecha_mantenimiento(cFecha* fecha);
+
+   void set_recorrido(cRecorrido* r);
+
+   void set_sistema_de_pagos(cSistemaDePagos* sdp);
+
 
    bool control_sentido_pasajero(cPasajeros* pasajero);
 

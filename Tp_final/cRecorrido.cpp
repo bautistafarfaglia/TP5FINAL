@@ -5,6 +5,12 @@ cRecorrido::cRecorrido(string id_recorrido) : codigo_recorrido(codigo_recorrido)
     vector<cParada*> ParadasAux; 
     this->listaParada = ParadasAux;
 }
+cRecorrido::~cRecorrido() {
+    for (int i = 0; i < listaParada.size(); i++)
+    {
+        delete& listaParada[i];
+    }
+}
 
 string cRecorrido::get_codigo_recorrido() {
     return this->codigo_recorrido;
@@ -44,12 +50,11 @@ istream& operator>>(istream& is, cRecorrido& re)
     cout << "cantidad de paradas a agregar:" << endl;
     is >> pos; 
     cParada* paradaaux;
-    re.listaParada.resize(pos);
     for (int i = 0; i < pos; i++) {
         int cant = re.get_cantidad_paradas() + i;
         paradaaux = new cParada();
         is >> *paradaaux;
-        re.listaParada[i] = paradaaux; 
+        re.listaParada.push_back(paradaaux); 
     }
     int cal = 0;
     return is;

@@ -9,12 +9,7 @@
 class cRecorrido {
 public:
     cRecorrido(string id_recorrido = "none");
-    ~cRecorrido() {
-        for (int i = 0; i < listaParada.size(); i++)
-        {
-            delete& listaParada[i];
-        }
-    };
+    ~cRecorrido();
 
     string get_codigo_recorrido();
 

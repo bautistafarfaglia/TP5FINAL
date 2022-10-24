@@ -32,6 +32,16 @@ this->cantidad_max_pasajeros=cantidad_max_pasajeros;
         return *(this->sistema_de_pagos);
     }
 
+    void cColectivo::set_recorrido(cRecorrido* r)
+    {
+        this->recorrido = r;
+    }
+
+    void cColectivo::set_sistema_de_pagos(cSistemaDePagos* sdp)
+    {
+        this->sistema_de_pagos = sdp;
+    }
+
 
     string cColectivo::get_GPS() {
         return this->GPS;
