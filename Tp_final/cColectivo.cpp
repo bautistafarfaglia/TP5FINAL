@@ -3,8 +3,7 @@
 unsigned long cColectivo::cantidad_de_colectivos = 0;
 short int cColectivo::max_id = 1;
 
-
-    cColectivo::cColectivo(short id_colectivo, cColectivero* colectivero, cSistemaDePagos* sistema_de_pagos, cRecorrido* _recorrido, unsigned int pos_del_recorrido, string GPS, eSentidoRecorrido sentido, const short int cantidad_max_pasajeros, int num_colectivo) : id_colectivo(++max_id) {
+    cColectivo::cColectivo(cColectivero* colectivero, cSistemaDePagos* sistema_de_pagos, cRecorrido* _recorrido, unsigned int pos_del_recorrido, string GPS, eSentidoRecorrido sentido, short int cantidad_max_pasajeros, int num_colectivo) : id_colectivo(++max_id) {
 this->estado_operativo = true;
 this->fecha_ultimo_mantenimiento = new cFecha(0, 0);
 this->colectivero = colectivero;

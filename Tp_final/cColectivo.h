@@ -10,15 +10,15 @@
 class cColectivo {
 public:
 
-    cColectivo(short id_colectivo, cColectivero* colectivero,
+    cColectivo(cColectivero* colectivero,
         cSistemaDePagos* sistema_de_pagos, cRecorrido* _recorrido, unsigned int pos_del_recorrido, 
-        string GPS, eSentidoRecorrido sentido, const short int cantidad_max_pasajeros, int num_colectivo);
+        string GPS, eSentidoRecorrido sentido, short int cantidad_max_pasajeros, int num_colectivo);
     ~cColectivo() {
         for (int i = 0; i < listaPasajeros.size(); i++)
         {
             delete& listaPasajeros[i];
         }
-    };
+    }
 
     short int get_id_colectivo();
 

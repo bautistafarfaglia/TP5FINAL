@@ -11,7 +11,7 @@
 class cColectivoSinAire : public cColectivo {
 public:
 
-    cColectivoSinAire(string id_Colectivo,cColectivero* colectivero, cSistemaDePagos* sistema_de_pagos, cRecorrido* recorrido, unsigned int pos_del_recorrido, string GPS, eSentidoRecorrido sentido, const short int cantidad_max_pasajeros, int num_colectivo);
+    cColectivoSinAire(cColectivero* colectivero, cSistemaDePagos* sistema_de_pagos, cRecorrido* recorrido, unsigned int pos_del_recorrido, string GPS, eSentidoRecorrido sentido, short int cantidad_max_pasajeros, int num_colectivo);
     ~cColectivoSinAire() {};
 
     virtual void averia() = 0;

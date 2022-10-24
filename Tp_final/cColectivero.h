@@ -8,7 +8,7 @@
 
 class cColectivero : public cPersona {
 public:
-    cColectivero(string nombre = "ninguno", string DNI = "none", const string legajo = "none");
+    cColectivero(string nombre = "ninguno", string DNI = "none", string legajo = "none");
     ~cColectivero() {};
 
     string get_legajo();
@@ -16,9 +16,10 @@ public:
 
     string to_string_colectivero();
 
+    friend istream& operator>>(istream& is, cColectivero& cole);
 private:
 
-    string const legajo;
+    string legajo;
     static unsigned int cantidad_de_colectiveros;
 };
 

@@ -1,7 +1,9 @@
 #include "cRecorrido.h"
 
 
-cRecorrido::cRecorrido(string id_recorrido ="none") : codigo_recorrido(codigo_recorrido) {
+cRecorrido::cRecorrido(string id_recorrido) : codigo_recorrido(codigo_recorrido) {
+    vector<cParada*> ParadasAux; 
+    this->listaParada = ParadasAux;
 }
 
 string cRecorrido::get_codigo_recorrido() {
@@ -41,10 +43,15 @@ istream& operator>>(istream& is, cRecorrido& re)
     cout << "Ingrese los datos del recorrido:" << endl;
     cout << "cantidad de paradas a agregar:" << endl;
     is >> pos; 
+
+    cParada* paradaaux;
     re.get_lista_paradas().resize(pos);//chequear el rezise
-    for (int i = 1; i < pos+1; i++) {
-        re.get_lista_paradas()[re.get_cantidad_paradas() + i] = new cParada(); //revisar este codigo, algo estaba mal no me acuerdo 
-        is >> *(re.get_lista_paradas()[re.get_cantidad_paradas() + i]);
+    for (int i = 0; i < pos; i++) {
+        int cant = re.get_cantidad_paradas() + i;
+        paradaaux = new cParada();
+        is >> *paradaaux;
+        re.get_lista_paradas().push_back(paradaaux); //revisar este codigo, algo estaba mal no me acuerdo
+        cout << re.get_lista_paradas().data(); //chequear como que no me toma la direccion de memoria del vector lista y no puedo acceder a ningun dato del mismo, 
     }
     return is;
 }

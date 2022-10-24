@@ -1,8 +1,9 @@
 #include "cColectivero.h"
 
-cColectivero::cColectivero(string nombre, string DNI, const string legajo) : legajo(legajo) {
+cColectivero::cColectivero(string nombre, string DNI, string legajo){
     this->nombre = nombre;
     this->DNI = DNI;
+	this->legajo = legajo;
 }
 
 
@@ -23,4 +24,18 @@ string cColectivero::to_string_colectivero() {
 		<< "Legajo: " << this->legajo<< " metros" << endl;
 	
 	return ss.str();
+}
+
+istream& operator>>(istream& is, cColectivero& cole)
+{
+
+	cout << "Ingrese los datos del colectivero:" << endl;
+	cout << "Colectivero DNI" << endl;
+	is >> cole.DNI;
+	cout << "Nombre" << endl;
+	is >> cole.nombre;
+	cout << "Legajo" << endl;
+	is >> cole.legajo;
+
+	return is;
 }

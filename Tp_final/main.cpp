@@ -36,8 +36,9 @@ cColectivoAcordeon* generar_cColectivo_Acordeon(){
     cColectivero* vero = new cColectivero();
     cSistemaDePagos* pagos = new cSistemaDePagos();
     cRecorrido* recorrido = new cRecorrido();
+	vector<cParada*> lista;
+	
     cin >> *vero;
-    cin >> *pagos;
     cin >> *recorrido;
 
 
