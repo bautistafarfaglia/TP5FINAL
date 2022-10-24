@@ -24,8 +24,8 @@ this->cantidad_max_pasajeros=cantidad_max_pasajeros;
         return this->estado_operativo;
     }
 
-    cRecorrido cColectivo::get_recorrido() {
-        return *(this->recorrido);
+    cRecorrido* cColectivo::get_recorrido() {
+        return this->recorrido;
     }
 
     cSistemaDePagos cColectivo::get_sistema_de_pagos() {
@@ -211,7 +211,7 @@ this->cantidad_max_pasajeros=cantidad_max_pasajeros;
         cole.estado_operativo = estado;
         cout << "GPS:" << endl;
         is >> cole.GPS;
-        cout << "Establecer sentido: Arriba = 1, Abajo = 2" << endl;
+        cout << "Establecer sentido: Arriba = 0, Abajo = 1" << endl;
         int val = -1;
         is >> val;
         if (val == 0) {

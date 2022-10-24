@@ -22,16 +22,20 @@ int main() {
 	//journey->agregar_paradas_recorrido(p1);
 	//journey->agregar_paradas_recorrido(p2);
 
-	/*cColectivoAcordeon* cole = new cColectivoAcordeon("194",andrew,sistem,journey,0,"caba",Arriba,10,45);
+	/*este codigo dejo de ser necesario debido a que la automatizacion de los colectivos ya es efectiva
+	cColectivoAcordeon* cole = new cColectivoAcordeon("194",andrew,sistem,journey,0,"caba",Arriba,10,45);
 	cole->avanzar_recorrido();	
-	cole->avanzar_recorrido();*/ //este codigo dejo de ser necesario debido a que la automatizacion de los colectivos ya es efectiva
+	cole->avanzar_recorrido();*/ 
     cColectivoAcordeon* cc =generar_cColectivo_Acordeon();
-	cc->get_recorrido().get_lista_paradas()[0]->agregar_pasajero(uno); //chequear a la hora de ingresar el pasajero porque se ejecuta la eliminacion de una parada 
-	cc->get_recorrido().get_lista_paradas()[0]->agregar_pasajero(dos);
+	//seccion de codigo para agregar un pasajero a una parada la cual es utilizada por algun colectivo
+	vector <cParada*> vec= cc->get_recorrido()->get_lista_paradas();
+	vec[0]->agregar_pasajero(uno);
+	vec[0]->agregar_pasajero(dos);
+	
 	cc->avanzar_recorrido();
 	cc->avanzar_recorrido();
-	//chequear la eliminacion de todos los datos al terminar el codigo
-
+	//chequear si esta bien la eliminacion de todos los datos al terminar el codigo
+	delete cc;
 }
 
 

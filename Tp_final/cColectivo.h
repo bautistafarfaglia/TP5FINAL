@@ -24,7 +24,7 @@ public:
 
     bool get_estado_operativo();
 
-    cRecorrido get_recorrido();
+    cRecorrido* get_recorrido();
 
     cSistemaDePagos get_sistema_de_pagos();
     string get_GPS();
