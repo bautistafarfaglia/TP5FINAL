@@ -10,9 +10,7 @@ class cLineaDeColectivos {
     cColectivoConAireYDireccionElectrica* generar_cColectivo_ConAire_y_DireccionElectrica();
     cColectivoSinAire* generar_cColectivo_sinAire();
 public:
-
-    cLineaDeColectivos();
-    cLineaDeColectivos(string IDColectivo, string NombreLinea);
+    cLineaDeColectivos(string NombreLinea="none");
     ~cLineaDeColectivos() {
         for (int i = 0; i < listaColectivos.size(); i++)
         {
@@ -34,7 +32,8 @@ public:
 
 
 protected:
-    string IDLineaDeColectivos;
+    const int IDLineaDeColectivos;
+    static int Max_id;
     string NombreDeLinea;
     vector<cColectivo*> listaColectivos;
     vector<cRecorrido*> listaRecorrido;

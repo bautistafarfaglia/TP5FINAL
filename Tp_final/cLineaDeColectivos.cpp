@@ -1,15 +1,10 @@
 #include "cLineaDeColectivos.h"
 
+int cLineaDeColectivos::Max_id = 0;
 
-cLineaDeColectivos::cLineaDeColectivos() {
-    this->IDLineaDeColectivos = "None";
-    this->NombreDeLinea = "None";
-}
-
-cLineaDeColectivos::cLineaDeColectivos(string IDColectivo,string NombreLinea) {
-    this->IDLineaDeColectivos = IDColectivo; 
+cLineaDeColectivos::cLineaDeColectivos(string NombreLinea) :IDLineaDeColectivos(Max_id++) {
     this->NombreDeLinea = NombreLinea; 
-    //faltan las listas
+    //chequear la incializacion de las listas
 }
 
 void cLineaDeColectivos::TICK() {
@@ -28,13 +23,16 @@ string cLineaDeColectivos::ToStringLineaDeColectivos() {
 
 
 void cLineaDeColectivos::Imprimir() {
-    return;
+	for (int i = 0; i < this->listaColectivos.size(); i++) {
+		this->listaColectivos[i]->imprimir();
+	}
 }
 
 void cLineaDeColectivos::generarcColectivo(string tipo)
 {
 	if (tipo == "Acordeon") {
 		this->listaColectivos.push_back(this->generar_cColectivo_Acordeon());
+		
 	}
 	else if (tipo == "Con aire") {
 		this->listaColectivos.push_back(this->generar_cColectivo_ConAire_y_DireccionElectrica());

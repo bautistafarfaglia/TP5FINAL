@@ -56,9 +56,18 @@ string cParada::to_string_parada() {
 		<< "N° Total Paradas: " << this->cant_total_paradas<< endl;
 
 		ss << "-----------------------------" << endl
-			<< "Numeros Colectivos: " << this->listaNumerosColectivos.data();
+			<< "Numeros Colectivos: ";
+		for (int i = 0; i < this->listaNumerosColectivos.size(); i++) {
+			ss << this->listaNumerosColectivos[i];
+			ss << endl;
+			}
+			
 		ss << "-----------------------------" << endl
-			<< "lista Pasajeros: " << this->listaPasajeros.data();
+			<< "lista Pasajeros en parada: ";
+		for (int i = 0; i < this->listaPasajeros.size(); i++) {
+			ss << this->listaPasajeros[i]->to_string_pasajero();
+			ss << endl;
+		}
 	return ss.str();
 }
 

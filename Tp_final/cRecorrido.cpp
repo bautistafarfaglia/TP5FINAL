@@ -35,11 +35,16 @@ void cRecorrido::agregar_paradas_recorrido(cParada* parada) {
 }
 
 string cRecorrido::to_string_recorrido() {
-    this->imprimir();
-    return "impreso";
+    stringstream ss;
+    
+    for (int i = 0; i < this->listaParada.size(); i++) {
+        ss << endl;
+        ss << this->listaParada[i]->to_string_parada();
+    }
+    return ss.str();
 }
 void cRecorrido::imprimir() {
-    cout << this->listaParada.data();
+    cout << this->to_string_recorrido();
 }
 
 istream& operator>>(istream& is, cRecorrido& re)

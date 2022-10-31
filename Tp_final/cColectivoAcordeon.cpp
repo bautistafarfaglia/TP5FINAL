@@ -21,7 +21,9 @@ void cColectivoAcordeon::averia() {
 string cColectivoAcordeon::to_string_colectivo() {
 	stringstream ss;
 	ss << "colectivero: " << this->colectivero->to_string_colectivero() << endl
+		<< endl
 		<< "Recorrido: " << this->recorrido->to_string_recorrido() << endl
+		<< endl
 		<< "Posicion del recorrido: " << this->pos_del_recorrido << endl
 		<< "-----------------------------" << endl
 		<< "ID colectivo [" << this->id_colectivo << "]" << endl
@@ -29,11 +31,15 @@ string cColectivoAcordeon::to_string_colectivo() {
 		<< "Estado Operativo: " << this->estado_operativo<< endl
 		<< "Cant actual de pasajeros: " << this->cantidad_actual_pasajeros<< endl
 		<< "Cant Maxima de pasajeros: " << this->cantidad_max_pasajeros << endl
-		<< "Cantidad De colectivos: " << this->cantidad_de_colectivos << endl; 
+		<< "Cantidad De colectivos en circulacion: " << this->cantidad_de_colectivos_en_circulacion<< endl; 
 		return ss.str();
 }
 
 void cColectivoAcordeon::imprimir() {
-    cout << this->to_string_colectivo()<<endl;
-	cout << this->listaPasajeros.data() << endl;
+	cout << this->to_string_colectivo() << endl;
+	cout << "data pasajeros:" << endl;
+	for (int i = 0; i < this->listaPasajeros.size(); i++)
+	{
+		cout << this->listaPasajeros[i]->to_string_pasajero();
+	}
 }
