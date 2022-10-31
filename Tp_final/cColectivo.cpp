@@ -15,6 +15,7 @@ cColectivo::cColectivo(cColectivero* colectivero, cSistemaDePagos* sistema_de_pa
     this->numColectivo = num_colectivo;
     this->cantidad_max_pasajeros = cantidad_max_pasajeros;
     cantidad_de_colectivos_en_circulacion++;
+    this->pos_del_recorrido = 0;
     }
 
     short int cColectivo::get_id_colectivo() {
