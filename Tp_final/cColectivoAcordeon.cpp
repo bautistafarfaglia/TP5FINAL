@@ -9,13 +9,7 @@ cColectivoAcordeon::cColectivoAcordeon(cColectivero* colectivero, cSistemaDePago
 
 }
 
-cColectivoAcordeon::~cColectivoAcordeon()
-{
-	delete this->recorrido;
-	delete[]& this->listaPasajeros; 
-	delete this->sistema_de_pagos;
-	delete this->colectivero;
-	delete this->fecha_ultimo_mantenimiento;
+cColectivoAcordeon::~cColectivoAcordeon(){
 }
 
 

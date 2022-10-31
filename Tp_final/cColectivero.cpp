@@ -20,8 +20,8 @@ string cColectivero::to_string_colectivero() {
 
 	ss << "-----------------------------" << endl
 		<< "Colectivero DNI [" << this->DNI << "]" << endl
-		<< "Nombre: " << this->nombre<< " metros" << endl
-		<< "Legajo: " << this->legajo<< " metros" << endl;
+		<< "Nombre: " << this->nombre << endl
+		<< "Legajo: " << this->legajo << endl;
 	
 	return ss.str();
 }

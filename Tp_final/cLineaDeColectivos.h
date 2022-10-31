@@ -1,8 +1,14 @@
 #pragma once
 #include "Gbl.h"
 #include "cColectivo.h"
+#include "cColectivoAcordeon.h"
+#include "cColectivoSinAire.h"
 #include "cRecorrido.h"
 class cLineaDeColectivos {
+
+    cColectivoAcordeon* generar_cColectivo_Acordeon();
+    cColectivoConAireYDireccionElectrica* generar_cColectivo_ConAire_y_DireccionElectrica();
+    cColectivoSinAire* generar_cColectivo_sinAire();
 public:
 
     cLineaDeColectivos();
@@ -23,6 +29,10 @@ public:
     string ToStringLineaDeColectivos();
 
     void Imprimir();
+
+    void generarcColectivo(string tipo);
+
+
 protected:
     string IDLineaDeColectivos;
     string NombreDeLinea;

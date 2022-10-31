@@ -110,7 +110,7 @@ this->cantidad_max_pasajeros=cantidad_max_pasajeros;
                }
             }
         }
-        this->bajar_pasajeros(this->recorrido->get_lista_paradas()[pos_del_recorrido]->get_nombre_parada());
+        //this->bajar_pasajeros(this->recorrido->get_lista_paradas()[pos_del_recorrido]->get_nombre_parada());
     }/* codigo sin terminar y revisar
         for (unsigned int PosPasajerosParada = 0; PosPasajerosParada < (*Recorrido->GetListaParadas())[PosDelRecorrido]->GetListaPasajeros()->GetCantidadActual(); PosPasajerosParada++) {
             if (ListaPasajeros->GetCantidadActual() < ListaPasajeros->GetCantidadMaxima()) {
