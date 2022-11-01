@@ -24,7 +24,7 @@
 		 << "Estado Operativo: " << this->estado_operativo << endl
 		 << "Cant actual de pasajeros: " << this->cantidad_actual_pasajeros << endl
 		 << "Cant Maxima de pasajeros: " << this->cantidad_max_pasajeros << endl
-		 << "Cantidad De colectivos: " << this->cantidad_de_colectivos << endl;
+		 << "Cantidad De colectivos en circulacion: " << this->cantidad_de_colectivos_en_circulacion << endl;
 	 return ss.str();
  }
 

@@ -14,10 +14,16 @@ public:
         cSistemaDePagos* sistema_de_pagos, cRecorrido* _recorrido, unsigned int pos_del_recorrido, 
         string GPS, eSentidoRecorrido sentido, short int cantidad_max_pasajeros, int num_colectivo);
     ~cColectivo() {
+        cantidad_de_colectivos_en_circulacion--;
         for (int i = 0; i < listaPasajeros.size(); i++)
         {
             delete& listaPasajeros[i];
         }
+        delete this->recorrido;
+        delete[] & this->listaPasajeros;
+        delete this->sistema_de_pagos;
+        delete this->colectivero;
+        delete this->fecha_ultimo_mantenimiento;
     }
 
     short int get_id_colectivo();
@@ -70,7 +76,7 @@ protected:
     short const id_colectivo;
     static short int max_id;
     unsigned int numColectivo;
-    static unsigned long int cantidad_de_colectivos;
+    static unsigned long int cantidad_de_colectivos_en_circulacion; //chequear para que servía esta cantidad de colectivos
     bool estado_operativo;
     cFecha* fecha_ultimo_mantenimiento;
     cColectivero* colectivero;

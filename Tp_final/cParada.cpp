@@ -23,6 +23,11 @@ string cParada::get_id_parada() {
     return this->id_parada;
 }
 
+/// <summary>
+/// Este metodo agrupa a los pasajeros que se suben a x coletivo
+/// </summary>
+/// <param name="num"></param>
+/// <returns>Devuelve un con quienes se van a subir </returns>
 vector<cPasajeros*> cParada::pasajeros_suben_colectivo(int num){
 	vector<cPasajeros*> aux;
 	for (int i = 0; i < this->listaPasajeros.size(); i++) {
@@ -49,11 +54,20 @@ string cParada::to_string_parada() {
 		<< "Nombre Parada: " << this->nombre_parada << endl
 		<< "Direccion: " << this->direccion << endl
 		<< "N° Total Paradas: " << this->cant_total_paradas<< endl;
-
 		ss << "-----------------------------" << endl
-			<< "Numeros Colectivos: " << this->listaNumerosColectivos.data();
+			<< "Numeros Colectivos: ";
+		for (int i = 0; i < this->listaNumerosColectivos.size(); i++) {
+			ss << endl;
+			ss << this->listaNumerosColectivos[i];
+			ss << endl;
+		}
 		ss << "-----------------------------" << endl
-			<< "lista Pasajeros: " << this->listaPasajeros.data();
+			<< "lista Pasajeros en parada: ";
+		for (int i = 0; i < this->listaPasajeros.size(); i++) {
+			ss << endl;
+			ss << this->listaPasajeros[i]->to_string_pasajero();
+			ss << endl;
+		}
 	return ss.str();
 }
 
