@@ -10,6 +10,7 @@
 cColectivoAcordeon* generar_cColectivo_Acordeon();
 cColectivoConAireYDireccionElectrica* generar_cColectivo_ConAire_y_DireccionElectrica();
 cColectivoSinAire* generar_cColectivo_sinAire();
+
 int main() {
 	cColectivero* andrew = new cColectivero("andre2", "12345678", "45");
 	cSistemaDePagos* sistem = new cSistemaDePagos(0,0);
