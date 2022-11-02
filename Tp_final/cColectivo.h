@@ -83,7 +83,7 @@ protected:
     cSistemaDePagos* sistema_de_pagos;
     cRecorrido* recorrido;
     vector<cPasajeros*> listaPasajeros;
-    unsigned int pos_del_recorrido;
+    int pos_del_recorrido;
     string GPS;
     eSentidoRecorrido sentido;
     unsigned short int cantidad_max_pasajeros;
