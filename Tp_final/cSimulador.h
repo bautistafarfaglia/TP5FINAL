@@ -1,6 +1,6 @@
 #pragma once
 #include "Gbl.h"
-#include "cParada.h"
+#include "cLineaDeColectivos.h"
 
 #ifndef _CSIMULADOR_H
 #define _CSIMULADOR_H
@@ -10,11 +10,10 @@ public:
 
     cSimulador();
 
-    cParada generar_parada(cListaParadas* lista_global_paradas);
+    cParada generar_parada(cRecorrido* lista_global_paradas);
 
     void agregar_paradas_recorrido(cRecorrido* recorrido_a, cRecorrido* recorrido_b,cRecorrido* recorrido_c, cListaParadas* lista_global_paradas);
-  
-    void generar_colectiveros(cListaTemplate cColectivero* lista_colectiveros);
+    void generar_colectiveros(cColectivero* lista_colectiveros); //chequear como hacemos esto
 
     void generar_colectivos(cListaColectivos* lista_colectiveros);
 
