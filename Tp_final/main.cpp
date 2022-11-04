@@ -89,40 +89,24 @@ int main() {
 	//cParada* p39 = new cParada("119", "calle9", Abajo);
 	//cParada* p40 = new cParada("120", "calle10", Abajo);
 
-
-	//cRecorrido* journey = new cRecorrido("1");
-	/*p1->agregar_pasajero(uno);
-	p1->agregar_pasajero(dos);*/
-
-	//journey->agregar_paradas_recorrido(p1);
-	//journey->agregar_paradas_recorrido(p2);
-	//cColectivoAcordeon* cole = new cColectivoAcordeon("194", andrew, sistem, journey, 0, "caba", Arriba, 10, 45);
-
-	/* este codigo dejo de ser necesario debido a que la automatizacion de los colectivos ya es efectiva
 	
-	cPasajeros* uno = new cPasajeros("eick", "43570175", "guatemala", false, 100, 15);
-	cPasajeros* dos = new cPasajeros("sam", "44274165", "callao", false, 100, 15);
-	*/
-	
-	//cColectivoAcordeon* cc = generar_cColectivo_Acordeon();
-	//seccion de codigo para agregar un pasajero a una parada la cual es utilizada por algun colectivo
-	//vector <cParada*> vec = cc->get_recorrido()->get_lista_paradas();
-	//vec[0]->agregar_pasajero(uno);
-	//vec[0]->agregar_pasajero(dos);
-
-	//cc->avanzar_recorrido();
-	//cc->avanzar_recorrido();
-	//cc->imprimir();
-
-
-	cLineaDeColectivos* cl = new cLineaDeColectivos("sancosur");
-	cl->generarcColectivo("Acordeon");
-
-	cPasajeros* uno = new cPasajeros("eick", "43570175", "guatemala", false, 100, 15);
-	cPasajeros* dos = new cPasajeros("sam", "44274165", "callao", false, 100, 15);
-	cl->Imprimir();
-	//delete cc;//chequear la eliminacion de datos, no esta bien la 
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 /// <summary>
@@ -220,3 +204,59 @@ cColectivoSinAire* generar_cColectivo_sinAire() {
 //    //cole = new cColectivo(vero, pagos, recorrido, pos, gps, sent, cantidad_max_pasajeros, num_cole);
 //    return is;
 //}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	//cRecorrido* journey = new cRecorrido("1");
+	/*p1->agregar_pasajero(uno);
+	p1->agregar_pasajero(dos);*/
+
+	//journey->agregar_paradas_recorrido(p1);
+	//journey->agregar_paradas_recorrido(p2);
+	//cColectivoAcordeon* cole = new cColectivoAcordeon("194", andrew, sistem, journey, 0, "caba", Arriba, 10, 45);
+
+	/* este codigo dejo de ser necesario debido a que la automatizacion de los colectivos ya es efectiva
+
+	cPasajeros* uno = new cPasajeros("eick", "43570175", "guatemala", false, 100, 15);
+	cPasajeros* dos = new cPasajeros("sam", "44274165", "callao", false, 100, 15);
+	*/
+
+	//cColectivoAcordeon* cc = generar_cColectivo_Acordeon();
+	//seccion de codigo para agregar un pasajero a una parada la cual es utilizada por algun colectivo
+	//vector <cParada*> vec = cc->get_recorrido()->get_lista_paradas();
+	//vec[0]->agregar_pasajero(uno);
+	//vec[0]->agregar_pasajero(dos);
+
+	//cc->avanzar_recorrido();
+	//cc->avanzar_recorrido();
+	//cc->imprimir();
+    //cLineaDeColectivos* cl = new cLineaDeColectivos("sancosur");
+    //cl->generarcColectivo("Acordeon");
+    //
+    //cPasajeros* uno = new cPasajeros("eick", "43570175", "guatemala", false, 100, 15);
+    //cPasajeros* dos = new cPasajeros("sam", "44274165", "callao", false, 100, 15);
+    //cl->Imprimir();
+    //delete cc;//chequear la eliminacion de datos, no esta bien la 
