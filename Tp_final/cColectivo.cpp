@@ -80,12 +80,24 @@ cColectivo::cColectivo(cColectivero* colectivero,
     }
 
     int cColectivo::calcular_distancia(cPasajeros* pasajero) {
+        int cont = 0;
+        bool flag = false;
         for (int i = 0; i < this->get_recorrido()->get_cantidad_paradas(); i++)
         {
-            if (pasajero->)
-            {
 
+            if (this->recorrido->get_lista_paradas()[pos_del_recorrido] == this->recorrido->get_lista_paradas()[i])  //chequear operator
+            {
+                flag = true;
             }
+
+            if (flag == true) cont++;
+
+            if (this->recorrido->get_lista_paradas()[i] == pasajero->get_destino()) 
+            {
+                return cont;
+            }
+            
+            // if (cont==0) chequear el handle de la exception, porque o no esta en el recorrido, o es la misma parada
         }
        }
 
@@ -187,7 +199,7 @@ cColectivo::cColectivo(cColectivero* colectivero,
     void cColectivo::cobrar_boleto(cPasajeros * nuevo_pasajero) {
         //calcular la cantidad de paradas con 2 strings
         this->sistema_de_pagos->generar_viaje(this->recorrido->get_lista_paradas()[this->pos_del_recorrido]->get_nombre_parada(), 
-                                              nuevo_pasajero->get_destino(), hacerahora, nuevo_pasajero->get_tarjeta_pasajero());
+                                              nuevo_pasajero->get_destino(), 3, nuevo_pasajero->get_tarjeta_pasajero());
     }
 
     void cColectivo::cambio_de_sentido_recorrido() {

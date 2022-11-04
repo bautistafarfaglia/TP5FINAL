@@ -14,7 +14,7 @@ cColectivoSinAire* generar_cColectivo_sinAire();
 
 int main() {
 	
-	cLineaDeColectivos* linea;
+	cLineaDeColectivos* linea= new cLineaDeColectivos("linea");
 
 	#pragma region recorridos, paradas y personas
 
