@@ -80,12 +80,24 @@ cColectivo::cColectivo(cColectivero* colectivero,
     }
 
     int cColectivo::calcular_distancia(cPasajeros* pasajero) {
+        int cont = 0;
+        bool flag = false;
         for (int i = 0; i < this->get_recorrido()->get_cantidad_paradas(); i++)
         {
-            if (pasajero->)
-            {
 
+            if (this->recorrido->get_lista_paradas()[pos_del_recorrido] == this->recorrido->get_lista_paradas()[i])  //chequear operator
+            {
+                flag = true;
             }
+
+            if (flag == true) cont++;
+
+            if (this->recorrido->get_lista_paradas()[i] == pasajero->get_destino()) 
+            {
+                return cont;
+            }
+            
+            // if (cont==0) chequear el handle de la exception, porque o no esta en el recorrido, o es la misma parada
         }
        }
 

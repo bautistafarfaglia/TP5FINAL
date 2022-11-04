@@ -22,6 +22,8 @@ public:
         }
     };
 
+    void agregar_peronas(cPasajeros* persona);
+
     void TICK();
 
     string ToStringLineaDeColectivos();
@@ -51,6 +53,7 @@ protected:
     string NombreDeLinea;
     vector<cColectivo*> listaColectivos;
     vector<cRecorrido*> listaRecorrido;
+    vector<cPasajeros*> listaPasajeros;
 };
 
 //#endif _CLINEADECOLECTIVOS_H

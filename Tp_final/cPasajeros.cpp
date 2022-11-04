@@ -1,10 +1,10 @@
 #include "cPasajeros.h"
 
 
-cPasajeros::cPasajeros(string nombre, string _DNI, string destino, bool tiene_una_discapacidad, float saldo, int numcolectivo){
+cPasajeros::cPasajeros(string nombre, string _DNI, cParada* destino, bool tiene_una_discapacidad, float saldo, int numcolectivo){
     this->nombre = nombre;
     this->DNI = DNI;
-    this->destino = destino;
+    this->destino = NULL;
     this->tiene_una_discapacidad = tiene_una_discapacidad;
     this->num_colectivo = numcolectivo;
     this->tarjeta_pasajero= new cTarjeta(saldo,true,20);//chequear este 100 en el constructor de cTarjeta
@@ -21,7 +21,7 @@ cTarjeta* cPasajeros::get_tarjeta_pasajero() {
     return (this->tarjeta_pasajero);
 }
 
-string cPasajeros::get_destino() {
+cParada* cPasajeros::get_destino() {
     return this->destino;
 }
 string cPasajeros::get_DNI() {
@@ -50,3 +50,4 @@ string cPasajeros::to_string_pasajero() {
 void cPasajeros::imprimir() {
     return;
 }
+
