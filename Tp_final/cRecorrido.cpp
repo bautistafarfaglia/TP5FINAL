@@ -47,6 +47,11 @@ void cRecorrido::imprimir() {
     cout << this->to_string_recorrido();
 }
 
+int cRecorrido::getcantParadas()
+{
+    return this->listaParada.size();
+}
+
 istream& operator>>(istream& is, cRecorrido& re)
 {
     int pos = 0;

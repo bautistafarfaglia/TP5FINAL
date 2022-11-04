@@ -23,6 +23,7 @@ public:
     vector<cParada*> get_lista_paradas();
     friend istream& operator>>(istream& is, cRecorrido& re);
     void imprimir();
+    int getcantParadas();
 private:
     const string codigo_recorrido;
     vector<cParada*> listaParada;
