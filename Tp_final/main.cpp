@@ -13,12 +13,12 @@ cColectivoConAireYDireccionElectrica* generar_cColectivo_ConAire_y_DireccionElec
 cColectivoSinAire* generar_cColectivo_sinAire();
 
 int main() {
-	//cColectivero* andrew = new cColectivero("andre2", "12345678", "45");
-	//cSistemaDePagos* sistem = new cSistemaDePagos(0, 0);
 	
-	#pragma region recorridos y paradas
+	cLineaDeColectivos* linea;
 
-	cParada* p1 = new cParada("101", "calle1", Arriba); //chequear de usar el sentido de la parada para filtrar a los pasajeros
+	#pragma region recorridos, paradas y personas
+
+	cParada* p1 = new cParada("101", "calle1", Arriba); 
 	cParada* p2 = new cParada("102", "calle2", Arriba);
 	cParada* p3 = new cParada("103", "calle3", Arriba);
 	cParada* p4 = new cParada("104", "calle4", Arriba);
@@ -64,7 +64,7 @@ int main() {
 	rec2.agregar_paradas_recorrido(p19);
 	rec2.agregar_paradas_recorrido(p20);
 
-	cParada* p21 = new cParada("201", "calle51", Arriba); //chequear de usar el sentido de la parada para filtrar a los pasajeros
+	cParada* p21 = new cParada("201", "calle51", Arriba); 
 	cParada* p22 = new cParada("202", "calle52", Arriba);
 	cParada* p23 = new cParada("203", "calle53", Arriba);
 	cParada* p24 = new cParada("204", "calle54", Arriba);
@@ -110,7 +110,52 @@ int main() {
 	rec4.agregar_paradas_recorrido(p39);
 	rec4.agregar_paradas_recorrido(p40);
 
+	cPasajeros* h1 = new cPasajeros("humano1", "10000001", "", false, 100, NULL); //chequear asignar personas random a las paradas
+	cPasajeros* h2 = new cPasajeros("humano2", "10000002", "", false, 100, NULL);
+	cPasajeros* h3 = new cPasajeros("humano3", "10000003", "", false, 100, NULL);
+	cPasajeros* h4 = new cPasajeros("humano4", "10000004", "", false, 100, NULL);
+	cPasajeros* h5 = new cPasajeros("humano5", "10000005", "", false, 100, NULL);
+	cPasajeros* h6 = new cPasajeros("humano6", "10000006", "", false, 100, NULL);
+	cPasajeros* h7 = new cPasajeros("humano7", "10000007", "", false, 100, NULL);
+	cPasajeros* h8 = new cPasajeros("humano8", "10000008", "", false, 100, NULL);
+	cPasajeros* h9 = new cPasajeros("humano9", "10000009", "", false, 100, NULL);
+	cPasajeros* h10 = new cPasajeros("humano10", "10000010", "", false, 100, NULL);
+	cPasajeros* h11 = new cPasajeros("humano11", "10000011", "", false, 100, NULL);
+	cPasajeros* h12 = new cPasajeros("humano12", "10000012", "", false, 100, NULL);
+	cPasajeros* h13 = new cPasajeros("humano13", "10000013", "", false, 100, NULL);
+	cPasajeros* h14 = new cPasajeros("humano14", "10000014", "", false, 100, NULL);
+	cPasajeros* h15 = new cPasajeros("humano15", "10000015", "", false, 100, NULL);
+	cPasajeros* h16 = new cPasajeros("humano16", "10000016", "", false, 100, NULL);
+	cPasajeros* h17 = new cPasajeros("humano17", "10000017", "", false, 100, NULL);
+	cPasajeros* h18 = new cPasajeros("humano18", "10000018", "", false, 100, NULL);
+	cPasajeros* h19 = new cPasajeros("humano19", "10000019", "", false, 100, NULL);
+	cPasajeros* h20 = new cPasajeros("humano20", "10000020", "", false, 100, NULL);
+
+	linea->agregar_peronas(h1);
+	linea->agregar_peronas(h2);
+	linea->agregar_peronas(h3);
+	linea->agregar_peronas(h4);
+	linea->agregar_peronas(h5);
+	linea->agregar_peronas(h6);
+	linea->agregar_peronas(h7);
+	linea->agregar_peronas(h8);
+	linea->agregar_peronas(h9);
+	linea->agregar_peronas(h10);
+	linea->agregar_peronas(h11);
+	linea->agregar_peronas(h12);
+	linea->agregar_peronas(h13);
+	linea->agregar_peronas(h14);
+	linea->agregar_peronas(h15);
+	linea->agregar_peronas(h16);
+	linea->agregar_peronas(h17);
+	linea->agregar_peronas(h18);
+	linea->agregar_peronas(h19);
+	linea->agregar_peronas(h20);
+
+
 	#pragma endregion
+
+
 
 
 
@@ -254,7 +299,8 @@ cColectivoSinAire* generar_cColectivo_sinAire() {
 
 
 
-
+//cColectivero* andrew = new cColectivero("andre2", "12345678", "45");
+	//cSistemaDePagos* sistem = new cSistemaDePagos(0, 0);
 
 	//cRecorrido* journey = new cRecorrido("1");
 	/*p1->agregar_pasajero(uno);

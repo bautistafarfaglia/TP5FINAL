@@ -6,6 +6,10 @@ cLineaDeColectivos::cLineaDeColectivos(string NombreLinea) :IDLineaDeColectivos(
     this->NombreDeLinea = NombreLinea; 
 }
 
+void cLineaDeColectivos::agregar_peronas(cPasajeros* persona) {
+	this->listaPasajeros.push_back(persona);
+}
+
 void cLineaDeColectivos::TICK() {
     return;
 }
