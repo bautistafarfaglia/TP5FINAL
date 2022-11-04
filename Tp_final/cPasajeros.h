@@ -26,6 +26,8 @@ public:
 
     string to_string_pasajero();
 
+    cParada get_parada();
+
     void imprimir();
 
 protected:

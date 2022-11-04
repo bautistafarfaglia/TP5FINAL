@@ -15,41 +15,98 @@ cColectivoSinAire* generar_cColectivo_sinAire();
 int main() {
 	//cColectivero* andrew = new cColectivero("andre2", "12345678", "45");
 	//cSistemaDePagos* sistem = new cSistemaDePagos(0, 0);
-	//cParada* p1 = new cParada("89", "guatemala", Arriba);//chequear de usar el sentido de la parada para filtrar a los pasajeros
-	//cParada* p2 = new cParada("99", "Av callao", Arriba);
-	//cRecorrido* journey = new cRecorrido("1");
-	/*p1->agregar_pasajero(uno);
-	p1->agregar_pasajero(dos);*/
-
-	//journey->agregar_paradas_recorrido(p1);
-	//journey->agregar_paradas_recorrido(p2);
-	//cColectivoAcordeon* cole = new cColectivoAcordeon("194", andrew, sistem, journey, 0, "caba", Arriba, 10, 45);
-
-	/* este codigo dejo de ser necesario debido a que la automatizacion de los colectivos ya es efectiva
 	
-	cPasajeros* uno = new cPasajeros("eick", "43570175", "guatemala", false, 100, 15);
-	cPasajeros* dos = new cPasajeros("sam", "44274165", "callao", false, 100, 15);
-	*/
+	#pragma region recorridos y paradas
+
+	cParada* p1 = new cParada("101", "calle1", Arriba); //chequear de usar el sentido de la parada para filtrar a los pasajeros
+	cParada* p2 = new cParada("102", "calle2", Arriba);
+	cParada* p3 = new cParada("103", "calle3", Arriba);
+	cParada* p4 = new cParada("104", "calle4", Arriba);
+	cParada* p5 = new cParada("105", "calle5", Arriba);
+	cParada* p6 = new cParada("106", "calle6", Arriba);
+	cParada* p7 = new cParada("107", "calle7", Arriba);
+	cParada* p8 = new cParada("108", "calle8", Arriba);
+	cParada* p9 = new cParada("109", "calle9", Arriba);
+	cParada* p10 = new cParada("110", "calle10", Arriba);
+
+	cRecorrido rec1;
+	rec1.agregar_paradas_recorrido(p1);
+	rec1.agregar_paradas_recorrido(p2);
+	rec1.agregar_paradas_recorrido(p3);
+	rec1.agregar_paradas_recorrido(p4);
+	rec1.agregar_paradas_recorrido(p5);
+	rec1.agregar_paradas_recorrido(p6);
+	rec1.agregar_paradas_recorrido(p7);
+	rec1.agregar_paradas_recorrido(p8);
+	rec1.agregar_paradas_recorrido(p9);
+	rec1.agregar_paradas_recorrido(p10);
+
+	cParada* p11 = new cParada("111", "calle1", Abajo);
+	cParada* p12 = new cParada("112", "calle2", Abajo);
+	cParada* p13 = new cParada("113", "calle3", Abajo);
+	cParada* p14 = new cParada("114", "calle4", Abajo);
+	cParada* p15 = new cParada("115", "calle5", Abajo);
+	cParada* p16 = new cParada("116", "calle6", Abajo);
+	cParada* p17 = new cParada("117", "calle7", Abajo);
+	cParada* p18 = new cParada("118", "calle8", Abajo);
+	cParada* p19 = new cParada("119", "calle9", Abajo);
+	cParada* p20 = new cParada("120", "calle10", Abajo);
+
+	cRecorrido rec2;
+	rec2.agregar_paradas_recorrido(p11);
+	rec2.agregar_paradas_recorrido(p12);
+	rec2.agregar_paradas_recorrido(p13);
+	rec2.agregar_paradas_recorrido(p14);
+	rec2.agregar_paradas_recorrido(p15);
+	rec2.agregar_paradas_recorrido(p16);
+	rec2.agregar_paradas_recorrido(p17);
+	rec2.agregar_paradas_recorrido(p18);
+	rec2.agregar_paradas_recorrido(p19);
+	rec2.agregar_paradas_recorrido(p20);
+
+	#pragma endregion
+
+
+	//cParada* p21 = new cParada("101", "calle30", Arriba); //chequear de usar el sentido de la parada para filtrar a los pasajeros
+	//cParada* p22 = new cParada("102", "calle31", Arriba);
+	//cParada* p23 = new cParada("103", "calle32", Arriba);
+	//cParada* p24 = new cParada("104", "calle33", Arriba);
+	//cParada* p25 = new cParada("105", "calle5", Arriba);
+	//cParada* p26 = new cParada("106", "calle6", Arriba);
+	//cParada* p27 = new cParada("107", "calle7", Arriba);
+	//cParada* p28 = new cParada("108", "calle8", Arriba);
+	//cParada* p29 = new cParada("109", "calle9", Arriba);
+	//cParada* p30 = new cParada("110", "calle10", Arriba);
+	// 
+	//cParada* p31 = new cParada("111", "calle1", Abajo);
+	//cParada* p32 = new cParada("112", "calle2", Abajo);
+	//cParada* p33 = new cParada("113", "calle3", Abajo);
+	//cParada* p34 = new cParada("114", "calle4", Abajo);
+	//cParada* p35 = new cParada("115", "calle5", Abajo);
+	//cParada* p36 = new cParada("116", "calle6", Abajo);
+	//cParada* p37 = new cParada("117", "calle7", Abajo);
+	//cParada* p38 = new cParada("118", "calle8", Abajo);
+	//cParada* p39 = new cParada("119", "calle9", Abajo);
+	//cParada* p40 = new cParada("120", "calle10", Abajo);
+
 	
-	//cColectivoAcordeon* cc = generar_cColectivo_Acordeon();
-	//seccion de codigo para agregar un pasajero a una parada la cual es utilizada por algun colectivo
-	//vector <cParada*> vec = cc->get_recorrido()->get_lista_paradas();
-	//vec[0]->agregar_pasajero(uno);
-	//vec[0]->agregar_pasajero(dos);
-
-	//cc->avanzar_recorrido();
-	//cc->avanzar_recorrido();
-	//cc->imprimir();
-
-
-	cLineaDeColectivos* cl = new cLineaDeColectivos("sancosur");
-	cl->generarcColectivo("Acordeon");
-
-	cPasajeros* uno = new cPasajeros("eick", "43570175", "guatemala", false, 100, 15);
-	cPasajeros* dos = new cPasajeros("sam", "44274165", "callao", false, 100, 15);
-	cl->Imprimir();
-	//delete cc;//chequear la eliminacion de datos, no esta bien la 
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 /// <summary>
@@ -147,3 +204,59 @@ cColectivoSinAire* generar_cColectivo_sinAire() {
 //    //cole = new cColectivo(vero, pagos, recorrido, pos, gps, sent, cantidad_max_pasajeros, num_cole);
 //    return is;
 //}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	//cRecorrido* journey = new cRecorrido("1");
+	/*p1->agregar_pasajero(uno);
+	p1->agregar_pasajero(dos);*/
+
+	//journey->agregar_paradas_recorrido(p1);
+	//journey->agregar_paradas_recorrido(p2);
+	//cColectivoAcordeon* cole = new cColectivoAcordeon("194", andrew, sistem, journey, 0, "caba", Arriba, 10, 45);
+
+	/* este codigo dejo de ser necesario debido a que la automatizacion de los colectivos ya es efectiva
+
+	cPasajeros* uno = new cPasajeros("eick", "43570175", "guatemala", false, 100, 15);
+	cPasajeros* dos = new cPasajeros("sam", "44274165", "callao", false, 100, 15);
+	*/
+
+	//cColectivoAcordeon* cc = generar_cColectivo_Acordeon();
+	//seccion de codigo para agregar un pasajero a una parada la cual es utilizada por algun colectivo
+	//vector <cParada*> vec = cc->get_recorrido()->get_lista_paradas();
+	//vec[0]->agregar_pasajero(uno);
+	//vec[0]->agregar_pasajero(dos);
+
+	//cc->avanzar_recorrido();
+	//cc->avanzar_recorrido();
+	//cc->imprimir();
+    //cLineaDeColectivos* cl = new cLineaDeColectivos("sancosur");
+    //cl->generarcColectivo("Acordeon");
+    //
+    //cPasajeros* uno = new cPasajeros("eick", "43570175", "guatemala", false, 100, 15);
+    //cPasajeros* dos = new cPasajeros("sam", "44274165", "callao", false, 100, 15);
+    //cl->Imprimir();
+    //delete cc;//chequear la eliminacion de datos, no esta bien la 
