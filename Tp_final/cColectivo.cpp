@@ -160,7 +160,7 @@ cColectivo::cColectivo(cColectivero* colectivero,
     }
 
 
-    bool cColectivo::subir_pasajeros(vector<cPasajeros*> nuevos_pasajeros) {
+    bool cColectivo::subir_pasajeros(vector<cPasajeros*> nuevos_pasajeros) { //chequear si podemos acceder sin parametros a la listapasajeros de la parada
         int dif = (this->cantidad_max_pasajeros) - (this->cantidad_actual_pasajeros);
         if (nuevos_pasajeros.size() < dif) {
             for (int i = 0; i< nuevos_pasajeros.size();i++) {
@@ -187,7 +187,7 @@ cColectivo::cColectivo(cColectivero* colectivero,
     void cColectivo::cobrar_boleto(cPasajeros * nuevo_pasajero) {
         //calcular la cantidad de paradas con 2 strings
         this->sistema_de_pagos->generar_viaje(this->recorrido->get_lista_paradas()[this->pos_del_recorrido]->get_nombre_parada(), 
-                                              nuevo_pasajero->get_destino(), 3, nuevo_pasajero->get_tarjeta_pasajero());
+                                              nuevo_pasajero->get_destino(), hacerahora, nuevo_pasajero->get_tarjeta_pasajero());
     }
 
     void cColectivo::cambio_de_sentido_recorrido() {
