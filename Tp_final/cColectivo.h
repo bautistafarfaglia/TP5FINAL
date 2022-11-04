@@ -33,6 +33,7 @@ public:
     cRecorrido* get_recorrido();
 
     cSistemaDePagos get_sistema_de_pagos();
+
     string get_GPS();
 
     void llegarParada();
@@ -68,6 +69,8 @@ public:
    virtual string to_string_colectivo() =0;
 
    virtual void imprimir()=0;
+
+   int calcular_distancia(cPasajeros* pasajero);
 
 
 protected:

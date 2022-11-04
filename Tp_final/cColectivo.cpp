@@ -44,7 +44,6 @@ cColectivo::cColectivo(cColectivero* colectivero,
         this->sistema_de_pagos = sdp;
     }
 
-
     string cColectivo::get_GPS() {
         return this->GPS;
     }
@@ -79,6 +78,16 @@ cColectivo::cColectivo(cColectivero* colectivero,
         }
         return true;
     }
+
+    int cColectivo::calcular_distancia(cPasajeros* pasajero) {
+        for (int i = 0; i < this->get_recorrido()->get_cantidad_paradas(); i++)
+        {
+            if (pasajero->)
+            {
+
+            }
+        }
+       }
 
     void cColectivo::avanzar_recorrido() {
         if (this->sentido == eSentidoRecorrido::Arriba) {
@@ -177,7 +186,8 @@ cColectivo::cColectivo(cColectivero* colectivero,
 
     void cColectivo::cobrar_boleto(cPasajeros * nuevo_pasajero) {
         //calcular la cantidad de paradas con 2 strings
-        this->sistema_de_pagos->generar_viaje(this->recorrido->get_lista_paradas()[this->pos_del_recorrido]->get_nombre_parada(), nuevo_pasajero->get_destino(), 3, nuevo_pasajero->get_tarjeta_pasajero());
+        this->sistema_de_pagos->generar_viaje(this->recorrido->get_lista_paradas()[this->pos_del_recorrido]->get_nombre_parada(), 
+                                              nuevo_pasajero->get_destino(), 3, nuevo_pasajero->get_tarjeta_pasajero());
     }
 
     void cColectivo::cambio_de_sentido_recorrido() {

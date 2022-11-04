@@ -15,8 +15,52 @@ cColectivoSinAire* generar_cColectivo_sinAire();
 int main() {
 	//cColectivero* andrew = new cColectivero("andre2", "12345678", "45");
 	//cSistemaDePagos* sistem = new cSistemaDePagos(0, 0);
-	//cParada* p1 = new cParada("89", "guatemala", Arriba);//chequear de usar el sentido de la parada para filtrar a los pasajeros
-	//cParada* p2 = new cParada("99", "Av callao", Arriba);
+	
+	//cParada* p1 = new cParada("101", "calle1", Arriba); //chequear de usar el sentido de la parada para filtrar a los pasajeros
+	//cParada* p2 = new cParada("102", "calle2", Arriba);
+	//cParada* p3 = new cParada("103", "calle3", Arriba);
+	//cParada* p4 = new cParada("104", "calle4", Arriba);
+	//cParada* p5 = new cParada("105", "calle5", Arriba);
+	//cParada* p6 = new cParada("106", "calle6", Arriba);
+	//cParada* p7 = new cParada("107", "calle7", Arriba);
+	//cParada* p8 = new cParada("108", "calle8", Arriba);
+	//cParada* p9 = new cParada("109", "calle9", Arriba);
+	//cParada* p10 = new cParada("110", "calle10", Arriba);
+
+	//cParada* p11 = new cParada("111", "calle1", Abajo);
+	//cParada* p12 = new cParada("112", "calle2", Abajo);
+	//cParada* p13 = new cParada("113", "calle3", Abajo);
+	//cParada* p14 = new cParada("114", "calle4", Abajo);
+	//cParada* p15 = new cParada("115", "calle5", Abajo);
+	//cParada* p16 = new cParada("116", "calle6", Abajo);
+	//cParada* p17 = new cParada("117", "calle7", Abajo);
+	//cParada* p18 = new cParada("118", "calle8", Abajo);
+	//cParada* p19 = new cParada("119", "calle9", Abajo);
+	//cParada* p20 = new cParada("120", "calle10", Abajo);
+
+	//cParada* p21 = new cParada("101", "calle1", Arriba); //chequear de usar el sentido de la parada para filtrar a los pasajeros
+	//cParada* p22 = new cParada("102", "calle2", Arriba);
+	//cParada* p23 = new cParada("103", "calle3", Arriba);
+	//cParada* p24 = new cParada("104", "calle4", Arriba);
+	//cParada* p25 = new cParada("105", "calle5", Arriba);
+	//cParada* p26 = new cParada("106", "calle6", Arriba);
+	//cParada* p27 = new cParada("107", "calle7", Arriba);
+	//cParada* p28 = new cParada("108", "calle8", Arriba);
+	//cParada* p29 = new cParada("109", "calle9", Arriba);
+	//cParada* p30 = new cParada("110", "calle10", Arriba);
+	// 
+	//cParada* p31 = new cParada("111", "calle1", Abajo);
+	//cParada* p32 = new cParada("112", "calle2", Abajo);
+	//cParada* p33 = new cParada("113", "calle3", Abajo);
+	//cParada* p34 = new cParada("114", "calle4", Abajo);
+	//cParada* p35 = new cParada("115", "calle5", Abajo);
+	//cParada* p36 = new cParada("116", "calle6", Abajo);
+	//cParada* p37 = new cParada("117", "calle7", Abajo);
+	//cParada* p38 = new cParada("118", "calle8", Abajo);
+	//cParada* p39 = new cParada("119", "calle9", Abajo);
+	//cParada* p40 = new cParada("120", "calle10", Abajo);
+
+
 	//cRecorrido* journey = new cRecorrido("1");
 	/*p1->agregar_pasajero(uno);
 	p1->agregar_pasajero(dos);*/
