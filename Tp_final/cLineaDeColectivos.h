@@ -30,6 +30,20 @@ public:
 
     void generarcColectivo(string tipo);
 
+    void generarRecorrido();
+
+    /// <summary>
+    /// Este metodo sirve para poder asignar a un colectivo un recorrido dependiendo la cantidad de paradas
+    /// </summary>
+    /// <param name="id_colectivo"></param>
+    /// <param name="Longitud_max"></param>
+    void cambiarRecorrido(int id_colectivo,unsigned int Longitud_max);
+    /// <summary>
+    /// Este metodo te devuelve el recorrido solicitado segun que numoer
+    /// </summary>
+    /// <param name="Longitud">Se devuelve </param>
+    /// <returns></returns>
+    cRecorrido* ObtenerRecorrido(unsigned int Longitud);
 
 protected:
     const int IDLineaDeColectivos;

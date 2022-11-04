@@ -44,6 +44,9 @@ int main() {
 
 	cLineaDeColectivos* cl = new cLineaDeColectivos("sancosur");
 	cl->generarcColectivo("Acordeon");
+
+	cPasajeros* uno = new cPasajeros("eick", "43570175", "guatemala", false, 100, 15);
+	cPasajeros* dos = new cPasajeros("sam", "44274165", "callao", false, 100, 15);
 	cl->Imprimir();
 	//delete cc;//chequear la eliminacion de datos, no esta bien la 
 }
