@@ -15,10 +15,13 @@ float cSistemaDePagos::get_colecta_del_dia() {
     return this->colecto_del_dia;
 }
 
-bool cSistemaDePagos::generar_viaje(string inicio, string destino,int cantidad_de_paradas,cTarjeta* tarjeta_pasajero) {
+bool cSistemaDePagos::cobrar_voleto(float* saldo, int cantParadas) { //chequear puntero saldo
     try {
-        this->colecto_del_dia = tarjeta_pasajero->descuento_salto(5 * 3); //chequear el calculo de paradas
-        this->cantidad_pasajeros++; 
+        if (saldo - cantParadas * CONSTANTEPASAJE>0) {
+            saldo -= cantParadas * CONSTANTEPASAJE;
+            this->colecto_del_dia = saldo - CONSTANTEPASAJE * 5; //chequear el calculo de paradas
+            this->cantidad_pasajeros++;
+        }
     }
     catch (exception e) {
         cout << e.what() << endl;

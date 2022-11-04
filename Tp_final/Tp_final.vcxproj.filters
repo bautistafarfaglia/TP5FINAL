@@ -45,9 +45,6 @@
     <ClInclude Include="cRecorrido.h">
       <Filter>Archivos de encabezado</Filter>
     </ClInclude>
-    <ClInclude Include="cSimulador.h">
-      <Filter>Archivos de encabezado</Filter>
-    </ClInclude>
     <ClInclude Include="cSistemaDePagos.h">
       <Filter>Archivos de encabezado</Filter>
     </ClInclude>

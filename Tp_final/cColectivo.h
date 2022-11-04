@@ -11,7 +11,7 @@ class cColectivo {
 public:
 
     cColectivo(cColectivero* colectivero,
-        cSistemaDePagos* sistema_de_pagos, cRecorrido* _recorrido, unsigned int pos_del_recorrido, 
+        cSistemaDePagos* sistema_de_pagos, cRecorrido* _recorrido, unsigned int pos_del_recorrido,
         string GPS, eSentidoRecorrido sentido, short int cantidad_max_pasajeros, int num_colectivo);
     ~cColectivo() {
         cantidad_de_colectivos_en_circulacion--;
@@ -41,41 +41,43 @@ public:
     unsigned int get_posicion_recorrido();
 
     void set_nuevo_recorrido(cRecorrido* nuevo_recorrido);
-    
-   void set_colectivero(cColectivero* colectivero);
 
-   void set_fecha_mantenimiento(cFecha* fecha);
+    void set_colectivero(cColectivero* colectivero);
 
-   void set_recorrido(cRecorrido* r);
+    void set_fecha_mantenimiento(cFecha* fecha);
 
-   void set_sistema_de_pagos(cSistemaDePagos* sdp);
+    void set_recorrido(cRecorrido* r);
 
-   bool control_sentido_pasajero(cPasajeros* pasajero);
+    void set_sistema_de_pagos(cSistemaDePagos* sdp);
 
-   void avanzar_recorrido();
+    bool control_sentido_pasajero(cPasajeros* pasajero);
 
-   bool bajar_pasajeros(string nombreParada);
+    void avanzar_recorrido();
 
-   bool subir_pasajeros(vector<cPasajeros*> nuevo_pasajero);
+    bool hay_destino(cPasajeros*);
 
-   void cobrar_boleto(cPasajeros* nuevo_pasajero);
+    bool bajar_pasajeros(string nombreParada);
 
-   void cambio_de_sentido_recorrido();
+    bool subir_pasajeros(vector<cPasajeros*> nuevo_pasajero);
 
-   friend istream& operator>>(istream& is, cColectivo& cole);
+    void cobrar_boleto(cPasajeros* nuevo_pasajero);
 
-   virtual void averia() =0;
+    void cambio_de_sentido_recorrido();
 
-   virtual string to_string_colectivo() =0;
+    friend istream& operator>>(istream& is, cColectivo& cole);
 
-   virtual void imprimir()=0;
+    virtual void averia() = 0;
 
-   int calcular_distancia(cPasajeros* pasajero);
+    virtual string to_string_colectivo() = 0;
+
+    virtual void imprimir() = 0;
+
+    int calcular_distancia(cPasajeros* pasajero);
 
 
 protected:
     void actualizar_GPS();
-    
+
     short const id_colectivo;
     static short int max_id;
     unsigned int numColectivo;
@@ -91,7 +93,7 @@ protected:
     eSentidoRecorrido sentido;
     unsigned short int cantidad_max_pasajeros;
     unsigned short int cantidad_actual_pasajeros;
-    
+
 };
 
 #endif //_CCOLECTIVO_H

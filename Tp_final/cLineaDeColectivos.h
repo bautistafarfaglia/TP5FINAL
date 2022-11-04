@@ -28,7 +28,7 @@ public:
 
     void Imprimir();
 
-    void generarcColectivo(string tipo);
+    void generarcColectivo();
 
     void generarRecorrido();
 

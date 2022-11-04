@@ -28,6 +28,11 @@ string cPasajeros::get_DNI() {
     return this->DNI;
 }
 
+float* cPasajeros::getSaldo()
+{
+    return this->saldo;
+}
+
 int cPasajeros::get_num_colectivo()
 {
     return (this->num_colectivo);

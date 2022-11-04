@@ -10,7 +10,6 @@ void cLineaDeColectivos::TICK() {
     return;
 }
 
-
 string cLineaDeColectivos::ToStringLineaDeColectivos() {
     stringstream ss;
     for (int i = 0; i < this->listaColectivos.size()  ; i++) {
@@ -19,24 +18,20 @@ string cLineaDeColectivos::ToStringLineaDeColectivos() {
     return ss.str();
 }
 
-
-
 void cLineaDeColectivos::Imprimir() {
 	for (int i = 0; i < this->listaColectivos.size(); i++) {
 		this->listaColectivos[i]->imprimir();
 	}
 }
 
-void cLineaDeColectivos::generarcColectivo(string tipo)
-{
-	if (tipo == "Acordeon") {
+void cLineaDeColectivos::generarcColectivo(){
+	srand(42);
+	int tipo = rand() % 3;
+	if (tipo == 1) {
 		this->listaColectivos.push_back(this->generar_cColectivo_Acordeon());
-		
-	}
-	else if (tipo == "Con aire") {
+	}else if (tipo == 2) {
 		this->listaColectivos.push_back(this->generar_cColectivo_ConAire_y_DireccionElectrica());
-	}
-	else if (tipo == "Sin aire") {
+	}else if (tipo == 3) {
 		this->listaColectivos.push_back(this->generar_cColectivo_sinAire());
 	}
 }
@@ -51,17 +46,14 @@ cColectivoAcordeon* cLineaDeColectivos::generar_cColectivo_Acordeon() {
 	cin >> *cole;
 	cColectivero* vero = new cColectivero();
 	cSistemaDePagos* pagos = new cSistemaDePagos();
-	//cRecorrido* recorrido = new cRecorrido();
 
 	cin >> *vero; //personalizo el colectivero
-	//cin >> *recorrido;//personalizo el recorrido, tambien se podría realizar una busqueda por id en una funcion estatica y esta devolvería el puntero del objeto, preguntar pampa
-	cout << "Que longitud de recorrido quiere, el maximo de recorridos que se tiene es de: "<<this->listaRecorrido.size();
-	unsigned int pos = 100;
-	// es horrible hacer esto pero es un ejemplo de como podríamos generalizar la lista de recorridos y aprovechar de tener la lista general aca en cLineaDeColectivos
-	cin >> pos;
+	
 	cole->set_colectivero(vero);
 	cole->set_sistema_de_pagos(pagos);
-	cole->set_recorrido(this->listaRecorrido.at(pos));
+	//seteo el random y lo tulizo para eleguir la parada
+	srand(42);
+	cole->set_recorrido(this->listaRecorrido.at(rand() % this->listaRecorrido.size()));
 
 	return cole;
 }
@@ -72,15 +64,10 @@ cColectivoConAireYDireccionElectrica* cLineaDeColectivos::generar_cColectivo_Con
 	cColectivero* vero = new cColectivero();
 	cSistemaDePagos* pagos = new cSistemaDePagos();
 	
-	cout << "Que longitud de recorrido quiere, el maximo de recorridos que se tiene es de: " << this->listaRecorrido.size();
-	unsigned int pos = 100;
-	// es horrible hacer esto pero es un ejemplo de como podríamos generalizar la lista de recorridos y aprovechar de tener la lista general aca en cLineaDeColectivos
-	cin >> pos;
 	cole->set_colectivero(vero);
 	cole->set_sistema_de_pagos(pagos);
-	cole->set_recorrido(this->listaRecorrido.at(pos));
-
-
+	srand(42);
+	cole->set_recorrido(this->listaRecorrido.at(rand() % this->listaRecorrido.size()));
 	return cole;
 }
 
@@ -89,15 +76,10 @@ cColectivoSinAire* cLineaDeColectivos::generar_cColectivo_sinAire() {
 	cin >> *cole;
 	cColectivero* vero = new cColectivero();
 	cSistemaDePagos* pagos = new cSistemaDePagos();
-	cout << "Que longitud de recorrido quiere, el maximo de recorridos que se tiene es de: " << this->listaRecorrido.size();
-	unsigned int pos = 100;
-	// es horrible hacer esto pero es un ejemplo de como podríamos generalizar la lista de recorridos y aprovechar de tener la lista general aca en cLineaDeColectivos
-	cin >> pos;
 	cole->set_colectivero(vero);
 	cole->set_sistema_de_pagos(pagos);
-	cole->set_recorrido(this->listaRecorrido.at(pos));
-
-
+	srand(42);
+	cole->set_recorrido(this->listaRecorrido.at(rand() % this->listaRecorrido.size()));
 	return cole;
 }
 

@@ -21,6 +21,7 @@ public:
     string get_destino();
 
     string get_DNI();
+    float* getSaldo();
 
     int get_num_colectivo();
 
@@ -35,7 +36,7 @@ protected:
     string destino;
     cTarjeta* tarjeta_pasajero;
     bool tiene_una_discapacidad;
-    float saldo;
+    float* saldo;
 };
 
 #endif //_CPASAJEROS_H

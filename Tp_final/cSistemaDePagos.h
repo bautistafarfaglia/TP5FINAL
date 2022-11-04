@@ -20,7 +20,7 @@ public:
      * @param int cantidad_de_paradas
      * @param cTarjeta* tarjeta_pasajero
      */
-    bool generar_viaje(string inicio, string destino,int cantidad_de_paradas, cTarjeta* tarjeta_pasajero);
+    bool cobrar_voleto(float* saldo,int cantParadas);
 
 private:
     float colecto_del_dia;

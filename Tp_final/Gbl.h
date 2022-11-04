@@ -4,7 +4,7 @@
 #define _CRT_SECURE_NO_WARNINGS
 #define MAX_LISTA 4
 #define WRANDOM 0
-
+#define CONSTANTEPASAJE 5
 #include <iostream>
 #include <string>
 #include <sstream>

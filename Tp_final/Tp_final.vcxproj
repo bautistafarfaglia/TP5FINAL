@@ -138,7 +138,6 @@
     <ClInclude Include="cPasajeros.h" />
     <ClInclude Include="cPersona.h" />
     <ClInclude Include="cRecorrido.h" />
-    <ClInclude Include="cSimulador.h" />
     <ClInclude Include="cSistemaDePagos.h" />
     <ClInclude Include="cTarjeta.h" />
     <ClInclude Include="cViaje.h" />
