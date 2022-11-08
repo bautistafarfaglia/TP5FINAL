@@ -46,11 +46,6 @@ cRecorrido* cLineaDeColectivos::ObtenerRecorrido(unsigned int Longitud)
 
 void cLineaDeColectivos::AvanzarColectivoRandom()
 {
-	if (this->listaColectivos.size()) {
-		int numcole = rand() % this->listaColectivos.size();
-		this->listaColectivos[numcole]->avanzar_recorrido();
-	}
-	
 }
 
 cColectivoAcordeon* cLineaDeColectivos::generar_cColectivo_Acordeon() {

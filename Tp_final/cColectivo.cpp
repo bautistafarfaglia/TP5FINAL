@@ -1,7 +1,7 @@
 #include "cColectivo.h"
 
 unsigned long cColectivo::cantidad_de_colectivos_en_circulacion = 0;
-short int cColectivo::max_id = 1;
+short int cColectivo::max_id = 0;
 
 cColectivo::cColectivo(cColectivero* colectivero,
     cSistemaDePagos* sistema_de_pagos, cRecorrido* _recorrido, unsigned int pos_del_recorrido,
@@ -70,8 +70,8 @@ cColectivo::cColectivo(cColectivero* colectivero,
     }
 
     bool cColectivo::control_sentido_pasajero(cPasajeros* _pasajero) {
-        for (unsigned int i = 0; i < this->pos_del_recorrido;i++) {
-            if (this->recorrido->get_lista_paradas()[pos_del_recorrido]->get_nombre_parada() == _pasajero->get_destino()) {
+        for (int i = 0; i < this->pos_del_recorrido;i++) {
+            if (this->recorrido->get_lista_paradas()[pos_del_recorrido]->get_nombre_parada() == _pasajero->get_destino()->get_nombre_parada()) {
                 cout << "El pasajero tiene que ir en otro sentido" << endl;
                 return false;
             }
@@ -82,7 +82,7 @@ cColectivo::cColectivo(cColectivero* colectivero,
     int cColectivo::calcular_distancia(cPasajeros* pasajero) {
         int cont = 0;
         bool flag = false;
-        for (int i = 0; i < this->get_recorrido()->get_cantidad_paradas(); i++)
+        for (unsigned int i = 0; i < this->get_recorrido()->get_cantidad_paradas(); i++)
         {
 
             if (this->recorrido->get_lista_paradas()[pos_del_recorrido] == this->recorrido->get_lista_paradas()[i])  //chequear operator
@@ -112,7 +112,7 @@ cColectivo::cColectivo(cColectivero* colectivero,
         cout << (this->recorrido->get_lista_paradas())[this->pos_del_recorrido]->get_nombre_parada() << endl;
 
         this->bajar_pasajeros(this->recorrido->get_lista_paradas()[this->pos_del_recorrido]->get_nombre_parada());
-        int cant_en_parada = this->recorrido->get_lista_paradas()[pos_del_recorrido]->get_lista_pasajeros().size();
+        int cant_en_parada = (int) this->recorrido->get_lista_paradas()[pos_del_recorrido]->get_lista_pasajeros().size();
         for (int i = 0; i < cant_en_parada; i++) {
             if (this->cantidad_actual_pasajeros < this->cantidad_max_pasajeros) {
                 cPasajeros* aux = this->recorrido->get_lista_paradas()[pos_del_recorrido]->get_lista_pasajeros()[i];
@@ -153,7 +153,7 @@ cColectivo::cColectivo(cColectivero* colectivero,
     
     bool cColectivo::hay_destino(cPasajeros* p) {
         for (int i = 0; pos_del_recorrido+i < this->recorrido->getcantParadas(); i++) {
-            if (p->get_destino() == this->recorrido->get_lista_paradas()[this->pos_del_recorrido + i]->get_nombre_parada()) {
+            if (p->get_destino()->get_nombre_parada() == this->recorrido->get_lista_paradas()[this->pos_del_recorrido + i]->get_nombre_parada()) {
                 return true;
             }
         }
@@ -164,7 +164,7 @@ cColectivo::cColectivo(cColectivero* colectivero,
     bool cColectivo::bajar_pasajeros(string nombreParada) {
         int cant = 0;
         for (int i = 0; i < this->cantidad_actual_pasajeros; i++) {
-            if (this->listaPasajeros[i]->get_destino() == nombreParada) {
+            if (this->listaPasajeros[i]->get_destino()->get_nombre_parada() == nombreParada) {
                 cout << "Se baja un pasajero" << endl;
                 this->listaPasajeros.erase(listaPasajeros.begin() + i);
                 this->cantidad_actual_pasajeros--;

@@ -48,8 +48,6 @@ public:
     /// <returns></returns>
     cRecorrido* ObtenerRecorrido(unsigned int Longitud);
 
-    void AvanzarColectivoRandom();
-
 protected:
     const int IDLineaDeColectivos;
     static int Max_id;

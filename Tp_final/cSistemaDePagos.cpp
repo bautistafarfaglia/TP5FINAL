@@ -17,9 +17,9 @@ float cSistemaDePagos::get_colecta_del_dia() {
 
 bool cSistemaDePagos::cobrar_voleto(float* saldo, int cantParadas) { //chequear puntero saldo
     try {
-        if (saldo - cantParadas * CONSTANTEPASAJE>0) {
-            saldo -= cantParadas * CONSTANTEPASAJE;
-            this->colecto_del_dia = saldo - CONSTANTEPASAJE * 5; //chequear el calculo de paradas
+        if (*saldo - (CONSTANTEPASAJE * cantParadas) >0) {
+            *saldo -= (CONSTANTEPASAJE * cantParadas);
+            this->colecto_del_dia += *saldo - (CONSTANTEPASAJE * cantParadas); //chequear el calculo de paradas
             this->cantidad_pasajeros++;
         }
     }

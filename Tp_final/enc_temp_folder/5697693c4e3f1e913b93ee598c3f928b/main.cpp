@@ -165,9 +165,12 @@ int main() {
 	linea->generarRecorrido();
 	linea->generarcColectivo();
 	linea->cambiarRecorrido(1, 10);
-	linea->AvanzarColectivoRandom();
 
-	//Chequear todos los deletes 
+
+	linea->TICK();
+
+
+
 
 	
 }

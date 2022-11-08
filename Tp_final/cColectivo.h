@@ -20,9 +20,13 @@ public:
             delete& listaPasajeros[i];
         }
         delete this->recorrido;
-        delete[] & this->listaPasajeros;
-        delete this->sistema_de_pagos;
-        delete this->colectivero;
+        if (&this->listaPasajeros != NULL)
+        delete[] & this->listaPasajeros; //chequear porque explota aca
+
+        if (this->sistema_de_pagos != NULL)
+            delete this->sistema_de_pagos;
+        if(this->colectivero != NULL)
+            delete this->colectivero;
         delete this->fecha_ultimo_mantenimiento;
     }
 
