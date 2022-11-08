@@ -162,6 +162,33 @@ int main() {
 
 	#pragma region colectivos y colectiveros
 
+	#pragma region simulacion
+
+	unsigned int time_0;
+	unsigned int time_1;
+	unsigned int cantidad_segundos = 0;
+	bool ciclo = true; //true para iniciar
+	time_0 = clock();
+	while (ciclo) {
+		time_1 = clock();
+		double diftime = (double(time_1 - time_0) / CLOCKS_PER_SEC);
+		if (diftime >= 1) {
+			//cout << "\nPasaron: " << diftime << " s" << endl; //esta linea dice cuanto tiempo pasa entre cada vuelta de while
+			
+			//actualizar todos los colectivos
+
+			time_0 = clock();
+			cantidad_segundos++; //sumo al contador hasta que se cumpla la condicion
+			if (cantidad_segundos % 5 == 0) {
+				//Actualizar GPS
+			}
+		}
+		if (cantidad_segundos == 24) //Cantidad de segundos operativos
+			ciclo = false;
+	}
+
+    #pragma endregion
+
 	linea->generarRecorrido();
 	linea->generarcColectivo();
 	linea->cambiarRecorrido(1, 10);
