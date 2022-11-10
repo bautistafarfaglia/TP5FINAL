@@ -39,80 +39,47 @@ void cLineaDeColectivos::generarcColectivo(){
 	}
 }
 
-cRecorrido* cLineaDeColectivos::ObtenerRecorrido(unsigned int Longitud)
-{
-	return this->listaRecorrido.at(Longitud);
-}
 
 void cLineaDeColectivos::AvanzarColectivoRandom()
 {
 	if (this->listaColectivos.size()) {
 		int numcole = rand() % this->listaColectivos.size();
-		this->listaColectivos[numcole]->avanzar_recorrido();
+		if (this->listaColectivos[numcole]->avanzar_recorrido() == false) { // si el colectivo no puede avanzar mas en el recorrido, se le cambia el recorrido
+			this->cambiarRecorrido(this->listaColectivos[numcole]->get_id_colectivo()); //
+		};
 	}
 	
 }
 
+
 cColectivoAcordeon* cLineaDeColectivos::generar_cColectivo_Acordeon() {
 	cColectivoAcordeon* cole = new cColectivoAcordeon();
-	cin >> *cole;
-	cColectivero* vero = new cColectivero();
-	cSistemaDePagos* pagos = new cSistemaDePagos();
-
-	cin >> *vero; //personalizo el colectivero
-	
-	cole->set_colectivero(vero);
-	cole->set_sistema_de_pagos(pagos);
-	//seteo el random y lo tulizo para eleguir la parada
-	if (AsignarRecorridoACualquierCole(cole)) {
-		return cole;
+	cin >> *cole; 
+	if (!this->asignarChoferSistemaYRecorridoAcolectivosGenerados(cole)) {
+		delete cole;
+		return NULL;
 	}
-	else {
-
-		//delete cole; //chequear porque explota
-		//delete vero; //chequear porque explota
-		//delete pagos; //chequear porque explota
-		//chequear deletes de los objetos creados previamente
-	}
+	return cole;
 }
 
 cColectivoConAireYDireccionElectrica* cLineaDeColectivos::generar_cColectivo_ConAire_y_DireccionElectrica() {
 	cColectivoConAireYDireccionElectrica* cole = new cColectivoConAireYDireccionElectrica();
 	cin >> *cole;
-	cColectivero* vero = new cColectivero();
-	cSistemaDePagos* pagos = new cSistemaDePagos();
-	
-	cole->set_colectivero(vero);
-	cole->set_sistema_de_pagos(pagos);
-	if (AsignarRecorridoACualquierCole(cole)) {
-		return cole;
+	if (!this->asignarChoferSistemaYRecorridoAcolectivosGenerados(cole)) {
+		delete cole;
+		return NULL;
 	}
-	else {
-
-		//delete cole; //chequear porque explota
-		//delete vero; //chequear porque explota
-		//delete pagos; //chequear porque explota
-		//chequear deletes de los objetos creados previamente
-	}
+	return cole;
 }
 
 cColectivoSinAire* cLineaDeColectivos::generar_cColectivo_sinAire() {
 	cColectivoSinAire* cole = new cColectivoSinAire();
 	cin >> *cole;
-	cColectivero* vero = new cColectivero();
-	cSistemaDePagos* pagos = new cSistemaDePagos();
-	cole->set_colectivero(vero);
-	cole->set_sistema_de_pagos(pagos);
-	if (AsignarRecorridoACualquierCole(cole)) {
-		return cole;
+	if (!this->asignarChoferSistemaYRecorridoAcolectivosGenerados(cole)) {
+		delete cole;
+		return NULL;
 	}
-	else {
-
-		//delete cole; //chequear porque explota
-		//delete vero; //chequear porque explota
-		//delete pagos; //chequear porque explota
-	//chequear deletes de los objetos creados previamente
-	}
+	return cole;
 }
 
 
@@ -123,33 +90,60 @@ void cLineaDeColectivos::generarRecorrido() {
 	this->listaRecorrido.push_back(recorrido);
 }
 
-void cLineaDeColectivos::cambiarRecorrido(int id_colectivo,unsigned int Longitud_max)
+bool cLineaDeColectivos::cambiarRecorrido(int id_colectivo)
 {
 	for (int i = 0; i < this->listaColectivos.size(); i++) {
 		if (this->listaColectivos[i]->get_id_colectivo() == id_colectivo) {
-			for (int j = 0; j < this->listaRecorrido.size(); j++) {
-				if (this->listaRecorrido[j]->getcantParadas() >= Longitud_max) {
-					this->listaColectivos[i]->set_recorrido(this->listaRecorrido.at(j));
+			srand(42);
+			try {
+				if (this->listaRecorrido.size() != 0) {
+					this->listaColectivos[i]->set_recorrido(this->listaRecorrido.at(rand() % this->listaRecorrido.size()));
+					return true;
 				}
-				Longitud_max--;
+				else {
+					throw exception("No se puede crear colectivos sin recorrido");
+				}
+			}
+			catch (exception e) {
+				cout << "Error 01: " << e.what() << endl;
+				return false;
 			}
 		}
 	}
 }
 
-bool cLineaDeColectivos::AsignarRecorridoACualquierCole(cColectivo* cole) {
+
+
+bool cLineaDeColectivos::asignarChoferSistemaYRecorridoAcolectivosGenerados(cColectivo* cole) {
+	bool flag = false;
+	for (int i = 0; i < this->listaColectiveros.size(); i++) { 
+		if (this->listaColectiveros[i]->getTrabajando() == false) { //se buscan colectiveros que no esten ahora mismo manejando
+			flag = true;
+			cole->set_colectivero(this->listaColectiveros[i]);
+			break;
+		}
+	}
+	if (flag = false) { //no hay suficientes colectiveros por lo que se "contrata" a mas
+		cColectivero* vero = new cColectivero();
+		cin >> *vero;//se personaliza el colectivero
+		this->listaColectiveros.push_back(vero);//se agrega el colectivero a la fuerza trabajadora
+		cole->set_colectivero(vero);
+	}
+	cSistemaDePagos* pagos = new cSistemaDePagos();
+	cole->set_sistema_de_pagos(pagos);
+
 	srand(42);
 	try {
 		if (this->listaRecorrido.size() != 0) {
 			cole->set_recorrido(this->listaRecorrido.at(rand() % this->listaRecorrido.size()));
-			return true;
+			return false;
 		}
 		else {
 			throw exception("No se puede crear colectivos sin recorrido");
+			return false;
 		}
 	}
 	catch (exception e) {
 		cout << "Error 01: " << e.what() << endl;
-		return false;
 	}
 }

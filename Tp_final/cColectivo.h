@@ -24,9 +24,8 @@ public:
         delete[] & this->listaPasajeros; //chequear porque explota aca
 
         if (this->sistema_de_pagos != NULL)
-            delete this->sistema_de_pagos;
-        if(this->colectivero != NULL)
-            delete this->colectivero;
+            delete this->sistema_de_pagos;//chequear si es que tenemos que eliminar el sistema de pagos y no tendríamos que hacerlo global
+        this->colectivero->setTrabajando(false);
         delete this->fecha_ultimo_mantenimiento;
     }
 
@@ -56,7 +55,7 @@ public:
 
     bool control_sentido_pasajero(cPasajeros* pasajero);
 
-    void avanzar_recorrido();
+    bool avanzar_recorrido();
 
     bool hay_destino(cPasajeros*);
 

@@ -63,6 +63,7 @@ cColectivo::cColectivo(cColectivero* colectivero,
 
     void cColectivo::set_colectivero(cColectivero* _colectivero) {
         this->colectivero = _colectivero;
+        this->colectivero->setTrabajando(true);
     }
 
     void cColectivo::set_fecha_mantenimiento(cFecha* _fecha) {
@@ -101,7 +102,19 @@ cColectivo::cColectivo(cColectivero* colectivero,
         }
        }
 
-    void cColectivo::avanzar_recorrido() {
+    /// <summary>
+    /// Esta funcion hace avanzar el colectivo a la siguiente parada. 
+    /// Tambien suben pasajeros si: 
+    /// - Hay capacidad en el micro
+    /// - Si es el sentido del pasajero 
+    /// - Si el mismo tiene un destino por el cual el colectivo vaya a recorrer y si ya paso,
+    /// </summary>
+    /// <returns>Devuelve falso si no puede avanzar mas en el recorrido, en caso contrario devuelve true</returns>
+    bool cColectivo::avanzar_recorrido() {
+        // chequear si se puede cambiar el sentido de un pasajero si se pide ir a un destino que el colectivo ya transito
+        if (abs(pos_del_recorrido) == this->recorrido->get_cantidad_paradas()) { //llego al final del recorrido entonces se le asignaría otro recorrido
+            return false;
+        }
         if (this->sentido == eSentidoRecorrido::Arriba) {
             this->pos_del_recorrido++;
         }
@@ -123,32 +136,21 @@ cColectivo::cColectivo(cColectivero* colectivero,
                        if (auxp != NULL) {
                            cout << "Se sube alguien con discapacidad" << endl;
                            subir_pasajeros(this->recorrido->get_lista_paradas()[i]->pasajeros_suben_colectivo(this->numColectivo));
+                           return true;
                        }
                    }
                    else {
                        if (auxp != NULL) {
                            cout << "Se suben pasajeros" << endl;
                                subir_pasajeros(this->recorrido->get_lista_paradas()[i]->pasajeros_suben_colectivo(this->numColectivo));//chequear que explota cuando no se ponen las paradas en la cual se baja el pasajero
+                               return true;
                        }
                    }
                }
             }
         }
         //this->bajar_pasajeros(this->recorrido->get_lista_paradas()[pos_del_recorrido]->get_nombre_parada());
-    }/* codigo sin terminar y revisar
-        for (unsigned int PosPasajerosParada = 0; PosPasajerosParada < (*Recorrido->GetListaParadas())[PosDelRecorrido]->GetListaPasajeros()->GetCantidadActual(); PosPasajerosParada++) {
-            if (ListaPasajeros->GetCantidadActual() < ListaPasajeros->GetCantidadMaxima()) {
-                if ((*(*Recorrido->GetListaParadas())[PosDelRecorrido]->GetListaPasajeros())[PosPasajerosParada]->GetSillaDeRuedas() == false) {
-                    if (true == ControlSentidoPasajero((*(*Recorrido->GetListaParadas())[PosDelRecorrido]->GetListaPasajeros())[PosPasajerosParada])) {
-                        cPasajero* PasajeroAux = ((*Recorrido->GetListaParadas())[PosDelRecorrido]->GetListaPasajeros()->Quitar(
-                            (*(*Recorrido->GetListaParadas())[PosDelRecorrido]->GetListaPasajeros())[PosPasajerosParada]
-                        ));
-                        if (PasajeroAux != NULL) {
-                            SubirPasajeros(PasajeroAux);
-                        }
-                    }
-                }
-            }*/
+    }
         
     
     bool cColectivo::hay_destino(cPasajeros* p) {

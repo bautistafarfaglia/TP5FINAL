@@ -7,6 +7,15 @@ cColectivero::cColectivero(string nombre, string DNI, string legajo){
 }
 
 
+void cColectivero::setTrabajando(bool var)
+{
+	this->trabajando = var;
+}
+bool cColectivero::getTrabajando()
+{
+	return this->trabajando;
+}
+
 string cColectivero::get_legajo() {
     return this->legajo;
 }

@@ -35,18 +35,12 @@ public:
     void generarRecorrido();
 
     /// <summary>
-    /// Este metodo sirve para poder asignar a un colectivo un recorrido dependiendo la cantidad de paradas
+    /// Este metodo sirve para poder asignar a un colectivo un recorrido random
     /// </summary>
     /// <param name="id_colectivo"></param>
     /// <param name="Longitud_max"></param>
-    void cambiarRecorrido(int id_colectivo,unsigned int Longitud_max);
+    bool cambiarRecorrido(int id_colectivo);
     
-    /// <summary>
-    /// Este metodo te devuelve el recorrido solicitado segun que numoer
-    /// </summary>
-    /// <param name="Longitud">Se devuelve </param>
-    /// <returns></returns>
-    cRecorrido* ObtenerRecorrido(unsigned int Longitud);
 
     void AvanzarColectivoRandom();
 
@@ -57,7 +51,8 @@ protected:
     vector<cColectivo*> listaColectivos;
     vector<cRecorrido*> listaRecorrido;
     vector<cPasajeros*> listaPasajeros;
-    bool AsignarRecorridoACualquierCole(cColectivo* c);
+    vector<cColectivero*> listaColectiveros;
+    bool asignarChoferSistemaYRecorridoAcolectivosGenerados(cColectivo* cole);
 };
 
 //#endif _CLINEADECOLECTIVOS_H
