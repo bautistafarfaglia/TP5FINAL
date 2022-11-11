@@ -23,7 +23,7 @@ public:
         delete[] listaRecorrido;
     };
 
-    void agregar_peronas(cPasajeros* persona);
+    void agregar_personas(cPasajeros* persona);
     void TICK();
     string ToStringLineaDeColectivos();
     void ImprimirColectivos();

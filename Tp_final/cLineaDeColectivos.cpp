@@ -5,9 +5,11 @@ int cLineaDeColectivos::Max_id = 0;
 cLineaDeColectivos::cLineaDeColectivos(string NombreLinea) :IDLineaDeColectivos(Max_id++) {
     this->NombreDeLinea = NombreLinea; 
 	this->SistemaGeneralDePagos = new cSistemaDePagos();
+
+	listaRecorrido = new cRecorrido * [0];
 }
 
-void cLineaDeColectivos::agregar_peronas(cPasajeros* persona) {
+void cLineaDeColectivos::agregar_personas(cPasajeros* persona) {
 	if (listaPasajeros.size() % 5 == 0) {
 		this->generarRecorrido();
 	}
