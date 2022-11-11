@@ -13,7 +13,7 @@ void cLineaDeColectivos::agregar_peronas(cPasajeros* persona) {
 	}
 	this->listaPasajeros.push_back(persona);
 	//Agregar el pasajero a alguna parada random
-	this->listaRecorrido[rand() % this->listaRecorrido.size()]->get_lista_paradas()[rand() % this->listaRecorrido[rand() % this->listaRecorrido.size()]->get_lista_paradas().size()]->agregar_pasajero(persona);
+	this->listaRecorrido[rand() % this->cantActual]->get_lista_paradas()[rand() % this->listaRecorrido[rand() % this->cantActual]->get_lista_paradas().size()]->agregar_pasajero(persona);
 	//    lista de recorridos: pos random -> obtener lista paradas -> parada random -> agregar pasajero
 }
 
@@ -63,7 +63,7 @@ void cLineaDeColectivos::generarRecorrido() {
 
 	cRecorrido* recorrido = new cRecorrido();
 	cin >> *recorrido; //chequear y revisar como generar recorridos, ya que no esta bueno que haya una lista estatica de pardas, para poder ir aumentando cuando deseamos
-	this->listaRecorrido.push_back(recorrido);
+	this->agregar(recorrido);
 }
 
 bool cLineaDeColectivos::cambiarRecorrido(int id_colectivo)
@@ -72,8 +72,8 @@ bool cLineaDeColectivos::cambiarRecorrido(int id_colectivo)
 		if (this->listaColectivos[i]->get_id_colectivo() == id_colectivo) {
 			srand(42);
 			try {
-				if (this->listaRecorrido.size() != 0) {
-					this->listaColectivos[i]->set_recorrido(this->listaRecorrido.at(rand() % this->listaRecorrido.size()));
+				if (this->cantActual != 0) {
+					this->listaColectivos[i]->set_recorrido(this->listaRecorrido[(rand() % this->cantActual)]);
 					return true;
 				}
 				else {
