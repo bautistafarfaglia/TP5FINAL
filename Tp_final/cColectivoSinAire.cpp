@@ -9,7 +9,9 @@
 }
 
  void cColectivoSinAire::averia() {
-	 return;
+	 this->estado_operativo = false;
+	 this->imprimir();
+	 cout << "Hace paro, por las condiciones salariales " << endl;
  }
 
 

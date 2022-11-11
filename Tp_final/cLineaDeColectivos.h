@@ -23,13 +23,15 @@ public:
         delete[] listaRecorrido;
     };
 
-    void agregar_personas(cPasajeros* persona);
+    void GenerarAveríaRandom();
+    void SolucionarAveríaProducida();
     void TICK();
     string ToStringLineaDeColectivos();
     void ImprimirColectivos();
     void generarcColectivo();
     void generarRecorrido();
 
+    void agregar_personas(cPasajeros* persona);
     void agregar(cRecorrido* recorrido);
     void eliminar(cRecorrido* recorrido);
     cRecorrido* quitar(cRecorrido* recorrido);

@@ -19,6 +19,16 @@ void cLineaDeColectivos::agregar_personas(cPasajeros* persona) {
 	//    lista de recorridos: pos random -> obtener lista paradas -> parada random -> agregar pasajero
 }
 
+void cLineaDeColectivos::GenerarAveríaRandom()
+{
+	int ColeRandom = rand() % this->listaColectivos.size();  
+	this->listaColectivos[ColeRandom]->averia()
+}
+
+void cLineaDeColectivos::SolucionarAveríaProducida()
+{
+}
+
 void cLineaDeColectivos::TICK() {
 	this->ImprimirColectivos(); 
 	cout << "Cant de colectivos en circulacion: " << cColectivo::getcantidad_de_colectivos_en_circulacion();
