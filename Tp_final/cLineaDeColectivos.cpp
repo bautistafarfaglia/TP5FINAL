@@ -221,4 +221,3 @@ cColectivoSinAire* cLineaDeColectivos::generar_cColectivo_sinAire() {
 	}
 
 #pragma endregion
-}

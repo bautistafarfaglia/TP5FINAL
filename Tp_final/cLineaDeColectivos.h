@@ -16,10 +16,11 @@ public:
         {
             delete& listaColectivos[i];
         }
-        for (int i = 0; i < listaRecorrido.size(); i++)
+        for (int i = 0; i < cantActual; i++)
         {
-            delete& listaRecorrido[i];
+            delete listaRecorrido[i];
         }
+        delete[] listaRecorrido;
     };
 
     void agregar_peronas(cPasajeros* persona);
