@@ -208,7 +208,7 @@ bool cLineaDeColectivos::asignarChoferSistemaYRecorridoAcolectivosGenerados(cCol
 	void cLineaDeColectivos::resize() {
 		// aca hacer try y catch para la memoria
 			cRecorrido** listaResize = new cRecorrido * [this->cantActual + 1];
-			for (int i = cantActual; i < cantActual + 1; i++)
+			for (int i = cantActual; i < cantActual; i++)
 			{
 				listaResize[i] = NULL;
 			}
