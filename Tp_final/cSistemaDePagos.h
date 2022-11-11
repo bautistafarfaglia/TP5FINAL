@@ -1,6 +1,5 @@
 #pragma once
 #include "Gbl.h"
-#include "cTarjeta.h"
 #ifndef _CSISTEMADEPAGOS_H
 #define _CSISTEMADEPAGOS_H
 
