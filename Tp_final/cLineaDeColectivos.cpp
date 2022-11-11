@@ -135,7 +135,7 @@ bool cLineaDeColectivos::asignarChoferSistemaYRecorridoAcolectivosGenerados(cCol
 		this->listaColectiveros.push_back(vero);//se agrega el colectivero a la fuerza trabajadora
 		cole->set_colectivero(vero);
 	}
-	cole->set_sistema_de_pagos(this->SistemaGeneralDePagos);
+	cole->set_sistema_de_pagos(this->SistemaGeneralDePagos); 
 
 	srand(42);
 	try {

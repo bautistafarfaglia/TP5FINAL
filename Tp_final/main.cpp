@@ -23,17 +23,17 @@ int main() {
 	cParada* p9 = new cParada("calle9", Arriba);
 	cParada* p10 = new cParada("calle10", Arriba);
 
-	cRecorrido rec1;
-	rec1.agregar_paradas_recorrido(p1);
-	rec1.agregar_paradas_recorrido(p2);
-	rec1.agregar_paradas_recorrido(p3);
-	rec1.agregar_paradas_recorrido(p4);
-	rec1.agregar_paradas_recorrido(p5);
-	rec1.agregar_paradas_recorrido(p6);
-	rec1.agregar_paradas_recorrido(p7);
-	rec1.agregar_paradas_recorrido(p8);
-	rec1.agregar_paradas_recorrido(p9);
-	rec1.agregar_paradas_recorrido(p10);
+	cRecorrido* rec1 = new cRecorrido();
+	rec1->agregar_paradas_recorrido(p1);
+	rec1->agregar_paradas_recorrido(p2);
+	rec1->agregar_paradas_recorrido(p3);
+	rec1->agregar_paradas_recorrido(p4);
+	rec1->agregar_paradas_recorrido(p5);
+	rec1->agregar_paradas_recorrido(p6);
+	rec1->agregar_paradas_recorrido(p7);
+	rec1->agregar_paradas_recorrido(p8);
+	rec1->agregar_paradas_recorrido(p9);
+	rec1->agregar_paradas_recorrido(p10);
 
 	cParada* p11 = new cParada("calle1", Abajo);
 	cParada* p12 = new cParada("calle2", Abajo);
@@ -46,17 +46,16 @@ int main() {
 	cParada* p19 = new cParada("calle9", Abajo);
 	cParada* p20 = new cParada("calle10", Abajo);
 
-	cRecorrido rec2;
-	rec2.agregar_paradas_recorrido(p11);
-	rec2.agregar_paradas_recorrido(p12);
-	rec2.agregar_paradas_recorrido(p13);
-	rec2.agregar_paradas_recorrido(p14);
-	rec2.agregar_paradas_recorrido(p15);
-	rec2.agregar_paradas_recorrido(p16);
-	rec2.agregar_paradas_recorrido(p17);
-	rec2.agregar_paradas_recorrido(p18);
-	rec2.agregar_paradas_recorrido(p19);
-	rec2.agregar_paradas_recorrido(p20);
+	cRecorrido* rec2 = new cRecorrido();
+	rec2->agregar_paradas_recorrido(p12);
+	rec2->agregar_paradas_recorrido(p13);
+	rec2->agregar_paradas_recorrido(p14);
+	rec2->agregar_paradas_recorrido(p15);
+	rec2->agregar_paradas_recorrido(p16);
+	rec2->agregar_paradas_recorrido(p17);
+	rec2->agregar_paradas_recorrido(p18);
+	rec2->agregar_paradas_recorrido(p19);
+	rec2->agregar_paradas_recorrido(p20);
 
 	cParada* p21 = new cParada("calle51", Arriba); 
 	cParada* p22 = new cParada("calle52", Arriba);
@@ -69,17 +68,17 @@ int main() {
 	cParada* p29 = new cParada("calle59", Arriba);
 	cParada* p30 = new cParada("calle60", Arriba);
 										  
-	cRecorrido rec3;
-	rec3.agregar_paradas_recorrido(p21);
-	rec3.agregar_paradas_recorrido(p22);
-	rec3.agregar_paradas_recorrido(p23);
-	rec3.agregar_paradas_recorrido(p24);
-	rec3.agregar_paradas_recorrido(p25);
-	rec3.agregar_paradas_recorrido(p26);
-	rec3.agregar_paradas_recorrido(p27);
-	rec3.agregar_paradas_recorrido(p28);
-	rec3.agregar_paradas_recorrido(p29);
-	rec3.agregar_paradas_recorrido(p30);
+	cRecorrido* rec3 = new cRecorrido();
+	rec3->agregar_paradas_recorrido(p21);
+	rec3->agregar_paradas_recorrido(p22);
+	rec3->agregar_paradas_recorrido(p23);
+	rec3->agregar_paradas_recorrido(p24);
+	rec3->agregar_paradas_recorrido(p25);
+	rec3->agregar_paradas_recorrido(p26);
+	rec3->agregar_paradas_recorrido(p27);
+	rec3->agregar_paradas_recorrido(p28);
+	rec3->agregar_paradas_recorrido(p29);
+	rec3->agregar_paradas_recorrido(p30);
 										  
 	cParada* p31 = new cParada("calle51", Abajo);
 	cParada* p32 = new cParada("calle52", Abajo);
@@ -92,18 +91,22 @@ int main() {
 	cParada* p39 = new cParada("calle59", Abajo);
 	cParada* p40 = new cParada("calle60", Abajo);
 
-	cRecorrido rec4;
-	rec4.agregar_paradas_recorrido(p31);
-	rec4.agregar_paradas_recorrido(p32);
-	rec4.agregar_paradas_recorrido(p33);
-	rec4.agregar_paradas_recorrido(p34);
-	rec4.agregar_paradas_recorrido(p35);
-	rec4.agregar_paradas_recorrido(p36);
-	rec4.agregar_paradas_recorrido(p37);
-	rec4.agregar_paradas_recorrido(p38);
-	rec4.agregar_paradas_recorrido(p39);
-	rec4.agregar_paradas_recorrido(p40);
+	cRecorrido* rec4 = new cRecorrido();
+	rec4->agregar_paradas_recorrido(p31);
+	rec4->agregar_paradas_recorrido(p32);
+	rec4->agregar_paradas_recorrido(p33);
+	rec4->agregar_paradas_recorrido(p34);
+	rec4->agregar_paradas_recorrido(p35);
+	rec4->agregar_paradas_recorrido(p36);
+	rec4->agregar_paradas_recorrido(p37);
+	rec4->agregar_paradas_recorrido(p38);
+	rec4->agregar_paradas_recorrido(p39);
+	rec4->agregar_paradas_recorrido(p40);
 
+	linea->agregar(rec1);
+	linea->agregar(rec2);
+	linea->agregar(rec3);
+	linea->agregar(rec4);
 
 	cPasajeros* h1 = new cPasajeros("humano1", "10000001", p1, false, 100, NULL);
 	cPasajeros* h2 = new cPasajeros("humano2", "10000002", p2, false, 100, NULL);
@@ -147,6 +150,7 @@ int main() {
 	linea->agregar_peronas(h19);
 	linea->agregar_peronas(h20);
 
+	int chequeo_linea = 0;
 
 	#pragma endregion
 
