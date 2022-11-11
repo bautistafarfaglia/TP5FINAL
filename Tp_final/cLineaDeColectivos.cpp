@@ -217,7 +217,7 @@ bool cLineaDeColectivos::asignarChoferSistemaYRecorridoAcolectivosGenerados(cCol
 		int iOldSize = this->cantActual;
 		int iNewSize = iOldSize + 1;
 		cRecorrido** paTmpArray = new cRecorrido * [iOldSize];
-		for (int i = cantActual; i < iOldSize; i++)
+		for (int i = 0; i < iOldSize; i++)
 		{
 			paTmpArray[i] = this->listaRecorrido[i];
 		}
