@@ -12,16 +12,16 @@ int main() {
 
 	#pragma region recorridos, paradas y personas
 
-	cParada* p1 = new cParada("101", "calle1", Arriba); 
-	cParada* p2 = new cParada("102", "calle2", Arriba);
-	cParada* p3 = new cParada("103", "calle3", Arriba);
-	cParada* p4 = new cParada("104", "calle4", Arriba);
-	cParada* p5 = new cParada("105", "calle5", Arriba);
-	cParada* p6 = new cParada("106", "calle6", Arriba);
-	cParada* p7 = new cParada("107", "calle7", Arriba);
-	cParada* p8 = new cParada("108", "calle8", Arriba);
-	cParada* p9 = new cParada("109", "calle9", Arriba);
-	cParada* p10 = new cParada("110", "calle10", Arriba);
+	cParada* p1 = new cParada("calle1", Arriba); 
+	cParada* p2 = new cParada("calle2", Arriba);
+	cParada* p3 = new cParada("calle3", Arriba);
+	cParada* p4 = new cParada("calle4", Arriba);
+	cParada* p5 = new cParada("calle5", Arriba);
+	cParada* p6 = new cParada("calle6", Arriba);
+	cParada* p7 = new cParada("calle7", Arriba);
+	cParada* p8 = new cParada("calle8", Arriba);
+	cParada* p9 = new cParada("calle9", Arriba);
+	cParada* p10 = new cParada("calle10", Arriba);
 
 	cRecorrido rec1;
 	rec1.agregar_paradas_recorrido(p1);
@@ -35,16 +35,16 @@ int main() {
 	rec1.agregar_paradas_recorrido(p9);
 	rec1.agregar_paradas_recorrido(p10);
 
-	cParada* p11 = new cParada("111", "calle1", Abajo);
-	cParada* p12 = new cParada("112", "calle2", Abajo);
-	cParada* p13 = new cParada("113", "calle3", Abajo);
-	cParada* p14 = new cParada("114", "calle4", Abajo);
-	cParada* p15 = new cParada("115", "calle5", Abajo);
-	cParada* p16 = new cParada("116", "calle6", Abajo);
-	cParada* p17 = new cParada("117", "calle7", Abajo);
-	cParada* p18 = new cParada("118", "calle8", Abajo);
-	cParada* p19 = new cParada("119", "calle9", Abajo);
-	cParada* p20 = new cParada("120", "calle10", Abajo);
+	cParada* p11 = new cParada("calle1", Abajo);
+	cParada* p12 = new cParada("calle2", Abajo);
+	cParada* p13 = new cParada("calle3", Abajo);
+	cParada* p14 = new cParada("calle4", Abajo);
+	cParada* p15 = new cParada("calle5", Abajo);
+	cParada* p16 = new cParada("calle6", Abajo);
+	cParada* p17 = new cParada("calle7", Abajo);
+	cParada* p18 = new cParada("calle8", Abajo);
+	cParada* p19 = new cParada("calle9", Abajo);
+	cParada* p20 = new cParada("calle10", Abajo);
 
 	cRecorrido rec2;
 	rec2.agregar_paradas_recorrido(p11);
@@ -58,16 +58,16 @@ int main() {
 	rec2.agregar_paradas_recorrido(p19);
 	rec2.agregar_paradas_recorrido(p20);
 
-	cParada* p21 = new cParada("201", "calle51", Arriba); 
-	cParada* p22 = new cParada("202", "calle52", Arriba);
-	cParada* p23 = new cParada("203", "calle53", Arriba);
-	cParada* p24 = new cParada("204", "calle54", Arriba);
-	cParada* p25 = new cParada("205", "calle55", Arriba);
-	cParada* p26 = new cParada("206", "calle56", Arriba);
-	cParada* p27 = new cParada("207", "calle57", Arriba);
-	cParada* p28 = new cParada("208", "calle58", Arriba);
-	cParada* p29 = new cParada("209", "calle59", Arriba);
-	cParada* p30 = new cParada("210", "calle60", Arriba);
+	cParada* p21 = new cParada("calle51", Arriba); 
+	cParada* p22 = new cParada("calle52", Arriba);
+	cParada* p23 = new cParada("calle53", Arriba);
+	cParada* p24 = new cParada("calle54", Arriba);
+	cParada* p25 = new cParada("calle55", Arriba);
+	cParada* p26 = new cParada("calle56", Arriba);
+	cParada* p27 = new cParada("calle57", Arriba);
+	cParada* p28 = new cParada("calle58", Arriba);
+	cParada* p29 = new cParada("calle59", Arriba);
+	cParada* p30 = new cParada("calle60", Arriba);
 										  
 	cRecorrido rec3;
 	rec3.agregar_paradas_recorrido(p21);
@@ -81,16 +81,16 @@ int main() {
 	rec3.agregar_paradas_recorrido(p29);
 	rec3.agregar_paradas_recorrido(p30);
 										  
-	cParada* p31 = new cParada("211", "calle51", Abajo);
-	cParada* p32 = new cParada("212", "calle52", Abajo);
-	cParada* p33 = new cParada("213", "calle53", Abajo);
-	cParada* p34 = new cParada("214", "calle54", Abajo);
-	cParada* p35 = new cParada("215", "calle55", Abajo);
-	cParada* p36 = new cParada("216", "calle56", Abajo);
-	cParada* p37 = new cParada("217", "calle57", Abajo);
-	cParada* p38 = new cParada("218", "calle58", Abajo);
-	cParada* p39 = new cParada("219", "calle59", Abajo);
-	cParada* p40 = new cParada("220", "calle60", Abajo);
+	cParada* p31 = new cParada("calle51", Abajo);
+	cParada* p32 = new cParada("calle52", Abajo);
+	cParada* p33 = new cParada("calle53", Abajo);
+	cParada* p34 = new cParada("calle54", Abajo);
+	cParada* p35 = new cParada("calle55", Abajo);
+	cParada* p36 = new cParada("calle56", Abajo);
+	cParada* p37 = new cParada("calle57", Abajo);
+	cParada* p38 = new cParada("calle58", Abajo);
+	cParada* p39 = new cParada("calle59", Abajo);
+	cParada* p40 = new cParada("calle60", Abajo);
 
 	cRecorrido rec4;
 	rec4.agregar_paradas_recorrido(p31);

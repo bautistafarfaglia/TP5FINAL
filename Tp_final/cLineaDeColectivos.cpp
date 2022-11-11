@@ -8,10 +8,10 @@ cLineaDeColectivos::cLineaDeColectivos(string NombreLinea) :IDLineaDeColectivos(
 }
 
 void cLineaDeColectivos::agregar_peronas(cPasajeros* persona) {
-	this->listaPasajeros.push_back(persona);
 	if (listaPasajeros.size() % 5 == 0) {
 		this->generarRecorrido();
 	}
+	this->listaPasajeros.push_back(persona);
 	//Agregar el pasajero a alguna parada random
 	this->listaRecorrido[rand() % this->listaRecorrido.size()]->get_lista_paradas()[rand() % this->listaRecorrido[rand() % this->listaRecorrido.size()]->get_lista_paradas().size()]->agregar_pasajero(persona);
 	//    lista de recorridos: pos random -> obtener lista paradas -> parada random -> agregar pasajero
