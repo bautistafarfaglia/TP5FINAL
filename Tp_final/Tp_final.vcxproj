@@ -139,7 +139,6 @@
     <ClInclude Include="cPersona.h" />
     <ClInclude Include="cRecorrido.h" />
     <ClInclude Include="cSistemaDePagos.h" />
-    <ClInclude Include="cTarjeta.h" />
     <ClInclude Include="cViaje.h" />
     <ClInclude Include="eSentidoRecorrido.h" />
     <ClInclude Include="Gbl.h" />
@@ -157,7 +156,6 @@
     <ClCompile Include="cPersona.cpp" />
     <ClCompile Include="cRecorrido.cpp" />
     <ClCompile Include="cSistemaDePagos.cpp" />
-    <ClCompile Include="cTarjeta.cpp" />
     <ClCompile Include="cViaje.cpp" />
     <ClCompile Include="eSentidoRecorrido.cpp" />
     <ClCompile Include="main.cpp" />

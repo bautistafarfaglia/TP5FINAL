@@ -48,9 +48,6 @@
     <ClInclude Include="cSistemaDePagos.h">
       <Filter>Archivos de encabezado</Filter>
     </ClInclude>
-    <ClInclude Include="cTarjeta.h">
-      <Filter>Archivos de encabezado</Filter>
-    </ClInclude>
     <ClInclude Include="cViaje.h">
       <Filter>Archivos de encabezado</Filter>
     </ClInclude>
@@ -96,9 +93,6 @@
       <Filter>Archivos de origen</Filter>
     </ClCompile>
     <ClCompile Include="cSistemaDePagos.cpp">
-      <Filter>Archivos de origen</Filter>
-    </ClCompile>
-    <ClCompile Include="cTarjeta.cpp">
       <Filter>Archivos de origen</Filter>
     </ClCompile>
     <ClCompile Include="cViaje.cpp">

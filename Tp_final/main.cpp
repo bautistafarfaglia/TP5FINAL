@@ -126,7 +126,7 @@ int main() {
 	cPasajeros* h19 = new cPasajeros("humano19", "10000019", p19, false, 100, NULL);
 	cPasajeros* h20 = new cPasajeros("humano20", "10000020", p20, false, 100, NULL);
 
-	linea->agregar_peronas(h1); //chequear de agregar discapacitados y ahi ver si esta primero en la fila de la parada (consigna)
+	linea->agregar_peronas(h1);
 	linea->agregar_peronas(h2);
 	linea->agregar_peronas(h3);
 	linea->agregar_peronas(h4);
