@@ -120,9 +120,9 @@ cColectivoSinAire* cLineaDeColectivos::generar_cColectivo_sinAire() {
 	return cole;
 }
 
-/*bool cLineaDeColectivos::asignarChoferSistemaYRecorridoAcolectivosGenerados(cColectivo* cole) {
+bool cLineaDeColectivos::asignarChoferSistemaYRecorridoAcolectivosGenerados(cColectivo* cole) {
 	bool flag = false;
-	for (int i = 0; i < this->listaColectiveros.size(); i++) { 
+	for (int i = 0; i < this->listaColectiveros.size(); i++) {
 		if (this->listaColectiveros[i]->getTrabajando() == false) { //se buscan colectiveros que no esten ahora mismo manejando
 			flag = true;
 			cole->set_colectivero(this->listaColectiveros[i]);
@@ -139,8 +139,8 @@ cColectivoSinAire* cLineaDeColectivos::generar_cColectivo_sinAire() {
 
 	srand(42);
 	try {
-		if (this->listaRecorrido.size() != 0) {
-			cole->set_recorrido(this->listaRecorrido.at(rand() % this->listaRecorrido.size()));
+		if (this->cantActual != 0) {
+			cole->set_recorrido(this->listaRecorrido[rand() % this->cantActual]);
 			return false;
 		}
 		else {
@@ -150,7 +150,8 @@ cColectivoSinAire* cLineaDeColectivos::generar_cColectivo_sinAire() {
 	}
 	catch (exception e) {
 		cout << "Error 01: " << e.what() << endl;
-	}*/
+	}
+}
 
 
 
