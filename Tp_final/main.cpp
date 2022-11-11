@@ -126,26 +126,26 @@ int main() {
 	cPasajeros* h19 = new cPasajeros("humano19", "10000019", p19, false, 100, NULL);
 	cPasajeros* h20 = new cPasajeros("humano20", "10000020", p20, false, 100, NULL);
 
-	linea->agregar_peronas(h1);
-	linea->agregar_peronas(h2);
-	linea->agregar_peronas(h3);
-	linea->agregar_peronas(h4);
-	linea->agregar_peronas(h5);
-	linea->agregar_peronas(h6);
-	linea->agregar_peronas(h7);
-	linea->agregar_peronas(h8);
-	linea->agregar_peronas(h9);
-	linea->agregar_peronas(h10);
-	linea->agregar_peronas(h11);
-	linea->agregar_peronas(h12);
-	linea->agregar_peronas(h13);
-	linea->agregar_peronas(h14);
-	linea->agregar_peronas(h15);
-	linea->agregar_peronas(h16);
-	linea->agregar_peronas(h17);
-	linea->agregar_peronas(h18);
-	linea->agregar_peronas(h19);
-	linea->agregar_peronas(h20);
+	linea->agregar_personas(h1);
+	linea->agregar_personas(h2);
+	linea->agregar_personas(h3);
+	linea->agregar_personas(h4);
+	linea->agregar_personas(h5);
+	linea->agregar_personas(h6);
+	linea->agregar_personas(h7);
+	linea->agregar_personas(h8);
+	linea->agregar_personas(h9);
+	linea->agregar_personas(h10);
+	linea->agregar_personas(h11);
+	linea->agregar_personas(h12);
+	linea->agregar_personas(h13);
+	linea->agregar_personas(h14);
+	linea->agregar_personas(h15);
+	linea->agregar_personas(h16);
+	linea->agregar_personas(h17);
+	linea->agregar_personas(h18);
+	linea->agregar_personas(h19);
+	linea->agregar_personas(h20);
 
 
 	#pragma endregion
