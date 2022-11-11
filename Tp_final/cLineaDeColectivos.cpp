@@ -8,6 +8,12 @@ cLineaDeColectivos::cLineaDeColectivos(string NombreLinea) :IDLineaDeColectivos(
 
 void cLineaDeColectivos::agregar_peronas(cPasajeros* persona) {
 	this->listaPasajeros.push_back(persona);
+	if (listaPasajeros.size() % 5 == 0) {
+		this->generarRecorrido();
+	}
+	//Agregar el pasajero a alguna parada random
+	this->listaRecorrido[rand() % this->listaRecorrido.size()]->get_lista_paradas()[rand() % this->listaRecorrido[rand() % this->listaRecorrido.size()]->get_lista_paradas().size()]->agregar_pasajero(persona);
+	//    lista de recorridos: pos random -> obtener lista paradas -> parada random -> agregar pasajero
 }
 
 void cLineaDeColectivos::TICK() {
@@ -22,7 +28,7 @@ string cLineaDeColectivos::ToStringLineaDeColectivos() {
     return ss.str();
 }
 
-void cLineaDeColectivos::Imprimir() {
+void cLineaDeColectivos::ImprimirColectivos() {
 	for (int i = 0; i < this->listaColectivos.size(); i++) {
 		this->listaColectivos[i]->imprimir();
 	}
@@ -48,45 +54,13 @@ void cLineaDeColectivos::AvanzarColectivoRandom()
 			this->cambiarRecorrido(this->listaColectivos[numcole]->get_id_colectivo()); //
 		};
 	}
-	
+
 }
-
-
-cColectivoAcordeon* cLineaDeColectivos::generar_cColectivo_Acordeon() {
-	cColectivoAcordeon* cole = new cColectivoAcordeon();
-	cin >> *cole; 
-	if (!this->asignarChoferSistemaYRecorridoAcolectivosGenerados(cole)) {
-		delete cole;
-		return NULL;
-	}
-	return cole;
-}
-
-cColectivoConAireYDireccionElectrica* cLineaDeColectivos::generar_cColectivo_ConAire_y_DireccionElectrica() {
-	cColectivoConAireYDireccionElectrica* cole = new cColectivoConAireYDireccionElectrica();
-	cin >> *cole;
-	if (!this->asignarChoferSistemaYRecorridoAcolectivosGenerados(cole)) {
-		delete cole;
-		return NULL;
-	}
-	return cole;
-}
-
-cColectivoSinAire* cLineaDeColectivos::generar_cColectivo_sinAire() {
-	cColectivoSinAire* cole = new cColectivoSinAire();
-	cin >> *cole;
-	if (!this->asignarChoferSistemaYRecorridoAcolectivosGenerados(cole)) {
-		delete cole;
-		return NULL;
-	}
-	return cole;
-}
-
 
 void cLineaDeColectivos::generarRecorrido() {
 
 	cRecorrido* recorrido = new cRecorrido();
-	cin >> *recorrido;
+	cin >> *recorrido; //chequear y revisar como generar recorridos, ya que no esta bueno que haya una lista estatica de pardas, para poder ir aumentando cuando deseamos
 	this->listaRecorrido.push_back(recorrido);
 }
 
@@ -113,6 +87,36 @@ bool cLineaDeColectivos::cambiarRecorrido(int id_colectivo)
 }
 
 
+
+cColectivoAcordeon* cLineaDeColectivos::generar_cColectivo_Acordeon() {
+	cColectivoAcordeon* cole = new cColectivoAcordeon();
+	cin >> *cole;
+	if (!this->asignarChoferSistemaYRecorridoAcolectivosGenerados(cole)) {
+		delete cole;
+		return NULL;
+	}
+	return cole;
+}
+
+cColectivoConAireYDireccionElectrica* cLineaDeColectivos::generar_cColectivo_ConAire_y_DireccionElectrica() {
+	cColectivoConAireYDireccionElectrica* cole = new cColectivoConAireYDireccionElectrica();
+	cin >> *cole;
+	if (!this->asignarChoferSistemaYRecorridoAcolectivosGenerados(cole)) {
+		delete cole;
+		return NULL;
+	}
+	return cole;
+}
+
+cColectivoSinAire* cLineaDeColectivos::generar_cColectivo_sinAire() {
+	cColectivoSinAire* cole = new cColectivoSinAire();
+	cin >> *cole;
+	if (!this->asignarChoferSistemaYRecorridoAcolectivosGenerados(cole)) {
+		delete cole;
+		return NULL;
+	}
+	return cole;
+}
 
 bool cLineaDeColectivos::asignarChoferSistemaYRecorridoAcolectivosGenerados(cColectivo* cole) {
 	bool flag = false;

@@ -6,12 +6,6 @@
 #include "cRecorrido.h"
 #include "cSistemaDePagos.h"
 
-//ver el tema de uso de la clase viaje
-//chequear el use de cLineadeColectivos
-cColectivoAcordeon* generar_cColectivo_Acordeon();
-cColectivoConAireYDireccionElectrica* generar_cColectivo_ConAire_y_DireccionElectrica();
-cColectivoSinAire* generar_cColectivo_sinAire();
-
 int main() {
 	
 	cLineaDeColectivos* linea= new cLineaDeColectivos("linea");
@@ -115,7 +109,7 @@ int main() {
 	}*/
 
 
-	cPasajeros* h1 = new cPasajeros("humano1", "10000001", p1, false, 100, NULL); //chequear asignar personas random a las paradas
+	cPasajeros* h1 = new cPasajeros("humano1", "10000001", p1, false, 100, NULL);
 	cPasajeros* h2 = new cPasajeros("humano2", "10000002", p2, false, 100, NULL);
 	cPasajeros* h3 = new cPasajeros("humano3", "10000003", p3, false, 100, NULL);
 	cPasajeros* h4 = new cPasajeros("humano4", "10000004", p4, false, 100, NULL);
@@ -191,10 +185,10 @@ int main() {
 
 	linea->generarRecorrido();
 	linea->generarcColectivo();
-	linea->cambiarRecorrido(1, 10);
+	linea->cambiarRecorrido(1);
 	linea->AvanzarColectivoRandom();
 
-	//Chequear todos los deletes porque explota la pc
+	//Chequear todos los deletes y porque explota la pc
 	
 #pragma region deletes de paradas
 	delete p1;

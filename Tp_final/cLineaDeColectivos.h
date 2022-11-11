@@ -28,7 +28,7 @@ public:
 
     string ToStringLineaDeColectivos();
 
-    void Imprimir();
+    void ImprimirColectivos();
 
     void generarcColectivo();
 
