@@ -103,10 +103,6 @@ int main() {
 	rec4.agregar_paradas_recorrido(p38);
 	rec4.agregar_paradas_recorrido(p39);
 	rec4.agregar_paradas_recorrido(p40);
-	/*std::string s = "HUMANO";
-	for (int i = 0; i < 20; i++) {
-		s = "Humano n° :" + i;
-	}*/
 
 
 	cPasajeros* h1 = new cPasajeros("humano1", "10000001", p1, false, 100, NULL);

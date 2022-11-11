@@ -8,7 +8,6 @@
 #define _CPASAJEROS_H
 
 
-class cParada;
 class cPasajeros : public cPersona {
 public:
 

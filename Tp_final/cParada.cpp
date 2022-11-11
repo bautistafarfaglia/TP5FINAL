@@ -15,10 +15,6 @@ vector<cPasajeros*> cParada::get_lista_pasajeros()
 	return this->listaPasajeros;
 }
 
-/*cListaPasajeros cParada::get_lista_pasajeros() {
-    return null;
-}*/
-
 string cParada::get_id_parada() {
     return this->id_parada;
 }
@@ -38,14 +34,15 @@ vector<cPasajeros*> cParada::pasajeros_suben_colectivo(int num){
 	return aux;
 }
 
-/*
-cPasajero cParada::pasajeros_suben_colectivos() {
-    return null;
-}*/
-
 void cParada::agregar_pasajero(cPasajeros* pasajero_nuevo)
 {
-	this->listaPasajeros.push_back(pasajero_nuevo);
+	if (pasajero_nuevo->get_hay_una_discapacidad() == true) {
+		this->listaPasajeros.insert(this->listaPasajeros.begin(), pasajero_nuevo); //chequear si en verdad funciona, pero le tengo fe
+	}
+	else {
+		this->listaPasajeros.push_back(pasajero_nuevo);
+	}
+	
 }
 
 string cParada::to_string_parada() {
