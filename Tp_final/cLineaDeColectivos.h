@@ -23,16 +23,21 @@ public:
     };
 
     void agregar_peronas(cPasajeros* persona);
-
     void TICK();
-
     string ToStringLineaDeColectivos();
-
     void ImprimirColectivos();
-
     void generarcColectivo();
-
     void generarRecorrido();
+
+    void agregar(cRecorrido* recorrido);
+    void eliminar(cRecorrido* recorrido);
+    cRecorrido* quitar(cRecorrido* recorrido);
+    void operator+(cRecorrido* recorrido);
+    cRecorrido* operator-(cRecorrido* recorrido);
+    cRecorrido* operator[](short i);
+    void ordenar();
+    void resize();
+    //void operator++();
 
     /// <summary>
     /// Este metodo sirve para poder asignar a un colectivo un recorrido random
@@ -45,11 +50,12 @@ public:
     void AvanzarColectivoRandom();
 
 protected:
+    unsigned short int cantActual;
     const int IDLineaDeColectivos;
     static int Max_id;
     string NombreDeLinea;
     vector<cColectivo*> listaColectivos;
-    vector<cRecorrido*> listaRecorrido;
+    cRecorrido** listaRecorrido;
     vector<cPasajeros*> listaPasajeros;
     vector<cColectivero*> listaColectiveros;
     cSistemaDePagos* SistemaGeneralDePagos;

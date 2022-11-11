@@ -120,7 +120,7 @@ cColectivoSinAire* cLineaDeColectivos::generar_cColectivo_sinAire() {
 	return cole;
 }
 
-bool cLineaDeColectivos::asignarChoferSistemaYRecorridoAcolectivosGenerados(cColectivo* cole) {
+/*bool cLineaDeColectivos::asignarChoferSistemaYRecorridoAcolectivosGenerados(cColectivo* cole) {
 	bool flag = false;
 	for (int i = 0; i < this->listaColectiveros.size(); i++) { 
 		if (this->listaColectiveros[i]->getTrabajando() == false) { //se buscan colectiveros que no esten ahora mismo manejando
@@ -150,5 +150,75 @@ bool cLineaDeColectivos::asignarChoferSistemaYRecorridoAcolectivosGenerados(cCol
 	}
 	catch (exception e) {
 		cout << "Error 01: " << e.what() << endl;
+	}*/
+
+
+
+
+
+#pragma region listaRecorrido
+
+	void cLineaDeColectivos::agregar(cRecorrido * recorrido) {
+		this->resize();
+		this->listaRecorrido[++cantActual] = recorrido;
 	}
+	void cLineaDeColectivos::eliminar(cRecorrido* recorrido) {
+		int i = 0;
+		for (i = 0; i < this->cantActual; i++)
+		{
+			if (listaRecorrido[i] == recorrido)
+				delete listaRecorrido[i];
+			break;
+		}
+		listaRecorrido[i] = NULL;
+		this->ordenar();
+	}
+	cRecorrido* cLineaDeColectivos::quitar(cRecorrido* recorrido) {
+		int i = 0;
+		for (i = 0; i < this->cantActual; i++)
+		{
+			if (listaRecorrido[i] == recorrido)
+				break;
+		}
+		cRecorrido* RecAux = listaRecorrido[i];
+		delete listaRecorrido[i];
+		listaRecorrido[i] = NULL;
+		this->ordenar();
+		return RecAux;
+	}
+
+	void cLineaDeColectivos::operator+(cRecorrido* recorrido) { this->agregar(recorrido); }
+	cRecorrido* cLineaDeColectivos::operator-(cRecorrido* recorrido) { cRecorrido* RecAux = NULL;  RecAux = quitar(recorrido); return RecAux; }
+	cRecorrido* cLineaDeColectivos::operator[](short i) {
+		try {
+			if (i >= 0 && i < this->cantActual)
+				return this->listaRecorrido[i];
+			throw out_of_range("Error: Se esta intentando acceder a un elemento imposible de acceder");
+		}
+		catch (out_of_range& e) {
+			cout << e.what() << endl;
+		}
+	}
+	//void cTarjeta::operator++() {}
+
+
+	void cLineaDeColectivos::resize() {
+		// aca hacer try y catch para la memoria
+			cRecorrido** listaResize = new cRecorrido * [this->cantActual + 1];
+			for (int i = cantActual; i < cantActual + 1; i++)
+			{
+				listaResize[i] = NULL;
+			}
+			memcpy(listaResize, this->listaRecorrido, this->cantActual + 1 * sizeof(cRecorrido*));
+			delete[] this->listaRecorrido;
+			listaRecorrido = listaResize;
+	}
+	void cLineaDeColectivos::ordenar() {
+		for (ushort i = 0; i < this->cantActual; i++)
+			for (ushort j = i; j < this->cantActual - 1; j++)
+				if (!this->listaRecorrido[i])
+					swap(this->listaRecorrido[j], this->listaRecorrido[j + 1]);
+	}
+
+#pragma endregion
 }

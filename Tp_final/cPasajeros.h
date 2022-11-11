@@ -17,10 +17,8 @@ public:
 
 
     cParada* get_destino();
-
     string get_DNI();
     float* getSaldo();
-
     int get_num_colectivo();
 
     string to_string_pasajero();
