@@ -16,7 +16,7 @@ public:
     string get_legajo();
 
     string to_string_colectivero();
-
+    bool AleatorioAbrirPuertas();
     friend istream& operator>>(istream& is, cColectivero& cole);
 private:
     bool trabajando;

@@ -1,6 +1,5 @@
 #pragma once
 #include "Gbl.h"
-#include "cTarjeta.h"
 #ifndef _CSISTEMADEPAGOS_H
 #define _CSISTEMADEPAGOS_H
 
@@ -14,12 +13,6 @@ public:
 
     float get_colecta_del_dia();
 
-    /**
-     * @param string inicio
-     * @param string destino
-     * @param int cantidad_de_paradas
-     * @param cTarjeta* tarjeta_pasajero
-     */
     bool cobrar_voleto(float* saldo,int cantParadas);
 
 private:

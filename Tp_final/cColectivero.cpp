@@ -32,6 +32,18 @@ string cColectivero::to_string_colectivero() {
 	return ss.str();
 }
 
+bool cColectivero::AleatorioAbrirPuertas()
+{
+	int val = rand() % 1;
+	if (val == 0) {
+		return true;
+	}
+	else {
+		return false;
+	}
+	
+}
+
 istream& operator>>(istream& is, cColectivero& cole)
 {
 

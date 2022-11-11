@@ -1,6 +1,5 @@
 #pragma once
 #include "Gbl.h"
-#include "cTarjeta.h"
 #include "cPersona.h"
 //#include "cParada.h"
 
@@ -16,7 +15,6 @@ public:
 
     bool get_hay_una_discapacidad();
 
-    cTarjeta* get_tarjeta_pasajero();
 
     cParada* get_destino();
 
@@ -32,7 +30,6 @@ public:
 protected:
     int num_colectivo;
     cParada* destino;
-    cTarjeta* tarjeta_pasajero;
     bool tiene_una_discapacidad;
     float* saldo;
 };

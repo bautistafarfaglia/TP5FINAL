@@ -132,7 +132,7 @@ cColectivo::cColectivo(cColectivero* colectivero,
             if (this->cantidad_actual_pasajeros < this->cantidad_max_pasajeros) {
                 cPasajeros* aux = this->recorrido->get_lista_paradas()[pos_del_recorrido]->get_lista_pasajeros()[i];
                 
-                if (true == this->control_sentido_pasajero(aux)&&true==hay_destino(aux)){//chequeo que el sentido del pasajero sea adecuado y si su destino futuro esta dentro del recorrido
+                if (true == this->control_sentido_pasajero(aux)&&true==hay_destino(aux)&&this->colectivero->AleatorioAbrirPuertas()==true){//chequeo que el sentido del pasajero sea adecuado y si su destino futuro esta dentro del recorrido
                    cParada* auxp = this->recorrido->get_lista_paradas()[pos_del_recorrido];
                    if (aux->get_hay_una_discapacidad() == true) {
                        if (auxp != NULL) {
