@@ -166,7 +166,7 @@ int main() {
 			//cout << "\nPasaron: " << diftime << " s" << endl; //esta linea dice cuanto tiempo pasa entre cada vuelta de while
 			
 			//actualizar todos los colectivos
-
+			//linea->TICK()
 			time_0 = clock();
 			cantidad_segundos++; //sumo al contador hasta que se cumpla la condicion
 			if (cantidad_segundos % 5 == 0) {

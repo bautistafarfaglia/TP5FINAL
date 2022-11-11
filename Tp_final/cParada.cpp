@@ -2,7 +2,7 @@
 
 unsigned int cParada::cant_total_paradas = 0;
 
-cParada::cParada(string id_parada,string nombre_parada, eSentidoRecorrido direccion) : id_parada(id_parada), nombre_parada(nombre_parada), direccion(direccion) {
+cParada::cParada(string nombre_parada, eSentidoRecorrido direccion) : id_parada(cant_total_paradas), nombre_parada(nombre_parada), direccion(direccion) {
 	
 }
 
@@ -15,7 +15,7 @@ vector<cPasajeros*> cParada::get_lista_pasajeros()
 	return this->listaPasajeros;
 }
 
-string cParada::get_id_parada() {
+int cParada::get_id_parada() {
     return this->id_parada;
 }
 
@@ -75,11 +75,11 @@ void cParada::imprimir() {
 istream& operator>>(istream& is, cParada& pa)
 {
 	int pos = 0;
-	bool estado = false;
-	cout << "Ingrese los datos de la parada:" << endl;
-	cout << "Nombre de la parada:" << endl;
+	bool estado = false; 
+	cout << "Ingrese los datos de la parada: " << endl;
+	cout << "Nombre de la parada: " << endl;
 	is >> pa.nombre_parada;
-	cout << "Direccion de la parada: 0=arriba, 1=abajo" << endl;
+	cout << "Direccion de la parada: 0=arriba, 1=abajo " << endl;
 	is >> pos;
 	if (pos == 0) {
 		pa.direccion = Arriba;
@@ -88,11 +88,11 @@ istream& operator>>(istream& is, cParada& pa)
 		pa.direccion = Abajo;
 	}
 	pos = 0; 
-	cout << "Cuantos colectivos pasan por esta parada" << endl;
+	cout << " ¿Cuantos colectivos pasan por esta parada? " << endl;
 	is >> pos;
 	for (int i = 0; i < pos; i++) {
-		pa.listaNumerosColectivos.resize(pos);//chequear si el resize de vector, que hace
-		cout << "Que numero es" << endl;
+		pa.listaNumerosColectivos.resize(pos);
+		cout << "Que numero es: " << endl;
 		is>>pa.listaNumerosColectivos[i];
 	}
 

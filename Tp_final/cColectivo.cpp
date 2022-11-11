@@ -102,6 +102,11 @@ cColectivo::cColectivo(cColectivero* colectivero,
         }
        }
 
+    unsigned long int cColectivo::getcantidad_de_colectivos_en_circulacion()
+    {
+        return cantidad_de_colectivos_en_circulacion;
+    }
+
     /// <summary>
     /// Esta funcion hace avanzar el colectivo a la siguiente parada. 
     /// Tambien suben pasajeros si: 

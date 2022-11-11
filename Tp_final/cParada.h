@@ -7,21 +7,20 @@
 
 class cParada {
 public:
-    //chequear el string id_parada
-    cParada(string id_parada ="none", string nombre_parada = "none", eSentidoRecorrido direccion = DEFAULT);
+    cParada(string nombre_parada = "none", eSentidoRecorrido direccion = DEFAULT);
     ~cParada() {
         for (int i = 0; i < listaPasajeros.size(); i++)
         {
             delete listaPasajeros[i];
         }
-        delete[] &this->listaPasajeros; //chequear esta linea
+       // delete[] &this->listaPasajeros; //chequear si esta bien que este comentada esta linea
     };
 
     string get_nombre_parada();
 
     vector<cPasajeros*> get_lista_pasajeros();
 
-    string get_id_parada();
+    int get_id_parada();
 
     vector<cPasajeros*> pasajeros_suben_colectivo(int num);
 
@@ -30,12 +29,12 @@ public:
     friend istream& operator>>(istream& is, cParada& re);
     void imprimir();  
 private:
-    string const id_parada;
+    const int id_parada;
     string nombre_parada;
     eSentidoRecorrido direccion;
     vector<cPasajeros*> listaPasajeros;
     vector<int> listaNumerosColectivos;
-    static unsigned int cant_total_paradas; //chequear este cant totalparadas
+    static unsigned int cant_total_paradas; 
 };
 
 #endif //_CPARADA_H

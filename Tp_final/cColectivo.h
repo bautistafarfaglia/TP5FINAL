@@ -20,8 +20,8 @@ public:
             delete& listaPasajeros[i];
         }
         delete this->recorrido;
-        if (&this->listaPasajeros != NULL)
-        delete[] & this->listaPasajeros; //chequear porque explota aca
+       /* if (&this->listaPasajeros != NULL)
+        delete[] & this->listaPasajeros;*/ //debido a que  porque explota aca
 
         if (this->sistema_de_pagos != NULL)
             delete this->sistema_de_pagos;//chequear si es que tenemos que eliminar el sistema de pagos y no tendríamos que hacerlo global
@@ -77,6 +77,7 @@ public:
 
     int calcular_distancia(cPasajeros* pasajero);
 
+    static unsigned long int getcantidad_de_colectivos_en_circulacion();
 
 protected:
     void actualizar_GPS();
@@ -84,7 +85,7 @@ protected:
     short const id_colectivo;
     static short int max_id;
     unsigned int numColectivo;
-    static unsigned long int cantidad_de_colectivos_en_circulacion; //chequear para que servía esta cantidad de colectivos
+    static unsigned long int cantidad_de_colectivos_en_circulacion;
     bool estado_operativo;
     cFecha* fecha_ultimo_mantenimiento;
     cColectivero* colectivero;

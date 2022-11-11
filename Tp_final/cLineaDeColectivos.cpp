@@ -17,7 +17,8 @@ void cLineaDeColectivos::agregar_peronas(cPasajeros* persona) {
 }
 
 void cLineaDeColectivos::TICK() {
-    return;
+	this->ImprimirColectivos(); 
+	cout << "Cant de colectivos en circulacion: " << cColectivo::getcantidad_de_colectivos_en_circulacion();
 }
 
 string cLineaDeColectivos::ToStringLineaDeColectivos() {
