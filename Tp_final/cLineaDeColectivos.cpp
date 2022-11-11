@@ -22,7 +22,7 @@ void cLineaDeColectivos::agregar_personas(cPasajeros* persona) {
 void cLineaDeColectivos::GenerarAveríaRandom()
 {
 	int ColeRandom = rand() % this->listaColectivos.size();  
-	this->listaColectivos[ColeRandom]->averia()
+	this->listaColectivos[ColeRandom]->averia();
 }
 
 void cLineaDeColectivos::SolucionarAveríaProducida()
