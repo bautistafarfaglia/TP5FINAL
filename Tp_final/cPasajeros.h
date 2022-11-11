@@ -2,7 +2,7 @@
 #include "Gbl.h"
 #include "cTarjeta.h"
 #include "cPersona.h"
-//#include "cParada.h"
+#include "cParada.h"
 
 #ifndef _CPASAJEROS_H
 #define _CPASAJEROS_H

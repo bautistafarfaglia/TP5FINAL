@@ -5,6 +5,7 @@
 #ifndef _CPARADA_H
 #define _CPARADA_H
 
+
 class cParada {
 public:
     cParada(string nombre_parada = "none", eSentidoRecorrido direccion = DEFAULT);

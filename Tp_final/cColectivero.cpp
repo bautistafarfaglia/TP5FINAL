@@ -20,9 +20,6 @@ string cColectivero::get_legajo() {
     return this->legajo;
 }
 
-string cColectivero::cargar_destino_pasajero( string destino_pasajero) {
-	return "";
-}
 
 string cColectivero::to_string_colectivero() {
 	stringstream ss;

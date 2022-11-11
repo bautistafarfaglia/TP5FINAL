@@ -14,7 +14,6 @@ public:
     void setTrabajando(bool var);
     bool getTrabajando();
     string get_legajo();
-    string cargar_destino_pasajero(string destino_pasajero); //chequear este metodo, no tiene mucho sentido
 
     string to_string_colectivero();
 

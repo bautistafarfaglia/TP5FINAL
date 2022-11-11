@@ -4,6 +4,7 @@ int cLineaDeColectivos::Max_id = 0;
 
 cLineaDeColectivos::cLineaDeColectivos(string NombreLinea) :IDLineaDeColectivos(Max_id++) {
     this->NombreDeLinea = NombreLinea; 
+	this->SistemaGeneralDePagos = new cSistemaDePagos();
 }
 
 void cLineaDeColectivos::agregar_peronas(cPasajeros* persona) {
@@ -134,8 +135,7 @@ bool cLineaDeColectivos::asignarChoferSistemaYRecorridoAcolectivosGenerados(cCol
 		this->listaColectiveros.push_back(vero);//se agrega el colectivero a la fuerza trabajadora
 		cole->set_colectivero(vero);
 	}
-	cSistemaDePagos* pagos = new cSistemaDePagos();
-	cole->set_sistema_de_pagos(pagos);
+	cole->set_sistema_de_pagos(this->SistemaGeneralDePagos);
 
 	srand(42);
 	try {

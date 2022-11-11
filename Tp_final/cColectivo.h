@@ -23,8 +23,8 @@ public:
        /* if (&this->listaPasajeros != NULL)
         delete[] & this->listaPasajeros;*/ //debido a que  porque explota aca
 
-        if (this->sistema_de_pagos != NULL)
-            delete this->sistema_de_pagos;//chequear si es que tenemos que eliminar el sistema de pagos y no tendríamos que hacerlo global
+        /*if (this->sistema_de_pagos != NULL)
+            delete this->sistema_de_pagos;*///No tenemos que eliminar el sistemas de pago porque es el mismo en toda la linea, para podes clacular la colecta de todos los colectivos
         this->colectivero->setTrabajando(false);
         delete this->fecha_ultimo_mantenimiento;
     }

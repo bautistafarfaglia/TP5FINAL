@@ -52,6 +52,7 @@ protected:
     vector<cRecorrido*> listaRecorrido;
     vector<cPasajeros*> listaPasajeros;
     vector<cColectivero*> listaColectiveros;
+    cSistemaDePagos* SistemaGeneralDePagos;
     bool asignarChoferSistemaYRecorridoAcolectivosGenerados(cColectivo* cole);
 };
 

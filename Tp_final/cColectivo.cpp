@@ -86,7 +86,7 @@ cColectivo::cColectivo(cColectivero* colectivero,
         for (unsigned int i = 0; i < this->get_recorrido()->get_cantidad_paradas(); i++)
         {
 
-            if (this->recorrido->get_lista_paradas()[pos_del_recorrido] == this->recorrido->get_lista_paradas()[i])  //chequear operator
+            if (this->recorrido->get_lista_paradas()[pos_del_recorrido] == this->recorrido->get_lista_paradas()[i])  //chequear operator y fijarse que pasa si el colectivo va en el otro sentido
             {
                 flag = true;
             }
@@ -97,8 +97,6 @@ cColectivo::cColectivo(cColectivero* colectivero,
             {
                 return cont;
             }
-            
-            // if (cont==0) chequear el handle de la exception, porque o no esta en el recorrido, o es la misma parada
         }
        }
 
@@ -116,7 +114,6 @@ cColectivo::cColectivo(cColectivero* colectivero,
     /// </summary>
     /// <returns>Devuelve falso si no puede avanzar mas en el recorrido, en caso contrario devuelve true</returns>
     bool cColectivo::avanzar_recorrido() {
-        // chequear si se puede cambiar el sentido de un pasajero si se pide ir a un destino que el colectivo ya transito
         if (abs(pos_del_recorrido) == this->recorrido->get_cantidad_paradas()) { //llego al final del recorrido entonces se le asignaría otro recorrido
             return false;
         }
@@ -147,7 +144,7 @@ cColectivo::cColectivo(cColectivero* colectivero,
                    else {
                        if (auxp != NULL) {
                            cout << "Se suben pasajeros" << endl;
-                               subir_pasajeros(this->recorrido->get_lista_paradas()[i]->pasajeros_suben_colectivo(this->numColectivo));//chequear que explota cuando no se ponen las paradas en la cual se baja el pasajero
+                               subir_pasajeros(this->recorrido->get_lista_paradas()[i]->pasajeros_suben_colectivo(this->numColectivo));
                                return true;
                        }
                    }
