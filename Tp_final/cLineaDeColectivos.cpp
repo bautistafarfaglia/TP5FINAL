@@ -6,16 +6,14 @@ cLineaDeColectivos::cLineaDeColectivos(string NombreLinea) :IDLineaDeColectivos(
     this->NombreDeLinea = NombreLinea; 
 	this->SistemaGeneralDePagos = new cSistemaDePagos();
 
-	listaRecorrido = new cRecorrido * [0];
+	this->listaRecorrido = new cRecorrido * [0];
 }
 
 void cLineaDeColectivos::agregar_personas(cPasajeros* persona) {
-	if (listaPasajeros.size() % 5 == 0) {
-		this->generarRecorrido();
-	}
 	this->listaPasajeros.push_back(persona);
+	int pos_random = rand() % this->cantActual;
 	//Agregar el pasajero a alguna parada random
-	this->listaRecorrido[rand() % this->cantActual]->get_lista_paradas()[rand() % this->listaRecorrido[rand() % this->cantActual]->get_lista_paradas().size()]->agregar_pasajero(persona);
+	this->listaRecorrido[pos_random]->get_lista_paradas().at(rand() % this->listaRecorrido[pos_random]->get_lista_paradas().size())->agregar_pasajero(persona);
 	//    lista de recorridos: pos random -> obtener lista paradas -> parada random -> agregar pasajero
 }
 
@@ -173,7 +171,7 @@ bool cLineaDeColectivos::asignarChoferSistemaYRecorridoAcolectivosGenerados(cCol
 
 	void cLineaDeColectivos::agregar(cRecorrido * recorrido) {
 		this->resize();
-		this->listaRecorrido[++cantActual] = recorrido;
+		this->listaRecorrido[cantActual++] = recorrido;
 	}
 	void cLineaDeColectivos::eliminar(cRecorrido* recorrido) {
 		int i = 0;
@@ -216,16 +214,27 @@ bool cLineaDeColectivos::asignarChoferSistemaYRecorridoAcolectivosGenerados(cCol
 
 
 	void cLineaDeColectivos::resize() {
-		// aca hacer try y catch para la memoria
-			cRecorrido** listaResize = new cRecorrido * [this->cantActual + 1];
-			for (int i = cantActual; i < cantActual+1; i++)
-			{
-				listaResize[i] = NULL;
-			}
-
-			memcpy(listaResize, this->listaRecorrido, (this->cantActual + 1 )* sizeof(cRecorrido*));
-			listaRecorrido = listaResize;
-			delete[] listaResize;
+		int iOldSize = this->cantActual;
+		int iNewSize = iOldSize + 1;
+		cRecorrido** paTmpArray = new cRecorrido * [iOldSize];
+		for (int i = cantActual; i < iOldSize; i++)
+		{
+			paTmpArray[i] = this->listaRecorrido[i];
+		}
+		cRecorrido** aux;
+		aux = this->listaRecorrido; 
+		this->listaRecorrido = NULL;
+		delete aux;
+		this->listaRecorrido = new cRecorrido * [iNewSize];
+		for (int i = cantActual; i < iNewSize; i++)
+		{
+			this->listaRecorrido[i] = NULL;
+		}
+		for (int i = 0; i < iOldSize; i++)
+		{
+			this->listaRecorrido[i] = paTmpArray[i];
+		}
+		delete[] paTmpArray;
 	}
 	void cLineaDeColectivos::ordenar() {
 		for (ushort i = 0; i < this->cantActual; i++)

@@ -2,8 +2,9 @@
 
 
 cRecorrido::cRecorrido(string id_recorrido) : codigo_recorrido(codigo_recorrido) {
-    vector<cParada*> ParadasAux; 
-    this->listaParada = ParadasAux;
+    vector<cParada*> re;
+    re.clear();
+    this->listaParada=re;
 }
 cRecorrido::~cRecorrido() {
     for (int i = 0; i < listaParada.size(); i++)
@@ -17,7 +18,10 @@ string cRecorrido::get_codigo_recorrido() {
 }
 
 vector<cParada*> cRecorrido::get_lista_paradas() {
-    return (this->listaParada);
+    if (this->listaParada.size() == 0) {
+        int val = 0;
+    }
+    return this->listaParada;
 }
 
 unsigned int cRecorrido::get_cantidad_paradas() {
