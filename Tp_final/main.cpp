@@ -150,7 +150,10 @@ int main() {
 	linea->agregar_personas(h19);
 	linea->agregar_personas(h20);
 
-	int chequeo_linea = 0;
+
+	linea->generarcColectivo();
+	linea->cambiarRecorrido(1);
+	linea->AvanzarColectivoRandom();
 
 	#pragma endregion
 
@@ -168,7 +171,8 @@ int main() {
 		double diftime = (double(time_1 - time_0) / CLOCKS_PER_SEC);
 		if (diftime >= 1) {
 			//cout << "\nPasaron: " << diftime << " s" << endl; //esta linea dice cuanto tiempo pasa entre cada vuelta de while
-			
+
+			linea->AvanzarColectivoRandom(); //Luego de la 3era parada chequear que explota porque le faltan datos del destino al pasajero
 			//actualizar todos los colectivos
 			//linea->TICK()
 			time_0 = clock();
@@ -183,10 +187,6 @@ int main() {
 
     #pragma endregion
 
-	linea->generarRecorrido();
-	linea->generarcColectivo();
-	linea->cambiarRecorrido(1);
-	linea->AvanzarColectivoRandom();
 
 	//Chequear todos los deletes y porque explota la pc
 	

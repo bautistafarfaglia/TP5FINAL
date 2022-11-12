@@ -139,7 +139,7 @@ bool cLineaDeColectivos::asignarChoferSistemaYRecorridoAcolectivosGenerados(cCol
 			break;
 		}
 	}
-	if (flag = false) { //no hay suficientes colectiveros por lo que se "contrata" a mas
+	if (flag == false) { //no hay suficientes colectiveros por lo que se "contrata" a mas
 		cColectivero* vero = new cColectivero();
 		cin >> *vero;//se personaliza el colectivero
 		this->listaColectiveros.push_back(vero);//se agrega el colectivero a la fuerza trabajadora
@@ -151,7 +151,7 @@ bool cLineaDeColectivos::asignarChoferSistemaYRecorridoAcolectivosGenerados(cCol
 	try {
 		if (this->cantActual != 0) {
 			cole->set_recorrido(this->listaRecorrido[rand() % this->cantActual]);
-			return false;
+			return true;
 		}
 		else {
 			throw exception("No se puede crear colectivos sin recorrido");

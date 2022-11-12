@@ -151,7 +151,12 @@ cColectivo::cColectivo(cColectivero* colectivero,
                }
             }
         }
+        if(cant_en_parada==0) {
+            cout << "No había nadie en la parada" << endl;
+            return true;
+        }
         //this->bajar_pasajeros(this->recorrido->get_lista_paradas()[pos_del_recorrido]->get_nombre_parada());
+       
     }
         
     
