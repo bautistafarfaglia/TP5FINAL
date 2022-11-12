@@ -4,7 +4,7 @@
 cPasajeros::cPasajeros(string nombre, string _DNI, cParada* destino, bool tiene_una_discapacidad, float saldo, int numcolectivo){
     this->nombre = nombre;
     this->DNI = DNI;
-    this->destino = NULL;
+    this->destino = destino;
     this->tiene_una_discapacidad = tiene_una_discapacidad;
     this->num_colectivo = numcolectivo;
 }
