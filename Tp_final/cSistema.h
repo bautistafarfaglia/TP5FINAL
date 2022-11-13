@@ -4,14 +4,14 @@
 #include "cColectivoAcordeon.h"
 #include "cColectivoSinAire.h"
 #include "cRecorrido.h"
-class cLineaDeColectivos {
+class cSistema {
 
     cColectivoAcordeon* generar_cColectivo_Acordeon();
     cColectivoConAireYDireccionElectrica* generar_cColectivo_ConAire_y_DireccionElectrica();
     cColectivoSinAire* generar_cColectivo_sinAire();
 public:
-    cLineaDeColectivos(string NombreLinea="none");
-    ~cLineaDeColectivos() {
+    cSistema(string NombreLinea="none");
+    ~cSistema() {
         for (int i = 0; i < listaColectivos.size(); i++)
         {
             delete& listaColectivos[i];
@@ -66,4 +66,4 @@ protected:
     bool asignarChoferSistemaYRecorridoAcolectivosGenerados(cColectivo* cole);
 };
 
-//#endif _CLINEADECOLECTIVOS_H
+//#endif _CSISTEMA_H

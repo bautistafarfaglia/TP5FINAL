@@ -2,13 +2,13 @@
 #include "cPasajeros.h"
 #include "cColectivoAcordeon.h"
 #include "cColectivoSinAire.h"
-#include "cLineaDeColectivos.h"
+#include "cSistema.h"
 #include "cRecorrido.h"
 #include "cSistemaDePagos.h"
 
 int main() {
 	
-	cLineaDeColectivos* linea= new cLineaDeColectivos("linea");
+	cSistema* linea= new cSistema("linea");
 
 	#pragma region recorridos, paradas y personas
 
@@ -109,26 +109,26 @@ int main() {
 	linea->agregar(rec3);
 	linea->agregar(rec4);
 
-	cPasajeros* h1 = new cPasajeros("humano1", "10000001", p1, false, 100, 15);
-	cPasajeros* h2 = new cPasajeros("humano2", "10000002", p2, false, 100, 10);
+	cPasajeros* h1 = new cPasajeros("humano1", "10000001", p1, false, 100, 60);
+	cPasajeros* h2 = new cPasajeros("humano2", "10000002", p2, false, 100, 60);
 	cPasajeros* h3 = new cPasajeros("humano3", "10000003", p3, false, 100, 60);
-	cPasajeros* h4 = new cPasajeros("humano4", "10000004", p4, false, 100, 12);
+	cPasajeros* h4 = new cPasajeros("humano4", "10000004", p4, false, 100, 60);
 	cPasajeros* h5 = new cPasajeros("humano5", "10000005", p5, false, 100, 60);
-	cPasajeros* h6 = new cPasajeros("humano6", "10000006", p6, false, 100, 14);
-	cPasajeros* h7 = new cPasajeros("humano7", "10000007", p7, false, 100, 20);
-	cPasajeros* h8 = new cPasajeros("humano8", "10000008", p8, false, 100, 15);
-	cPasajeros* h9 = new cPasajeros("humano9", "10000009", p9, false, 100, 20);
-	cPasajeros* h10 = new cPasajeros("humano10", "10000010", p10, false, 100, 10);
-	cPasajeros* h11 = new cPasajeros("humano11", "10000011", p11, false, 100, 2);
-	cPasajeros* h12 = new cPasajeros("humano12", "10000012", p12, false, 100, 15);
-	cPasajeros* h13 = new cPasajeros("humano13", "10000013", p13, false, 100, 2);
-	cPasajeros* h14 = new cPasajeros("humano14", "10000014", p14, false, 100, 15);
-	cPasajeros* h15 = new cPasajeros("humano15", "10000015", p15, false, 100, 15);
-	cPasajeros* h16 = new cPasajeros("humano16", "10000016", p16, false, 100, 15);
-	cPasajeros* h17 = new cPasajeros("humano17", "10000017", p17, false, 100, 15);
-	cPasajeros* h18 = new cPasajeros("humano18", "10000018", p18, false, 100, 15);
-	cPasajeros* h19 = new cPasajeros("humano19", "10000019", p19, false, 100, 15);
-	cPasajeros* h20 = new cPasajeros("humano20", "10000020", p20, false, 100, 15);
+	cPasajeros* h6 = new cPasajeros("humano6", "10000006", p6, false, 100, 60);
+	cPasajeros* h7 = new cPasajeros("humano7", "10000007", p7, false, 100, 60);
+	cPasajeros* h8 = new cPasajeros("humano8", "10000008", p8, false, 100, 60);
+	cPasajeros* h9 = new cPasajeros("humano9", "10000009", p9, false, 100, 60);
+	cPasajeros* h10 = new cPasajeros("humano10", "10000010", p10, false, 100, 60);
+	cPasajeros* h11 = new cPasajeros("humano11", "10000011", p11, false, 100, 60);
+	cPasajeros* h12 = new cPasajeros("humano12", "10000012", p12, false, 100, 60);
+	cPasajeros* h13 = new cPasajeros("humano13", "10000013", p13, false, 100, 60);
+	cPasajeros* h14 = new cPasajeros("humano14", "10000014", p14, false, 100, 60);
+	cPasajeros* h15 = new cPasajeros("humano15", "10000015", p15, false, 100, 60);
+	cPasajeros* h16 = new cPasajeros("humano16", "10000016", p16, false, 100, 60);
+	cPasajeros* h17 = new cPasajeros("humano17", "10000017", p17, false, 100, 60);
+	cPasajeros* h18 = new cPasajeros("humano18", "10000018", p18, false, 100, 60);
+	cPasajeros* h19 = new cPasajeros("humano19", "10000019", p19, false, 100, 60);
+	cPasajeros* h20 = new cPasajeros("humano20", "10000020", p20, false, 100, 60);
 
 	linea->agregar_personas(h1);
 	linea->agregar_personas(h2);
@@ -187,7 +187,7 @@ int main() {
 				//cout<<endl;
 			}
 		}
-		if (cantidad_segundos == 24) //Cantidad de segundos operativos
+		if (cantidad_segundos == 100) //Cantidad de segundos operativos
 			ciclo = false;
 	}
 
@@ -236,8 +236,7 @@ int main() {
 	delete p38;
 	delete p39;
 	delete p40;
-#pragma endregion
-	
+#pragma endregion	
 #pragma region deletes humanos
 	delete h1;
 	delete h2;

@@ -1,15 +1,15 @@
-#include "cLineaDeColectivos.h"
+#include "cSistema.h"
 
-int cLineaDeColectivos::Max_id = 0;
+int cSistema::Max_id = 0;
 
-cLineaDeColectivos::cLineaDeColectivos(string NombreLinea) :IDLineaDeColectivos(Max_id++) {
+cSistema::cSistema(string NombreLinea) :IDLineaDeColectivos(Max_id++) {
     this->NombreDeLinea = NombreLinea; 
 	this->SistemaGeneralDePagos = new cSistemaDePagos();
 
 	this->listaRecorrido = new cRecorrido * [0];
 }
 
-void cLineaDeColectivos::agregar_personas(cPasajeros* persona) {
+void cSistema::agregar_personas(cPasajeros* persona) {
 	this->listaPasajeros.push_back(persona);
 	int pos_random = rand() % this->cantActual;
 	//Agregar el pasajero a alguna parada random
@@ -17,22 +17,22 @@ void cLineaDeColectivos::agregar_personas(cPasajeros* persona) {
 	//    lista de recorridos: pos random -> obtener lista paradas -> parada random -> agregar pasajero
 }
 
-void cLineaDeColectivos::GenerarAveríaRandom()
+void cSistema::GenerarAveríaRandom()
 {
 	int ColeRandom = rand() % this->listaColectivos.size();  
 	this->listaColectivos[ColeRandom]->averia();
 }
 
-void cLineaDeColectivos::SolucionarAveríaProducida()
+void cSistema::SolucionarAveríaProducida()
 {
 }
 
-void cLineaDeColectivos::TICK() {
+void cSistema::TICK() {
 	this->ImprimirColectivos(); 
 	cout << "Cant de colectivos en circulacion: " << cColectivo::getcantidad_de_colectivos_en_circulacion();
 }
 
-string cLineaDeColectivos::ToStringLineaDeColectivos() {
+string cSistema::ToStringLineaDeColectivos() {
     stringstream ss;
     for (int i = 0; i < this->listaColectivos.size()  ; i++) {
         ss << this->listaColectivos[i]->to_string_colectivo();
@@ -40,13 +40,13 @@ string cLineaDeColectivos::ToStringLineaDeColectivos() {
     return ss.str();
 }
 
-void cLineaDeColectivos::ImprimirColectivos() {
+void cSistema::ImprimirColectivos() {
 	for (int i = 0; i < this->listaColectivos.size(); i++) {
 		this->listaColectivos[i]->imprimir();
 	}
 }
 
-void cLineaDeColectivos::generarcColectivo(){
+void cSistema::generarcColectivo(){
 	int tipo = rand() % 3;
 	if (tipo == 1) {
 		this->listaColectivos.push_back(this->generar_cColectivo_Acordeon());
@@ -58,7 +58,7 @@ void cLineaDeColectivos::generarcColectivo(){
 }
 
 
-void cLineaDeColectivos::AvanzarColectivoRandom()
+void cSistema::AvanzarColectivoRandom()
 {
 	vector<cPasajeros*>* p = new vector<cPasajeros*>;
 	if (this->listaColectivos.size()) {
@@ -75,14 +75,14 @@ void cLineaDeColectivos::AvanzarColectivoRandom()
 
 }
 
-void cLineaDeColectivos::generarRecorrido() {
+void cSistema::generarRecorrido() {
 
 	cRecorrido* recorrido = new cRecorrido();
 	cin >> *recorrido; //chequear y revisar como generar recorridos, ya que no esta bueno que haya una lista estatica de pardas, para poder ir aumentando cuando deseamos
 	this->agregar(recorrido);
 }
 
-bool cLineaDeColectivos::cambiarRecorridoColectivos(int id_colectivo)
+bool cSistema::cambiarRecorridoColectivos(int id_colectivo)
 {
 	for (int i = 0; i < this->listaColectivos.size(); i++) {
 		if (this->listaColectivos[i]->get_id_colectivo() == id_colectivo) {
@@ -102,7 +102,7 @@ bool cLineaDeColectivos::cambiarRecorridoColectivos(int id_colectivo)
 		}
 	}
 }
-bool cLineaDeColectivos::cambiarRecorridoPasajeros(cPasajeros* p)
+bool cSistema::cambiarRecorridoPasajeros(cPasajeros* p)
 {
 	try {
 		if (p != nullptr) {
@@ -123,7 +123,7 @@ bool cLineaDeColectivos::cambiarRecorridoPasajeros(cPasajeros* p)
 
 
 
-cColectivoAcordeon* cLineaDeColectivos::generar_cColectivo_Acordeon() {
+cColectivoAcordeon* cSistema::generar_cColectivo_Acordeon() {
 	cColectivoAcordeon* cole = new cColectivoAcordeon();
 	cin >> *cole;
 	if (!this->asignarChoferSistemaYRecorridoAcolectivosGenerados(cole)) {
@@ -133,7 +133,7 @@ cColectivoAcordeon* cLineaDeColectivos::generar_cColectivo_Acordeon() {
 	return cole;
 }
 
-cColectivoConAireYDireccionElectrica* cLineaDeColectivos::generar_cColectivo_ConAire_y_DireccionElectrica() {
+cColectivoConAireYDireccionElectrica* cSistema::generar_cColectivo_ConAire_y_DireccionElectrica() {
 	cColectivoConAireYDireccionElectrica* cole = new cColectivoConAireYDireccionElectrica();
 	cin >> *cole;
 	if (!this->asignarChoferSistemaYRecorridoAcolectivosGenerados(cole)) {
@@ -143,7 +143,7 @@ cColectivoConAireYDireccionElectrica* cLineaDeColectivos::generar_cColectivo_Con
 	return cole;
 }
 
-cColectivoSinAire* cLineaDeColectivos::generar_cColectivo_sinAire() {
+cColectivoSinAire* cSistema::generar_cColectivo_sinAire() {
 	cColectivoSinAire* cole = new cColectivoSinAire();
 	cin >> *cole;
 	if (!this->asignarChoferSistemaYRecorridoAcolectivosGenerados(cole)) {
@@ -153,7 +153,7 @@ cColectivoSinAire* cLineaDeColectivos::generar_cColectivo_sinAire() {
 	return cole;
 }
 
-bool cLineaDeColectivos::asignarChoferSistemaYRecorridoAcolectivosGenerados(cColectivo* cole) {
+bool cSistema::asignarChoferSistemaYRecorridoAcolectivosGenerados(cColectivo* cole) {
 	bool flag = false;
 	for (int i = 0; i < this->listaColectiveros.size(); i++) {
 		if (this->listaColectiveros[i]->getTrabajando() == false) { //se buscan colectiveros que no esten ahora mismo manejando
@@ -192,11 +192,11 @@ bool cLineaDeColectivos::asignarChoferSistemaYRecorridoAcolectivosGenerados(cCol
 
 #pragma region listaRecorrido
 
-	void cLineaDeColectivos::agregar(cRecorrido * recorrido) {
+	void cSistema::agregar(cRecorrido * recorrido) {
 		this->resize();
 		this->listaRecorrido[cantActual++] = recorrido;
 	}
-	void cLineaDeColectivos::eliminar(cRecorrido* recorrido) {
+	void cSistema::eliminar(cRecorrido* recorrido) {
 		int i = 0;
 		for (i = 0; i < this->cantActual; i++)
 		{
@@ -207,7 +207,7 @@ bool cLineaDeColectivos::asignarChoferSistemaYRecorridoAcolectivosGenerados(cCol
 		listaRecorrido[i] = NULL;
 		this->ordenar();
 	}
-	cRecorrido* cLineaDeColectivos::quitar(cRecorrido* recorrido) {
+	cRecorrido* cSistema::quitar(cRecorrido* recorrido) {
 		int i = 0;
 		for (i = 0; i < this->cantActual; i++)
 		{
@@ -221,9 +221,9 @@ bool cLineaDeColectivos::asignarChoferSistemaYRecorridoAcolectivosGenerados(cCol
 		return RecAux;
 	}
 
-	void cLineaDeColectivos::operator+(cRecorrido* recorrido) { this->agregar(recorrido); }
-	cRecorrido* cLineaDeColectivos::operator-(cRecorrido* recorrido) { cRecorrido* RecAux = NULL;  RecAux = quitar(recorrido); return RecAux; }
-	cRecorrido* cLineaDeColectivos::operator[](short i) {
+	void cSistema::operator+(cRecorrido* recorrido) { this->agregar(recorrido); }
+	cRecorrido* cSistema::operator-(cRecorrido* recorrido) { cRecorrido* RecAux = NULL;  RecAux = quitar(recorrido); return RecAux; }
+	cRecorrido* cSistema::operator[](short i) {
 		try {
 			if (i >= 0 && i < this->cantActual)
 				return this->listaRecorrido[i];
@@ -236,7 +236,7 @@ bool cLineaDeColectivos::asignarChoferSistemaYRecorridoAcolectivosGenerados(cCol
 	//void cTarjeta::operator++() {}
 
 
-	void cLineaDeColectivos::resize() {
+	void cSistema::resize() {
 		int iOldSize = this->cantActual;
 		int iNewSize = iOldSize + 1;
 		cRecorrido** paTmpArray = new cRecorrido * [iOldSize];
@@ -259,7 +259,7 @@ bool cLineaDeColectivos::asignarChoferSistemaYRecorridoAcolectivosGenerados(cCol
 		}
 		delete[] paTmpArray;
 	}
-	void cLineaDeColectivos::ordenar() {
+	void cSistema::ordenar() {
 		for (ushort i = 0; i < this->cantActual; i++)
 			for (ushort j = i; j < this->cantActual - 1; j++)
 				if (!this->listaRecorrido[i])

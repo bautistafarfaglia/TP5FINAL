@@ -133,7 +133,7 @@
     <ClInclude Include="cColectivoConAireYDireccionElectrica.h" />
     <ClInclude Include="cColectivoSinAire.h" />
     <ClInclude Include="cFecha.h" />
-    <ClInclude Include="cLineaDeColectivos.h" />
+    <ClInclude Include="cSistema.h" />
     <ClInclude Include="cParada.h" />
     <ClInclude Include="cPasajeros.h" />
     <ClInclude Include="cPersona.h" />

@@ -226,9 +226,9 @@ cColectivo::cColectivo(cColectivero* colectivero,
                     return false;
                 }
             }
-            else {
-                throw "error con la subida de algun pasajero chequear";
-            }
+            //else {
+            //    throw "error con la subida de algun pasajero chequear";
+            //}
         }
         catch (exception e) {
             cout << e.what() << endl;

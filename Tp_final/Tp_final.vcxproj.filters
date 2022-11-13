@@ -30,7 +30,7 @@
     <ClInclude Include="cColectivoSinAire.h">
       <Filter>Archivos de encabezado</Filter>
     </ClInclude>
-    <ClInclude Include="cLineaDeColectivos.h">
+    <ClInclude Include="cSistema.h">
       <Filter>Archivos de encabezado</Filter>
     </ClInclude>
     <ClInclude Include="cParada.h">
