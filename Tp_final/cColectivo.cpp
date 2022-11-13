@@ -202,29 +202,38 @@ cColectivo::cColectivo(cColectivero* colectivero,
 
     bool cColectivo::subir_pasajeros(vector<cPasajeros*> nuevos_pasajeros) { //chequear si podemos acceder sin parametros a la listapasajeros de la parada
         int dif = (this->cantidad_max_pasajeros) - (this->listaPasajeros.size());
-        if (nuevos_pasajeros.size() > 0) {
-            if (nuevos_pasajeros.size() < dif) {
-                for (int i = 0; i < nuevos_pasajeros.size(); i++) {
-                    this->cobrar_boleto(nuevos_pasajeros[i]);
-                    this->listaPasajeros.push_back(nuevos_pasajeros[i]);
-                    this->cantidad_actual_pasajeros++;
+        try {
+            if (nuevos_pasajeros.size() > 0) {
+                if (nuevos_pasajeros.size() < dif) {
+                    for (int i = 0; i < nuevos_pasajeros.size(); i++) {
+                        this->cobrar_boleto(nuevos_pasajeros[i]);
+                        this->listaPasajeros.push_back(nuevos_pasajeros[i]);
+                        this->cantidad_actual_pasajeros++;
+                    }
+                    return true;
                 }
-                return true;
-            }
-            else if (dif > 0) {
-                for (int i = 0; i < dif; i++) {
-                    this->cobrar_boleto(nuevos_pasajeros[i]);
-                    this->listaPasajeros.push_back(nuevos_pasajeros[i]);
-                    this->cantidad_actual_pasajeros++;
+                else if (dif > 0) {
+                    for (int i = 0; i < dif; i++) {
+                        this->cobrar_boleto(nuevos_pasajeros[i]);
+                        this->listaPasajeros.push_back(nuevos_pasajeros[i]);
+                        this->cantidad_actual_pasajeros++;
+                    }
+                    cout << "Solo entran algunos pasajeros" << endl;
+                    return true;
                 }
-                cout << "Solo entran algunos pasajeros" << endl;
-                return true;
+                else {
+                    cout << "Esta muy lleno el bondi" << endl;
+                    return false;
+                }
             }
             else {
-                cout << "Esta muy lleno el bondi" << endl;
-                return false;
+                throw "error con la subida de algun pasajero chequear";
             }
         }
+        catch (exception e) {
+            cout << e.what() << endl;
+        }
+        
     }
 
     void cColectivo::cobrar_boleto(cPasajeros* nuevo_pasajero) {
