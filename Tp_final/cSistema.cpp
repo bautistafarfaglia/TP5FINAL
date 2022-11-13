@@ -13,6 +13,9 @@ void cSistema::agregar_personas(cPasajeros* persona) {
 	this->listaPasajeros.push_back(persona);
 	int pos_random = rand() % this->cantActual;
 	//Agregar el pasajero a alguna parada random
+
+	this->cambiarRecorridoPasajeros(persona);
+
 	this->listaRecorrido[pos_random]->get_lista_paradas().at(rand() % this->listaRecorrido[pos_random]->get_lista_paradas().size())->agregar_pasajero(persona);
 	//    lista de recorridos: pos random -> obtener lista paradas -> parada random -> agregar pasajero
 }
@@ -106,19 +109,22 @@ bool cSistema::cambiarRecorridoPasajeros(cPasajeros* p)
 {
 	try {
 		if (p != nullptr) {
-			int posRecorrido = rand() % this->cantActual; 
-			int posParada = rand() % this->listaRecorrido[posRecorrido]->get_lista_paradas().size() -1 ;
+			int posRecorrido = rand() % this->cantActual;
+			int posParada = rand() % (this->listaRecorrido[posRecorrido]->get_lista_paradas().size() - 1) + 1;
 			int destino;
-			if (listaRecorrido[posRecorrido]->get_lista_paradas()[0]->get_sentido_parada() == Arriba) {
+			if (this->listaRecorrido[posRecorrido]->get_lista_paradas()[0]->get_sentido_parada() == Arriba) {
 				destino = -1;
 				do {
-					destino = rand() % this->listaRecorrido[posRecorrido]->get_lista_paradas().size();
+					destino = rand() % this->listaRecorrido[posRecorrido]->get_lista_paradas().size() + 1;
 				} while (destino < posParada);
+
+				//agregar pasajero a parada;
 				p->setDestino(this->listaRecorrido[posRecorrido]->get_lista_paradas().at(posParada));
 				return true;
 			}
-			else if (listaRecorrido[posRecorrido]->get_lista_paradas()[0]->get_sentido_parada() == Abajo) {
+			else if (this->listaRecorrido[posRecorrido]->get_lista_paradas()[0]->get_sentido_parada() == Abajo) {
 				destino = 11;
+				if (posParada == 0) {  }
 				do {
 					destino = rand() % this->listaRecorrido[posRecorrido]->get_lista_paradas().size();
 				} while (destino > posParada);
