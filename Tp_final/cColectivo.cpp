@@ -172,7 +172,16 @@ cColectivo::cColectivo(cColectivero* colectivero,
         
     
     bool cColectivo::hay_destino(cPasajeros* p) {
+
         for (int i = pos_del_recorrido +1; i < this->recorrido->getcantParadas(); i++) {
+            string paradaact = this->recorrido->get_lista_paradas()[i]->get_nombre_parada();
+            string paradads = p->get_destino()->get_nombre_parada();
+            if (p->get_destino()->get_nombre_parada() == this->recorrido->get_lista_paradas()[i]->get_nombre_parada()) {
+                return true;
+            }
+        }
+        
+        for (int i = pos_del_recorrido -1; i < this->recorrido->getcantParadas(); i--) {
             string paradaact = this->recorrido->get_lista_paradas()[i]->get_nombre_parada();
             string paradads = p->get_destino()->get_nombre_parada();
             if (p->get_destino()->get_nombre_parada() == this->recorrido->get_lista_paradas()[i]->get_nombre_parada()) {
