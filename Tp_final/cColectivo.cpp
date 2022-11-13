@@ -152,13 +152,13 @@ cColectivo::cColectivo(cColectivero* colectivero,
                     if (true == this->control_sentido_pasajero(aux) && true == hay_destino(aux) && this->colectivero->AleatorioAbrirPuertas() == true) {//chequeo que el sentido del pasajero sea adecuado y si su destino futuro esta dentro del recorrido
 
                         if (aux->get_hay_una_discapacidad() == true) {
-                            cout << "Se sube alguien con discapacidad" << endl;
-                            subir_pasajeros(this->recorrido->get_lista_paradas()[i]->pasajeros_suben_colectivo(this->numColectivo));
+                            cout << "Se sube alguien con discapacidad ";
+                            subir_pasajeros(this->recorrido->get_lista_paradas()[this->pos_del_recorrido]->pasajeros_suben_colectivo(this->numColectivo));
                             return true;
                         }
                         else {
-                            cout << "Se suben pasajeros" << endl;
-                            subir_pasajeros(this->recorrido->get_lista_paradas()[i]->pasajeros_suben_colectivo(this->numColectivo));
+                            cout << "Se suben pasajeros ";
+                            subir_pasajeros(this->recorrido->get_lista_paradas()[this->pos_del_recorrido]->pasajeros_suben_colectivo(this->numColectivo));
                             return true;
                         }
                     }
@@ -226,6 +226,7 @@ cColectivo::cColectivo(cColectivero* colectivero,
 
     bool cColectivo::subir_pasajeros(vector<cPasajeros*> nuevos_pasajeros) { //chequear si podemos acceder sin parametros a la listapasajeros de la parada
         int dif = (this->cantidad_max_pasajeros) - (this->listaPasajeros.size());
+        int cantSubidos = 0;
         try {
             if (nuevos_pasajeros.size() > 0) {
                 if (nuevos_pasajeros.size() < dif) {
@@ -233,7 +234,10 @@ cColectivo::cColectivo(cColectivero* colectivero,
                         this->cobrar_boleto(nuevos_pasajeros[i]);
                         this->listaPasajeros.push_back(nuevos_pasajeros[i]);
                         this->cantidad_actual_pasajeros++;
+                        cantSubidos++;
                     }
+
+                    cout << "Se subieron :" << cantSubidos << endl;
                     return true;
                 }
                 else if (dif > 0) {
@@ -241,7 +245,10 @@ cColectivo::cColectivo(cColectivero* colectivero,
                         this->cobrar_boleto(nuevos_pasajeros[i]);
                         this->listaPasajeros.push_back(nuevos_pasajeros[i]);
                         this->cantidad_actual_pasajeros++;
+                        cantSubidos++;
                     }
+
+                    cout << "Solo se subieron :" << cantSubidos << endl;
                     cout << "Solo entran algunos pasajeros" << endl;
                     return true;
                 }
@@ -256,7 +263,6 @@ cColectivo::cColectivo(cColectivero* colectivero,
         } catch (const char* msg) {
             cout << msg << endl;
         }
-        
     }
 
     void cColectivo::cobrar_boleto(cPasajeros* nuevo_pasajero) {
