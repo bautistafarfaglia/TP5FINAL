@@ -182,7 +182,7 @@ cColectivo::cColectivo(cColectivero* colectivero,
             }
         }
         else {
-            for (int i = pos_del_recorrido - 1; i < this->recorrido->getcantParadas(); i--) {
+            for (int i = this->recorrido->getcantParadas(); i > -1; i--) {
                 string paradaact = this->recorrido->get_lista_paradas()[i]->get_nombre_parada();
                 string paradads = p->get_destino()->get_nombre_parada();
                 if (p->get_destino()->get_nombre_parada() == this->recorrido->get_lista_paradas()[i]->get_nombre_parada()) {
@@ -249,7 +249,7 @@ cColectivo::cColectivo(cColectivero* colectivero,
                 }
             }
             else {
-                throw "ERROR 3: error con la subida de algun pasajero chequear";
+                throw "ERROR 04: error con la subida de algun pasajero chequear";
             }
         } catch (const char* msg) {
             cout << msg << endl;

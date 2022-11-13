@@ -126,17 +126,21 @@ bool cSistema::cambiarRecorridoPasajeros(cPasajeros* p)
 				destino = 11;
 				if (posParada == 0) {  }
 				do {
-					destino = rand() % this->listaRecorrido[posRecorrido]->get_lista_paradas().size() -1;
+					destino = rand() % (this->listaRecorrido[posRecorrido]->get_lista_paradas().size() -1);
 				} while (destino >= posParada);
 				p->setDestino(this->listaRecorrido[posRecorrido]->get_lista_paradas().at(destino));
 				this->listaRecorrido[posRecorrido]->get_lista_paradas().at(posParada)->agregar_pasajero(p);
 				return true;
 			}
 		}else {
-			throw exception("No se puede asignar recorrido random a un pasajero NULL");
+			throw new exception("Error 03: No se puede asignar recorrido random a un pasajero NULL");
 		}
-	}catch (exception e) {
-				cout << "Error 03: " << e.what() << endl;
+	}
+	catch (const char* msg) {
+		cout << msg << endl;
+	}
+	catch (exception e) {
+				cout << "Error 05:" << e.what() << endl;
 				return false;
 	}
 }
