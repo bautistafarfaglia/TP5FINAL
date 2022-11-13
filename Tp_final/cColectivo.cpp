@@ -206,7 +206,8 @@ cColectivo::cColectivo(cColectivero* colectivero,
 
     bool cColectivo::bajar_pasajeros(string nombreParada, vector<cPasajeros*>* Pasajeros_que_se_bajan) {
         int cant = 0; 
-        for (int i = 0; i < this->listaPasajeros.size(); i++) {
+        int cantEstatica = this->listaPasajeros.size();
+        for (int i = 0; i < cantEstatica ; i++) {
             if (this->listaPasajeros[i]->get_destino()->get_nombre_parada() == nombreParada) {
                 cout << "Se baja un pasajero" << endl;
                 Pasajeros_que_se_bajan->push_back(this->listaPasajeros[i]);
@@ -240,6 +241,7 @@ cColectivo::cColectivo(cColectivero* colectivero,
                         this->listaPasajeros.push_back(nuevos_pasajeros[i]);
                         this->cantidad_actual_pasajeros++;
                         cantSubidos++;
+                        nuevos_pasajeros.at(i)->set_prioridad(false);
                     }
 
                     cout << "Se subieron :" << cantSubidos << endl;
@@ -250,6 +252,7 @@ cColectivo::cColectivo(cColectivero* colectivero,
                         this->cobrar_boleto(nuevos_pasajeros[i]);
                         this->listaPasajeros.push_back(nuevos_pasajeros[i]);
                         this->cantidad_actual_pasajeros++;
+                        nuevos_pasajeros.at(i)->set_prioridad(false);
                         cantSubidos++;
                     }
 

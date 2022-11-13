@@ -26,7 +26,8 @@ int cParada::get_id_parada() {
 /// <returns>Devuelve un con quienes se van a subir </returns>
 vector<cPasajeros*> cParada::pasajeros_suben_colectivo(int num){
 	vector<cPasajeros*> aux;
-	for (int i = 0; i < this->listaPasajeros.size(); i++) {
+	int cantEstatica = this->listaPasajeros.size();
+	for (int i = 0; i < cantEstatica; i++) {
 		if (this->listaPasajeros[i]->get_num_colectivo() == num) {
 			aux.push_back(this->listaPasajeros[i]);
 			this->listaPasajeros.erase(this->listaPasajeros.begin() + i);
