@@ -201,7 +201,6 @@ cColectivo::cColectivo(cColectivero* colectivero,
         for (int i = 0; i < this->listaPasajeros.size(); i++) {
             if (this->listaPasajeros[i]->get_destino()->get_nombre_parada() == nombreParada) {
                 cout << "Se baja un pasajero" << endl;
-                this->recorrido->get_lista_paradas()[pos_del_recorrido]->agregar_pasajero(this->listaPasajeros[i]);
                 Pasajeros_que_se_bajan->push_back(this->listaPasajeros[i]);
 
 
