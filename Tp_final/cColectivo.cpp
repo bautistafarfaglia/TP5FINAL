@@ -46,6 +46,11 @@ cColectivo::cColectivo(cColectivero* colectivero,
         else if (this->get_sentido() == Arriba) this->pos_del_recorrido = -1;
     }
 
+    void cColectivo::set_sentido(eSentidoRecorrido sentido) 
+    {
+        this->sentido = sentido; 
+    }
+
     void cColectivo::set_sistema_de_pagos(cSistemaDePagos* sdp)
     {
         this->sistema_de_pagos = sdp;
