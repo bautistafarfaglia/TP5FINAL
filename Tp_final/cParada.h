@@ -5,7 +5,6 @@
 #ifndef _CPARADA_H
 #define _CPARADA_H
 
-
 class cParada {
 public:
     cParada(string nombre_parada = "none", eSentidoRecorrido direccion = DEFAULT);
@@ -14,22 +13,19 @@ public:
         {
             delete listaPasajeros[i];
         }
-       // delete[] &this->listaPasajeros; //chequear si esta bien que este comentada esta linea
+        // delete[] &this->listaPasajeros; //chequear si esta bien que este comentada esta linea
     };
 
     string get_nombre_parada();
-
     vector<cPasajeros*> get_lista_pasajeros();
-
     int get_id_parada();
     eSentidoRecorrido get_sentido_parada();
-
     vector<cPasajeros*> pasajeros_suben_colectivo(int num);
-
     void agregar_pasajero(cPasajeros* pasajero_nuevo);
     string to_string_parada();
     friend istream& operator>>(istream& is, cParada& re);
     void imprimir();  
+
 private:
     const int id_parada;
     string nombre_parada;

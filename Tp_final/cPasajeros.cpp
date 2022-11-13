@@ -65,8 +65,6 @@ void cPasajeros::set_prioridad(bool _prioridad) {
     this->prioridad = _prioridad;
 }
 
-void set_sentido(eSentidoRecorrido _sentido) {this->se}
-
 bool cPasajeros::get_prioridad() {
     return this->prioridad;
 }
