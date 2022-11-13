@@ -1,10 +1,10 @@
 #include "cPasajeros.h"
 
 
-cPasajeros::cPasajeros(string nombre, string _DNI, cParada* destino, bool tiene_una_discapacidad, float saldo, int numcolectivo){
+cPasajeros::cPasajeros(string nombre, string _DNI, bool tiene_una_discapacidad, float saldo, int numcolectivo){
     this->nombre = nombre;
     this->DNI = DNI;
-    this->destino = destino;
+    this->destino = NULL;
     this->tiene_una_discapacidad = tiene_una_discapacidad;
     this->num_colectivo = numcolectivo;
     this->parada_actual = NULL;
@@ -57,13 +57,15 @@ void cPasajeros::setDestino(cParada* p)
         }
     }
     catch (exception e) {
-        cout << "Error 2: " << e.what() << endl;
+        cout << "Error 02: " << e.what() << endl;
     }
 }
 
 void cPasajeros::set_prioridad(bool _prioridad) {
     this->prioridad = _prioridad;
 }
+
+void set_sentido(eSentidoRecorrido _sentido) {this->se}
 
 bool cPasajeros::get_prioridad() {
     return this->prioridad;

@@ -10,7 +10,7 @@ class cParada;
 class cPasajeros : public cPersona {
 public:
 
-    cPasajeros(string nombre, string DNI, cParada* destino, bool tiene_una_discapacidad, float saldo, int colectivo);
+    cPasajeros(string nombre, string DNI, bool tiene_una_discapacidad, float saldo, int colectivo);
     ~cPasajeros();
 
     bool get_hay_una_discapacidad();
@@ -23,6 +23,7 @@ public:
     void imprimir();
     void setDestino(cParada* p);
     void set_prioridad(bool _prioridad);
+    void set_sentido(eSentidoRecorrido _sentido);
 
 protected:
     int num_colectivo;
