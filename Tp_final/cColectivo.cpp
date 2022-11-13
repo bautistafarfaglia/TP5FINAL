@@ -129,33 +129,31 @@ cColectivo::cColectivo(cColectivero* colectivero,
 
         this->bajar_pasajeros(this->recorrido->get_lista_paradas()[this->pos_del_recorrido]->get_nombre_parada(),Pasajeros_que_se_bajan);
         int cant_en_parada = (int) this->recorrido->get_lista_paradas()[pos_del_recorrido]->get_lista_pasajeros().size();
-        for (int i = 0; i < cant_en_parada; i++) {
-            if (this->cantidad_actual_pasajeros < this->cantidad_max_pasajeros) {
-                cPasajeros* aux = this->recorrido->get_lista_paradas()[pos_del_recorrido]->get_lista_pasajeros()[i];
-                
-                if (true == this->control_sentido_pasajero(aux)&&true==hay_destino(aux)&&this->colectivero->AleatorioAbrirPuertas()==true){//chequeo que el sentido del pasajero sea adecuado y si su destino futuro esta dentro del recorrido
-                   cParada* auxp = this->recorrido->get_lista_paradas()[pos_del_recorrido];
-                   if (aux->get_hay_una_discapacidad() == true) {
-                       if (auxp != NULL) {
-                           cout << "Se sube alguien con discapacidad" << endl;
-                           subir_pasajeros(this->recorrido->get_lista_paradas()[i]->pasajeros_suben_colectivo(this->numColectivo));
+        cParada* auxp = this->recorrido->get_lista_paradas()[pos_del_recorrido];
+        if (auxp != NULL) {
+            for (int i = 0; i < cant_en_parada; i++) {
+                if (this->cantidad_actual_pasajeros < this->cantidad_max_pasajeros) {
+                    cPasajeros* aux = this->recorrido->get_lista_paradas()[pos_del_recorrido]->get_lista_pasajeros()[i];
 
-                           return true;
-                       }
-                   }
-                   else {
-                       if (auxp != NULL) {
-                           cout << "Se suben pasajeros" << endl;
-                           subir_pasajeros(this->recorrido->get_lista_paradas()[i]->pasajeros_suben_colectivo(this->numColectivo));
-                           return true;
-                       }
-                   }
-               }
+                    if (true == this->control_sentido_pasajero(aux) && true == hay_destino(aux) && this->colectivero->AleatorioAbrirPuertas() == true) {//chequeo que el sentido del pasajero sea adecuado y si su destino futuro esta dentro del recorrido
+
+                        if (aux->get_hay_una_discapacidad() == true) {
+                            cout << "Se sube alguien con discapacidad" << endl;
+                            subir_pasajeros(this->recorrido->get_lista_paradas()[i]->pasajeros_suben_colectivo(this->numColectivo));
+                            return true;
+                        }
+                        else {
+                            cout << "Se suben pasajeros" << endl;
+                            subir_pasajeros(this->recorrido->get_lista_paradas()[i]->pasajeros_suben_colectivo(this->numColectivo));
+                            return true;
+                        }
+                    }
+                }
             }
-        }
-        if(cant_en_parada==0) {
-            cout << "No había nadie en la parada" << endl;
-            return true;
+            if (cant_en_parada == 0) {
+                cout << "No había nadie en la parada" << endl;
+                return true;
+            }
         }
         //this->bajar_pasajeros(this->recorrido->get_lista_paradas()[pos_del_recorrido]->get_nombre_parada());
        
@@ -226,12 +224,11 @@ cColectivo::cColectivo(cColectivero* colectivero,
                     return false;
                 }
             }
-            //else {
-            //    throw "error con la subida de algun pasajero chequear";
-            //}
-        }
-        catch (exception e) {
-            cout << e.what() << endl;
+            else {
+                throw "ERROR 3: error con la subida de algun pasajero chequear";
+            }
+        } catch (const char* msg) {
+            cout << msg << endl;
         }
         
     }
