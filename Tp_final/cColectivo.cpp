@@ -72,7 +72,7 @@ cColectivo::cColectivo(cColectivero* colectivero,
 
     bool cColectivo::control_sentido_pasajero(cPasajeros* _pasajero) {
         for (int i = 0; i < this->pos_del_recorrido;i++) {
-            if (this->recorrido->get_lista_paradas()[pos_del_recorrido]->get_nombre_parada() == _pasajero->get_destino()->get_nombre_parada()) {
+            if (this->recorrido->get_lista_paradas()[i]->get_nombre_parada() == _pasajero->get_destino()->get_nombre_parada()) {
                 cout << "El pasajero tiene que ir en otro sentido" << endl;
                 return false;
             }
