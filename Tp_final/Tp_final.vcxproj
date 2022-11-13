@@ -149,7 +149,7 @@
     <ClCompile Include="cColectivoConAireYDireccionElectrica.cpp" />
     <ClCompile Include="cColectivoSinAire.cpp" />
     <ClCompile Include="cFecha.cpp" />
-    <ClCompile Include="cLineaDeColectivos.cpp" />
+    <ClCompile Include="cSistema.cpp" />
     <ClCompile Include="cParada.cpp" />
     <ClCompile Include="cPasajeros.cpp" />
     <ClCompile Include="cPersona.cpp" />

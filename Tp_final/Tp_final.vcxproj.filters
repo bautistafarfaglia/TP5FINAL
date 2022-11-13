@@ -74,7 +74,7 @@
     <ClCompile Include="cColectivoSinAire.cpp">
       <Filter>Archivos de origen</Filter>
     </ClCompile>
-    <ClCompile Include="cLineaDeColectivos.cpp">
+    <ClCompile Include="cSistema.cpp">
       <Filter>Archivos de origen</Filter>
     </ClCompile>
     <ClCompile Include="cParada.cpp">
