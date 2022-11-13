@@ -176,7 +176,7 @@ cColectivo::cColectivo(cColectivero* colectivero,
 
     bool cColectivo::bajar_pasajeros(string nombreParada, vector<cPasajeros*>* Pasajeros_que_se_bajan) {
         int cant = 0;
-        for (int i = 0; i < this->cantidad_actual_pasajeros; i++) {
+        for (int i = 0; i < this->listaPasajeros.size(); i++) {
             if (this->listaPasajeros[i]->get_destino()->get_nombre_parada() == nombreParada) {
                 cout << "Se baja un pasajero" << endl;
                 this->recorrido->get_lista_paradas()[pos_del_recorrido]->agregar_pasajero(this->listaPasajeros[i]);
@@ -201,26 +201,29 @@ cColectivo::cColectivo(cColectivero* colectivero,
 
 
     bool cColectivo::subir_pasajeros(vector<cPasajeros*> nuevos_pasajeros) { //chequear si podemos acceder sin parametros a la listapasajeros de la parada
-        int dif = (this->cantidad_max_pasajeros) - (this->cantidad_actual_pasajeros);
-        if (nuevos_pasajeros.size() < dif) {
-            for (int i = 0; i< nuevos_pasajeros.size();i++) {
-                this->cobrar_boleto(nuevos_pasajeros[i]);
-                this->listaPasajeros.push_back(nuevos_pasajeros[i]);
-                this->cantidad_actual_pasajeros++;
+        int dif = (this->cantidad_max_pasajeros) - (this->listaPasajeros.size());
+        if (nuevos_pasajeros.size() > 0) {
+            if (nuevos_pasajeros.size() < dif) {
+                for (int i = 0; i < nuevos_pasajeros.size(); i++) {
+                    this->cobrar_boleto(nuevos_pasajeros[i]);
+                    this->listaPasajeros.push_back(nuevos_pasajeros[i]);
+                    this->cantidad_actual_pasajeros++;
+                }
+                return true;
             }
-            return true;
-        }else if(dif > 0) {
-            for (int i = 0; i < dif; i++) {
-                this->cobrar_boleto(nuevos_pasajeros[i]);
-                this->listaPasajeros.push_back(nuevos_pasajeros[i]);
-                this->cantidad_actual_pasajeros++;
+            else if (dif > 0) {
+                for (int i = 0; i < dif; i++) {
+                    this->cobrar_boleto(nuevos_pasajeros[i]);
+                    this->listaPasajeros.push_back(nuevos_pasajeros[i]);
+                    this->cantidad_actual_pasajeros++;
+                }
+                cout << "Solo entran algunos pasajeros" << endl;
+                return true;
             }
-            cout << "Solo entran algunos pasajeros" << endl;
-            return true;
-        }
-        else {
-            cout << "Esta muy lleno el bondi" << endl;
-            return false;
+            else {
+                cout << "Esta muy lleno el bondi" << endl;
+                return false;
+            }
         }
     }
 

@@ -8,6 +8,7 @@ cPasajeros::cPasajeros(string nombre, string _DNI, cParada* destino, bool tiene_
     this->tiene_una_discapacidad = tiene_una_discapacidad;
     this->num_colectivo = numcolectivo;
     this->parada_actual = NULL;
+    this->saldo =& saldo;
 }
 
 cPasajeros::~cPasajeros() {

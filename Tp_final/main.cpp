@@ -12,6 +12,7 @@ int main() {
 
 	#pragma region recorridos, paradas y personas
 
+	srand(time(0));
 	cParada* p1 = new cParada("calle1", Arriba); 
 	cParada* p2 = new cParada("calle2", Arriba);
 	cParada* p3 = new cParada("calle3", Arriba);
@@ -108,26 +109,26 @@ int main() {
 	linea->agregar(rec3);
 	linea->agregar(rec4);
 
-	cPasajeros* h1 = new cPasajeros("humano1", "10000001", p1, false, 100, NULL);
-	cPasajeros* h2 = new cPasajeros("humano2", "10000002", p2, false, 100, NULL);
-	cPasajeros* h3 = new cPasajeros("humano3", "10000003", p3, false, 100, NULL);
-	cPasajeros* h4 = new cPasajeros("humano4", "10000004", p4, false, 100, NULL);
-	cPasajeros* h5 = new cPasajeros("humano5", "10000005", p5, false, 100, NULL);
-	cPasajeros* h6 = new cPasajeros("humano6", "10000006", p6, false, 100, NULL);
-	cPasajeros* h7 = new cPasajeros("humano7", "10000007", p7, false, 100, NULL);
-	cPasajeros* h8 = new cPasajeros("humano8", "10000008", p8, false, 100, NULL);
-	cPasajeros* h9 = new cPasajeros("humano9", "10000009", p9, false, 100, NULL);
-	cPasajeros* h10 = new cPasajeros("humano10", "10000010", p10, false, 100, NULL);
-	cPasajeros* h11 = new cPasajeros("humano11", "10000011", p11, false, 100, NULL);
-	cPasajeros* h12 = new cPasajeros("humano12", "10000012", p12, false, 100, NULL);
-	cPasajeros* h13 = new cPasajeros("humano13", "10000013", p13, false, 100, NULL);
-	cPasajeros* h14 = new cPasajeros("humano14", "10000014", p14, false, 100, NULL);
-	cPasajeros* h15 = new cPasajeros("humano15", "10000015", p15, false, 100, NULL);
-	cPasajeros* h16 = new cPasajeros("humano16", "10000016", p16, false, 100, NULL);
-	cPasajeros* h17 = new cPasajeros("humano17", "10000017", p17, false, 100, NULL);
-	cPasajeros* h18 = new cPasajeros("humano18", "10000018", p18, false, 100, NULL);
-	cPasajeros* h19 = new cPasajeros("humano19", "10000019", p19, false, 100, NULL);
-	cPasajeros* h20 = new cPasajeros("humano20", "10000020", p20, false, 100, NULL);
+	cPasajeros* h1 = new cPasajeros("humano1", "10000001", p1, false, 100, 15);
+	cPasajeros* h2 = new cPasajeros("humano2", "10000002", p2, false, 100, 10);
+	cPasajeros* h3 = new cPasajeros("humano3", "10000003", p3, false, 100, 60);
+	cPasajeros* h4 = new cPasajeros("humano4", "10000004", p4, false, 100, 12);
+	cPasajeros* h5 = new cPasajeros("humano5", "10000005", p5, false, 100, 60);
+	cPasajeros* h6 = new cPasajeros("humano6", "10000006", p6, false, 100, 14);
+	cPasajeros* h7 = new cPasajeros("humano7", "10000007", p7, false, 100, 20);
+	cPasajeros* h8 = new cPasajeros("humano8", "10000008", p8, false, 100, 15);
+	cPasajeros* h9 = new cPasajeros("humano9", "10000009", p9, false, 100, 20);
+	cPasajeros* h10 = new cPasajeros("humano10", "10000010", p10, false, 100, 10);
+	cPasajeros* h11 = new cPasajeros("humano11", "10000011", p11, false, 100, 2);
+	cPasajeros* h12 = new cPasajeros("humano12", "10000012", p12, false, 100, 15);
+	cPasajeros* h13 = new cPasajeros("humano13", "10000013", p13, false, 100, 2);
+	cPasajeros* h14 = new cPasajeros("humano14", "10000014", p14, false, 100, 15);
+	cPasajeros* h15 = new cPasajeros("humano15", "10000015", p15, false, 100, 15);
+	cPasajeros* h16 = new cPasajeros("humano16", "10000016", p16, false, 100, 15);
+	cPasajeros* h17 = new cPasajeros("humano17", "10000017", p17, false, 100, 15);
+	cPasajeros* h18 = new cPasajeros("humano18", "10000018", p18, false, 100, 15);
+	cPasajeros* h19 = new cPasajeros("humano19", "10000019", p19, false, 100, 15);
+	cPasajeros* h20 = new cPasajeros("humano20", "10000020", p20, false, 100, 15);
 
 	linea->agregar_personas(h1);
 	linea->agregar_personas(h2);
@@ -151,9 +152,13 @@ int main() {
 	linea->agregar_personas(h20);
 
 
+
+
 	linea->generarcColectivo();
 	linea->cambiarRecorridoColectivos(1);
 	linea->AvanzarColectivoRandom();
+
+
 
 	#pragma endregion
 
@@ -161,9 +166,9 @@ int main() {
 
 	#pragma region simulacion
 
-	unsigned int time_0;
-	unsigned int time_1;
-	unsigned int cantidad_segundos = 0;
+	unsigned long long int time_0;
+	unsigned long long int time_1;
+	unsigned long long int cantidad_segundos = 0;
 	bool ciclo = true; //true para iniciar
 	time_0 = clock();
 	while (ciclo) {
@@ -174,11 +179,12 @@ int main() {
 
 			linea->AvanzarColectivoRandom(); //explota al final por algun motivo
 			//actualizar todos los colectivos
-			//linea->TICK()
+			
 			time_0 = clock();
 			cantidad_segundos++; //sumo al contador hasta que se cumpla la condicion
 			if (cantidad_segundos % 5 == 0) {
-				//Actualizar GPS
+				//linea->TICK();
+				//cout<<endl;
 			}
 		}
 		if (cantidad_segundos == 24) //Cantidad de segundos operativos
