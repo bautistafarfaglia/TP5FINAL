@@ -37,6 +37,7 @@ cColectivo::cColectivo(cColectivero* colectivero,
     void cColectivo::set_recorrido(cRecorrido* r)
     {
         this->recorrido = r;
+        this->pos_del_recorrido = -1;
     }
 
     void cColectivo::set_sistema_de_pagos(cSistemaDePagos* sdp)
@@ -113,8 +114,8 @@ cColectivo::cColectivo(cColectivero* colectivero,
     /// - Si el mismo tiene un destino por el cual el colectivo vaya a recorrer y si ya paso,
     /// </summary>
     /// <returns>Devuelve falso si no puede avanzar mas en el recorrido, en caso contrario devuelve true</returns>
-    bool cColectivo::avanzar_recorrido() {
-        if (abs(pos_del_recorrido) == this->recorrido->get_cantidad_paradas()) { //llego al final del recorrido entonces se le asignaría otro recorrido
+    bool cColectivo::avanzar_recorrido(vector<cPasajeros*>* Pasajeros_que_se_bajan) {
+        if (abs(pos_del_recorrido)+1 == this->recorrido->get_cantidad_paradas()) { //llego al final del recorrido entonces se le asignaría otro recorrido
             return false;
         }
         if (this->sentido == eSentidoRecorrido::Arriba) {
@@ -126,7 +127,7 @@ cColectivo::cColectivo(cColectivero* colectivero,
         this->actualizar_GPS();
         cout << (this->recorrido->get_lista_paradas())[this->pos_del_recorrido]->get_nombre_parada() << endl;
 
-        this->bajar_pasajeros(this->recorrido->get_lista_paradas()[this->pos_del_recorrido]->get_nombre_parada());
+        this->bajar_pasajeros(this->recorrido->get_lista_paradas()[this->pos_del_recorrido]->get_nombre_parada(),Pasajeros_que_se_bajan);
         int cant_en_parada = (int) this->recorrido->get_lista_paradas()[pos_del_recorrido]->get_lista_pasajeros().size();
         for (int i = 0; i < cant_en_parada; i++) {
             if (this->cantidad_actual_pasajeros < this->cantidad_max_pasajeros) {
@@ -138,14 +139,15 @@ cColectivo::cColectivo(cColectivero* colectivero,
                        if (auxp != NULL) {
                            cout << "Se sube alguien con discapacidad" << endl;
                            subir_pasajeros(this->recorrido->get_lista_paradas()[i]->pasajeros_suben_colectivo(this->numColectivo));
+
                            return true;
                        }
                    }
                    else {
                        if (auxp != NULL) {
                            cout << "Se suben pasajeros" << endl;
-                               subir_pasajeros(this->recorrido->get_lista_paradas()[i]->pasajeros_suben_colectivo(this->numColectivo));
-                               return true;
+                           subir_pasajeros(this->recorrido->get_lista_paradas()[i]->pasajeros_suben_colectivo(this->numColectivo));
+                           return true;
                        }
                    }
                }
@@ -161,8 +163,10 @@ cColectivo::cColectivo(cColectivero* colectivero,
         
     
     bool cColectivo::hay_destino(cPasajeros* p) {
-        for (int i = 0; pos_del_recorrido+i < this->recorrido->getcantParadas(); i++) {
-            if (p->get_destino()->get_nombre_parada() == this->recorrido->get_lista_paradas()[this->pos_del_recorrido + i]->get_nombre_parada()) {
+        for (int i = pos_del_recorrido +1; i < this->recorrido->getcantParadas(); i++) {
+            string paradaact = this->recorrido->get_lista_paradas()[i]->get_nombre_parada();
+            string paradads = p->get_destino()->get_nombre_parada();
+            if (p->get_destino()->get_nombre_parada() == this->recorrido->get_lista_paradas()[i]->get_nombre_parada()) {
                 return true;
             }
         }
@@ -170,13 +174,14 @@ cColectivo::cColectivo(cColectivero* colectivero,
     }
 
 
-    bool cColectivo::bajar_pasajeros(string nombreParada) {
+    bool cColectivo::bajar_pasajeros(string nombreParada, vector<cPasajeros*>* Pasajeros_que_se_bajan) {
         int cant = 0;
         for (int i = 0; i < this->cantidad_actual_pasajeros; i++) {
             if (this->listaPasajeros[i]->get_destino()->get_nombre_parada() == nombreParada) {
                 cout << "Se baja un pasajero" << endl;
                 this->recorrido->get_lista_paradas()[pos_del_recorrido]->agregar_pasajero(this->listaPasajeros[i]);
-                cPasajeros* aux = this->listaPasajeros[i];
+                Pasajeros_que_se_bajan->push_back(this->listaPasajeros[i]);
+
 
                 //nuevo_destino();
                 this->listaPasajeros.erase(this->listaPasajeros.begin() + i);

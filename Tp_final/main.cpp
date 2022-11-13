@@ -152,7 +152,7 @@ int main() {
 
 
 	linea->generarcColectivo();
-	linea->cambiarRecorrido(1);
+	linea->cambiarRecorridoColectivos(1);
 	linea->AvanzarColectivoRandom();
 
 	#pragma endregion
@@ -172,7 +172,7 @@ int main() {
 		if (diftime >= 1) {
 			//cout << "\nPasaron: " << diftime << " s" << endl; //esta linea dice cuanto tiempo pasa entre cada vuelta de while
 
-			linea->AvanzarColectivoRandom(); //Luego de la 3era parada chequear que explota porque le faltan datos del destino al pasajero
+			linea->AvanzarColectivoRandom(); //explota al final por algun motivo
 			//actualizar todos los colectivos
 			//linea->TICK()
 			time_0 = clock();

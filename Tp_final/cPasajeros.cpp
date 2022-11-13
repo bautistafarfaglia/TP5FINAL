@@ -44,3 +44,18 @@ void cPasajeros::imprimir() {
     return;
 }
 
+void cPasajeros::setDestino(cParada* p)
+{
+    try {
+        if (p != NULL){
+            this->destino = p;
+            }
+        else {
+            throw "Error en asignacion de destino random";
+        }
+    }
+    catch (exception e) {
+        cout << "Error 2: " << e.what() << endl;
+    }
+}
+

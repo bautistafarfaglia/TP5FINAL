@@ -20,6 +20,7 @@ public:
     int get_num_colectivo();
     string to_string_pasajero();
     void imprimir();
+    void setDestino(cParada* p);
 
 protected:
     int num_colectivo;

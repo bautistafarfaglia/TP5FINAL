@@ -60,12 +60,18 @@ void cLineaDeColectivos::generarcColectivo(){
 
 void cLineaDeColectivos::AvanzarColectivoRandom()
 {
+	vector<cPasajeros*>* p = new vector<cPasajeros*>;
 	if (this->listaColectivos.size()) {
 		int numcole = rand() % this->listaColectivos.size();
-		if (this->listaColectivos[numcole]->avanzar_recorrido() == false) { // si el colectivo no puede avanzar mas en el recorrido, se le cambia el recorrido
-			this->cambiarRecorrido(this->listaColectivos[numcole]->get_id_colectivo()); //
-		};
+		if (this->listaColectivos[numcole]->avanzar_recorrido(p) == false) { // si el colectivo no puede avanzar mas en el recorrido, se le cambia el recorrido
+			this->cambiarRecorridoColectivos(this->listaColectivos[numcole]->get_id_colectivo()); //
+		}
 	}
+	for (int i = 0; i < p->size(); i++) {
+		cambiarRecorridoPasajeros(p->at(i));
+		p->at(i) = NULL;
+	}
+	delete p;
 
 }
 
@@ -76,11 +82,10 @@ void cLineaDeColectivos::generarRecorrido() {
 	this->agregar(recorrido);
 }
 
-bool cLineaDeColectivos::cambiarRecorrido(int id_colectivo)
+bool cLineaDeColectivos::cambiarRecorridoColectivos(int id_colectivo)
 {
 	for (int i = 0; i < this->listaColectivos.size(); i++) {
 		if (this->listaColectivos[i]->get_id_colectivo() == id_colectivo) {
-			srand(42);
 			try {
 				if (this->cantActual != 0) {
 					this->listaColectivos[i]->set_recorrido(this->listaRecorrido[(rand() % this->cantActual)]);
@@ -97,6 +102,24 @@ bool cLineaDeColectivos::cambiarRecorrido(int id_colectivo)
 		}
 	}
 }
+bool cLineaDeColectivos::cambiarRecorridoPasajeros(cPasajeros* p)
+{
+	try {
+		if (p != nullptr) {
+			int posRecorrido = rand() % this->cantActual; 
+			int posParadaa = rand() % this->listaRecorrido[posRecorrido]->get_lista_paradas().size();
+			p->setDestino(this->listaRecorrido[posRecorrido]->get_lista_paradas().at(posParadaa));
+			return true;
+		}else {
+			throw exception("No se puede asignar recorrido random a un pasajero NULL");
+		}
+	}catch (exception e) {
+				cout << "Error 03: " << e.what() << endl;
+				return false;
+	}
+}
+
+
 
 
 

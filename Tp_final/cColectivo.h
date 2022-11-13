@@ -55,11 +55,11 @@ public:
 
     bool control_sentido_pasajero(cPasajeros* pasajero);
 
-    bool avanzar_recorrido();
+    bool avanzar_recorrido(vector<cPasajeros*>* Pasajeros_que_se_bajan);
 
     bool hay_destino(cPasajeros*);
 
-    bool bajar_pasajeros(string nombreParada);
+    bool bajar_pasajeros(string nombreParada, vector<cPasajeros*>* Pasajeros_que_se_bajan);
 
     bool subir_pasajeros(vector<cPasajeros*> nuevo_pasajero);
 

@@ -47,8 +47,9 @@ public:
     /// </summary>
     /// <param name="id_colectivo"></param>
     /// <param name="Longitud_max"></param>
-    bool cambiarRecorrido(int id_colectivo);
-    
+    bool cambiarRecorridoColectivos(int id_colectivo);
+
+    bool cambiarRecorridoPasajeros(cPasajeros* p);
 
     void AvanzarColectivoRandom();
 
