@@ -23,6 +23,7 @@ public:
     void imprimir();
     void setDestino(cParada* p);
     void set_prioridad(bool _prioridad);
+    void set_sentido(eSentidoRecorrido _sentido);
 
 protected:
     int num_colectivo;
