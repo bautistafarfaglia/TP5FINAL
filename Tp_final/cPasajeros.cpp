@@ -9,6 +9,7 @@ cPasajeros::cPasajeros(string nombre, string _DNI, cParada* destino, bool tiene_
     this->num_colectivo = numcolectivo;
     this->parada_actual = NULL;
     this->saldo =& saldo;
+    this->prioridad = false;
 }
 
 cPasajeros::~cPasajeros() {
@@ -58,5 +59,13 @@ void cPasajeros::setDestino(cParada* p)
     catch (exception e) {
         cout << "Error 2: " << e.what() << endl;
     }
+}
+
+void cPasajeros::set_prioridad(bool _prioridad) {
+    this->prioridad = _prioridad;
+}
+
+bool cPasajeros::get_prioridad() {
+    return this->prioridad;
 }
 

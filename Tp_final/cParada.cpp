@@ -40,13 +40,17 @@ vector<cPasajeros*> cParada::pasajeros_suben_colectivo(int num){
 
 void cParada::agregar_pasajero(cPasajeros* pasajero_nuevo)
 {
-	if (pasajero_nuevo->get_hay_una_discapacidad() == true) {
-		this->listaPasajeros.insert(this->listaPasajeros.begin(), pasajero_nuevo); //chequear si en verdad funciona, pero le tengo fe
+	int cont = 0;
+	if (pasajero_nuevo->get_prioridad() == true) {
+		this->listaPasajeros.insert(this->listaPasajeros.begin(), pasajero_nuevo);
+		cont++;
+	}
+	else if (pasajero_nuevo->get_hay_una_discapacidad() == true) {
+		this->listaPasajeros.insert(this->listaPasajeros.begin() + cont, pasajero_nuevo); //chequear si en verdad funciona, pero le tengo fe
 	}
 	else {
 		this->listaPasajeros.push_back(pasajero_nuevo);
 	}
-	
 }
 
 string cParada::to_string_parada() {

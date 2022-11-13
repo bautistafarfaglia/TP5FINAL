@@ -175,7 +175,7 @@ cColectivo::cColectivo(cColectivero* colectivero,
 
 
     bool cColectivo::bajar_pasajeros(string nombreParada, vector<cPasajeros*>* Pasajeros_que_se_bajan) {
-        int cant = 0;
+        int cant = 0; 
         for (int i = 0; i < this->listaPasajeros.size(); i++) {
             if (this->listaPasajeros[i]->get_destino()->get_nombre_parada() == nombreParada) {
                 cout << "Se baja un pasajero" << endl;

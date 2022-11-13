@@ -11,7 +11,13 @@
  void cColectivoSinAire::averia() {
 	 this->estado_operativo = false;
 	 this->imprimir();
-	 cout << "Hace paro, por las condiciones salariales " << endl;
+	 cout << "Me declaro por las condiciones salariales" << endl;
+	 
+	 for (int i = 0; i < this->listaPasajeros.size(); i++) {
+		 cout << "Se baja un pasajero" << endl;
+		 this->recorrido->get_lista_paradas()[pos_del_recorrido]->agregar_pasajero(this->listaPasajeros[i]);
+		 this->listaPasajeros[i]->set_prioridad(true);
+	 }
  }
 
 

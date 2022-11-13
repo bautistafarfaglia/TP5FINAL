@@ -14,6 +14,7 @@ public:
     ~cPasajeros();
 
     bool get_hay_una_discapacidad();
+    bool get_prioridad();
     cParada* get_destino();
     string get_DNI();
     float* getSaldo();
@@ -21,6 +22,7 @@ public:
     string to_string_pasajero();
     void imprimir();
     void setDestino(cParada* p);
+    void set_prioridad(bool _prioridad);
 
 protected:
     int num_colectivo;
@@ -28,6 +30,7 @@ protected:
     cParada* parada_actual;
     bool tiene_una_discapacidad;
     float* saldo;
+    bool prioridad;
 };
 #endif //_CPASAJEROS_H
 
