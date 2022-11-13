@@ -30,6 +30,10 @@ cColectivo::cColectivo(cColectivero* colectivero,
         return this->recorrido;
     }
 
+    eSentidoRecorrido cColectivo::get_sentido() {
+        return this->sentido;
+    }
+
     cSistemaDePagos cColectivo::get_sistema_de_pagos() {
         return *(this->sistema_de_pagos);
     }
@@ -37,7 +41,9 @@ cColectivo::cColectivo(cColectivero* colectivero,
     void cColectivo::set_recorrido(cRecorrido* r)
     {
         this->recorrido = r;
-        this->pos_del_recorrido = -1;
+        this->set_sentido(r->get_lista_paradas()[1]->get_sentido_parada());
+        if (this->get_sentido() == Abajo) this->pos_del_recorrido = 11;
+        else if (this->get_sentido() == Arriba) this->pos_del_recorrido = -1;
     }
 
     void cColectivo::set_sistema_de_pagos(cSistemaDePagos* sdp)

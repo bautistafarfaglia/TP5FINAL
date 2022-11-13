@@ -22,6 +22,7 @@ public:
     vector<cPasajeros*> get_lista_pasajeros();
 
     int get_id_parada();
+    eSentidoRecorrido get_sentido_parada();
 
     vector<cPasajeros*> pasajeros_suben_colectivo(int num);
 

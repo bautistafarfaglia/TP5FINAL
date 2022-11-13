@@ -107,8 +107,11 @@ bool cSistema::cambiarRecorridoPasajeros(cPasajeros* p)
 	try {
 		if (p != nullptr) {
 			int posRecorrido = rand() % this->cantActual; 
-			int posParadaa = rand() % this->listaRecorrido[posRecorrido]->get_lista_paradas().size();
-			p->setDestino(this->listaRecorrido[posRecorrido]->get_lista_paradas().at(posParadaa));
+			int posParada;
+			while (posParada < posRecorrido) {
+				posParada = rand() % this->listaRecorrido[posRecorrido]->get_lista_paradas().size();
+			}
+			p->setDestino(this->listaRecorrido[posRecorrido]->get_lista_paradas().at(posParada));
 			return true;
 		}else {
 			throw exception("No se puede asignar recorrido random a un pasajero NULL");

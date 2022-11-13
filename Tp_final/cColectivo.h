@@ -33,6 +33,8 @@ public:
 
     bool get_estado_operativo();
 
+    eSentidoRecorrido get_sentido();
+
     cRecorrido* get_recorrido();
 
     cSistemaDePagos get_sistema_de_pagos();
@@ -44,6 +46,8 @@ public:
     unsigned int get_posicion_recorrido();
 
     void set_nuevo_recorrido(cRecorrido* nuevo_recorrido);
+
+    void set_sentido(eSentidoRecorrido sentido);
 
     void set_colectivero(cColectivero* colectivero);
 

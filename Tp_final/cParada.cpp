@@ -80,6 +80,8 @@ void cParada::imprimir() {
     return;
 }
 
+eSentidoRecorrido cParada::get_sentido_parada() { return this->direccion; }
+
 istream& operator>>(istream& is, cParada& pa)
 {
 	int pos = 0;
