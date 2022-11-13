@@ -126,7 +126,10 @@ cColectivo::cColectivo(cColectivero* colectivero,
     /// </summary>
     /// <returns>Devuelve falso si no puede avanzar mas en el recorrido, en caso contrario devuelve true</returns>
     bool cColectivo::avanzar_recorrido(vector<cPasajeros*>* Pasajeros_que_se_bajan) {
-        if (abs(pos_del_recorrido)+1 == this->recorrido->get_cantidad_paradas()) { //llego al final del recorrido entonces se le asignaría otro recorrido
+        if (this->sentido == Arriba && abs(pos_del_recorrido)+1 == this->recorrido->get_cantidad_paradas()) { //llego al final del recorrido entonces se le asignaría otro recorrido
+            return false;
+        }
+        else if (this->sentido == Abajo && abs(pos_del_recorrido) -1 == 0) { //llego al final del recorrido entonces se le asignaría otro recorrido
             return false;
         }
         if (this->sentido == eSentidoRecorrido::Arriba) {
