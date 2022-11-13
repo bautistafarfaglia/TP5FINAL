@@ -17,6 +17,7 @@
 		 cout << "Se baja un pasajero" << endl;
 		 this->recorrido->get_lista_paradas()[pos_del_recorrido]->agregar_pasajero(this->listaPasajeros[i]);
 		 this->listaPasajeros[i]->set_prioridad(true);
+		 this->listaPasajeros.erase(this->listaPasajeros.begin() + i);
 	 }
  }
 
