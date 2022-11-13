@@ -8,6 +8,7 @@ cPasajeros::cPasajeros(string nombre, string _DNI, cParada* destino, bool tiene_
     this->tiene_una_discapacidad = tiene_una_discapacidad;
     this->num_colectivo = numcolectivo;
     this->parada_actual = NULL;
+    this->saldo =& saldo;
 }
 
 cPasajeros::~cPasajeros() {
@@ -42,5 +43,20 @@ string cPasajeros::to_string_pasajero() {
 
 void cPasajeros::imprimir() {
     return;
+}
+
+void cPasajeros::setDestino(cParada* p)
+{
+    try {
+        if (p != NULL){
+            this->destino = p;
+            }
+        else {
+            throw "Error en asignacion de destino random";
+        }
+    }
+    catch (exception e) {
+        cout << "Error 2: " << e.what() << endl;
+    }
 }
 
