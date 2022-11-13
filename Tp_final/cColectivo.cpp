@@ -42,7 +42,7 @@ cColectivo::cColectivo(cColectivero* colectivero,
     {
         this->recorrido = r;
         this->set_sentido(r->get_lista_paradas()[1]->get_sentido_parada());
-        if (this->get_sentido() == Abajo) this->pos_del_recorrido = 11;
+        if (this->get_sentido() == Abajo) { this->pos_del_recorrido = 10; }
         else if (this->get_sentido() == Arriba) this->pos_del_recorrido = -1;
     }
 
@@ -126,49 +126,54 @@ cColectivo::cColectivo(cColectivero* colectivero,
     /// </summary>
     /// <returns>Devuelve falso si no puede avanzar mas en el recorrido, en caso contrario devuelve true</returns>
     bool cColectivo::avanzar_recorrido(vector<cPasajeros*>* Pasajeros_que_se_bajan) {
-        if (this->sentido == Arriba && abs(pos_del_recorrido)+1 == this->recorrido->get_cantidad_paradas()) { //llego al final del recorrido entonces se le asignaría otro recorrido
-            return false;
-        }
-        else if (this->sentido == Abajo && abs(pos_del_recorrido) -1 == 0) { //llego al final del recorrido entonces se le asignaría otro recorrido
-            return false;
-        }
-        if (this->sentido == eSentidoRecorrido::Arriba) {
-            this->pos_del_recorrido++;
-        }
-        if (this->sentido == eSentidoRecorrido::Abajo) {
-            this->pos_del_recorrido--;
-        }
-        this->actualizar_GPS();
-        cout << (this->recorrido->get_lista_paradas())[this->pos_del_recorrido]->get_nombre_parada() << endl;
+        try {
+            if (this->sentido == Arriba && abs(pos_del_recorrido) + 1 == this->recorrido->get_cantidad_paradas()) { //llego al final del recorrido entonces se le asignaría otro recorrido
+                return false;
+            }
+            else if (this->sentido == Abajo && abs(pos_del_recorrido) == 0) { //llego al final del recorrido entonces se le asignaría otro recorrido
+                return false;
+            }
+            if (this->sentido == eSentidoRecorrido::Arriba) {
+                this->pos_del_recorrido++;
+            }
+            if (this->sentido == eSentidoRecorrido::Abajo) {
+                this->pos_del_recorrido--;
+            }
+            this->actualizar_GPS();
+            cout << (this->recorrido->get_lista_paradas())[this->pos_del_recorrido]->get_nombre_parada() << endl;
 
-        this->bajar_pasajeros(this->recorrido->get_lista_paradas()[this->pos_del_recorrido]->get_nombre_parada(),Pasajeros_que_se_bajan);
-        int cant_en_parada = (int) this->recorrido->get_lista_paradas()[pos_del_recorrido]->get_lista_pasajeros().size();
-        cParada* auxp = this->recorrido->get_lista_paradas()[pos_del_recorrido];
-        if (auxp != NULL) {
-            for (int i = 0; i < cant_en_parada; i++) {
-                if (this->cantidad_actual_pasajeros < this->cantidad_max_pasajeros) {
-                    cPasajeros* aux = this->recorrido->get_lista_paradas()[pos_del_recorrido]->get_lista_pasajeros()[i];
+            this->bajar_pasajeros(this->recorrido->get_lista_paradas()[this->pos_del_recorrido]->get_nombre_parada(), Pasajeros_que_se_bajan);
+            int cant_en_parada = (int)this->recorrido->get_lista_paradas()[pos_del_recorrido]->get_lista_pasajeros().size();
+            cParada* auxp = this->recorrido->get_lista_paradas()[pos_del_recorrido];
+            if (auxp != NULL) {
+                for (int i = 0; i < cant_en_parada; i++) {
+                    if (this->cantidad_actual_pasajeros < this->cantidad_max_pasajeros) {
+                        cPasajeros* aux = this->recorrido->get_lista_paradas()[pos_del_recorrido]->get_lista_pasajeros()[i];
 
-                    if (true == this->control_sentido_pasajero(aux) && true == hay_destino(aux) && this->colectivero->AleatorioAbrirPuertas() == true) {//chequeo que el sentido del pasajero sea adecuado y si su destino futuro esta dentro del recorrido
+                        if (true == this->control_sentido_pasajero(aux) && true == hay_destino(aux) && this->colectivero->AleatorioAbrirPuertas() == true) {//chequeo que el sentido del pasajero sea adecuado y si su destino futuro esta dentro del recorrido
 
-                        if (aux->get_hay_una_discapacidad() == true) {
-                            cout << "Se sube alguien con discapacidad ";
-                            subir_pasajeros(this->recorrido->get_lista_paradas()[this->pos_del_recorrido]->pasajeros_suben_colectivo(this->numColectivo));
-                            return true;
-                        }
-                        else {
-                            cout << "Se suben pasajeros ";
-                            subir_pasajeros(this->recorrido->get_lista_paradas()[this->pos_del_recorrido]->pasajeros_suben_colectivo(this->numColectivo));
-                            return true;
+                            if (aux->get_hay_una_discapacidad() == true) {
+                                cout << "Se sube alguien con discapacidad ";
+                                subir_pasajeros(this->recorrido->get_lista_paradas()[this->pos_del_recorrido]->pasajeros_suben_colectivo(this->numColectivo));
+                                return true;
+                            }
+                            else {
+                                cout << "Se suben pasajeros ";
+                                subir_pasajeros(this->recorrido->get_lista_paradas()[this->pos_del_recorrido]->pasajeros_suben_colectivo(this->numColectivo));
+                                return true;
+                            }
                         }
                     }
                 }
+                if (cant_en_parada == 0) {
+                    cout << "No había nadie en la parada" << endl;
+                    return true;
+                }
             }
-            if (cant_en_parada == 0) {
-                cout << "No había nadie en la parada" << endl;
-                return true;
-            }
-        }
+        }catch (exception &e) {
+            cout << "Error 06: " << e.what() << endl;
+            return false;
+    }
         //this->bajar_pasajeros(this->recorrido->get_lista_paradas()[pos_del_recorrido]->get_nombre_parada());
        
     }
