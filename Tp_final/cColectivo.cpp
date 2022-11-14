@@ -361,11 +361,11 @@ cColectivo::cColectivo(int num_colectivo) : id_colectivo(++max_id) {
         cout << "Ingrese los datos del colectivo:" << endl;
         cout << "Numero:" << endl;
         bool check;
-        do {
+        /*do {
             cin >> num;
             check = isdigit(num); 
             cout << endl;
-        } while (!check);
+        } while (!check);*/
         is >> cole.numColectivo;
         return is;
     }
