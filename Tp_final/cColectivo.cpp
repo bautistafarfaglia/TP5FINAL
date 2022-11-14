@@ -357,10 +357,16 @@ cColectivo::cColectivo(int num_colectivo) : id_colectivo(++max_id) {
 
     istream& operator>>(istream& is, cColectivo& cole)
     {
-        int pos = 0;
+        int num = 0;
         cout << "Ingrese los datos del colectivo:" << endl;
         cout << "Numero:" << endl;
-        is >> cole.numColectivo; 
+        bool check;
+        do {
+            cin >> num;
+            check = isdigit(num); 
+            cout << endl;
+        } while (!check);
+        is >> cole.numColectivo;
         return is;
     }
  

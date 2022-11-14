@@ -9,6 +9,7 @@ class cSistema {
     cColectivoAcordeon* generar_cColectivo_Acordeon();
     cColectivoConAireYDireccionElectrica* generar_cColectivo_ConAire_y_DireccionElectrica();
     cColectivoSinAire* generar_cColectivo_sinAire();
+
 public:
     cSistema(string NombreLinea="none");
     ~cSistema() {

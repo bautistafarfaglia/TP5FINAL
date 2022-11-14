@@ -10,6 +10,8 @@
 class cColectivo {
 public:
   
+    friend class cSistemaDePagos;
+
     cColectivo(int num_colectivo);
     ~cColectivo() {
         cantidad_de_colectivos_en_circulacion--;

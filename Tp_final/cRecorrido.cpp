@@ -72,6 +72,13 @@ istream& operator>>(istream& is, cRecorrido& re)
             bool estado = false;
             cout << "Ingrese los datos del recorrido:" << endl;
             cout << "cantidad de paradas a agregar:" << endl;
+
+            int aux; bool check;
+            do 
+            { 
+                cin >> aux;
+                check = isdigit(aux);
+            } while (check == false);
             is >> pos;
             cParada* paradaaux;
             for (int i = 0; i < pos; i++) {

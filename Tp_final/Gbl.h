@@ -11,6 +11,7 @@
 #include <time.h>
 #include <vector>
 #include <cstdlib>
+#include <ctype.h>
 
 
 #include "eSentidoRecorrido.h"
