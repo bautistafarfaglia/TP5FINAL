@@ -1,7 +1,8 @@
 #include "cColectivoConAireYDireccionElectrica.h"
 
-cColectivoConAireYDireccionElectrica::cColectivoConAireYDireccionElectrica(short int cantidad_max_pasajeros, int num_colectivo) : cColectivo(cantidad_max_pasajeros, num_colectivo)
+cColectivoConAireYDireccionElectrica::cColectivoConAireYDireccionElectrica(int num_colectivo) : cColectivo(num_colectivo)
 {
+	this->cantidad_max_pasajeros = 30;
     tiene_aire_acondicionado = true;
 }
 
@@ -39,7 +40,8 @@ string cColectivoConAireYDireccionElectrica::to_string_colectivo() {
 		<< "Estado Operativo: " << this->estado_operativo << endl
 		<< "Cant actual de pasajeros: " << this->cantidad_actual_pasajeros << endl
 		<< "Cant Maxima de pasajeros: " << this->cantidad_max_pasajeros << endl
-		<< "Cantidad De colectivos en circulacion: " << this->cantidad_de_colectivos_en_circulacion << endl;
+		<< "Cantidad de pasajeros transportados: " << this->get_sistema_de_pagos().colecta_pasajeros_colectivo()<< endl
+		<< "Cantidad de plata recolectada por el colectivo; " << this->get_sistema_de_pagos().colecta_plata_colectivo()<<endl;
 	return ss.str();
 }
 

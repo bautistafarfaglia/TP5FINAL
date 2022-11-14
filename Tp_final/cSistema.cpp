@@ -35,9 +35,15 @@ void cSistema::agregar_personas(cPasajeros* persona) {
 
 void cSistema::GenerarAveríaRandom()
 {
-	int ColeRandom = rand() % this->listaColectivos.size();  
-	this->listaColectivos[ColeRandom]->averia();
-	this->SolucionarAveríaProducida();
+	int random = rand() % 20000;
+	if (random == 19999) {
+		int ColeRandom = rand() % this->listaColectivos.size();
+		this->listaColectivos[ColeRandom]->averia();
+		this->SolucionarAveríaProducida();
+	}
+	else {
+		cout << "uf safaste de que explote un bondi" << endl;
+	}
 }
 
 void cSistema::SolucionarAveríaProducida()
@@ -100,6 +106,8 @@ void cSistema::SolucionarAveríaProducida()
 }
 
 void cSistema::TICK() {
+	this->AvanzarColectivoRandom();
+	this->GenerarAveríaRandom();
 	this->ImprimirColectivos(); 
 	cout << "Cant de colectivos en circulacion: " << cColectivo::getcantidad_de_colectivos_en_circulacion();
 }

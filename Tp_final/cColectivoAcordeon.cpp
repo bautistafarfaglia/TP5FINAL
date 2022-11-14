@@ -2,9 +2,9 @@
 
 
 //chequear y cambiar porque el id_colectivo se pasa como parametro 
-cColectivoAcordeon::cColectivoAcordeon( short int cantidad_max_pasajeros, int num_colectivo) : cColectivoConAireYDireccionElectrica(cantidad_max_pasajeros,num_colectivo)
+cColectivoAcordeon::cColectivoAcordeon(int num_colectivo) : cColectivoConAireYDireccionElectrica(num_colectivo)
 {
-    
+	this->cantidad_max_pasajeros = 200;
 }
 
 cColectivoAcordeon::~cColectivoAcordeon(){
@@ -27,18 +27,19 @@ void cColectivoAcordeon::averia() {
 
 string cColectivoAcordeon::to_string_colectivo() {
 	stringstream ss;
-	ss	<< "-----------------------------" << endl <<"colectivero: " << this->colectivero->to_string_colectivero() << endl
+	ss << "-----------------------------" << endl << "colectivero: " << this->colectivero->to_string_colectivero() << endl
 		<< endl
-		<< "-----------------------------" << endl <<"Recorrido: " << this->recorrido->to_string_recorrido() << endl
+		<< "-----------------------------" << endl << "Recorrido: " << this->recorrido->to_string_recorrido() << endl
 		<< endl
 		<< "-----------------------------" << endl
 		<< "Posicion del recorrido: " << this->pos_del_recorrido << endl
 		<< "ID colectivo [" << this->id_colectivo << "]" << endl
 		<< "Ubicacion: " << this->GPS << endl
-		<< "Estado Operativo: " << this->estado_operativo<< endl
-		<< "Cant actual de pasajeros: " << this->cantidad_actual_pasajeros<< endl
+		<< "Estado Operativo: " << this->estado_operativo << endl
+		<< "Cant actual de pasajeros subidos: " << this->cantidad_actual_pasajeros << endl
 		<< "Cant Maxima de pasajeros: " << this->cantidad_max_pasajeros << endl
-		<< "Cantidad De colectivos en circulacion: " << this->cantidad_de_colectivos_en_circulacion<< endl; 
+		<< "Cantidad de pasajeros transportados: " << this->get_sistema_de_pagos().colecta_pasajeros_colectivo()
+		<< "Cantidad de plata recolectada por el colectivo; " << this->get_sistema_de_pagos().colecta_plata_colectivo();
 		return ss.str();
 }
 

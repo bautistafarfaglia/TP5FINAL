@@ -4,9 +4,9 @@
 #define _CSISTEMADEPAGOS_H
 
 class cSistemaDePagos {
-public:
-    //friend class cSistema;
-    cSistemaDePagos(unsigned int cantidad_pasajeros=0);
+public:/*
+    friend class cColectivo;*/
+    cSistemaDePagos();
     ~cSistemaDePagos() {};
 
     unsigned int get_cantidad_de_pasajeros();
@@ -19,12 +19,16 @@ public:
 
     void set_cantidad_de_pasajeros(unsigned int var); //agregado
     void set_colecta_del_dia(float var);//agregado
+
+    int colecta_pasajeros_colectivo();
+    float colecta_plata_colectivo();
 private:
     static int max_id;
     int id;
     static float colecta_del_dia;
     float colecta_colectivo;
-    unsigned int cantidad_pasajeros;
+    static int cantidad_pasajeros;
+    int colecta_pasajeros;
 
 };
 

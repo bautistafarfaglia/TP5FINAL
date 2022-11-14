@@ -9,8 +9,8 @@
 
 class cColectivo {
 public:
-
-    cColectivo(short int cantidad_max_pasajeros, int num_colectivo);
+  
+    cColectivo(int num_colectivo);
     ~cColectivo() {
         cantidad_de_colectivos_en_circulacion--;
         for (int i = 0; i < listaPasajeros.size(); i++)

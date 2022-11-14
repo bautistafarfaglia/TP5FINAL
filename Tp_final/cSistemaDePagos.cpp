@@ -1,10 +1,11 @@
 #include "cSistemaDePagos.h"
 float cSistemaDePagos::colecta_del_dia = 0;
+int cSistemaDePagos::cantidad_pasajeros= 0;
 int cSistemaDePagos::max_id = 0;
 
-cSistemaDePagos::cSistemaDePagos(unsigned int _cantidad_pasajeros) : id (max_id++) {
-    this->cantidad_pasajeros = _cantidad_pasajeros;
+cSistemaDePagos::cSistemaDePagos():id (max_id++) {
     this->colecta_colectivo = 0;
+    this->colecta_pasajeros = 0;
 }
 
 
@@ -38,6 +39,7 @@ void cSistemaDePagos::sumar_boleto(int cantParadas) {
     this->colecta_del_dia = this->colecta_del_dia + (cantParadas * CONSTANTEPASAJE);
     this->colecta_colectivo = this->colecta_colectivo + (cantParadas * CONSTANTEPASAJE);
     cantidad_pasajeros++;
+    colecta_pasajeros++;
 }
 
 void cSistemaDePagos::resetDia()
@@ -54,6 +56,16 @@ void cSistemaDePagos::set_cantidad_de_pasajeros(unsigned int var)
 void cSistemaDePagos::set_colecta_del_dia(float var)
 {
     this->colecta_del_dia=var;
+}
+
+int cSistemaDePagos::colecta_pasajeros_colectivo()
+{
+    return this->colecta_pasajeros;
+}
+
+float cSistemaDePagos::colecta_plata_colectivo()
+{
+    return this->colecta_colectivo;
 }
 
 //

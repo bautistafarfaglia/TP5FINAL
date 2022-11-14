@@ -9,7 +9,7 @@
 class cColectivoConAireYDireccionElectrica : public cColectivo {
 public:
     
-    cColectivoConAireYDireccionElectrica(short int cantidad_max_pasajeros=0, int num_colectivo=0);
+    cColectivoConAireYDireccionElectrica(int num_colectivo=0);
     ~cColectivoConAireYDireccionElectrica() {};
 
     bool aire_acondicionado();

@@ -151,10 +151,10 @@ int main() {
 	linea->agregar_personas(h19);
 	linea->agregar_personas(h20);
 
-	cColectivo* c1 = new cColectivoAcordeon(20, 60);
-	cColectivo* c2 = new cColectivoConAireYDireccionElectrica(50, 60);
-	cColectivo* c3 = new cColectivoSinAire(30, 60);
-	cColectivo* c4 = new cColectivoAcordeon(40, 60);
+	cColectivo* c1 = new cColectivoAcordeon(60);
+	cColectivo* c2 = new cColectivoConAireYDireccionElectrica(60);
+	cColectivo* c3 = new cColectivoSinAire(60);
+	cColectivo* c4 = new cColectivoAcordeon(60);
 
 	linea->generarcColectivo(c1);
 	linea->generarcColectivo(c2);
@@ -163,7 +163,7 @@ int main() {
 
 	linea->generarcColectivo(NULL);
 	linea->AvanzarColectivoRandom();
-
+	
 #pragma endregion
 
 #pragma region colectivos y colectiveros
@@ -181,9 +181,8 @@ int main() {
 		if (diftime >= 1) {
 			cout << "\nPasaron: " << diftime << " s" << endl; //esta linea dice cuanto tiempo pasa entre cada vuelta de while
 
-			linea->AvanzarColectivoRandom(); 
-			//linea->GenerarAveríaRandom();
-			//actualizar todos los colectivos
+			
+			linea->TICK();
 
 			time_0 = clock();
 			cantidad_segundos++; 
@@ -191,7 +190,7 @@ int main() {
 				cout << linea->get_sistema_de_pagos();
 				linea->get_sistema_de_pagos()->resetDia();
 			}
-			//linea->TICK();
+			
 			//cout<<endl;
 		}
 		if (cantidad_segundos == 100) //Cantidad de segundos operativos

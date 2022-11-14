@@ -3,7 +3,7 @@
 unsigned long cColectivo::cantidad_de_colectivos_en_circulacion = 0;
 short int cColectivo::max_id = 0;
 
-cColectivo::cColectivo(short int cantidad_max_pasajeros, int num_colectivo) : id_colectivo(++max_id) {
+cColectivo::cColectivo(int num_colectivo) : id_colectivo(++max_id) {
     this->estado_operativo = true;
     this->sentido = DEFAULT;
     this->GPS = "estacion";
@@ -348,8 +348,6 @@ cColectivo::cColectivo(short int cantidad_max_pasajeros, int num_colectivo) : id
         cout << "Ingrese los datos del colectivo:" << endl;
         cout << "Numero:" << endl;
         is >> cole.numColectivo; 
-        cout << "Cantidad maxima pasajeros:" << endl;
-        is >> cole.cantidad_max_pasajeros;
         return is;
     }
     //istream& operator>>(istream& is,cColectivo& cole)
