@@ -29,7 +29,7 @@ public:
         for (int i = 0; i < cantActual; i++)
         {
             if (listaRecorrido[i] != NULL) {
-                delete listaRecorrido[i]
+                delete listaRecorrido[i];
             }
         }
         delete[] listaRecorrido;
