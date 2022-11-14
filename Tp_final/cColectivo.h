@@ -55,6 +55,8 @@ public:
     int calcular_distancia(cPasajeros* pasajero);
     static unsigned long int getcantidad_de_colectivos_en_circulacion();
 
+    unsigned int get_num_cole();
+
 protected:
     void actualizar_GPS();
 

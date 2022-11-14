@@ -42,44 +42,61 @@ void cSistema::GenerarAveríaRandom()
 
 void cSistema::SolucionarAveríaProducida()
 {
-	vector<cPasajeros*>* p = new vector<cPasajeros*>;
-	int posicion_del_cole_roto = -1;
-	for (int i = 0; i < this->listaColectivos.size(); i++) {
-		if (this->listaColectivos[i]->get_estado_operativo() == false) {
-			cout << "Se rompio el colectivo con el ID: " << this->listaColectivos[i]->get_id_colectivo(); 
-			posicion_del_cole_roto = i;
+	try {
+		vector<cPasajeros*>* p = new vector<cPasajeros*>;
+		int posicion_del_cole_roto = -1;
+		for (int i = 0; i < this->listaColectivos.size(); i++) {
+			if (this->listaColectivos[i]->get_estado_operativo() == false) {
+				cout << "Se rompio el colectivo con el ID: " << this->listaColectivos[i]->get_id_colectivo();
+				posicion_del_cole_roto = i;
+			}
 		}
-	}
-	for (int i = 0; i < this->listaColectivos.size(); i++) {
-		if (i != posicion_del_cole_roto) {
-			if (this->listaColectivos[i]->avanzar_recorrido(p) == false) { //hago que el colectivo de suplente termine su recorrido, asi bajan todos los 
-				this->listaColectivos[i]->set_recorrido(this->listaColectivos[posicion_del_cole_roto]->get_recorrido());  //le asigno el recorrido que tenia el otro colectivo
+		bool flag = false;
+		for (int i = 0; i < this->listaColectivos.size(); i++) {
+
+			if (i != posicion_del_cole_roto && this->listaColectivos[i]->get_num_cole() == this->listaColectivos[posicion_del_cole_roto]->get_num_cole()) {
+
+				this->listaColectivos[i]->set_recorrido(this->listaColectivos[posicion_del_cole_roto]->get_recorrido());
+
 				if (this->listaColectivos[i]->get_sentido() == Arriba) {
+
 					for (int j = 0; j < this->listaColectivos[posicion_del_cole_roto]->get_posicion_recorrido(); j++) { //avanzo con el colectivo hasta que llego a la parada donde se rompio el cole
+
 						this->listaColectivos[i]->avanzar_recorrido(p);
 						if (j == this->listaColectivos[posicion_del_cole_roto]->get_posicion_recorrido()) {
 							cout << "El cole llego a la parada donde se rompio el cole";
+							flag = true;
 						}
 					}
 				}
-				else
-				{
-					for (int j = this->listaColectivos[posicion_del_cole_roto]->get_recorrido()->getcantParadas(); j < this->listaColectivos[posicion_del_cole_roto]->get_posicion_recorrido(); j++) { //avanzo con el colectivo hasta que llego a la parada donde se rompio el cole
+				else {
+					for (int j = this->listaColectivos[posicion_del_cole_roto]->get_recorrido()->getcantParadas(); j >= this->listaColectivos[posicion_del_cole_roto]->get_posicion_recorrido(); j--) { //avanzo con el colectivo hasta que llego a la parada donde se rompio el cole
 						this->listaColectivos[i]->avanzar_recorrido(p);
-						if (j == this->listaColectivos[posicion_del_cole_roto]->get_posicion_recorrido()){
+						if (j == this->listaColectivos[posicion_del_cole_roto]->get_posicion_recorrido()) {
 							cout << "El cole llego a la parada donde se rompio el cole";
+							flag = true;
 						}
 					}
 				}
+				if (flag)break;
 			}
 		}
-	}
 
-	for (int i = 0; i < p->size(); i++) {
-		cambiarRecorridoPasajeros(p->at(i));
-		p->at(i) = NULL;
+		if (flag == false)throw ("No se encontro un colectivo que pueda remplazar al roto, los pasajeros van a seguir esperando");
+
+
+		for (int i = 0; i < p->size(); i++) {
+			cambiarRecorridoPasajeros(p->at(i));
+			p->at(i) = NULL;
+		}
+		delete p;
 	}
-	delete p;
+	catch (const char* msg) {
+		cout << "Erro 19: " << msg << endl;
+	}
+	catch (exception e) {
+		cout << "Error 20: " << e.what() << endl;
+	}
 }
 
 void cSistema::TICK() {
@@ -117,6 +134,7 @@ void cSistema::generarcColectivo(cColectivo* cole){
 	else 
 	{
 		this->asignarChoferSistemaYRecorridoAcolectivosGenerados(cole);
+		this->listaColectivos.push_back(cole);
 	}
 }
 
