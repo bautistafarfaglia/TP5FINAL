@@ -4,8 +4,8 @@
 #define _CSISTEMADEPAGOS_H
 
 class cSistemaDePagos {
-public:/*
-    friend class cColectivo;*/
+public:
+   
     cSistemaDePagos();
     ~cSistemaDePagos() {};
 
