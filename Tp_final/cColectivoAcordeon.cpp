@@ -27,12 +27,12 @@ void cColectivoAcordeon::averia() {
 
 string cColectivoAcordeon::to_string_colectivo() {
 	stringstream ss;
-	ss << "colectivero: " << this->colectivero->to_string_colectivero() << endl
+	ss	<< "-----------------------------" << endl <<"colectivero: " << this->colectivero->to_string_colectivero() << endl
 		<< endl
-		<< "Recorrido: " << this->recorrido->to_string_recorrido() << endl
+		<< "-----------------------------" << endl <<"Recorrido: " << this->recorrido->to_string_recorrido() << endl
 		<< endl
-		<< "Posicion del recorrido: " << this->pos_del_recorrido << endl
 		<< "-----------------------------" << endl
+		<< "Posicion del recorrido: " << this->pos_del_recorrido << endl
 		<< "ID colectivo [" << this->id_colectivo << "]" << endl
 		<< "Ubicacion: " << this->GPS << endl
 		<< "Estado Operativo: " << this->estado_operativo<< endl

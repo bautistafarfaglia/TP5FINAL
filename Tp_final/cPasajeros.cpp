@@ -36,7 +36,8 @@ int cPasajeros::get_num_colectivo()
 
 string cPasajeros::to_string_pasajero() {
     stringstream ss;
-    ss << "destino: " << this->destino << endl
+    ss << endl;
+    ss << "destino: " << this->destino<<endl
         << "tiene_una_discapacidad: " << this->tiene_una_discapacidad << endl
         << "saldo: " << this->saldo << endl;
     return ss.str();

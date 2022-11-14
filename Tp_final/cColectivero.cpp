@@ -34,11 +34,12 @@ string cColectivero::to_string_colectivero() {
 
 bool cColectivero::AleatorioAbrirPuertas()
 {
-	int val = rand() % 1;
+	int val = rand() % 2;
 	if (val == 0) {
 		return true;
 	}
 	else {
+		cout << "El colectivo se saltio la parada" << endl;
 		return false;
 	}
 	

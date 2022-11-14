@@ -33,5 +33,5 @@ protected:
     float* saldo;
     bool prioridad;
 };
-#endif //_CPASAJEROS_H
+#endif _CPASAJEROS_H
 
