@@ -6228,7 +6228,7 @@
 											"top": 1006,
 											"width": 539.3603515625,
 											"height": 13,
-											"text": "+Attribute1",
+											"text": "+cantActual: unsigned short int",
 											"horizontalAlignment": 0
 										},
 										{
@@ -6245,7 +6245,7 @@
 											"top": 1021,
 											"width": 539.3603515625,
 											"height": 13,
-											"text": "+Attribute2",
+											"text": "+IDLineaDeColectivos: const int",
 											"horizontalAlignment": 0
 										},
 										{
@@ -6262,7 +6262,7 @@
 											"top": 1036,
 											"width": 539.3603515625,
 											"height": 13,
-											"text": "+Attribute3",
+											"text": "+Max_id: static int",
 											"horizontalAlignment": 0
 										},
 										{
@@ -6279,7 +6279,7 @@
 											"top": 1051,
 											"width": 539.3603515625,
 											"height": 13,
-											"text": "+Attribute4",
+											"text": "+NombreDeLinea: string",
 											"horizontalAlignment": 0
 										},
 										{
@@ -6296,7 +6296,7 @@
 											"top": 1066,
 											"width": 539.3603515625,
 											"height": 13,
-											"text": "+Attribute5",
+											"text": "+listaColectivos: vector<cColectivo*>",
 											"horizontalAlignment": 0
 										},
 										{
@@ -6313,7 +6313,7 @@
 											"top": 1081,
 											"width": 539.3603515625,
 											"height": 13,
-											"text": "+Attribute6",
+											"text": "+listaRecorrido: cRecorrido**",
 											"horizontalAlignment": 0
 										},
 										{
@@ -6330,7 +6330,7 @@
 											"top": 1096,
 											"width": 539.3603515625,
 											"height": 13,
-											"text": "+Attribute7",
+											"text": "+listaPasajeros: vector<cPasajeros*>",
 											"horizontalAlignment": 0
 										},
 										{
@@ -6347,7 +6347,7 @@
 											"top": 1111,
 											"width": 539.3603515625,
 											"height": 13,
-											"text": "+Attribute8",
+											"text": "+listaColectiveros: vector<cColectivero*>",
 											"horizontalAlignment": 0
 										},
 										{
@@ -6364,7 +6364,7 @@
 											"top": 1126,
 											"width": 539.3603515625,
 											"height": 13,
-											"text": "+Attribute9",
+											"text": "+SistemaGeneralDePagos: cSistemaDePagos*",
 											"horizontalAlignment": 0
 										},
 										{
@@ -6376,6 +6376,7 @@
 											"model": {
 												"$ref": "AAAAAAGEd0tdoihbng4="
 											},
+											"visible": false,
 											"font": "Arial;13;0",
 											"left": 821,
 											"top": 1141,
@@ -6389,7 +6390,7 @@
 									"left": 816,
 									"top": 1001,
 									"width": 549.3603515625,
-									"height": 158
+									"height": 143
 								},
 								{
 									"_type": "UMLOperationCompartmentView",
@@ -6646,7 +6647,7 @@
 											},
 											"font": "Arial;13;0",
 											"left": 821,
-											"top": 1166,
+											"top": 1151,
 											"width": 539.3603515625,
 											"height": 13,
 											"text": "+cSistema(string NombreLinea)",
@@ -6663,7 +6664,7 @@
 											},
 											"font": "Arial;13;0",
 											"left": 821,
-											"top": 1181,
+											"top": 1166,
 											"width": 539.3603515625,
 											"height": 13,
 											"text": "~cSistema()",
@@ -6680,7 +6681,7 @@
 											},
 											"font": "Arial;13;0",
 											"left": 821,
-											"top": 1196,
+											"top": 1181,
 											"width": 539.3603515625,
 											"height": 13,
 											"text": "+GenerarAveríaRandom(): void",
@@ -6697,7 +6698,7 @@
 											},
 											"font": "Arial;13;0",
 											"left": 821,
-											"top": 1211,
+											"top": 1196,
 											"width": 539.3603515625,
 											"height": 13,
 											"text": "+SolucionarAveríaProducida(): void",
@@ -6714,7 +6715,7 @@
 											},
 											"font": "Arial;13;0",
 											"left": 821,
-											"top": 1226,
+											"top": 1211,
 											"width": 539.3603515625,
 											"height": 13,
 											"text": "+TICK(): void",
@@ -6731,7 +6732,7 @@
 											},
 											"font": "Arial;13;0",
 											"left": 821,
-											"top": 1241,
+											"top": 1226,
 											"width": 539.3603515625,
 											"height": 13,
 											"text": "+ToStringLineaDeColectivos(): string",
@@ -6748,7 +6749,7 @@
 											},
 											"font": "Arial;13;0",
 											"left": 821,
-											"top": 1256,
+											"top": 1241,
 											"width": 539.3603515625,
 											"height": 13,
 											"text": "+ImprimirColectivos(): void",
@@ -6765,7 +6766,7 @@
 											},
 											"font": "Arial;13;0",
 											"left": 821,
-											"top": 1271,
+											"top": 1256,
 											"width": 539.3603515625,
 											"height": 13,
 											"text": "+generarcColectivo(cColectivo* cole): void",
@@ -6782,7 +6783,7 @@
 											},
 											"font": "Arial;13;0",
 											"left": 821,
-											"top": 1286,
+											"top": 1271,
 											"width": 539.3603515625,
 											"height": 13,
 											"text": "+generarRecorrido(): void",
@@ -6799,7 +6800,7 @@
 											},
 											"font": "Arial;13;0",
 											"left": 821,
-											"top": 1301,
+											"top": 1286,
 											"width": 539.3603515625,
 											"height": 13,
 											"text": "+agregar_personas(cPasajeros* persona): void",
@@ -6816,7 +6817,7 @@
 											},
 											"font": "Arial;13;0",
 											"left": 821,
-											"top": 1316,
+											"top": 1301,
 											"width": 539.3603515625,
 											"height": 13,
 											"text": "+agregar(cRecorrido* recorrido): void",
@@ -6833,7 +6834,7 @@
 											},
 											"font": "Arial;13;0",
 											"left": 821,
-											"top": 1331,
+											"top": 1316,
 											"width": 539.3603515625,
 											"height": 13,
 											"text": "+eliminar(cRecorrido* recorrido): void",
@@ -6850,7 +6851,7 @@
 											},
 											"font": "Arial;13;0",
 											"left": 821,
-											"top": 1346,
+											"top": 1331,
 											"width": 539.3603515625,
 											"height": 13,
 											"text": "+quitar(cRecorrido* recorrido): cRecorrido*",
@@ -6867,7 +6868,7 @@
 											},
 											"font": "Arial;13;0",
 											"left": 821,
-											"top": 1361,
+											"top": 1346,
 											"width": 539.3603515625,
 											"height": 13,
 											"text": "+ordenar(): void",
@@ -6884,7 +6885,7 @@
 											},
 											"font": "Arial;13;0",
 											"left": 821,
-											"top": 1376,
+											"top": 1361,
 											"width": 539.3603515625,
 											"height": 13,
 											"text": "+get_sistema_de_pagos(): cSistemaDePagos*",
@@ -6901,7 +6902,7 @@
 											},
 											"font": "Arial;13;0",
 											"left": 821,
-											"top": 1391,
+											"top": 1376,
 											"width": 539.3603515625,
 											"height": 13,
 											"text": "+resize(): void",
@@ -7026,7 +7027,7 @@
 											},
 											"font": "Arial;13;0",
 											"left": 821,
-											"top": 1406,
+											"top": 1391,
 											"width": 539.3603515625,
 											"height": 13,
 											"text": "+cambiarRecorridoColectivos(int id_colectivo): bool",
@@ -7043,7 +7044,7 @@
 											},
 											"font": "Arial;13;0",
 											"left": 821,
-											"top": 1421,
+											"top": 1406,
 											"width": 539.3603515625,
 											"height": 13,
 											"text": "+cambiarRecorridoPasajeros(cPasajeros* p): bool",
@@ -7060,7 +7061,7 @@
 											},
 											"font": "Arial;13;0",
 											"left": 821,
-											"top": 1436,
+											"top": 1421,
 											"width": 539.3603515625,
 											"height": 13,
 											"text": "+AvanzarColectivoRandom(): void",
@@ -7077,7 +7078,7 @@
 											},
 											"font": "Arial;13;0",
 											"left": 821,
-											"top": 1451,
+											"top": 1436,
 											"width": 539.3603515625,
 											"height": 13,
 											"text": "+generar_cColectivo_Acordeon(): cColectivoAcordeon*",
@@ -7094,7 +7095,7 @@
 											},
 											"font": "Arial;13;0",
 											"left": 821,
-											"top": 1466,
+											"top": 1451,
 											"width": 539.3603515625,
 											"height": 13,
 											"text": "+generar_cColectivo_ConAire_y_DireccionElectrica(): cColectivoConAireYDireccionElectrica*",
@@ -7111,18 +7112,35 @@
 											},
 											"font": "Arial;13;0",
 											"left": 821,
-											"top": 1481,
+											"top": 1466,
 											"width": 539.3603515625,
 											"height": 13,
 											"text": "+generar_cColectivo_sinAire(): cColectivoSinAire*",
+											"horizontalAlignment": 0
+										},
+										{
+											"_type": "UMLOperationView",
+											"_id": "AAAAAAGEd3FPDbIEpRs=",
+											"_parent": {
+												"$ref": "AAAAAAGBk+vhTs+PGNU="
+											},
+											"model": {
+												"$ref": "AAAAAAGEd3FO/LH1Uhg="
+											},
+											"font": "Arial;13;0",
+											"left": 821,
+											"top": 1481,
+											"width": 539.3603515625,
+											"height": 13,
+											"text": "+asignarChoferSistemaYRecorridoAcolectivosGenerados(cColectivo* cole): bool",
 											"horizontalAlignment": 0
 										}
 									],
 									"font": "Arial;13;0",
 									"left": 816,
-									"top": 1159,
+									"top": 1144,
 									"width": 549.3603515625,
-									"height": 340
+									"height": 355
 								},
 								{
 									"_type": "UMLReceptionCompartmentView",
@@ -12996,8 +13014,8 @@
 							"_parent": {
 								"$ref": "AAAAAAGBk+vhTs+GKG0="
 							},
-							"name": "Attribute1",
-							"type": ""
+							"name": "cantActual",
+							"type": "unsigned short int"
 						},
 						{
 							"_type": "UMLAttribute",
@@ -13005,8 +13023,8 @@
 							"_parent": {
 								"$ref": "AAAAAAGBk+vhTs+GKG0="
 							},
-							"name": "Attribute2",
-							"type": ""
+							"name": "IDLineaDeColectivos",
+							"type": "const int"
 						},
 						{
 							"_type": "UMLAttribute",
@@ -13014,8 +13032,8 @@
 							"_parent": {
 								"$ref": "AAAAAAGBk+vhTs+GKG0="
 							},
-							"name": "Attribute3",
-							"type": ""
+							"name": "Max_id",
+							"type": "static int"
 						},
 						{
 							"_type": "UMLAttribute",
@@ -13023,8 +13041,8 @@
 							"_parent": {
 								"$ref": "AAAAAAGBk+vhTs+GKG0="
 							},
-							"name": "Attribute4",
-							"type": ""
+							"name": "NombreDeLinea",
+							"type": "string"
 						},
 						{
 							"_type": "UMLAttribute",
@@ -13032,8 +13050,8 @@
 							"_parent": {
 								"$ref": "AAAAAAGBk+vhTs+GKG0="
 							},
-							"name": "Attribute5",
-							"type": ""
+							"name": "listaColectivos",
+							"type": "vector<cColectivo*>"
 						},
 						{
 							"_type": "UMLAttribute",
@@ -13041,8 +13059,8 @@
 							"_parent": {
 								"$ref": "AAAAAAGBk+vhTs+GKG0="
 							},
-							"name": "Attribute6",
-							"type": ""
+							"name": "listaRecorrido",
+							"type": "cRecorrido**"
 						},
 						{
 							"_type": "UMLAttribute",
@@ -13050,8 +13068,8 @@
 							"_parent": {
 								"$ref": "AAAAAAGBk+vhTs+GKG0="
 							},
-							"name": "Attribute7",
-							"type": ""
+							"name": "listaPasajeros",
+							"type": "vector<cPasajeros*>"
 						},
 						{
 							"_type": "UMLAttribute",
@@ -13059,8 +13077,8 @@
 							"_parent": {
 								"$ref": "AAAAAAGBk+vhTs+GKG0="
 							},
-							"name": "Attribute8",
-							"type": ""
+							"name": "listaColectiveros",
+							"type": "vector<cColectivero*>"
 						},
 						{
 							"_type": "UMLAttribute",
@@ -13068,8 +13086,8 @@
 							"_parent": {
 								"$ref": "AAAAAAGBk+vhTs+GKG0="
 							},
-							"name": "Attribute9",
-							"type": ""
+							"name": "SistemaGeneralDePagos",
+							"type": "cSistemaDePagos*"
 						},
 						{
 							"_type": "UMLAttribute",
@@ -14048,6 +14066,34 @@
 										"$ref": "AAAAAAGEd1FRH2MryRg="
 									},
 									"type": "cColectivoSinAire*",
+									"direction": "return"
+								}
+							]
+						},
+						{
+							"_type": "UMLOperation",
+							"_id": "AAAAAAGEd3FO/LH1Uhg=",
+							"_parent": {
+								"$ref": "AAAAAAGBk+vhTs+GKG0="
+							},
+							"name": "asignarChoferSistemaYRecorridoAcolectivosGenerados",
+							"parameters": [
+								{
+									"_type": "UMLParameter",
+									"_id": "AAAAAAGEd3GDqbLv4II=",
+									"_parent": {
+										"$ref": "AAAAAAGEd3FO/LH1Uhg="
+									},
+									"name": "cColectivo* cole",
+									"type": ""
+								},
+								{
+									"_type": "UMLParameter",
+									"_id": "AAAAAAGEd3GDqbLwfhU=",
+									"_parent": {
+										"$ref": "AAAAAAGEd3FO/LH1Uhg="
+									},
+									"type": "bool",
 									"direction": "return"
 								}
 							]
