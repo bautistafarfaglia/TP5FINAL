@@ -5,25 +5,18 @@ short int cColectivo::max_id = 0;
 
 cColectivo::cColectivo(string GPS, short int cantidad_max_pasajeros, int num_colectivo) : id_colectivo(++max_id) {
     this->estado_operativo = true;
-    this->fecha_ultimo_mantenimiento = new cFecha(0, 0);
-    this->colectivero = NULL;
-    this->sistema_de_pagos = new cSistemaDePagos();
-    this->recorrido = NULL;
-    this->pos_del_recorrido = NULL;
     this->sentido = DEFAULT;
     this->GPS = "estacion";
     try{
         this->fecha_ultimo_mantenimiento = new cFecha(0, 0);
+        this->colectivero = NULL;
+        this->sistema_de_pagos = new cSistemaDePagos();
+        this->recorrido = NULL;
+        this->pos_del_recorrido = NULL;
     }
     catch (bad_alloc& e) {
         cout << e.what() << endl;
     }
-    this->colectivero = colectivero;
-    this->sistema_de_pagos = sistema_de_pagos;
-    this->recorrido = _recorrido;
-    this->pos_del_recorrido = -1;
-    this->GPS = GPS;
-    this->sentido = sentido;
     this->numColectivo = num_colectivo;
     this->cantidad_max_pasajeros = cantidad_max_pasajeros;
     this->cantidad_de_colectivos_en_circulacion++;
