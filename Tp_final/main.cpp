@@ -151,14 +151,19 @@ int main() {
 	linea->agregar_personas(h19);
 	linea->agregar_personas(h20);
 
+	cColectivo* c1 = new cColectivoAcordeon("estacion", 20, 60);
+	cColectivo* c2 = new cColectivoConAireYDireccionElectrica("estacion", 50, 60);
+	cColectivo* c3 = new cColectivoSinAire("estacion", 30, 15);
+	cColectivo* c4 = new cColectivoAcordeon("estacion", 40, 60);
 
+	linea->generarcColectivo(c1);
+	linea->generarcColectivo(c2);
+	linea->generarcColectivo(c3);
+	linea->generarcColectivo(c4);
 
-
-	linea->generarcColectivo();
+	linea->generarcColectivo(NULL);
 	linea->cambiarRecorridoColectivos(1);
 	linea->AvanzarColectivoRandom();
-
-
 
 	#pragma endregion
 
@@ -261,6 +266,12 @@ int main() {
 #pragma endregion
 #pragma region deletes lineas de colectivos
 	delete linea;
+#pragma endregion
+#pragma region deletes colectivos
+	delete c1;
+	delete c2;
+	delete c3;
+	delete c4;
 #pragma endregion
 }
 

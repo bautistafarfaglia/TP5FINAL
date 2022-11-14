@@ -2,11 +2,9 @@
 
 
 //chequear y cambiar porque el id_colectivo se pasa como parametro 
-cColectivoAcordeon::cColectivoAcordeon(cColectivero* colectivero, cSistemaDePagos* sistema_de_pagos, cRecorrido* recorrido, unsigned int pos_del_recorrido, string GPS, eSentidoRecorrido sentido,  short int cantidad_max_pasajeros,int num_colectivo) :cColectivoConAireYDireccionElectrica(colectivero,
-    sistema_de_pagos, recorrido, pos_del_recorrido, GPS, sentido, cantidad_max_pasajeros,num_colectivo)
+cColectivoAcordeon::cColectivoAcordeon(string GPS, short int cantidad_max_pasajeros, int num_colectivo) : cColectivoConAireYDireccionElectrica(GPS, cantidad_max_pasajeros,num_colectivo)
 {
     
-
 }
 
 cColectivoAcordeon::~cColectivoAcordeon(){

@@ -18,5 +18,4 @@
 typedef unsigned short ushort;
 
 using namespace std;
-
 #endif // !GBL_H

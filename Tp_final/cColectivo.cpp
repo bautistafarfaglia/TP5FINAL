@@ -3,10 +3,15 @@
 unsigned long cColectivo::cantidad_de_colectivos_en_circulacion = 0;
 short int cColectivo::max_id = 0;
 
-cColectivo::cColectivo(cColectivero* colectivero,
-    cSistemaDePagos* sistema_de_pagos, cRecorrido* _recorrido, unsigned int pos_del_recorrido,
-    string GPS, eSentidoRecorrido sentido, short int cantidad_max_pasajeros, int num_colectivo) : id_colectivo(++max_id) {
+cColectivo::cColectivo(string GPS, short int cantidad_max_pasajeros, int num_colectivo) : id_colectivo(++max_id) {
     this->estado_operativo = true;
+    this->fecha_ultimo_mantenimiento = new cFecha(0, 0);
+    this->colectivero = NULL;
+    this->sistema_de_pagos = new cSistemaDePagos();
+    this->recorrido = NULL;
+    this->pos_del_recorrido = NULL;
+    this->sentido = DEFAULT;
+    this->GPS = "estacion";
     try{
         this->fecha_ultimo_mantenimiento = new cFecha(0, 0);
     }
@@ -293,7 +298,8 @@ cColectivo::cColectivo(cColectivero* colectivero,
 
     void cColectivo::cobrar_boleto(cPasajeros* nuevo_pasajero) {
         //calcular la cantidad de paradas con 2 strings
-        this->sistema_de_pagos->cobrar_voleto(nuevo_pasajero->getSaldo(), calcular_distancia(nuevo_pasajero));
+        this->sistema_de_pagos->cobrar_boleto(nuevo_pasajero->getSaldo(), calcular_distancia(nuevo_pasajero));
+        this->sistema_de_pagos->sumar_boleto(calcular_distancia(nuevo_pasajero));
     }
 
     void cColectivo::cambio_de_sentido_recorrido() {

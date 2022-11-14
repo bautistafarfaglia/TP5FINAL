@@ -9,7 +9,7 @@
 class cColectivoConAireYDireccionElectrica : public cColectivo {
 public:
     
-    cColectivoConAireYDireccionElectrica(cColectivero* colectivero = nullptr, cSistemaDePagos* sistema_de_pagos= nullptr, cRecorrido* recorrido = nullptr, unsigned int pos_del_recorrido=0, string GPS="none", eSentidoRecorrido sentido=DEFAULT, short int cantidad_max_pasajeros=0, int num_colectivo=0);
+    cColectivoConAireYDireccionElectrica(string GPS="none", short int cantidad_max_pasajeros=0, int num_colectivo=0);
     ~cColectivoConAireYDireccionElectrica() {};
 
     bool aire_acondicionado();
