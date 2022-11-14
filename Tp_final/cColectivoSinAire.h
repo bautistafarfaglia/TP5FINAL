@@ -11,7 +11,7 @@
 class cColectivoSinAire : public cColectivo {
 public:
 
-    cColectivoSinAire(string GPS = "none", short int cantidad_max_pasajeros = 0, int num_colectivo = 0);
+    cColectivoSinAire(short int cantidad_max_pasajeros = 0, int num_colectivo = 0);
     ~cColectivoSinAire() {};
 
     void averia();

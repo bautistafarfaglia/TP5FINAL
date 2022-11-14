@@ -4,7 +4,7 @@
 
 
 
- cColectivoSinAire::cColectivoSinAire(string GPS,short int cantidad_max_pasajeros, int num_colectivo):cColectivo(GPS, cantidad_max_pasajeros, num_colectivo) {
+ cColectivoSinAire::cColectivoSinAire(short int cantidad_max_pasajeros, int num_colectivo):cColectivo(cantidad_max_pasajeros, num_colectivo) {
 	 
 }
 

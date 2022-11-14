@@ -15,7 +15,7 @@
 class cColectivoAcordeon : public cColectivoConAireYDireccionElectrica {
     
 public:
-    cColectivoAcordeon(string GPS = "none", short int cantidad_max_pasajeros = 0, int num_colectivo = 0);
+    cColectivoAcordeon(short int cantidad_max_pasajeros = 0, int num_colectivo = 0);
     ~cColectivoAcordeon();
 
     void averia();

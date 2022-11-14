@@ -1,6 +1,6 @@
 #include "cColectivoConAireYDireccionElectrica.h"
 
-cColectivoConAireYDireccionElectrica::cColectivoConAireYDireccionElectrica(string GPS,  short int cantidad_max_pasajeros, int num_colectivo) : cColectivo(GPS, cantidad_max_pasajeros, num_colectivo)
+cColectivoConAireYDireccionElectrica::cColectivoConAireYDireccionElectrica(short int cantidad_max_pasajeros, int num_colectivo) : cColectivo(cantidad_max_pasajeros, num_colectivo)
 {
     tiene_aire_acondicionado = true;
 }
