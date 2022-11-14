@@ -182,10 +182,10 @@ int main() {
 			
 			time_0 = clock();
 			cantidad_segundos++; //sumo al contador hasta que se cumpla la condicion
-			//if (cantidad_segundos % 5 == 0) {
-			//	//linea->TICK();
-			//	//cout<<endl;
-			//}
+			if (cantidad_segundos % 5 == 0) {
+				//linea->TICK();
+				//cout<<endl;
+			}
 		}
 		if (cantidad_segundos == 100) //Cantidad de segundos operativos
 			ciclo = false;

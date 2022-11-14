@@ -31,6 +31,8 @@ vector<cPasajeros*> cParada::pasajeros_suben_colectivo(int num){
 		if (this->listaPasajeros[i]->get_num_colectivo() == num) {
 			aux.push_back(this->listaPasajeros[i]);
 			this->listaPasajeros.erase(this->listaPasajeros.begin() + i);
+			i--; 
+			cantEstatica--;
 		}
 		else {
 			cout << "El pasajero: " << this->listaPasajeros[i]->get_DNI() << " Esta esperando a otro colectivo" << endl;
