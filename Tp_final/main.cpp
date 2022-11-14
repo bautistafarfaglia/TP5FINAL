@@ -10,7 +10,7 @@ int main() {
 
 	cSistema* linea = new cSistema("linea");
 
-#pragma region recorridos, paradas y personas
+#pragma region recorridos, paradas, colectivos y personas
 
 	srand(time(0));
 	cParada* p1 = new cParada("calle1", Arriba);
@@ -166,8 +166,6 @@ int main() {
 	
 #pragma endregion
 
-#pragma region colectivos y colectiveros
-
 #pragma region simulacion
 
 	unsigned long long int time_0;
@@ -198,8 +196,6 @@ int main() {
 	}
 
     #pragma endregion
-
-
 	
 #pragma region deletes de paradas
 	delete p1;

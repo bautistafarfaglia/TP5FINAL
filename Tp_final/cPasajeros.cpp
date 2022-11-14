@@ -39,7 +39,7 @@ string cPasajeros::to_string_pasajero() {
     ss << endl;
     ss << "destino: " << this->destino<<endl
         << "tiene_una_discapacidad: " << this->tiene_una_discapacidad << endl
-        << "saldo: " << this->saldo << endl;
+        << "saldo: " << *this->saldo << endl;
     return ss.str();
 }
 
