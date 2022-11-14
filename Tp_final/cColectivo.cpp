@@ -42,6 +42,11 @@ cColectivo::cColectivo(int num_colectivo) : id_colectivo(++max_id) {
         return *(this->sistema_de_pagos);
     }
 
+    cColectivero* cColectivo::get_colectivero()
+    {
+        return this->colectivero;
+    }
+
     void cColectivo::set_recorrido(cRecorrido* r)
     {
         this->recorrido = r;
@@ -58,6 +63,11 @@ cColectivo::cColectivo(int num_colectivo) : id_colectivo(++max_id) {
     void cColectivo::set_sistema_de_pagos(cSistemaDePagos* sdp)
     {
         this->sistema_de_pagos = sdp;
+    }
+
+    void cColectivo::set_estado_operativo(bool val)
+    {
+        this->estado_operativo = val;
     }
 
     string cColectivo::get_GPS() {
@@ -170,53 +180,59 @@ cColectivo::cColectivo(int num_colectivo) : id_colectivo(++max_id) {
     /// <returns>Devuelve falso si no puede avanzar mas en el recorrido, en caso contrario devuelve true</returns>
     bool cColectivo::avanzar_recorrido(vector<cPasajeros*>* Pasajeros_que_se_bajan) {
         try {
-            if (this->sentido == Arriba && abs(pos_del_recorrido) + 1 == this->recorrido->get_cantidad_paradas()) { //llego al final del recorrido entonces se le asignaría otro recorrido
-                return false;
-            }else if (this->sentido == Abajo && abs(pos_del_recorrido) == 0) { //llego al final del recorrido entonces se le asignaría otro recorrido
-                return false;
-            }
-            if (this->sentido == Arriba) {
-                this->pos_del_recorrido++;
-            }
-            if (this->sentido == Abajo) {
-                this->pos_del_recorrido--;
-            }
-            this->actualizar_GPS();
-            cout <<"El colectivo ID: "<<this->get_id_colectivo()<< " esta en la parada: " << (this->recorrido->get_lista_paradas())[this->pos_del_recorrido]->get_nombre_parada() << endl;
+            if (this->estado_operativo == true) {
+                if (this->sentido == Arriba && abs(pos_del_recorrido) + 1 == this->recorrido->get_cantidad_paradas()) { //llego al final del recorrido entonces se le asignaría otro recorrido
+                    return false;
+                }
+                else if (this->sentido == Abajo && abs(pos_del_recorrido) == 0) { //llego al final del recorrido entonces se le asignaría otro recorrido
+                    return false;
+                }
+                if (this->sentido == Arriba) {
+                    this->pos_del_recorrido++;
+                }
+                if (this->sentido == Abajo) {
+                    this->pos_del_recorrido--;
+                }
+                this->actualizar_GPS();
+                cout << "El colectivo ID: " << this->get_id_colectivo() << " esta en la parada: " << (this->recorrido->get_lista_paradas())[this->pos_del_recorrido]->get_nombre_parada() << endl;
 
-            this->bajar_pasajeros(this->recorrido->get_lista_paradas()[this->pos_del_recorrido]->get_nombre_parada(), Pasajeros_que_se_bajan);
-            int cant_en_parada = (int)this->recorrido->get_lista_paradas()[pos_del_recorrido]->get_lista_pasajeros().size();
-            cParada* auxp = this->recorrido->get_lista_paradas()[pos_del_recorrido];
-            if (auxp != NULL) {
-                for (int i = 0; i < cant_en_parada; i++) {
-                    if (this->cantidad_actual_pasajeros < this->cantidad_max_pasajeros) {
-                        cPasajeros* aux = this->recorrido->get_lista_paradas()[pos_del_recorrido]->get_lista_pasajeros()[i];
+                this->bajar_pasajeros(this->recorrido->get_lista_paradas()[this->pos_del_recorrido]->get_nombre_parada(), Pasajeros_que_se_bajan);
+                int cant_en_parada = (int)this->recorrido->get_lista_paradas()[pos_del_recorrido]->get_lista_pasajeros().size();
+                cParada* auxp = this->recorrido->get_lista_paradas()[pos_del_recorrido];
+                if (auxp != NULL) {
+                    for (int i = 0; i < cant_en_parada; i++) {
+                        if (this->cantidad_actual_pasajeros < this->cantidad_max_pasajeros) {
+                            cPasajeros* aux = this->recorrido->get_lista_paradas()[pos_del_recorrido]->get_lista_pasajeros()[i];
 
-                        if (true == this->control_sentido_pasajero(aux) && true == hay_destino(aux) && this->colectivero->AleatorioAbrirPuertas() == true) {//chequeo que el sentido del pasajero sea adecuado y si su destino futuro esta dentro del recorrido
+                            if (true == this->control_sentido_pasajero(aux) && true == hay_destino(aux) && this->colectivero->AleatorioAbrirPuertas() == true) {//chequeo que el sentido del pasajero sea adecuado y si su destino futuro esta dentro del recorrido
 
-                            if (aux->get_hay_una_discapacidad() == true) {
-                                cout << "Se sube alguien con discapacidad ";
-                                subir_pasajeros(this->recorrido->get_lista_paradas()[this->pos_del_recorrido]->pasajeros_suben_colectivo(this->numColectivo));
-                                return true;
-                            }
-                            else {
-                                cout << "Se suben pasajeros ";
-                                subir_pasajeros(this->recorrido->get_lista_paradas()[this->pos_del_recorrido]->pasajeros_suben_colectivo(this->numColectivo));
-                                return true;
+                                if (aux->get_hay_una_discapacidad() == true) {
+                                    cout << "Se sube alguien con discapacidad ";
+                                    subir_pasajeros(this->recorrido->get_lista_paradas()[this->pos_del_recorrido]->pasajeros_suben_colectivo(this->numColectivo));
+                                    return true;
+                                }
+                                else {
+                                    cout << "Se suben pasajeros ";
+                                    subir_pasajeros(this->recorrido->get_lista_paradas()[this->pos_del_recorrido]->pasajeros_suben_colectivo(this->numColectivo));
+                                    return true;
+                                }
                             }
                         }
                     }
-                }
-                if (cant_en_parada == 0) {
-                    cout << "No había nadie en la parada" << endl;
-                    return true;
+                    if (cant_en_parada == 0) {
+                        cout << "No había nadie en la parada" << endl;
+                        return true;
+                    }
                 }
             }
-        }catch (exception e) {
+            else {
+                cout << endl <<"el bondi no puede avanzar, esta roto " << endl;
+            }
+        }
+        catch (exception e) {
             cout << "Error 06: " << e.what() << endl;
             return false;
-    }
-       
+        }
     }
         
     

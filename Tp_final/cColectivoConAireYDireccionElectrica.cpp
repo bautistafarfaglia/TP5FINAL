@@ -17,7 +17,7 @@ void cColectivoConAireYDireccionElectrica::apagar_aire() {
 }
 void cColectivoConAireYDireccionElectrica::averia() {
 		this->estado_operativo = false;
-		this->imprimir();
+		//this->imprimir();
 		cout << "Se rompio el aire del bondi" << endl;
 
 		for (int i = 0; i < this->listaPasajeros.size(); i++) {

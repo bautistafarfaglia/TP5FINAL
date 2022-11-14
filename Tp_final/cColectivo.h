@@ -23,6 +23,7 @@ public:
     eSentidoRecorrido get_sentido();
     cRecorrido* get_recorrido();
     cSistemaDePagos get_sistema_de_pagos();
+    cColectivero* get_colectivero();
     string get_GPS();
     void llegarParada();
     unsigned int get_posicion_recorrido();
@@ -32,6 +33,7 @@ public:
     void set_fecha_mantenimiento(cFecha* fecha);
     void set_recorrido(cRecorrido* r);
     void set_sistema_de_pagos(cSistemaDePagos* sdp);
+    void set_estado_operativo(bool val);
     bool control_sentido_pasajero(cPasajeros* pasajero);
     bool avanzar_recorrido(vector<cPasajeros*>* Pasajeros_que_se_bajan);
     bool hay_destino(cPasajeros*);

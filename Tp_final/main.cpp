@@ -175,12 +175,11 @@ int main() {
 	while (ciclo) {
 		time_1 = clock();
 		long double diftime = (long double(time_1 - time_0) / CLOCKS_PER_SEC);
-		if (diftime >= 1) {
+		if (diftime >= 2) {
 			cout << "\nPasaron: " << diftime << " s" << endl; //esta linea dice cuanto tiempo pasa entre cada vuelta de while
 
 			
 			linea->TICK();
-
 			time_0 = clock();
 			cantidad_segundos++; 
 			if (cantidad_segundos % 5 == 0) {//El contador llega hasta 24 (que serían 24 segs 1 dia)
@@ -190,7 +189,7 @@ int main() {
 			
 			//cout<<endl;
 		}
-		if (cantidad_segundos == 2) //Cantidad de segundos operativos
+		if (cantidad_segundos == 20) //Cantidad de segundos operativos
 			ciclo = false;
 	}
 

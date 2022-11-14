@@ -36,8 +36,9 @@ void cSistema::agregar_personas(cPasajeros* persona) {
 void cSistema::GenerarAveríaRandom()
 {
 	int random = rand() % 20000;
-	if (random == 19999) {
+	if (random == 18000) {
 		int ColeRandom = rand() % this->listaColectivos.size();
+		cout << endl;
 		this->listaColectivos[ColeRandom]->averia();
 		this->SolucionarAveríaProducida();
 	}
@@ -51,10 +52,10 @@ void cSistema::SolucionarAveríaProducida()
 	try {
 		vector<cPasajeros*>* p = new vector<cPasajeros*>;
 		int posicion_del_cole_roto = -1;
-		for (int i = 0; i < this->listaColectivos.size(); i++) {
-			if (this->listaColectivos[i]->get_estado_operativo() == false) {
-				cout << "Se rompio el colectivo con el ID: " << this->listaColectivos[i]->get_id_colectivo();
-				posicion_del_cole_roto = i;
+		for (int j = 0; j < this->listaColectivos.size(); j++) {
+			if (this->listaColectivos[j]->get_estado_operativo() == false) {
+				posicion_del_cole_roto = j;
+				cout << "Se rompio el colectivo con el ID: " << this->listaColectivos[posicion_del_cole_roto]->get_id_colectivo()<<endl;
 			}
 		}
 		bool flag = false;
@@ -70,8 +71,13 @@ void cSistema::SolucionarAveríaProducida()
 
 						this->listaColectivos[i]->avanzar_recorrido(p);
 						if (j == this->listaColectivos[posicion_del_cole_roto]->get_posicion_recorrido()) {
-							cout << "El cole llego a la parada donde se rompio el cole";
+							this->listaColectivos[i]->get_colectivero()->valor_rand = 1;
+							cout << "El cole llego a la parada donde se rompio el cole"<<endl;
+							this->listaColectivos[i]->avanzar_recorrido(p);
+							this->listaColectivos[i]->get_colectivero()->valor_rand = 2;
 							flag = true;
+							cout << "Se soluciono la rotura" << endl;
+							this->listaColectivos[posicion_del_cole_roto]->set_estado_operativo(true);
 						}
 					}
 				}
@@ -79,7 +85,12 @@ void cSistema::SolucionarAveríaProducida()
 					for (int j = this->listaColectivos[posicion_del_cole_roto]->get_recorrido()->getcantParadas(); j >= this->listaColectivos[posicion_del_cole_roto]->get_posicion_recorrido(); j--) { //avanzo con el colectivo hasta que llego a la parada donde se rompio el cole
 						this->listaColectivos[i]->avanzar_recorrido(p);
 						if (j == this->listaColectivos[posicion_del_cole_roto]->get_posicion_recorrido()) {
-							cout << "El cole llego a la parada donde se rompio el cole";
+							this->listaColectivos[i]->get_colectivero()->valor_rand = 1;
+							cout << "El cole llego a la parada donde se rompio el cole"<<endl;
+							this->listaColectivos[i]->avanzar_recorrido(p);
+							this->listaColectivos[i]->get_colectivero()->valor_rand = 2;
+							cout << "Se soluciono la rotura" << endl;
+							this->listaColectivos[posicion_del_cole_roto]->set_estado_operativo(true);
 							flag = true;
 						}
 					}
@@ -127,7 +138,7 @@ void cSistema::ImprimirColectivos() {
 	}
 }
 
-void cSistema::generarcColectivo(cColectivo* cole){
+void cSistema::generarcColectivo(cColectivo* cole){ 
 	if (cole == NULL) {
 		int tipo = rand() % 3;
 		if (tipo == 1) {
@@ -154,11 +165,11 @@ void cSistema::AvanzarColectivoRandom()
 	if (this->listaColectivos.size()) {
 		int numcole = rand() % this->listaColectivos.size();
 		if (this->listaColectivos[numcole]->avanzar_recorrido(p) == false) { // si el colectivo no puede avanzar mas en el recorrido, se le cambia el recorrido
-			this->cambiarRecorridoColectivos(this->listaColectivos[numcole]->get_id_colectivo()); //
+			this->cambiarRecorridoColectivos(this->listaColectivos[numcole]->get_id_colectivo()); //Le asigna al colectivo un recorrido random nuevo
 		}
 	}
-	for (int i = 0; i < p->size(); i++) {
-		cambiarRecorridoPasajeros(p->at(i));
+	for (int i = 0; i < p->size(); i++) { 
+		cambiarRecorridoPasajeros(p->at(i)); //a los apsajeros que se bajaron (devolucion por derecha de metodo avanzar recorrido) se les setea un nuevo destino y parada random
 		p->at(i) = NULL;
 	}
 	delete p;
@@ -383,5 +394,33 @@ bool cSistema::asignarChoferSistemaYRecorridoAcolectivosGenerados(cColectivo* co
 	cSistemaDePagos* cSistema::get_sistema_de_pagos() {
 		
 		return this->SistemaGeneralDePagos;
+	}
+	bool cSistema::operator!=(cColectivo* cole)
+	{
+		for (int i = 0; i < this->listaColectivos.size(); i++) {
+			if (cole != NULL && this->listaColectivos.at(i)->get_id_colectivo() != cole->get_id_colectivo())
+				return true;
+		}
+		return false;
+	}
+	bool cSistema::operator>(int cant){
+		if (cant > this->listaColectivos.size()) {
+			return true;
+		}
+		return false;
+	}
+	bool cSistema::operator<(int cant){
+			if (cant<this->listaColectivos.size()){
+					return true;
+			}
+		return false;
+	}
+	bool cSistema::operator==(cRecorrido* rec) {
+
+		for (int i = 0; i > this->cantActual; i++) {
+			if (this->listaRecorrido[i]->get_codigo_recorrido() ==rec->get_codigo_recorrido())
+				return true;
+		}
+		return false;
 	}
 #pragma endregion

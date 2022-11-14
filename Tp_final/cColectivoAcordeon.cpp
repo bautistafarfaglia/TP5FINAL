@@ -12,11 +12,11 @@ cColectivoAcordeon::~cColectivoAcordeon(){
 
 void cColectivoAcordeon::averia() {
 	this->estado_operativo = false;
-	this->imprimir();
+	//this->imprimir();
 	cout << "Oh no... El colectivo se separo en dos!" << endl;
 
 	for (int i = 0; i < this->listaPasajeros.size(); i++) {
-		cout << "Se baja un pasajero" << endl;
+		cout << "Se baja un pasajero: " << endl;
 		this->recorrido->get_lista_paradas()[pos_del_recorrido]->agregar_pasajero(this->listaPasajeros[i]);
 		this->listaPasajeros[i]->set_prioridad(true);
 		this->listaPasajeros.erase(this->listaPasajeros.begin()+i);

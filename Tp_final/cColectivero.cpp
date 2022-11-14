@@ -4,6 +4,7 @@ cColectivero::cColectivero(string nombre, string DNI, string legajo){
     this->nombre = nombre;
     this->DNI = DNI;
 	this->legajo = legajo;
+	this->valor_rand = 2;
 }
 
 
@@ -34,7 +35,7 @@ string cColectivero::to_string_colectivero() {
 
 bool cColectivero::AleatorioAbrirPuertas()
 {
-	int val = rand() % 2;
+	int val = rand() % valor_rand;
 	if (val == 0) {
 		return true;
 	}

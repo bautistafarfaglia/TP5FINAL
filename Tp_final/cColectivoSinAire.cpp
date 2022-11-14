@@ -10,7 +10,7 @@
 
  void cColectivoSinAire::averia() {
 	 this->estado_operativo = false;
-	 this->imprimir();
+	 //this->imprimir();
 	 cout << "Me declaro por las condiciones salariales" << endl;
 	 
 	 for (int i = 0; i < this->listaPasajeros.size(); i++) {

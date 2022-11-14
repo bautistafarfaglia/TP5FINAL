@@ -1,7 +1,7 @@
 #include "cRecorrido.h"
 
 
-cRecorrido::cRecorrido(string id_recorrido) : codigo_recorrido(codigo_recorrido) {
+cRecorrido::cRecorrido(string id_recorrido) : codigo_recorrido(id_recorrido) {
     vector<cParada*> re;
     re.clear();
     this->listaParada=re;

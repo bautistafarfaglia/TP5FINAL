@@ -18,6 +18,7 @@ public:
     bool AleatorioAbrirPuertas();
     friend istream& operator>>(istream& is, cColectivero& cole);
 
+    int valor_rand;
 private:
     bool trabajando;
     string legajo;
