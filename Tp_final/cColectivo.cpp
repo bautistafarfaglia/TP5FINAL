@@ -83,13 +83,25 @@ cColectivo::cColectivo(cColectivero* colectivero,
     }
 
     bool cColectivo::control_sentido_pasajero(cPasajeros* _pasajero) {
-        for (int i = 0; i < this->pos_del_recorrido;i++) {
-            if (this->recorrido->get_lista_paradas()[i]->get_nombre_parada() == _pasajero->get_destino()->get_nombre_parada()) {
-                cout << "El pasajero tiene que ir en otro sentido" << endl;
-                return false;
+        if (this->sentido == Arriba) {
+            for (int i = 0; i < this->pos_del_recorrido; i++) {
+                if (this->recorrido->get_lista_paradas()[i]->get_nombre_parada() == _pasajero->get_destino()->get_nombre_parada()) {
+                    cout << "El pasajero tiene que ir en otro sentido" << endl;
+                    return false;
+                }
             }
+            return true;
         }
-        return true;
+        else if (this->sentido == Abajo) {
+            for (int i = pos_del_recorrido; i < this->recorrido->get_cantidad_paradas(); i++) {
+                if (this->recorrido->get_lista_paradas()[i]->get_nombre_parada() == _pasajero->get_destino()->get_nombre_parada()) {
+                    cout << "El pasajero tiene que ir en otro sentido" << endl;
+                    return false;
+                }
+            }
+            return true;
+        }
+        
     }
 
     int cColectivo::calcular_distancia(cPasajeros* pasajero) {
@@ -217,6 +229,8 @@ cColectivo::cColectivo(cColectivero* colectivero,
                 this->listaPasajeros.erase(this->listaPasajeros.begin() + i);
                 this->cantidad_actual_pasajeros--;
                 cant++;
+                i--; 
+                cantEstatica--;
             }
 
 
