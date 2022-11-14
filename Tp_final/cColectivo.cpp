@@ -16,6 +16,7 @@ cColectivo::cColectivo(cColectivero* colectivero,
     this->sentido = sentido;
     this->numColectivo = num_colectivo;
     this->cantidad_max_pasajeros = cantidad_max_pasajeros;
+    this->cantidad_de_colectivos_en_circulacion++;
     }
 
     short int cColectivo::get_id_colectivo() {

@@ -173,18 +173,18 @@ int main() {
 	time_0 = clock();
 	while (ciclo) {
 		time_1 = clock();
-		double diftime = (double(time_1 - time_0) / CLOCKS_PER_SEC);
-		if (diftime >= 1) {
+		long double diftime = (long double(time_1 - time_0) / CLOCKS_PER_SEC);
+		if (diftime >= 2) {
 			//cout << "\nPasaron: " << diftime << " s" << endl; //esta linea dice cuanto tiempo pasa entre cada vuelta de while
 
-			linea->AvanzarColectivoRandom(); //explota al final por algun motivo
+			linea->AvanzarColectivoRandom(); 
 			//actualizar todos los colectivos
 			
 			time_0 = clock();
 			cantidad_segundos++; //sumo al contador hasta que se cumpla la condicion
 			if (cantidad_segundos % 5 == 0) {
-				//linea->TICK();
-				//cout<<endl;
+				linea->TICK();
+				cout<<endl;
 			}
 		}
 		if (cantidad_segundos == 100) //Cantidad de segundos operativos

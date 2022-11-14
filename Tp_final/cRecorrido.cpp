@@ -44,6 +44,7 @@ string cRecorrido::to_string_recorrido() {
     for (int i = 0; i < this->listaParada.size(); i++) {
         ss << endl;
         ss << this->listaParada[i]->to_string_parada();
+        ss << endl;
     }
     return ss.str();
 }

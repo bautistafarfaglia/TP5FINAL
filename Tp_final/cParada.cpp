@@ -70,7 +70,7 @@ string cParada::to_string_parada() {
 			ss << endl;
 		}
 		ss << "-----------------------------" << endl
-			<< "lista Pasajeros en parada: ";
+			<< "lista Pasajeros en parada: " << endl;;
 		for (int i = 0; i < this->listaPasajeros.size(); i++) {
 			ss << endl;
 			ss << this->listaPasajeros[i]->to_string_pasajero();
