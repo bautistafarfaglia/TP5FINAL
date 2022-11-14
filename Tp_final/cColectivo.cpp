@@ -306,32 +306,13 @@ cColectivo::cColectivo(string GPS, short int cantidad_max_pasajeros, int num_col
     istream& operator>>(istream& is, cColectivo& cole)
     {
         int pos = 0;
-        bool estado = false;
         cout << "Ingrese los datos del colectivo:" << endl;
         cout << "Numero:" << endl;
         is >> cole.numColectivo; 
         cout << "Cantidad maxima pasajeros:" << endl;
         is >> cole.cantidad_max_pasajeros;
-        cout << "Estado operativo: 1 = Operando, 2 = Fuera de servicio" << endl;
-        is >> pos;
-        if (pos == 1) {
-            estado = true;
-        }
-        else if (pos == 2) {
-            estado = false;
-        }
-        cole.estado_operativo = estado;
         cout << "GPS:" << endl;
         is >> cole.GPS;
-        cout << "Establecer sentido: Arriba = 0, Abajo = 1" << endl;
-        int val = -1;
-        is >> val;
-        if (val == 0) {
-            cole.sentido = Arriba;
-        }
-        else if (val == 1) {
-            cole.sentido = Abajo;
-        }
         return is;
     }
     //istream& operator>>(istream& is,cColectivo& cole)
