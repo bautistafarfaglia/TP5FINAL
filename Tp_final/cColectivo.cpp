@@ -216,7 +216,6 @@ cColectivo::cColectivo(int num_colectivo) : id_colectivo(++max_id) {
             cout << "Error 06: " << e.what() << endl;
             return false;
     }
-        //this->bajar_pasajeros(this->recorrido->get_lista_paradas()[pos_del_recorrido]->get_nombre_parada());
        
     }
         
@@ -253,8 +252,6 @@ cColectivo::cColectivo(int num_colectivo) : id_colectivo(++max_id) {
                 cout << "Se baja un pasajero" << endl;
                 Pasajeros_que_se_bajan->push_back(this->listaPasajeros[i]);
 
-
-                //nuevo_destino();
                 this->listaPasajeros.erase(this->listaPasajeros.begin() + i);
                 this->cantidad_actual_pasajeros--;
                 cant++;
@@ -350,35 +347,4 @@ cColectivo::cColectivo(int num_colectivo) : id_colectivo(++max_id) {
         is >> cole.numColectivo; 
         return is;
     }
-    //istream& operator>>(istream& is,cColectivo& cole)
-    //{
-    //    int pos = 0;
-    //    int num_cole=0;
-    //    string gps= "ga";
-    //    bool estado = false;
-    //    short int cantidad_max_pasajeros = 0;
-    //    eSentidoRecorrido sent = DEFAULT;
-    //    cout << "Ingrese los datos del colectivero:" << endl;
-    //    cout << "Numero:" << endl;
-    //    is >> num_cole;
-    //    cout << "Cantidad maxima pasajeros:" << endl;
-    //    is >> cantidad_max_pasajeros;
-    //    cout << "Estado operativo:" << endl;
-    //    is >> estado;
-    //    cout << "GPS:" << endl;
-    //    is >> gps;
-    //    cout << "Establecer sentido: Arriba = 1, Abajo = 2" << endl;
-    //    int val = -1;
-    //    is >> val;
-    //    if (val == 0) {
-    //        sent = Arriba;
-    //    }
-    //    else if (val == 1) {
-    //        sent = Abajo;
-    //    }
-    //    cColectivero* vero = nullptr;
-    //    cSistemaDePagos* pagos = nullptr;
-    //    cRecorrido* recorrido = nullptr;
-    //   // cole = new cColectivo(vero, pagos, recorrido, pos, gps, sent, cantidad_max_pasajeros, num_cole);
-    //    return is;
-    //}
+ 

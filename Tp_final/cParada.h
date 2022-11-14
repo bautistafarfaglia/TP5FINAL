@@ -8,13 +8,7 @@
 class cParada {
 public:
     cParada(string nombre_parada = "none", eSentidoRecorrido direccion = DEFAULT);
-    ~cParada() {
-        for (int i = 0; i < listaPasajeros.size(); i++)
-        {
-            delete listaPasajeros[i];
-        }
-        // delete[] &this->listaPasajeros; //chequear si esta bien que este comentada esta linea
-    };
+    ~cParada() {};
 
     string get_nombre_parada();
     vector<cPasajeros*> get_lista_pasajeros();
