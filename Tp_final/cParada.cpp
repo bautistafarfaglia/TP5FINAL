@@ -75,13 +75,6 @@ string cParada::to_string_parada() {
 		<< "Direccion: " << this->direccion << endl
 		<< "N° Total Paradas: " << this->cant_total_paradas<< endl;
 		ss << "-----------------------------" << endl
-			<< "Numeros Colectivos: ";
-		for (int i = 0; i < this->listaNumerosColectivos.size(); i++) {
-			ss << endl;
-			ss << this->listaNumerosColectivos[i];
-			ss << endl;
-		}
-		ss << "-----------------------------" << endl
 			<< "lista Pasajeros en parada: " << endl;;
 		for (int i = 0; i < this->listaPasajeros.size(); i++) {
 			ss << endl;
@@ -114,15 +107,6 @@ istream& operator>>(istream& is, cParada& pa)
 			else if (pos == 1) {
 				pa.direccion = Abajo;
 			}
-			pos = 0;
-			cout << " ¿Cuantos colectivos pasan por esta parada? " << endl;
-			is >> pos;
-			for (int i = 0; i < pos; i++) {
-				pa.listaNumerosColectivos.resize(pos);
-				cout << "Que numero es: " << endl;
-				is >> pa.listaNumerosColectivos[i];
-			}
-
 			return is;
 		}
 		else {

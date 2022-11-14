@@ -13,14 +13,11 @@ public:
     ~cColectivoConAireYDireccionElectrica() {};
 
     bool aire_acondicionado();
-
     void apagar_aire();
-
     void averia();
-
     string to_string_colectivo();
-
     void imprimir();
+
 protected:
     bool tiene_aire_acondicionado;
 };

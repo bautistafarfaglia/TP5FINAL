@@ -31,7 +31,6 @@ private:
     string nombre_parada;
     eSentidoRecorrido direccion;
     vector<cPasajeros*> listaPasajeros;
-    vector<int> listaNumerosColectivos;
     static unsigned int cant_total_paradas; 
 };
 

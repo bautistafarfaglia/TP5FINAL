@@ -29,10 +29,6 @@ unsigned int cRecorrido::get_cantidad_paradas() {
 }
 
 
-int cRecorrido::cantidad_de_paradas_entre_destinos(string parada_destino, string parada_salida) {
-    return 0;
-}
-
 
 void cRecorrido::agregar_paradas_recorrido(cParada* parada) {
     try{
