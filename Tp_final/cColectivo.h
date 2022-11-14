@@ -28,57 +28,31 @@ public:
     }
 
     short int get_id_colectivo();
-
     bool get_estado_operativo();
-
     eSentidoRecorrido get_sentido();
-
     cRecorrido* get_recorrido();
-
     cSistemaDePagos get_sistema_de_pagos();
-
     string get_GPS();
-
     void llegarParada();
-
     unsigned int get_posicion_recorrido();
-
     void set_nuevo_recorrido(cRecorrido* nuevo_recorrido);
-
     void set_sentido(eSentidoRecorrido sentido);
-
     void set_colectivero(cColectivero* colectivero);
-
     void set_fecha_mantenimiento(cFecha* fecha);
-
     void set_recorrido(cRecorrido* r);
-
     void set_sistema_de_pagos(cSistemaDePagos* sdp);
-
     bool control_sentido_pasajero(cPasajeros* pasajero);
-
     bool avanzar_recorrido(vector<cPasajeros*>* Pasajeros_que_se_bajan);
-
     bool hay_destino(cPasajeros*);
-
     bool bajar_pasajeros(string nombreParada, vector<cPasajeros*>* Pasajeros_que_se_bajan);
-
     bool subir_pasajeros(vector<cPasajeros*> nuevo_pasajero);
-
     void cobrar_boleto(cPasajeros* nuevo_pasajero);
-
     void cambio_de_sentido_recorrido();
-
     friend istream& operator>>(istream& is, cColectivo& cole);
-
     virtual void averia() = 0;
-
     virtual string to_string_colectivo() = 0;
-
     virtual void imprimir() = 0;
-
     int calcular_distancia(cPasajeros* pasajero);
-
     static unsigned long int getcantidad_de_colectivos_en_circulacion();
 
 protected:

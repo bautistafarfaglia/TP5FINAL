@@ -12,18 +12,14 @@ public:
     ~cRecorrido();
 
     string get_codigo_recorrido();
-
     unsigned int get_cantidad_paradas();
-
-    int cantidad_de_paradas_entre_destinos(string parada_destino,string parada_salida);
-
     void agregar_paradas_recorrido(cParada* parada);
-
     string to_string_recorrido();
     vector<cParada*> get_lista_paradas();
     friend istream& operator>>(istream& is, cRecorrido& re);
     void imprimir();
     int getcantParadas();
+
 private:
     const string codigo_recorrido;
     vector<cParada*> listaParada;

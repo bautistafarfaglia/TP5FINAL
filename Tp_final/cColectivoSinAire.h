@@ -15,9 +15,7 @@ public:
     ~cColectivoSinAire() {};
 
     void averia();
-
     string to_string_colectivo();
-
     void imprimir();
 };
 
