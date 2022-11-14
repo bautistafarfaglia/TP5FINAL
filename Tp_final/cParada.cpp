@@ -43,16 +43,28 @@ vector<cPasajeros*> cParada::pasajeros_suben_colectivo(int num){
 
 void cParada::agregar_pasajero(cPasajeros* pasajero_nuevo)
 {
-	int cont = 0;
-	if (pasajero_nuevo->get_prioridad() == true) {
-		this->listaPasajeros.insert(this->listaPasajeros.begin(), pasajero_nuevo);
-		cont++;
+	try{
+		if(pasajero_nuevo!=NULL){
+			int cont = 0;
+			if (pasajero_nuevo->get_prioridad() == true) {
+				this->listaPasajeros.insert(this->listaPasajeros.begin(), pasajero_nuevo);
+				cont++;
+			}
+			else if (pasajero_nuevo->get_hay_una_discapacidad() == true) {
+				this->listaPasajeros.insert(this->listaPasajeros.begin() + cont, pasajero_nuevo); //chequear si en verdad funciona, pero le tengo fe
+			}
+			else {
+				this->listaPasajeros.push_back(pasajero_nuevo);
+			}
+		}else {
+		throw exception("No se puede agregar pasajero NULL"); 
+		}
 	}
-	else if (pasajero_nuevo->get_hay_una_discapacidad() == true) {
-		this->listaPasajeros.insert(this->listaPasajeros.begin() + cont, pasajero_nuevo); //chequear si en verdad funciona, pero le tengo fe
+	catch (const char* msg) {
+		cout << "Error 09: " << msg << endl;
 	}
-	else {
-		this->listaPasajeros.push_back(pasajero_nuevo);
+	catch (exception& e) {
+			cout << "Error 10: " << e.what() << endl;
 	}
 }
 
@@ -87,27 +99,40 @@ eSentidoRecorrido cParada::get_sentido_parada() { return this->direccion; }
 
 istream& operator>>(istream& is, cParada& pa)
 {
-	int pos = 0;
-	bool estado = false; 
-	cout << "Ingrese los datos de la parada: " << endl;
-	cout << "Nombre de la parada: " << endl;
-	is >> pa.nombre_parada;
-	cout << "Direccion de la parada: 0=arriba, 1=abajo " << endl;
-	is >> pos;
-	if (pos == 0) {
-		pa.direccion = Arriba;
-	}
-	else if (pos == 1) {
-		pa.direccion = Abajo;
-	}
-	pos = 0; 
-	cout << " ¿Cuantos colectivos pasan por esta parada? " << endl;
-	is >> pos;
-	for (int i = 0; i < pos; i++) {
-		pa.listaNumerosColectivos.resize(pos);
-		cout << "Que numero es: " << endl;
-		is>>pa.listaNumerosColectivos[i];
-	}
+	try {
+		if (pa.id_parada != NULL) {
+			int pos = 0;
+			bool estado = false;
+			cout << "Ingrese los datos de la parada: " << endl;
+			cout << "Nombre de la parada: " << endl;
+			is >> pa.nombre_parada;
+			cout << "Direccion de la parada: 0=arriba, 1=abajo " << endl;
+			is >> pos;
+			if (pos == 0) {
+				pa.direccion = Arriba;
+			}
+			else if (pos == 1) {
+				pa.direccion = Abajo;
+			}
+			pos = 0;
+			cout << " ¿Cuantos colectivos pasan por esta parada? " << endl;
+			is >> pos;
+			for (int i = 0; i < pos; i++) {
+				pa.listaNumerosColectivos.resize(pos);
+				cout << "Que numero es: " << endl;
+				is >> pa.listaNumerosColectivos[i];
+			}
 
-	return is;
+			return is;
+		}
+		else {
+			throw exception("No se puede customizar una parada NULL");
+		}
+	}
+	catch (const char* msg) {
+		cout << "Error 11: " << msg << endl;
+	}
+	catch (exception& e) {
+		cout << "Error 12: " << e.what() << endl;
+	}
 }

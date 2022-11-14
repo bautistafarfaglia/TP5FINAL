@@ -3,29 +3,83 @@
 int cSistema::Max_id = 0;
 
 cSistema::cSistema(string NombreLinea) :IDLineaDeColectivos(Max_id++) {
-    this->NombreDeLinea = NombreLinea; 
+	this->NombreDeLinea = NombreLinea;
+	try{
 	this->SistemaGeneralDePagos = new cSistemaDePagos();
-
 	this->listaRecorrido = new cRecorrido * [0];
+	}catch (bad_alloc& e) {
+	cout << e.what() << endl;
+	}
 }
 
 void cSistema::agregar_personas(cPasajeros* persona) {
-	this->listaPasajeros.push_back(persona);
-	int pos_random = rand() % this->cantActual;
-	//Agregar el pasajero a alguna parada random
+	try {
+		if (persona != NULL) {
+			this->listaPasajeros.push_back(persona);
+			int pos_random = rand() % this->cantActual;
+			//Agregar el pasajero a alguna parada random
 
-	this->cambiarRecorridoPasajeros(persona);
-	//    lista de recorridos: pos random -> obtener lista paradas -> parada random -> agregar pasajero
+			this->cambiarRecorridoPasajeros(persona);
+			//    lista de recorridos: pos random -> obtener lista paradas -> parada random -> agregar pasajero
+		}else{
+			throw exception("No se puede agregar pasajero NULL");
+		}
+	}
+	catch (const char* msg) {
+		cout << "Error 07: " << msg << endl;
+	}
+	catch (exception &e) {
+		cout <<"Error 08: " << e.what() << endl;
+	}
 }
 
 void cSistema::GenerarAveríaRandom()
 {
 	int ColeRandom = rand() % this->listaColectivos.size();  
 	this->listaColectivos[ColeRandom]->averia();
+	this->SolucionarAveríaProducida();
 }
 
 void cSistema::SolucionarAveríaProducida()
 {
+	vector<cPasajeros*>* p = new vector<cPasajeros*>;
+	int posicion_del_cole_roto = -1;
+	for (int i = 0; i < this->listaColectivos.size(); i++) {
+		if (this->listaColectivos[i]->get_estado_operativo() == false) {
+			cout << "Se rompio el colectivo con el ID: " << this->listaColectivos[i]->get_id_colectivo(); 
+			posicion_del_cole_roto = i;
+		}
+	}
+	for (int i = 0; i < this->listaColectivos.size(); i++) {
+		if (i != posicion_del_cole_roto) {
+			if (this->listaColectivos[i]->avanzar_recorrido(p) == false) { //hago que el colectivo de suplente termine su recorrido, asi bajan todos los 
+				this->listaColectivos[i]->set_recorrido(this->listaColectivos[posicion_del_cole_roto]->get_recorrido());  //le asigno el recorrido que tenia el otro colectivo
+				if (this->listaColectivos[i]->get_sentido() == Arriba) {
+					for (int j = 0; j < this->listaColectivos[posicion_del_cole_roto]->get_posicion_recorrido(); j++) { //avanzo con el colectivo hasta que llego a la parada donde se rompio el cole
+						this->listaColectivos[i]->avanzar_recorrido(p);
+						if (j == this->listaColectivos[posicion_del_cole_roto]->get_posicion_recorrido()) {
+							cout << "El cole llego a la parada donde se rompio el cole";
+						}
+					}
+				}
+				else
+				{
+					for (int j = this->listaColectivos[posicion_del_cole_roto]->get_recorrido()->getcantParadas(); j < this->listaColectivos[posicion_del_cole_roto]->get_posicion_recorrido(); j++) { //avanzo con el colectivo hasta que llego a la parada donde se rompio el cole
+						this->listaColectivos[i]->avanzar_recorrido(p);
+						if (j == this->listaColectivos[posicion_del_cole_roto]->get_posicion_recorrido()){
+							cout << "El cole llego a la parada donde se rompio el cole";
+						}
+					}
+				}
+			}
+		}
+	}
+
+	for (int i = 0; i < p->size(); i++) {
+		cambiarRecorridoPasajeros(p->at(i));
+		p->at(i) = NULL;
+	}
+	delete p;
 }
 
 void cSistema::TICK() {

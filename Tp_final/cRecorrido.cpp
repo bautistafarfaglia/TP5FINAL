@@ -35,7 +35,17 @@ int cRecorrido::cantidad_de_paradas_entre_destinos(string parada_destino, string
 
 
 void cRecorrido::agregar_paradas_recorrido(cParada* parada) {
-    this->listaParada.push_back(parada);
+    try{
+        if(parada!=NULL){
+            this->listaParada.push_back(parada);
+        }else {
+            throw exception("No se puede agregar pasajero NULL");
+        }
+    }catch (const char* msg) {
+        cout << "Error 15: " << msg << endl;
+    }catch (exception& e) {
+        cout << "Error 16: " << e.what() << endl;
+    }
 }
 
 string cRecorrido::to_string_recorrido() {
@@ -59,18 +69,30 @@ int cRecorrido::getcantParadas()
 
 istream& operator>>(istream& is, cRecorrido& re)
 {
-    int pos = 0;
-    bool estado = false;
-    cout << "Ingrese los datos del recorrido:" << endl;
-    cout << "cantidad de paradas a agregar:" << endl;
-    is >> pos; 
-    cParada* paradaaux;
-    for (int i = 0; i < pos; i++) {
-        int cant = re.get_cantidad_paradas() + i;
-        paradaaux = new cParada();
-        is >> *paradaaux;
-        re.listaParada.push_back(paradaaux); 
+    try {
+        if ((&re) != NULL) {
+
+            int pos = 0;
+            bool estado = false;
+            cout << "Ingrese los datos del recorrido:" << endl;
+            cout << "cantidad de paradas a agregar:" << endl;
+            is >> pos;
+            cParada* paradaaux;
+            for (int i = 0; i < pos; i++) {
+                int cant = re.get_cantidad_paradas() + i;
+                paradaaux = new cParada();
+                is >> *paradaaux;
+                re.listaParada.push_back(paradaaux);
+            }
+            int cal = 0;
+            return is;
+        }else {
+            throw exception("No se puede customizar un recorrido NULL");
+        }
+    }catch (const char* msg) {
+    cout << "Error 13: " << msg << endl;
     }
-    int cal = 0;
-    return is;
+    catch (exception& e) {
+        cout << "Error 14: " << e.what() << endl;
+    }
 }

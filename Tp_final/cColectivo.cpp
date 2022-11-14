@@ -7,7 +7,12 @@ cColectivo::cColectivo(cColectivero* colectivero,
     cSistemaDePagos* sistema_de_pagos, cRecorrido* _recorrido, unsigned int pos_del_recorrido,
     string GPS, eSentidoRecorrido sentido, short int cantidad_max_pasajeros, int num_colectivo) : id_colectivo(++max_id) {
     this->estado_operativo = true;
-    this->fecha_ultimo_mantenimiento = new cFecha(0, 0);
+    try{
+        this->fecha_ultimo_mantenimiento = new cFecha(0, 0);
+    }
+    catch (bad_alloc& e) {
+        cout << e.what() << endl;
+    }
     this->colectivero = colectivero;
     this->sistema_de_pagos = sistema_de_pagos;
     this->recorrido = _recorrido;

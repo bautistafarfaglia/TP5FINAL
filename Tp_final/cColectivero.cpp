@@ -47,14 +47,25 @@ bool cColectivero::AleatorioAbrirPuertas()
 
 istream& operator>>(istream& is, cColectivero& cole)
 {
+	try {
+		if (&cole != NULL) {
+			cout << "Ingrese los datos del colectivero:" << endl;
+			cout << "Colectivero DNI" << endl;
+			is >> cole.DNI;
+			cout << "Nombre" << endl;
+			is >> cole.nombre;
+			cout << "Legajo" << endl;
+			is >> cole.legajo;
 
-	cout << "Ingrese los datos del colectivero:" << endl;
-	cout << "Colectivero DNI" << endl;
-	is >> cole.DNI;
-	cout << "Nombre" << endl;
-	is >> cole.nombre;
-	cout << "Legajo" << endl;
-	is >> cole.legajo;
-
-	return is;
+			return is;
+		}else {
+			throw exception("No se puede agregar pasajero NULL");
+		}
+	}
+	catch (const char* msg) {
+		cout << "Error 17: " << msg << endl;
+	}
+	catch (exception& e) {
+		cout << "Error 18: " << e.what() << endl;
+	}
 }
