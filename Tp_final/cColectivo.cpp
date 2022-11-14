@@ -3,7 +3,7 @@
 unsigned long cColectivo::cantidad_de_colectivos_en_circulacion = 0;
 short int cColectivo::max_id = 0;
 
-cColectivo::cColectivo(string GPS, short int cantidad_max_pasajeros, int num_colectivo) : id_colectivo(++max_id) {
+cColectivo::cColectivo(short int cantidad_max_pasajeros, int num_colectivo) : id_colectivo(++max_id) {
     this->estado_operativo = true;
     this->sentido = DEFAULT;
     this->GPS = "estacion";

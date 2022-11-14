@@ -151,10 +151,10 @@ int main() {
 	linea->agregar_personas(h19);
 	linea->agregar_personas(h20);
 
-	cColectivo* c1 = new cColectivoAcordeon("estacion", 20, 60);
-	cColectivo* c2 = new cColectivoConAireYDireccionElectrica("estacion", 50, 60);
-	cColectivo* c3 = new cColectivoSinAire("estacion", 30, 15);
-	cColectivo* c4 = new cColectivoAcordeon("estacion", 40, 60);
+	cColectivo* c1 = new cColectivoAcordeon(20, 60);
+	cColectivo* c2 = new cColectivoConAireYDireccionElectrica(50, 60);
+	cColectivo* c3 = new cColectivoSinAire(30, 15);
+	cColectivo* c4 = new cColectivoAcordeon(40, 60);
 
 	linea->generarcColectivo(c1);
 	linea->generarcColectivo(c2);
