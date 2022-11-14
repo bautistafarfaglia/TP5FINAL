@@ -100,6 +100,10 @@ istream& operator>>(istream& is, cParada& pa)
 			cout << "Nombre de la parada: " << endl;
 			is >> pa.nombre_parada;
 			cout << "Direccion de la parada: 0=arriba, 1=abajo " << endl;
+			
+			int aux;
+			do { cin >> aux; } while (aux != 0, aux != 1);
+			pos = aux;
 			is >> pos;
 			if (pos == 0) {
 				pa.direccion = Arriba;
@@ -108,6 +112,7 @@ istream& operator>>(istream& is, cParada& pa)
 				pa.direccion = Abajo;
 			}
 			return is;
+			
 		}
 		else {
 			throw exception("No se puede customizar una parada NULL");
