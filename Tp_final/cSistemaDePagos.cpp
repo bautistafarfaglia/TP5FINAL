@@ -1,9 +1,10 @@
 #include "cSistemaDePagos.h"
+float cSistemaDePagos::colecta_del_dia = 0;
+int cSistemaDePagos::max_id = 0;
 
-
-cSistemaDePagos::cSistemaDePagos(float colecta_del_dia, unsigned int _cantidad_pasajeros) {
-    this->colecto_del_dia = colecta_del_dia;
+cSistemaDePagos::cSistemaDePagos(unsigned int _cantidad_pasajeros) : id (max_id++) {
     this->cantidad_pasajeros = _cantidad_pasajeros;
+    this->colecta_colectivo = 0;
 }
 
 
@@ -12,22 +13,30 @@ unsigned int cSistemaDePagos::get_cantidad_de_pasajeros() {
 }
 
 float cSistemaDePagos::get_colecta_del_dia() {
-    return this->colecto_del_dia;
+    return this->colecta_del_dia;
 }
 
-bool cSistemaDePagos::cobrar_voleto(float* saldo, int cantParadas) { //chequear puntero saldo
+bool cSistemaDePagos::cobrar_boleto(float* saldo, int cantParadas) { //chequear puntero saldo
     try {
         if (*saldo - (CONSTANTEPASAJE * cantParadas) >0) {
             *saldo -= (CONSTANTEPASAJE * cantParadas);
-            this->colecto_del_dia += *saldo - (CONSTANTEPASAJE * cantParadas); //chequear el calculo de paradas
+            this->colecta_del_dia += *saldo - (CONSTANTEPASAJE * cantParadas); //chequear el calculo de paradas
             this->cantidad_pasajeros++;
         }
     }
     catch (exception e) {
         cout << e.what() << endl;
+        cout << "Uno de los pasajeros decidio cargar su tarjeta de transporte" << endl;
+        *saldo + 200;
         return false;
     }
     return true;
+}
+
+void cSistemaDePagos::sumar_boleto(int cantParadas) {
+    this->colecta_del_dia = this->colecta_del_dia + (cantParadas * CONSTANTEPASAJE);
+    this->colecta_colectivo = this->colecta_colectivo + (cantParadas * CONSTANTEPASAJE);
+    cantidad_pasajeros++;
 }
 //
 //istream& operator>>(istream& is, cSistemaDePagos& sis)

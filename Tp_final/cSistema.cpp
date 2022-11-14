@@ -5,7 +5,6 @@ int cSistema::Max_id = 0;
 cSistema::cSistema(string NombreLinea) :IDLineaDeColectivos(Max_id++) {
     this->NombreDeLinea = NombreLinea; 
 	this->SistemaGeneralDePagos = new cSistemaDePagos();
-
 	this->listaRecorrido = new cRecorrido * [0];
 }
 
@@ -47,14 +46,22 @@ void cSistema::ImprimirColectivos() {
 	}
 }
 
-void cSistema::generarcColectivo(){
-	int tipo = rand() % 3;
-	if (tipo == 1) {
-		this->listaColectivos.push_back(this->generar_cColectivo_Acordeon());
-	}else if (tipo == 2) {
-		this->listaColectivos.push_back(this->generar_cColectivo_ConAire_y_DireccionElectrica());
-	}else if (tipo == 3) {
-		this->listaColectivos.push_back(this->generar_cColectivo_sinAire());
+void cSistema::generarcColectivo(cColectivo* cole){
+	if (cole == NULL) {
+		int tipo = rand() % 3;
+		if (tipo == 1) {
+			this->listaColectivos.push_back(this->generar_cColectivo_Acordeon());
+		}
+		else if (tipo == 2) {
+			this->listaColectivos.push_back(this->generar_cColectivo_ConAire_y_DireccionElectrica());
+		}
+		else if (tipo == 3) {
+			this->listaColectivos.push_back(this->generar_cColectivo_sinAire());
+		}
+	}
+	else 
+	{
+		this->asignarChoferSistemaYRecorridoAcolectivosGenerados(cole);
 	}
 }
 
@@ -194,7 +201,6 @@ bool cSistema::asignarChoferSistemaYRecorridoAcolectivosGenerados(cColectivo* co
 		this->listaColectiveros.push_back(vero);//se agrega el colectivero a la fuerza trabajadora
 		cole->set_colectivero(vero);
 	}
-	cole->set_sistema_de_pagos(this->SistemaGeneralDePagos); 
 
 	srand(42);
 	try {

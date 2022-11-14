@@ -6,18 +6,21 @@
 class cSistemaDePagos {
 public:
 
-    cSistemaDePagos(float colecta_del_dia=0, unsigned int cantidad_pasajeros=0);
+    cSistemaDePagos(unsigned int cantidad_pasajeros=0);
     ~cSistemaDePagos() {};
 
     unsigned int get_cantidad_de_pasajeros();
-
     float get_colecta_del_dia();
-
-    bool cobrar_voleto(float* saldo,int cantParadas);
+    bool cobrar_boleto(float* saldo,int cantParadas);
+    void sumar_boleto(int cantParadas);
 
 private:
-    float colecto_del_dia;
+    static int max_id;
+    int id;
+    static float colecta_del_dia;
+    float colecta_colectivo;
     unsigned int cantidad_pasajeros;
+
 };
 
 #endif //_CSISTEMADEPAGOS_H

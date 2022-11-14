@@ -28,7 +28,7 @@ public:
     void TICK();
     string ToStringLineaDeColectivos();
     void ImprimirColectivos();
-    void generarcColectivo();
+    void generarcColectivo(cColectivo* cole);
     void generarRecorrido();
 
     void agregar_personas(cPasajeros* persona);

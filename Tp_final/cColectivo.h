@@ -10,9 +10,7 @@
 class cColectivo {
 public:
 
-    cColectivo(cColectivero* colectivero,
-        cSistemaDePagos* sistema_de_pagos, cRecorrido* _recorrido, unsigned int pos_del_recorrido,
-        string GPS, eSentidoRecorrido sentido, short int cantidad_max_pasajeros, int num_colectivo);
+    cColectivo(string GPS, short int cantidad_max_pasajeros, int num_colectivo);
     ~cColectivo() {
         cantidad_de_colectivos_en_circulacion--;
         for (int i = 0; i < listaPasajeros.size(); i++)
