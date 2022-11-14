@@ -167,7 +167,7 @@ void cSistema::AvanzarColectivoRandom()
 void cSistema::generarRecorrido() {
 
 	cRecorrido* recorrido = new cRecorrido();
-	cin >> *recorrido; //chequear y revisar como generar recorridos, ya que no esta bueno que haya una lista estatica de pardas, para poder ir aumentando cuando deseamos
+	cin >> *recorrido; 
 	this->agregar(recorrido);
 }
 

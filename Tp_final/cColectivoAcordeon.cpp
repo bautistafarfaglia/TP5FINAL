@@ -1,7 +1,6 @@
 #include "cColectivoAcordeon.h"
 
 
-//chequear y cambiar porque el id_colectivo se pasa como parametro 
 cColectivoAcordeon::cColectivoAcordeon(int num_colectivo) : cColectivoConAireYDireccionElectrica(num_colectivo)
 {
 	this->cantidad_max_pasajeros = 200;
