@@ -153,7 +153,7 @@ int main() {
 
 	cColectivo* c1 = new cColectivoAcordeon(20, 60);
 	cColectivo* c2 = new cColectivoConAireYDireccionElectrica(50, 60);
-	cColectivo* c3 = new cColectivoSinAire(30, 15);
+	cColectivo* c3 = new cColectivoSinAire(30, 60);
 	cColectivo* c4 = new cColectivoAcordeon(40, 60);
 
 	linea->generarcColectivo(c1);
@@ -164,6 +164,7 @@ int main() {
 	linea->generarcColectivo(NULL);
 	linea->cambiarRecorridoColectivos(1);
 	linea->AvanzarColectivoRandom();
+	/*linea->GenerarAveríaRandom();*/
 
 	#pragma endregion
 
@@ -180,7 +181,7 @@ int main() {
 		time_1 = clock();
 		long double diftime = (long double(time_1 - time_0) / CLOCKS_PER_SEC);
 		if (diftime >= 2) {
-			//cout << "\nPasaron: " << diftime << " s" << endl; //esta linea dice cuanto tiempo pasa entre cada vuelta de while
+			cout << "\nPasaron: " << diftime << " s" << endl; //esta linea dice cuanto tiempo pasa entre cada vuelta de while
 
 			linea->AvanzarColectivoRandom(); 
 			//actualizar todos los colectivos
@@ -188,8 +189,8 @@ int main() {
 			time_0 = clock();
 			cantidad_segundos++; //sumo al contador hasta que se cumpla la condicion
 			if (cantidad_segundos % 5 == 0) {
-				linea->TICK();
-				cout<<endl;
+				//linea->TICK();
+				//cout<<endl;
 			}
 		}
 		if (cantidad_segundos == 100) //Cantidad de segundos operativos
@@ -199,7 +200,6 @@ int main() {
     #pragma endregion
 
 
-	//Chequear todos los deletes y porque explota la pc
 	
 #pragma region deletes de paradas
 	delete p1;

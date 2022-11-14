@@ -133,6 +133,11 @@ cColectivo::cColectivo(short int cantidad_max_pasajeros, int num_colectivo) : id
         return cantidad_de_colectivos_en_circulacion;
     }
 
+    unsigned int cColectivo::get_num_cole()
+    {
+        return this->numColectivo;
+    }
+
     /// <summary>
     /// Esta funcion hace avanzar el colectivo a la siguiente parada. 
     /// Tambien suben pasajeros si: 
