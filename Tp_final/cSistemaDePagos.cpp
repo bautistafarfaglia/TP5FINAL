@@ -20,7 +20,8 @@ bool cSistemaDePagos::cobrar_boleto(float* saldo, int cantParadas) { //chequear 
     try {
         if (*saldo - (CONSTANTEPASAJE * cantParadas) >0) {
             *saldo -= (CONSTANTEPASAJE * cantParadas);
-            this->colecta_del_dia += *saldo - (CONSTANTEPASAJE * cantParadas); //chequear el calculo de paradas
+            int cobrado = CONSTANTEPASAJE * cantParadas;
+            this->colecta_del_dia += cobrado; //chequear el calculo de paradas
             this->cantidad_pasajeros++;
         }
     }
@@ -38,6 +39,23 @@ void cSistemaDePagos::sumar_boleto(int cantParadas) {
     this->colecta_colectivo = this->colecta_colectivo + (cantParadas * CONSTANTEPASAJE);
     cantidad_pasajeros++;
 }
+
+void cSistemaDePagos::resetDia()
+{
+    this->set_cantidad_de_pasajeros(0);
+    this->set_colecta_del_dia(0);
+}
+
+void cSistemaDePagos::set_cantidad_de_pasajeros(unsigned int var)
+{
+    this->cantidad_pasajeros = var;
+}
+
+void cSistemaDePagos::set_colecta_del_dia(float var)
+{
+    this->colecta_del_dia=var;
+}
+
 //
 //istream& operator>>(istream& is, cSistemaDePagos& sis)
 //{
@@ -71,3 +89,12 @@ void cSistemaDePagos::sumar_boleto(int cantParadas) {
 //    is >> sis.generar_viaje();
 //    return is;
 //}
+
+ostream& operator<<(ostream& os, cSistemaDePagos* sis)
+{
+    os << endl;
+    os << "Recaudado por el sistema en el dia de hoy: " << sis->get_colecta_del_dia()<<endl;
+    os << "Pasajeros que circularon: " << sis->get_cantidad_de_pasajeros()<<endl;
+    os << endl;
+    return os;
+}

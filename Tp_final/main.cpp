@@ -7,13 +7,13 @@
 #include "cSistemaDePagos.h"
 
 int main() {
-	
-	cSistema* linea= new cSistema("linea");
 
-	#pragma region recorridos, paradas y personas
+	cSistema* linea = new cSistema("linea");
+
+#pragma region recorridos, paradas y personas
 
 	srand(time(0));
-	cParada* p1 = new cParada("calle1", Arriba); 
+	cParada* p1 = new cParada("calle1", Arriba);
 	cParada* p2 = new cParada("calle2", Arriba);
 	cParada* p3 = new cParada("calle3", Arriba);
 	cParada* p4 = new cParada("calle4", Arriba);
@@ -58,7 +58,7 @@ int main() {
 	rec2->agregar_paradas_recorrido(p19);
 	rec2->agregar_paradas_recorrido(p20);
 
-	cParada* p21 = new cParada("calle51", Arriba); 
+	cParada* p21 = new cParada("calle51", Arriba);
 	cParada* p22 = new cParada("calle52", Arriba);
 	cParada* p23 = new cParada("calle53", Arriba);
 	cParada* p24 = new cParada("calle54", Arriba);
@@ -68,7 +68,7 @@ int main() {
 	cParada* p28 = new cParada("calle58", Arriba);
 	cParada* p29 = new cParada("calle59", Arriba);
 	cParada* p30 = new cParada("calle60", Arriba);
-										  
+
 	cRecorrido* rec3 = new cRecorrido();
 	rec3->agregar_paradas_recorrido(p21);
 	rec3->agregar_paradas_recorrido(p22);
@@ -80,7 +80,7 @@ int main() {
 	rec3->agregar_paradas_recorrido(p28);
 	rec3->agregar_paradas_recorrido(p29);
 	rec3->agregar_paradas_recorrido(p30);
-										  
+
 	cParada* p31 = new cParada("calle51", Abajo);
 	cParada* p32 = new cParada("calle52", Abajo);
 	cParada* p33 = new cParada("calle53", Abajo);
@@ -162,15 +162,13 @@ int main() {
 	linea->generarcColectivo(c4);
 
 	linea->generarcColectivo(NULL);
-	linea->cambiarRecorridoColectivos(1);
 	linea->AvanzarColectivoRandom();
-	/*linea->GenerarAveríaRandom();*/
 
-	#pragma endregion
+#pragma endregion
 
-	#pragma region colectivos y colectiveros
+#pragma region colectivos y colectiveros
 
-	#pragma region simulacion
+#pragma region simulacion
 
 	unsigned long long int time_0;
 	unsigned long long int time_1;
@@ -180,18 +178,21 @@ int main() {
 	while (ciclo) {
 		time_1 = clock();
 		long double diftime = (long double(time_1 - time_0) / CLOCKS_PER_SEC);
-		if (diftime >= 2) {
+		if (diftime >= 1) {
 			cout << "\nPasaron: " << diftime << " s" << endl; //esta linea dice cuanto tiempo pasa entre cada vuelta de while
 
 			linea->AvanzarColectivoRandom(); 
+			//linea->GenerarAveríaRandom();
 			//actualizar todos los colectivos
-			
+
 			time_0 = clock();
-			cantidad_segundos++; //sumo al contador hasta que se cumpla la condicion
-			if (cantidad_segundos % 5 == 0) {
-				//linea->TICK();
-				//cout<<endl;
+			cantidad_segundos++; 
+			if (cantidad_segundos % 5 == 0) {//El contador llega hasta 24 (que serían 24 segs 1 dia)
+				cout << linea->get_sistema_de_pagos();
+				linea->get_sistema_de_pagos()->resetDia();
 			}
+			//linea->TICK();
+			//cout<<endl;
 		}
 		if (cantidad_segundos == 100) //Cantidad de segundos operativos
 			ciclo = false;

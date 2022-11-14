@@ -39,6 +39,7 @@ public:
     cRecorrido* operator-(cRecorrido* recorrido);
     cRecorrido* operator[](short i);
     void ordenar();
+    cSistemaDePagos* get_sistema_de_pagos();
     void resize();
     //void operator++();
 

@@ -371,4 +371,8 @@ bool cSistema::asignarChoferSistemaYRecorridoAcolectivosGenerados(cColectivo* co
 					swap(this->listaRecorrido[j], this->listaRecorrido[j + 1]);
 	}
 
+	cSistemaDePagos* cSistema::get_sistema_de_pagos() {
+		
+		return this->SistemaGeneralDePagos;
+	}
 #pragma endregion

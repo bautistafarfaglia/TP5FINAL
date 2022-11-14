@@ -5,7 +5,7 @@
 
 class cSistemaDePagos {
 public:
-
+    //friend class cSistema;
     cSistemaDePagos(unsigned int cantidad_pasajeros=0);
     ~cSistemaDePagos() {};
 
@@ -14,6 +14,11 @@ public:
     bool cobrar_boleto(float* saldo,int cantParadas);
     void sumar_boleto(int cantParadas);
 
+    friend ostream& operator<<(ostream& is, cSistemaDePagos* sis);
+    void resetDia();
+
+    void set_cantidad_de_pasajeros(unsigned int var); //agregado
+    void set_colecta_del_dia(float var);//agregado
 private:
     static int max_id;
     int id;
