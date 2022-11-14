@@ -12,13 +12,25 @@ class cSistema {
 public:
     cSistema(string NombreLinea="none");
     ~cSistema() {
-        for (int i = 0; i < listaColectivos.size(); i++)
+        int cantcoles = listaColectivos.size();
+        for (int i = 0; i < cantcoles; i++)
         {
-            delete& listaColectivos[i];
+            if (listaColectivos[i] != NULL) {
+                delete listaColectivos[i];
+            }
+        }
+        int cantcolectiveros = listaColectiveros.size();
+        for (int i = 0; i < cantcolectiveros; i++)
+        {
+            if (listaColectiveros[i] != NULL) {
+                delete listaColectiveros[i];
+            }
         }
         for (int i = 0; i < cantActual; i++)
         {
-            delete listaRecorrido[i];
+            if (listaRecorrido[i] != NULL) {
+                delete listaRecorrido[i]
+            }
         }
         delete[] listaRecorrido;
     };

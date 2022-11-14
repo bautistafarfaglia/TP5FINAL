@@ -109,8 +109,8 @@ void cSistema::TICK() {
 	this->AvanzarColectivoRandom();
 	this->GenerarAveríaRandom();
 
-	this->ImprimirColectivos(); 
-	cout << "Cant de colectivos en circulacion: " << cColectivo::getcantidad_de_colectivos_en_circulacion();
+	/*cout << "Cant de colectivos en circulacion: " << cColectivo::getcantidad_de_colectivos_en_circulacion();
+	this->ImprimirColectivos(); */
 }
 
 string cSistema::ToStringLineaDeColectivos() {

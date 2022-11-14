@@ -13,11 +13,6 @@ public:
     cColectivo(int num_colectivo);
     ~cColectivo() {
         cantidad_de_colectivos_en_circulacion--;
-        for (int i = 0; i < listaPasajeros.size(); i++)
-        {
-            delete listaPasajeros[i];
-        }
-        delete this->recorrido;
         delete this->sistema_de_pagos;
         delete this->fecha_ultimo_mantenimiento;
         this->colectivero->setTrabajando(false);

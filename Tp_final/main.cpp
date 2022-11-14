@@ -160,10 +160,9 @@ int main() {
 	linea->generarcColectivo(c2);
 	linea->generarcColectivo(c3);
 	linea->generarcColectivo(c4);
-
 	linea->generarcColectivo(NULL);
-	linea->AvanzarColectivoRandom();
 	
+
 #pragma endregion
 
 #pragma region simulacion
@@ -191,53 +190,11 @@ int main() {
 			
 			//cout<<endl;
 		}
-		if (cantidad_segundos == 100) //Cantidad de segundos operativos
+		if (cantidad_segundos == 2) //Cantidad de segundos operativos
 			ciclo = false;
 	}
 
-    #pragma endregion
 	
-#pragma region deletes de paradas
-	delete p1;
-	delete p2;
-	delete p3;
-	delete p4;
-	delete p5;
-	delete p6;
-	delete p7;
-	delete p8;
-	delete p9;
-	delete p10;
-	delete p11;
-	delete p12;
-	delete p13;
-	delete p14;
-	delete p15;
-	delete p16;
-	delete p17;
-	delete p18;
-	delete p19;
-	delete p20;
-	delete p21;	
-	delete p22;
-	delete p23;
-	delete p24;
-	delete p25;
-	delete p26;
-	delete p27;
-	delete p28;
-	delete p29;
-	delete p31;
-	delete p32;
-	delete p33;
-	delete p34;
-	delete p35;
-	delete p36;
-	delete p37;
-	delete p38;
-	delete p39;
-	delete p40;
-#pragma endregion	
 #pragma region deletes humanos
 	delete h1;
 	delete h2;
@@ -263,11 +220,8 @@ int main() {
 #pragma region deletes lineas de colectivos
 	delete linea;
 #pragma endregion
-#pragma region deletes colectivos
-	delete c1;
-	delete c2;
-	delete c3;
-	delete c4;
+
 #pragma endregion
+	system("exit");
 }
 

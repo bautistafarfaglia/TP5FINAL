@@ -9,7 +9,7 @@ cRecorrido::cRecorrido(string id_recorrido) : codigo_recorrido(codigo_recorrido)
 cRecorrido::~cRecorrido() {
     for (int i = 0; i < listaParada.size(); i++)
     {
-        delete& listaParada[i];
+        delete listaParada[i];
     }
 }
 

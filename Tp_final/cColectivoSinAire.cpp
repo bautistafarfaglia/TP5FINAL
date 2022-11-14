@@ -24,17 +24,16 @@
 
  string cColectivoSinAire::to_string_colectivo() {
 	 stringstream ss;
-	 ss << "colectivero: " << this->colectivero->to_string_colectivero() << endl
-		 << "Recorrido: " << this->recorrido->to_string_recorrido() << endl
-		 << "Posicion del recorrido: " << this->pos_del_recorrido << endl
-		 << "-----------------------------" << endl
+	 ss<< "Posicion del recorrido: " << this->pos_del_recorrido << endl
 		 << "ID colectivo [" << this->id_colectivo << "]" << endl
 		 << "Ubicacion: " << this->GPS << endl
 		 << "Estado Operativo: " << this->estado_operativo << endl
-		 << "Cant actual de pasajeros: " << this->cantidad_actual_pasajeros << endl
+		 << "Cant actual de pasajeros subidos: " << this->cantidad_actual_pasajeros << endl
 		 << "Cant Maxima de pasajeros: " << this->cantidad_max_pasajeros << endl
 		 << "Cantidad de pasajeros transportados: " << this->get_sistema_de_pagos().colecta_pasajeros_colectivo()<<endl
-		 << "Cantidad de plata recolectada por el colectivo; " << this->get_sistema_de_pagos().colecta_plata_colectivo()<<endl;
+		 << "Cantidad de plata recolectada por el colectivo; " << this->get_sistema_de_pagos().colecta_plata_colectivo() << endl
+		 << "-----------------------------" << endl << "colectivero: " << this->colectivero->to_string_colectivero() << endl
+		 << endl; 
 	 return ss.str();
  }
 
