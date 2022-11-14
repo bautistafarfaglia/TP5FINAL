@@ -9,6 +9,7 @@ class cSistema {
     cColectivoAcordeon* generar_cColectivo_Acordeon();
     cColectivoConAireYDireccionElectrica* generar_cColectivo_ConAire_y_DireccionElectrica();
     cColectivoSinAire* generar_cColectivo_sinAire();
+
 public:
     cSistema(string NombreLinea="none");
     ~cSistema() {
@@ -42,10 +43,8 @@ public:
     void ImprimirColectivos();
     void generarcColectivo(cColectivo* cole);
     void generarRecorrido();
-
     void agregar_personas(cPasajeros* persona);
     void agregar(cRecorrido* recorrido);
-    void eliminar(cRecorrido* recorrido);
     cRecorrido* quitar(cRecorrido* recorrido);
     void operator+(cRecorrido* recorrido);
     cRecorrido* operator-(cRecorrido* recorrido);
@@ -61,10 +60,8 @@ public:
     /// <param name="id_colectivo"></param>
     /// <param name="Longitud_max"></param>
     bool cambiarRecorridoColectivos(int id_colectivo);
-
     bool cambiarRecorridoPasajeros(cPasajeros* p);
-
-    void AvanzarColectivoRandom();
+    
 
 protected:
     unsigned short int cantActual;

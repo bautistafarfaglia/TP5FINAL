@@ -28,7 +28,6 @@ public:
 protected:
     int num_colectivo;
     cParada* destino;
-    cParada* parada_actual;
     bool tiene_una_discapacidad;
     float* saldo;
     bool prioridad;
